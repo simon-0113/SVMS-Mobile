@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111827">
+  <title>SVMS Mobile 2.0 Alpha</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <button id="backButton" class="header-back" type="button" hidden>返回</button>
+    <div>
+      <p class="eyebrow">SVMS MOBILE 2.0 ALPHA</p>
+      <h1 id="pageTitle">首頁</h1>
+      <p id="syncStatus" class="sync-status">載入正式索引中…</p>
+    </div>
+  </header>
+
+  <main class="app-shell">
+    <section id="homeView" class="view">
+      <div class="home-menu">
+        <button class="home-action" data-view="searchView" type="button">查詢店家</button>
+        <button class="home-action" data-view="sessionView" type="button">
+          今日巡店
+          <span id="homeSessionCount" class="count-badge">0</span>
+        </button>
+        <button class="home-action" data-view="settingsView" type="button">設定</button>
+      </div>
+    </section>
+
+    <section id="searchView" class="view" hidden>
+      <section class="search-panel" aria-label="店家搜尋">
+        <label for="storeQuery">店名或門市名稱</label>
+        <div class="search-row">
+          <input id="storeQuery" type="search" autocomplete="off" placeholder="例如：天興菸酒、711勵志門市">
+          <button id="searchButton" type="button">查詢</button>
+        </div>
+        <div id="suggestions" class="suggestions" hidden></div>
+      </section>
+
+      <section id="emptyState" class="empty-state">
+        <h2>輸入店名開始查詢</h2>
+        <p>資料來自 stores_index.json。</p>
+      </section>
+      <section id="results" class="results" hidden></section>
+    </section>
+
+    <section id="updateView" class="view" hidden>
+      <section class="update-panel">
+        <div class="update-head">
+          <div>
+            <p class="eyebrow dark">VISIT UPDATE</p>
+            <h2 id="updateStoreTitle">巡店更新</h2>
+          </div>
+        </div>
+        <form id="visitUpdateForm">
+          <input id="updateChannel" type="hidden">
+          <input id="editingSessionId" type="hidden">
+          <div id="updateFields"></div>
+          <div class="form-actions">
+            <button id="cancelUpdateButton" class="secondary-button" type="button">取消</button>
+            <button id="addToSessionButton" type="submit">加入今日巡店</button>
+          </div>
+        </form>
+      </section>
+    </section>
+
+    <section id="sessionView" class="view" hidden>
+      <section class="session-panel">
+        <div class="session-head">
+          <div>
+            <p class="eyebrow dark">TODAY SESSION</p>
+            <h2>今日巡店</h2>
+          </div>
+          <span id="sessionCount" class="count-badge">0</span>
+        </div>
+        <div id="sessionEmpty" class="empty-state compact">
+          <h2>尚無巡店資料</h2>
+          <p>從店家資訊卡開始巡店更新。</p>
+        </div>
+        <div id="sessionList" class="session-list"></div>
+        <button id="completeSessionButton" class="primary-wide" type="button" disabled>完成今日巡店</button>
+      </section>
+    </section>
+
+    <section id="settingsView" class="view" hidden>
+      <section class="simple-panel">
+        <h2>設定</h2>
+        <p>SVMS Mobile 2.0 Alpha</p>
+        <p>巡店資料儲存於本機瀏覽器 Local Storage。</p>
+      </section>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
