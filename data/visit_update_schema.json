@@ -1,0 +1,174 @@
+{
+  "schema_version": "1.0",
+  "channels": {
+    "GT": {
+      "required": [
+        "visit_date",
+        "store_name",
+        "display",
+        "distribution"
+      ],
+      "fields": {
+        "visit_date": {
+          "type": "date",
+          "label": "巡店日期"
+        },
+        "store_name": {
+          "type": "string",
+          "label": "店家名稱"
+        },
+        "tracking_mode": {
+          "type": "enum",
+          "label": "追蹤模式",
+          "allowed": [
+            "full_sync"
+          ],
+          "default": "full_sync"
+        },
+        "display": {
+          "type": "array",
+          "label": "現場陳列品項",
+          "description": "本次現場全部陳列品項"
+        },
+        "distribution": {
+          "type": "array",
+          "label": "現場分布品項",
+          "description": "本次現場有分布但未陳列品項"
+        },
+        "cooperation": {
+          "type": "enum",
+          "label": "配合度",
+          "allowed": [
+            "高",
+            "中",
+            "低",
+            "待觀察",
+            ""
+          ]
+        },
+        "line_oa": {
+          "type": "boolean_or_empty",
+          "label": "LINE OA"
+        },
+        "customer_group": {
+          "type": "string",
+          "label": "客群"
+        },
+        "sales": {
+          "type": "string",
+          "label": "銷售"
+        },
+        "opportunity": {
+          "type": "string",
+          "label": "機會點"
+        },
+        "optimization": {
+          "type": "boolean",
+          "label": "本次完成優化",
+          "default": false
+        },
+        "new_slots": {
+          "type": "integer",
+          "label": "新增格數",
+          "min": 0,
+          "default": 0
+        },
+        "monster_box": {
+          "type": "boolean",
+          "label": "怪獸盒",
+          "default": false
+        },
+        "annual_contract": {
+          "type": "enum_or_empty",
+          "label": "年度合約",
+          "allowed": [
+            "",
+            "續約",
+            "無意願續約",
+            "新增格數簽約",
+            "牌面好無產值",
+            "不建議續約"
+          ]
+        },
+        "note": {
+          "type": "string",
+          "label": "備註"
+        }
+      }
+    },
+    "CVS": {
+      "required": [
+        "visit_date",
+        "store_name"
+      ],
+      "fields": {
+        "visit_date": {
+          "type": "date",
+          "label": "巡店日期"
+        },
+        "store_name": {
+          "type": "string",
+          "label": "門市名稱"
+        },
+        "store_type": {
+          "type": "enum_or_empty",
+          "label": "門市類別",
+          "allowed": [
+            "",
+            "711",
+            "FM",
+            "HL",
+            "OK"
+          ]
+        },
+        "city": {
+          "type": "string",
+          "label": "縣市"
+        },
+        "district": {
+          "type": "string",
+          "label": "行政區"
+        },
+        "customer_group": {
+          "type": "string",
+          "label": "客群"
+        },
+        "small_rack": {
+          "type": "boolean_or_empty",
+          "label": "小煙架"
+        },
+        "sales": {
+          "type": "string",
+          "label": "銷售資料"
+        },
+        "sales_grade": {
+          "type": "string",
+          "label": "銷售等級"
+        },
+        "line_oa": {
+          "type": "boolean_or_empty",
+          "label": "LINE OA"
+        },
+        "cooperation": {
+          "type": "enum",
+          "label": "配合度",
+          "allowed": [
+            "高",
+            "中",
+            "低",
+            "待觀察",
+            ""
+          ]
+        },
+        "activity": {
+          "type": "string",
+          "label": "活動"
+        },
+        "note": {
+          "type": "string",
+          "label": "備註"
+        }
+      }
+    }
+  }
+}
