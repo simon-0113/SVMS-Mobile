@@ -103,7 +103,9 @@ function renderMatches(matches) {
   $("#emptyState").hidden = true;
   $("#results").hidden = false;
   if (!matches.length) {
-    $("#results").innerHTML = `<div class="not-found"><strong>最新正式資料中未找到。</strong></div>`;
+    const query = $("#storeQuery").value.trim();
+    $("#results").innerHTML = `<div class="not-found"><strong>最新正式資料中未找到。</strong><p>若這是尚未建立資料的 CVS 門市，可直接新增巡店。</p><button id="addNewCVSButton" class="add-cvs-button" type="button">新增 CVS 店家</button></div>`;
+    $("#addNewCVSButton").addEventListener("click", () => openUpdate(createNewCVSStore(query)));
     return;
   }
   if (matches.length === 1) return renderStore(matches[0]);
@@ -128,9 +130,33 @@ function productStatusTable(saved = {}) {
   const standalone = productCatalog?.standalone || [];
   const rows = (products, series) => products.map(product => {
     const status = saved[product] || "";
-    return `<div class="product-row" data-product="${escapeHtml(product)}"><div class="product-name">${escapeHtml(product)}</div>${["display", "distribution", "out_of_stock"].map(value => `<label class="status-cell"><input type="radio" name="product_${escapeHtml(product)}" value="${value}" ${status === value ? "checked" : ""}><span>${value === "display" ? "陳列" : value === "distribution" ? "分布" : "缺貨"}</span></label>`).join("")}</div>`;
+    return `<div class="product-row" data-product="${escapeHtml(product)}"><div class="product-name">${escapeHtml(product)}</div>${["display", "distribution", "out_of_stock"].map(value => `<label class="status-cell"><input type="checkbox" name="product_${escapeHtml(product)}" value="${value}" ${status === value ? "checked" : ""}><span>${value === "display" ? "陳列" : value === "distribution" ? "分布" : "缺貨"}</span></label>`).join("")}</div>`;
   }).join("");
   return `<div class="product-status"><div class="product-row product-header"><div>品項</div><div>陳列</div><div>分布</div><div>缺貨</div></div>${groups.map(group => `<div class="series-title">${escapeHtml(group.series)}</div>${rows(group.products, group.series)}`).join("")}${standalone.length ? `<div class="series-title">其他</div>${rows(standalone, "其他")}` : ""}</div><p class="form-help">所有品項預設空白；每個品項只能選擇一種狀態。</p>`;
+}
+
+
+function bindProductStatusControls() {
+  $$(".product-row[data-product]").forEach(row => {
+    const controls = [...row.querySelectorAll('input[type="checkbox"]')];
+    controls.forEach(control => control.addEventListener("change", () => {
+      if (!control.checked) return;
+      controls.forEach(other => {
+        if (other !== control) other.checked = false;
+      });
+    }));
+  });
+}
+
+function createNewCVSStore(query = "") {
+  return {
+    channel: "",
+    store_name: query.trim(),
+    aliases: [],
+    city: "",
+    district: "",
+    is_new_cvs: true
+  };
 }
 
 function gtForm(store, saved = {}) {
@@ -148,9 +174,10 @@ function openUpdate(store, sessionItem = null) {
   const channel = store.channel === "GT" ? "GT" : "CVS";
   $("#updateChannel").value = channel;
   $("#editingSessionId").value = sessionItem?.id || "";
-  $("#updateStoreTitle").textContent = `${store.store_name}｜巡店更新`;
+  $("#updateStoreTitle").textContent = store.is_new_cvs ? "新增 CVS 店家｜巡店更新" : `${store.store_name}｜巡店更新`;
   $("#updateFields").innerHTML = channel === "GT" ? gtForm(store, sessionItem?.update || {}) : cvsForm(store, sessionItem?.update || {});
-  showView("updateView", sessionItem ? "修改巡店" : "巡店更新");
+  if (channel === "GT") bindProductStatusControls();
+  showView("updateView", sessionItem ? "修改巡店" : (store.is_new_cvs ? "新增 CVS 店家" : "巡店更新"));
 }
 
 function boolOrUndefined(value) {
@@ -240,7 +267,16 @@ function renderSession() {
   $$('[data-edit]').forEach(button => button.addEventListener("click", () => {
     const item = getSession().find(entry => entry.id === button.dataset.edit);
     if (!item) return;
-    const store = database.stores.find(entry => entry.store_name === item.store_name && (entry.channel === item.original_channel || (item.channel === "CVS" && entry.channel !== "GT")));
+    let store = database.stores.find(entry => entry.store_name === item.store_name && (entry.channel === item.original_channel || (item.channel === "CVS" && entry.channel !== "GT")));
+    if (!store && item.channel === "CVS") {
+      store = {
+        channel: item.update.store_type || "",
+        store_name: item.update.store_name,
+        city: item.update.city || "",
+        district: item.update.district || "",
+        is_new_cvs: true
+      };
+    }
     if (store) openUpdate(store, item);
   }));
   $$('[data-delete]').forEach(button => button.addEventListener("click", () => {
@@ -312,6 +348,7 @@ $("#visitUpdateForm").addEventListener("submit", event => {
   const channel = $("#updateChannel").value;
   const update = channel === "GT" ? collectGT() : collectCVS();
   if (!update.visit_date || !update.store_name) return alert("巡店日期與店家名稱不可空白。");
+  if (channel === "CVS" && !update.store_type) return alert("新增 CVS 店家時，請選擇門市類別（711／FM／HL／OK）。");
   const session = getSession();
   const editingId = $("#editingSessionId").value;
   const item = {
