@@ -4,6 +4,7 @@
   let salesDatabase = null;
   let salesByName = new Map();
   let salesByDistributorName = new Map();
+  let salesByAddress = new Map();
 
   const style = document.createElement("style");
   style.textContent = `
@@ -46,7 +47,6 @@
     const nameKey = normalize(store.store_name);
     const distributor = String(store.distributor || "").trim();
 
-    // 第一順位：經銷商 + 店名
     if (distributor) {
       const directKey = `${normalize(distributor)}::${nameKey}`;
       const direct = salesByDistributorName.get(directKey) || [];
@@ -68,13 +68,12 @@
       }
     }
 
-    // 第二順位：同店名 + 地址
     const candidates = salesByName.get(nameKey) || [];
-    if (!candidates.length) return null;
     if (candidates.length === 1) return candidates[0];
 
     const storeAddress = normalizeAddress(store.address);
-    if (storeAddress) {
+
+    if (candidates.length > 1 && storeAddress) {
       const addressMatch = candidates.find(item => {
         const candidateAddress = normalizeAddress(item.address);
         return candidateAddress &&
@@ -85,13 +84,41 @@
       if (addressMatch) return addressMatch;
     }
 
-    // 最後才使用單純店名 fallback
-    const sameDistributor = distributor
-      ? candidates.find(item => normalize(item.distributor || "") === normalize(distributor))
-      : null;
-    if (sameDistributor) return sameDistributor;
+    if (storeAddress) {
+      const exactAddress = salesByAddress.get(storeAddress) || [];
+      if (exactAddress.length === 1) return exactAddress[0];
 
-    return candidates[0];
+      if (exactAddress.length > 1) {
+        const sameDistributorByAddress = distributor
+          ? exactAddress.find(item => normalize(item.distributor || "") === normalize(distributor))
+          : null;
+        if (sameDistributorByAddress) return sameDistributorByAddress;
+        return exactAddress[0];
+      }
+
+      for (const [addressKey, items] of salesByAddress.entries()) {
+        if (addressKey &&
+            (addressKey.includes(storeAddress) || storeAddress.includes(addressKey))) {
+          if (items.length === 1) return items[0];
+
+          const sameDistributorByAddress = distributor
+            ? items.find(item => normalize(item.distributor || "") === normalize(distributor))
+            : null;
+          if (sameDistributorByAddress) return sameDistributorByAddress;
+          return items[0];
+        }
+      }
+    }
+
+    if (candidates.length) {
+      const sameDistributor = distributor
+        ? candidates.find(item => normalize(item.distributor || "") === normalize(distributor))
+        : null;
+      if (sameDistributor) return sameDistributor;
+      return candidates[0];
+    }
+
+    return null;
   }
 
   function renderSalesData(store) {
@@ -161,6 +188,7 @@
       salesDatabase = data;
       salesByName = new Map();
       salesByDistributorName = new Map();
+      salesByAddress = new Map();
 
       (data.stores || []).forEach(item => {
         const nameKey = normalize(item.store_name);
@@ -173,9 +201,15 @@
           if (!salesByDistributorName.has(directKey)) salesByDistributorName.set(directKey, []);
           salesByDistributorName.get(directKey).push(item);
         }
+
+        const addressKey = normalizeAddress(item.address);
+        if (addressKey) {
+          if (!salesByAddress.has(addressKey)) salesByAddress.set(addressKey, []);
+          salesByAddress.get(addressKey).push(item);
+        }
       });
 
-      console.info(`[SVMS] Sales loaded: ${data.stores?.length || 0} records / ${salesByName.size} unique names / ${salesByDistributorName.size} distributor-name keys`);
+      console.info(`[SVMS] Sales loaded: ${data.stores?.length || 0} records / ${salesByName.size} names / ${salesByDistributorName.size} distributor-name keys / ${salesByAddress.size} addresses`);
     })
     .catch(error => {
       console.warn("[SVMS] Sales load failed:", error);
