@@ -81,9 +81,15 @@ function renderHistory(history) {
   return history.slice(0, 5).map(item => `<div class="history-item"><div class="history-date">${escapeHtml(text(item["巡店日期"]))}</div><div class="history-detail">${[["配合度", item["配合度"]], ["銷售", item["銷售"]], ["備註", item["備註"]]].filter(([, v]) => v).map(([k, v]) => `${escapeHtml(k)}：${escapeHtml(v)}`).join("<br>") || "—"}</div></div>`).join("");
 }
 
+
+function gtDisplayName(store) {
+  const distributor = text(store?.distributor, "").trim();
+  return distributor ? `${store.store_name}（${distributor}）` : store.store_name;
+}
+
 function renderGT(store) {
-  return `<article class="card"><div class="card-head"><h2>${escapeHtml(store.store_name)}</h2><div class="meta">GT｜${escapeHtml(text(store.city))} ${escapeHtml(text(store.district))}</div></div>
-    <section class="section"><h3>GT查核資料</h3><div class="info-grid">${info("地址", store.address, true)}${info("合作等級", store.audit_cooperation)}${info("簽約型態", store.contract_type)}${info("簽約格數", store.contract_slots)}${info("陳列獎金", store.display_bonus)}<div class="info full"><span class="label">查核陳列</span>${pills(store.audit_display)}</div><div class="info full"><span class="label">查核分布</span>${pills(store.audit_distribution)}</div></div></section>
+  return `<article class="card"><div class="card-head"><h2>${escapeHtml(gtDisplayName(store))}</h2><div class="meta">GT｜${escapeHtml(text(store.city))} ${escapeHtml(text(store.district))}</div></div>
+    <section class="section"><h3>GT查核資料</h3><div class="info-grid">${info("經銷商", store.distributor)}${info("經銷商業務", store.distributor_salesperson)}${info("地址", store.address, true)}${info("合作等級", store.audit_cooperation)}${info("簽約型態", store.contract_type)}${info("簽約格數", store.contract_slots)}${info("陳列獎金", store.display_bonus)}<div class="info full"><span class="label">查核陳列</span>${pills(store.audit_display)}</div><div class="info full"><span class="label">查核分布</span>${pills(store.audit_distribution)}</div></div></section>
     <section class="section"><h3>GT巡店資料</h3><div class="info-grid">${info("最近巡店日期", store.visit_date)}${info("配合度", store.visit_cooperation)}${info("客群", store.visit_customer_group)}${info("銷售", store.visit_sales)}${info("備註", store.visit_note, true)}</div></section>
     <section class="section"><h3>最近巡店歷程</h3>${renderHistory(store.visit_history)}</section>
     <section class="section"><button class="update-launch" type="button" data-start-update>開始巡店更新</button></section></article>`;
@@ -114,7 +120,7 @@ function renderMatches(matches) {
     return;
   }
   if (matches.length === 1) return renderStore(matches[0]);
-  $("#results").innerHTML = `<h2 class="multiple-title">找到 ${matches.length} 個可能店家</h2><div class="match-list">${matches.map((store, index) => `<button class="match-button" data-index="${index}" type="button"><strong>${escapeHtml(store.store_name)}</strong><span>${escapeHtml(text(store.channel))}｜${escapeHtml(text(store.city))} ${escapeHtml(text(store.district))}</span></button>`).join("")}</div>`;
+  $("#results").innerHTML = `<h2 class="multiple-title">找到 ${matches.length} 個可能店家</h2><div class="match-list">${matches.map((store, index) => `<button class="match-button" data-index="${index}" type="button"><strong>${escapeHtml(store.channel === "GT" ? gtDisplayName(store) : store.store_name)}</strong><span>${escapeHtml(text(store.channel))}｜${escapeHtml(text(store.city))} ${escapeHtml(text(store.district))}</span></button>`).join("")}</div>`;
   $$(".match-button").forEach(button => button.addEventListener("click", () => renderStore(matches[Number(button.dataset.index)])));
 }
 
@@ -505,7 +511,7 @@ $("#storeQuery").addEventListener("input", event => {
   const matches = query ? searchStores(query, 6) : [];
 
   $("#suggestions").hidden = !matches.length;
-  $("#suggestions").innerHTML = matches.map((store, index) => `<button class="suggestion" data-index="${index}" type="button"><span>${escapeHtml(store.store_name)}</span><small>${escapeHtml(text(store.channel))}</small></button>`).join("");
+  $("#suggestions").innerHTML = matches.map((store, index) => `<button class="suggestion" data-index="${index}" type="button"><span>${escapeHtml(store.channel === "GT" ? gtDisplayName(store) : store.store_name)}</span><small>${escapeHtml(text(store.channel))}</small></button>`).join("");
 
   $$(".suggestion").forEach(button => button.addEventListener("click", () => {
     const store = matches[Number(button.dataset.index)];
