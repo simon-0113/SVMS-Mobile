@@ -3,6 +3,7 @@
 let database = null;
 let productCatalog = null;
 let currentStore = null;
+
 const SESSION_KEY = "svms_mobile_today_session_v2";
 const SESSION_BACKUP_KEY = "svms_mobile_today_session_v2_backup";
 const SESSION_DB_NAME = "svms_mobile_session_backup";
@@ -80,9 +81,15 @@ function renderHistory(history) {
   return history.slice(0, 5).map(item => `<div class="history-item"><div class="history-date">${escapeHtml(text(item["巡店日期"]))}</div><div class="history-detail">${[["配合度", item["配合度"]], ["銷售", item["銷售"]], ["備註", item["備註"]], ["機會點", item["機會點"]]].filter(([, v]) => v).map(([k, v]) => `${escapeHtml(k)}：${escapeHtml(v)}`).join("<br>") || "—"}</div></div>`).join("");
 }
 
+
+function gtDisplayName(store) {
+  const distributor = text(store?.distributor, "").trim();
+  return distributor ? `${store.store_name}（${distributor}）` : store.store_name;
+}
+
 function renderGT(store) {
-  return `<article class="card"><div class="card-head"><h2>${escapeHtml(store.store_name)}</h2><div class="meta">GT｜${escapeHtml(text(store.city))} ${escapeHtml(text(store.district))}</div></div>
-    <section class="section"><h3>GT查核資料</h3><div class="info-grid">${info("地址", store.address, true)}${info("合作等級", store.audit_cooperation)}${info("簽約型態", store.contract_type)}${info("簽約格數", store.contract_slots)}${info("陳列獎金", store.display_bonus)}<div class="info full"><span class="label">查核陳列</span>${pills(store.audit_display)}</div><div class="info full"><span class="label">查核分布</span>${pills(store.audit_distribution)}</div></div></section>
+  return `<article class="card"><div class="card-head"><h2>${escapeHtml(gtDisplayName(store))}</h2><div class="meta">GT｜${escapeHtml(text(store.city))} ${escapeHtml(text(store.district))}</div></div>
+    <section class="section"><h3>GT查核資料</h3><div class="info-grid">${info("經銷商", store.distributor)}${info("經銷商業務", store.distributor_salesperson)}${info("地址", store.address, true)}${info("合作等級", store.audit_cooperation)}${info("簽約型態", store.contract_type)}${info("簽約格數", store.contract_slots)}${info("陳列獎金", store.display_bonus)}<div class="info full"><span class="label">查核陳列</span>${pills(store.audit_display)}</div><div class="info full"><span class="label">查核分布</span>${pills(store.audit_distribution)}</div></div></section>
     <section class="section"><h3>GT巡店資料</h3><div class="info-grid">${info("最近巡店日期", store.visit_date)}${info("配合度", store.visit_cooperation)}${info("客群", store.visit_customer_group)}${info("銷售", store.visit_sales)}${info("機會點", store.visit_opportunity, true)}${info("備註", store.visit_note, true)}</div></section>
     <section class="section"><h3>最近巡店歷程</h3>${renderHistory(store.visit_history)}</section>
     <section class="section"><button class="update-launch" type="button" data-start-update>開始巡店更新</button></section></article>`;
@@ -113,7 +120,7 @@ function renderMatches(matches) {
     return;
   }
   if (matches.length === 1) return renderStore(matches[0]);
-  $("#results").innerHTML = `<h2 class="multiple-title">找到 ${matches.length} 個可能店家</h2><div class="match-list">${matches.map((store, index) => `<button class="match-button" data-index="${index}" type="button"><strong>${escapeHtml(store.store_name)}</strong><span>${escapeHtml(text(store.channel))}｜${escapeHtml(text(store.city))} ${escapeHtml(text(store.district))}</span></button>`).join("")}</div>`;
+  $("#results").innerHTML = `<h2 class="multiple-title">找到 ${matches.length} 個可能店家</h2><div class="match-list">${matches.map((store, index) => `<button class="match-button" data-index="${index}" type="button"><strong>${escapeHtml(store.channel === "GT" ? gtDisplayName(store) : store.store_name)}</strong><span>${escapeHtml(text(store.channel))}｜${escapeHtml(text(store.city))} ${escapeHtml(text(store.district))}</span></button>`).join("")}</div>`;
   $$(".match-button").forEach(button => button.addEventListener("click", () => renderStore(matches[Number(button.dataset.index)])));
 }
 
@@ -132,11 +139,11 @@ function textareaHTML(id, label, value = "") {
 function productStatusTable(saved = {}) {
   const groups = productCatalog?.groups || [];
   const standalone = productCatalog?.standalone || [];
-  const rows = (products, series) => products.map(product => {
+  const rows = products => products.map(product => {
     const status = saved[product] || "";
     return `<div class="product-row" data-product="${escapeHtml(product)}"><div class="product-name">${escapeHtml(product)}</div>${["display", "distribution", "out_of_stock"].map(value => `<label class="status-cell"><input type="checkbox" name="product_${escapeHtml(product)}" value="${value}" ${status === value ? "checked" : ""}><span>${value === "display" ? "陳列" : value === "distribution" ? "分布" : "缺貨"}</span></label>`).join("")}</div>`;
   }).join("");
-  return `<div class="product-status"><div class="product-row product-header"><div>品項</div><div>陳列</div><div>分布</div><div>缺貨</div></div>${groups.map(group => `<div class="series-title">${escapeHtml(group.series)}</div>${rows(group.products, group.series)}`).join("")}${standalone.length ? `<div class="series-title">其他</div>${rows(standalone, "其他")}` : ""}</div><p class="form-help">所有品項預設空白；每個品項只能選擇一種狀態。</p>`;
+  return `<div class="product-status"><div class="product-row product-header"><div>品項</div><div>陳列</div><div>分布</div><div>缺貨</div></div>${groups.map(group => `<div class="series-title">${escapeHtml(group.series)}</div>${rows(group.products)}`).join("")}${standalone.length ? `<div class="series-title">其他</div>${rows(standalone)}` : ""}</div><p class="form-help">所有品項預設空白；每個品項只能選擇一種狀態。</p>`;
 }
 
 function bindProductStatusControls() {
@@ -144,13 +151,22 @@ function bindProductStatusControls() {
     const controls = [...row.querySelectorAll('input[type="checkbox"]')];
     controls.forEach(control => control.addEventListener("change", () => {
       if (!control.checked) return;
-      controls.forEach(other => { if (other !== control) other.checked = false; });
+      controls.forEach(other => {
+        if (other !== control) other.checked = false;
+      });
     }));
   });
 }
 
 function createNewCVSStore(query = "") {
-  return { channel: "", store_name: query.trim(), aliases: [], city: "", district: "", is_new_cvs: true };
+  return {
+    channel: "",
+    store_name: query.trim(),
+    aliases: [],
+    city: "",
+    district: "",
+    is_new_cvs: true
+  };
 }
 
 function gtForm(store, saved = {}) {
@@ -174,7 +190,9 @@ function openUpdate(store, sessionItem = null) {
   showView("updateView", sessionItem ? "修改巡店" : (store.is_new_cvs ? "新增 CVS 店家" : "巡店更新"));
 }
 
-function boolOrUndefined(value) { return value === "" ? undefined : value === "true"; }
+function boolOrUndefined(value) {
+  return value === "" ? undefined : value === "true";
+}
 
 function collectGT() {
   const productStatus = {};
@@ -185,37 +203,83 @@ function collectGT() {
   const display = Object.keys(productStatus).filter(product => productStatus[product] === "display");
   const distribution = Object.keys(productStatus).filter(product => productStatus[product] === "distribution");
   const outOfStock = Object.keys(productStatus).filter(product => productStatus[product] === "out_of_stock");
-  return { visit_date: $("#visit_date").value, store_name: $("#store_name").value.trim(), tracking_mode: "full_sync", display, distribution, out_of_stock: outOfStock, product_status: productStatus, cooperation: $("#cooperation").value, line_oa: boolOrUndefined($("#line_oa").value), customer_group: $("#customer_group").value.trim(), sales: $("#sales").value.trim(), opportunity: $("#opportunity").value.trim(), optimization: $("#optimization").value === "true", new_slots: Math.max(0, Number.parseInt($("#new_slots").value || "0", 10)), monster_box: $("#monster_box").value === "true", annual_contract: $("#annual_contract").value, note: $("#note").value.trim() };
+  return {
+    visit_date: $("#visit_date").value,
+    store_name: $("#store_name").value.trim(),
+    tracking_mode: "full_sync",
+    display,
+    distribution,
+    out_of_stock: outOfStock,
+    product_status: productStatus,
+    cooperation: $("#cooperation").value,
+    line_oa: boolOrUndefined($("#line_oa").value),
+    customer_group: $("#customer_group").value.trim(),
+    sales: $("#sales").value.trim(),
+    opportunity: $("#opportunity").value.trim(),
+    optimization: $("#optimization").value === "true",
+    new_slots: Math.max(0, Number.parseInt($("#new_slots").value || "0", 10)),
+    monster_box: $("#monster_box").value === "true",
+    annual_contract: $("#annual_contract").value,
+    note: $("#note").value.trim()
+  };
 }
 
 function collectCVS() {
-  return { visit_date: $("#visit_date").value, store_name: $("#store_name").value.trim(), store_type: $("#store_type").value, city: $("#city").value.trim(), district: $("#district").value.trim(), customer_group: $("#customer_group").value.trim(), small_rack: boolOrUndefined($("#small_rack").value), sales: $("#sales").value.trim(), sales_grade: $("#sales_grade").value.trim(), line_oa: boolOrUndefined($("#line_oa").value), cooperation: $("#cooperation").value, activity: $("#activity").value.trim(), note: $("#note").value.trim() };
+  return {
+    visit_date: $("#visit_date").value,
+    store_name: $("#store_name").value.trim(),
+    store_type: $("#store_type").value,
+    city: $("#city").value.trim(),
+    district: $("#district").value.trim(),
+    customer_group: $("#customer_group").value.trim(),
+    small_rack: boolOrUndefined($("#small_rack").value),
+    sales: $("#sales").value.trim(),
+    sales_grade: $("#sales_grade").value.trim(),
+    line_oa: boolOrUndefined($("#line_oa").value),
+    cooperation: $("#cooperation").value,
+    activity: $("#activity").value.trim(),
+    note: $("#note").value.trim()
+  };
 }
+
+/* ---------- Session persistence: Local Storage + IndexedDB backup ---------- */
 
 function parseSession(raw) {
   if (!raw) return [];
-  try { const value = JSON.parse(raw); return Array.isArray(value) ? value : []; } catch { return []; }
+  try {
+    const value = JSON.parse(raw);
+    return Array.isArray(value) ? value : [];
+  } catch {
+    return [];
+  }
 }
 
 function getSession() {
   const primary = parseSession(localStorage.getItem(SESSION_KEY));
   if (primary.length) return primary;
+
   const secondary = parseSession(localStorage.getItem(SESSION_BACKUP_KEY));
   if (secondary.length) {
     try { localStorage.setItem(SESSION_KEY, JSON.stringify(secondary)); } catch {}
     return secondary;
   }
+
   return [];
 }
 
 function openSessionDB() {
   return new Promise((resolve, reject) => {
     if (!("indexedDB" in window)) return resolve(null);
+
     const request = indexedDB.open(SESSION_DB_NAME, 1);
+
     request.onupgradeneeded = () => {
       const db = request.result;
-      if (!db.objectStoreNames.contains(SESSION_DB_STORE)) db.createObjectStore(SESSION_DB_STORE);
+      if (!db.objectStoreNames.contains(SESSION_DB_STORE)) {
+        db.createObjectStore(SESSION_DB_STORE);
+      }
     };
+
     request.onsuccess = () => resolve(request.result);
     request.onerror = () => reject(request.error);
   });
@@ -225,34 +289,54 @@ async function saveSessionToIndexedDB(session) {
   try {
     const db = await openSessionDB();
     if (!db) return;
+
     await new Promise((resolve, reject) => {
       const tx = db.transaction(SESSION_DB_STORE, "readwrite");
-      tx.objectStore(SESSION_DB_STORE).put({ session, saved_at: new Date().toISOString() }, SESSION_DB_RECORD);
+      tx.objectStore(SESSION_DB_STORE).put({
+        session,
+        saved_at: new Date().toISOString()
+      }, SESSION_DB_RECORD);
+
       tx.oncomplete = resolve;
       tx.onerror = () => reject(tx.error);
       tx.onabort = () => reject(tx.error);
     });
+
     db.close();
-  } catch (error) { console.warn("[SVMS] IndexedDB backup failed:", error); }
+  } catch (error) {
+    console.warn("[SVMS] IndexedDB backup failed:", error);
+  }
 }
 
 async function loadSessionFromIndexedDB() {
   try {
     const db = await openSessionDB();
     if (!db) return [];
+
     const record = await new Promise((resolve, reject) => {
       const tx = db.transaction(SESSION_DB_STORE, "readonly");
       const req = tx.objectStore(SESSION_DB_STORE).get(SESSION_DB_RECORD);
       req.onsuccess = () => resolve(req.result);
       req.onerror = () => reject(req.error);
     });
+
     db.close();
     return Array.isArray(record?.session) ? record.session : [];
-  } catch (error) { console.warn("[SVMS] IndexedDB restore failed:", error); return []; }
+  } catch (error) {
+    console.warn("[SVMS] IndexedDB restore failed:", error);
+    return [];
+  }
 }
 
+
 async function clearSessionEverywhere() {
-  try { localStorage.removeItem(SESSION_KEY); localStorage.removeItem(SESSION_BACKUP_KEY); } catch (error) { console.warn("[SVMS] Local Storage clear failed:", error); }
+  try {
+    localStorage.removeItem(SESSION_KEY);
+    localStorage.removeItem(SESSION_BACKUP_KEY);
+  } catch (error) {
+    console.warn("[SVMS] Local Storage clear failed:", error);
+  }
+
   try {
     const db = await openSessionDB();
     if (db) {
@@ -265,36 +349,51 @@ async function clearSessionEverywhere() {
       });
       db.close();
     }
-  } catch (error) { console.warn("[SVMS] IndexedDB clear failed:", error); }
+  } catch (error) {
+    console.warn("[SVMS] IndexedDB clear failed:", error);
+  }
+
   updateSessionCounts();
 }
 
 function saveSession(session) {
   const normalized = Array.isArray(session) ? session : [];
   const payload = JSON.stringify(normalized);
+
   try {
     localStorage.setItem(SESSION_KEY, payload);
     localStorage.setItem(SESSION_BACKUP_KEY, payload);
+
     const verify = parseSession(localStorage.getItem(SESSION_KEY));
-    if (verify.length !== normalized.length) throw new Error("Local Storage verification failed");
+    if (verify.length !== normalized.length) {
+      throw new Error("Local Storage verification failed");
+    }
   } catch (error) {
     console.error("[SVMS] Local Storage save failed:", error);
     alert("今日巡店資料無法安全儲存，請先不要關閉頁面。");
   }
+
   void saveSessionToIndexedDB(normalized);
   updateSessionCounts();
 }
 
 async function recoverSessionIfNeeded() {
   const existing = getSession();
-  if (existing.length) { void saveSessionToIndexedDB(existing); return existing; }
+  if (existing.length) {
+    void saveSessionToIndexedDB(existing);
+    return existing;
+  }
+
   const recovered = await loadSessionFromIndexedDB();
   if (!recovered.length) return [];
+
   try {
     const payload = JSON.stringify(recovered);
     localStorage.setItem(SESSION_KEY, payload);
     localStorage.setItem(SESSION_BACKUP_KEY, payload);
   } catch {}
+
+  console.info(`[SVMS] Recovered ${recovered.length} visit(s) from IndexedDB backup.`);
   return recovered;
 }
 
@@ -321,13 +420,26 @@ function renderSession() {
   $("#sessionEmpty").hidden = session.length > 0;
   $("#completeSessionButton").disabled = session.length === 0;
   $("#sessionList").innerHTML = session.map(item => `<article class="session-item"><div><h3>${escapeHtml(item.store_name)}</h3><p>${escapeHtml(item.channel)}｜加入時間 ${escapeHtml(formatTime(item.added_at))}</p></div><div class="session-actions"><button type="button" data-edit="${item.id}">修改</button><button type="button" data-delete="${item.id}">刪除</button></div></article>`).join("");
+
   $$('[data-edit]').forEach(button => button.addEventListener("click", () => {
     const item = getSession().find(entry => entry.id === button.dataset.edit);
     if (!item) return;
+
     let store = database.stores.find(entry => entry.store_name === item.store_name && (entry.channel === item.original_channel || (item.channel === "CVS" && entry.channel !== "GT")));
-    if (!store && item.channel === "CVS") store = { channel: item.update.store_type || "", store_name: item.update.store_name, city: item.update.city || "", district: item.update.district || "", is_new_cvs: true };
+
+    if (!store && item.channel === "CVS") {
+      store = {
+        channel: item.update.store_type || "",
+        store_name: item.update.store_name,
+        city: item.update.city || "",
+        district: item.update.district || "",
+        is_new_cvs: true
+      };
+    }
+
     if (store) openUpdate(store, item);
   }));
+
   $$('[data-delete]').forEach(button => button.addEventListener("click", () => {
     const next = getSession().filter(entry => entry.id !== button.dataset.delete);
     saveSession(next);
@@ -338,7 +450,12 @@ function renderSession() {
 function buildPendingPayload(session) {
   const dates = session.map(item => item.update.visit_date).filter(Boolean).sort();
   const date = dates[0] || localDateISO();
-  return { schema_version: "3.0", batch_id: `${date.replaceAll("-", "")}_mobile`, GT: session.filter(item => item.channel === "GT").map(item => cleanForExport(item.update)), CVS: session.filter(item => item.channel === "CVS").map(item => cleanForExport(item.update)) };
+  return {
+    schema_version: "3.0",
+    batch_id: `${date.replaceAll("-", "")}_mobile`,
+    GT: session.filter(item => item.channel === "GT").map(item => cleanForExport(item.update)),
+    CVS: session.filter(item => item.channel === "CVS").map(item => cleanForExport(item.update))
+  };
 }
 
 function downloadJSON(payload, filename) {
@@ -355,21 +472,26 @@ function downloadJSON(payload, filename) {
 
 async function initialize() {
   await recoverSessionIfNeeded();
+
   try {
     const [storeResponse, productResponse] = await Promise.all([
       fetch("data/stores_index.json", { cache: "no-store" }),
       fetch("data/product_catalog.json", { cache: "no-store" })
     ]);
+
     if (!storeResponse.ok) throw new Error(`stores_index.json HTTP ${storeResponse.status}`);
     if (!productResponse.ok) throw new Error(`product_catalog.json HTTP ${productResponse.status}`);
+
     database = await storeResponse.json();
     productCatalog = await productResponse.json();
+
     const generated = database.generated_at ? database.generated_at.replace("T", " ") : "—";
     $("#syncStatus").textContent = `正式索引：${database.store_count || database.stores.length} 家｜更新 ${generated}`;
   } catch (error) {
     $("#syncStatus").textContent = "資料載入失敗";
     alert(error.message);
   }
+
   updateSessionCounts();
 }
 
@@ -377,41 +499,86 @@ $$(".home-action").forEach(button => button.addEventListener("click", () => {
   const titles = { searchView: "查詢店家", sessionView: "今日巡店", settingsView: "設定" };
   showView(button.dataset.view, titles[button.dataset.view]);
 }));
+
 $("#backButton").addEventListener("click", () => showView("homeView", "首頁"));
 $("#searchButton").addEventListener("click", () => renderMatches(searchStores($("#storeQuery").value.trim())));
-$("#storeQuery").addEventListener("keydown", event => { if (event.key === "Enter") renderMatches(searchStores(event.target.value.trim())); });
+$("#storeQuery").addEventListener("keydown", event => {
+  if (event.key === "Enter") renderMatches(searchStores(event.target.value.trim()));
+});
+
 $("#storeQuery").addEventListener("input", event => {
   const query = event.target.value.trim();
   const matches = query ? searchStores(query, 6) : [];
+
   $("#suggestions").hidden = !matches.length;
-  $("#suggestions").innerHTML = matches.map((store, index) => `<button class="suggestion" data-index="${index}" type="button"><span>${escapeHtml(store.store_name)}</span><small>${escapeHtml(text(store.channel))}</small></button>`).join("");
-  $$(".suggestion").forEach(button => button.addEventListener("click", () => { const store = matches[Number(button.dataset.index)]; $("#storeQuery").value = store.store_name; renderStore(store); }));
+  $("#suggestions").innerHTML = matches.map((store, index) => `<button class="suggestion" data-index="${index}" type="button"><span>${escapeHtml(store.channel === "GT" ? gtDisplayName(store) : store.store_name)}</span><small>${escapeHtml(text(store.channel))}</small></button>`).join("");
+
+  $$(".suggestion").forEach(button => button.addEventListener("click", () => {
+    const store = matches[Number(button.dataset.index)];
+    $("#storeQuery").value = store.store_name;
+    renderStore(store);
+  }));
 });
+
 $("#cancelUpdateButton").addEventListener("click", () => showView("searchView", "查詢店家"));
+
 $("#visitUpdateForm").addEventListener("submit", event => {
   event.preventDefault();
+
   const channel = $("#updateChannel").value;
   const update = channel === "GT" ? collectGT() : collectCVS();
-  if (!update.visit_date || !update.store_name) return alert("巡店日期與店家名稱不可空白。");
-  if (channel === "CVS" && !update.store_type) return alert("新增 CVS 店家時，請選擇門市類別（711／FM／HL／OK）。");
+
+  if (!update.visit_date || !update.store_name) {
+    return alert("巡店日期與店家名稱不可空白。");
+  }
+
+  if (channel === "CVS" && !update.store_type) {
+    return alert("新增 CVS 店家時，請選擇門市類別（711／FM／HL／OK）。");
+  }
+
   const session = getSession();
   const editingId = $("#editingSessionId").value;
-  const item = { id: editingId || (crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}_${Math.random()}`), store_name: update.store_name, channel, original_channel: currentStore.channel, added_at: editingId ? (session.find(entry => entry.id === editingId)?.added_at || new Date().toISOString()) : new Date().toISOString(), update };
-  const next = editingId ? session.map(entry => entry.id === editingId ? item : entry) : [...session, item];
+
+  const item = {
+    id: editingId || (crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}_${Math.random()}`),
+    store_name: update.store_name,
+    channel,
+    original_channel: currentStore.channel,
+    added_at: editingId
+      ? (session.find(entry => entry.id === editingId)?.added_at || new Date().toISOString())
+      : new Date().toISOString(),
+    update
+  };
+
+  const next = editingId
+    ? session.map(entry => entry.id === editingId ? item : entry)
+    : [...session, item];
+
   saveSession(next);
+
   alert(editingId ? "今日巡店資料已修改。" : "已加入今日巡店。");
   showView("sessionView", "今日巡店");
 });
+
 $("#completeSessionButton").addEventListener("click", async () => {
   const session = getSession();
   if (!session.length) return;
-  const confirmed = confirm(`確定完成今日巡店？\n\n將產生 pending_updates.json，並清空今日巡店 ${session.length} 間資料。`);
+
+  const confirmed = confirm(
+    `確定完成今日巡店？\n\n將產生 pending_updates.json，並清空今日巡店 ${session.length} 間資料。`
+  );
   if (!confirmed) return;
+
   downloadJSON(buildPendingPayload(session), "pending_updates.json");
+
   await clearSessionEverywhere();
+
   renderSession();
   alert("pending_updates.json 已產生，今日巡店已清空。");
 });
 
-document.addEventListener("click", event => { if (!event.target.closest(".search-panel")) $("#suggestions").hidden = true; });
+document.addEventListener("click", event => {
+  if (!event.target.closest(".search-panel")) $("#suggestions").hidden = true;
+});
+
 initialize();

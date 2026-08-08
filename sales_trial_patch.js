@@ -3,6 +3,7 @@
 (() => {
   let salesDatabase = null;
   let salesByName = new Map();
+  let salesByDistributorName = new Map();
 
   const style = document.createElement("style");
   style.textContent = `
@@ -31,13 +32,71 @@
     return Number.isInteger(num) ? String(num) : String(Math.round(num * 1000) / 1000);
   }
 
+  function normalizeAddress(value) {
+    return String(value || "")
+      .normalize("NFKC")
+      .toUpperCase()
+      .replace(/[台臺]/g, "台")
+      .replace(/[\s_\-－—()（）【】[\]．。、,，./／]/g, "");
+  }
+
   function getSalesRecord(store) {
     if (!store || typeof normalize !== "function") return null;
-    return salesByName.get(normalize(store.store_name)) || null;
+
+    const nameKey = normalize(store.store_name);
+    const distributor = String(store.distributor || "").trim();
+
+    // 第一順位：經銷商 + 店名
+    if (distributor) {
+      const directKey = `${normalize(distributor)}::${nameKey}`;
+      const direct = salesByDistributorName.get(directKey) || [];
+      if (direct.length === 1) return direct[0];
+
+      if (direct.length > 1) {
+        const storeAddress = normalizeAddress(store.address);
+        if (storeAddress) {
+          const addressMatch = direct.find(item => {
+            const candidateAddress = normalizeAddress(item.address);
+            return candidateAddress &&
+              (candidateAddress === storeAddress ||
+               candidateAddress.includes(storeAddress) ||
+               storeAddress.includes(candidateAddress));
+          });
+          if (addressMatch) return addressMatch;
+        }
+        return direct[0];
+      }
+    }
+
+    // 第二順位：同店名 + 地址
+    const candidates = salesByName.get(nameKey) || [];
+    if (!candidates.length) return null;
+    if (candidates.length === 1) return candidates[0];
+
+    const storeAddress = normalizeAddress(store.address);
+    if (storeAddress) {
+      const addressMatch = candidates.find(item => {
+        const candidateAddress = normalizeAddress(item.address);
+        return candidateAddress &&
+          (candidateAddress === storeAddress ||
+           candidateAddress.includes(storeAddress) ||
+           storeAddress.includes(candidateAddress));
+      });
+      if (addressMatch) return addressMatch;
+    }
+
+    // 最後才使用單純店名 fallback
+    const sameDistributor = distributor
+      ? candidates.find(item => normalize(item.distributor || "") === normalize(distributor))
+      : null;
+    if (sameDistributor) return sameDistributor;
+
+    return candidates[0];
   }
 
   function renderSalesData(store) {
     const record = getSalesRecord(store);
+
     if (!salesDatabase) {
       return `<section class="section"><h3>進貨品項資料</h3><div class="value">進貨資料載入中…</div></section>`;
     }
@@ -100,10 +159,25 @@
     })
     .then(data => {
       salesDatabase = data;
-      salesByName = new Map((data.stores || []).map(item => [normalize(item.store_name), item]));
-      console.info(`[SVMS] Sales trial loaded: ${salesByName.size} stores`);
+      salesByName = new Map();
+      salesByDistributorName = new Map();
+
+      (data.stores || []).forEach(item => {
+        const nameKey = normalize(item.store_name);
+        if (!salesByName.has(nameKey)) salesByName.set(nameKey, []);
+        salesByName.get(nameKey).push(item);
+
+        const distributor = String(item.distributor || "").trim();
+        if (distributor) {
+          const directKey = `${normalize(distributor)}::${nameKey}`;
+          if (!salesByDistributorName.has(directKey)) salesByDistributorName.set(directKey, []);
+          salesByDistributorName.get(directKey).push(item);
+        }
+      });
+
+      console.info(`[SVMS] Sales loaded: ${data.stores?.length || 0} records / ${salesByName.size} unique names / ${salesByDistributorName.size} distributor-name keys`);
     })
     .catch(error => {
-      console.warn("[SVMS] Sales trial load failed:", error);
+      console.warn("[SVMS] Sales load failed:", error);
     });
 })();
