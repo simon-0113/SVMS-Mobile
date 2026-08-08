@@ -78,19 +78,13 @@ function pills(values) {
 
 function renderHistory(history) {
   if (!history?.length) return `<div class="value">—</div>`;
-  return history.slice(0, 5).map(item => `<div class="history-item"><div class="history-date">${escapeHtml(text(item["巡店日期"]))}</div><div class="history-detail">${[["配合度", item["配合度"]], ["銷售", item["銷售"]], ["備註", item["備註"]], ["機會點", item["機會點"]]].filter(([, v]) => v).map(([k, v]) => `${escapeHtml(k)}：${escapeHtml(v)}`).join("<br>") || "—"}</div></div>`).join("");
-}
-
-
-function gtDisplayName(store) {
-  const distributor = text(store?.distributor, "").trim();
-  return distributor ? `${store.store_name}（${distributor}）` : store.store_name;
+  return history.slice(0, 5).map(item => `<div class="history-item"><div class="history-date">${escapeHtml(text(item["巡店日期"]))}</div><div class="history-detail">${[["配合度", item["配合度"]], ["銷售", item["銷售"]], ["備註", item["備註"]]].filter(([, v]) => v).map(([k, v]) => `${escapeHtml(k)}：${escapeHtml(v)}`).join("<br>") || "—"}</div></div>`).join("");
 }
 
 function renderGT(store) {
-  return `<article class="card"><div class="card-head"><h2>${escapeHtml(gtDisplayName(store))}</h2><div class="meta">GT｜${escapeHtml(text(store.city))} ${escapeHtml(text(store.district))}</div></div>
-    <section class="section"><h3>GT查核資料</h3><div class="info-grid">${info("經銷商", store.distributor)}${info("經銷商業務", store.distributor_salesperson)}${info("地址", store.address, true)}${info("合作等級", store.audit_cooperation)}${info("簽約型態", store.contract_type)}${info("簽約格數", store.contract_slots)}${info("陳列獎金", store.display_bonus)}<div class="info full"><span class="label">查核陳列</span>${pills(store.audit_display)}</div><div class="info full"><span class="label">查核分布</span>${pills(store.audit_distribution)}</div></div></section>
-    <section class="section"><h3>GT巡店資料</h3><div class="info-grid">${info("最近巡店日期", store.visit_date)}${info("配合度", store.visit_cooperation)}${info("客群", store.visit_customer_group)}${info("銷售", store.visit_sales)}${info("機會點", store.visit_opportunity, true)}${info("備註", store.visit_note, true)}</div></section>
+  return `<article class="card"><div class="card-head"><h2>${escapeHtml(store.store_name)}</h2><div class="meta">GT｜${escapeHtml(text(store.city))} ${escapeHtml(text(store.district))}</div></div>
+    <section class="section"><h3>GT查核資料</h3><div class="info-grid">${info("地址", store.address, true)}${info("合作等級", store.audit_cooperation)}${info("簽約型態", store.contract_type)}${info("簽約格數", store.contract_slots)}${info("陳列獎金", store.display_bonus)}<div class="info full"><span class="label">查核陳列</span>${pills(store.audit_display)}</div><div class="info full"><span class="label">查核分布</span>${pills(store.audit_distribution)}</div></div></section>
+    <section class="section"><h3>GT巡店資料</h3><div class="info-grid">${info("最近巡店日期", store.visit_date)}${info("配合度", store.visit_cooperation)}${info("客群", store.visit_customer_group)}${info("銷售", store.visit_sales)}${info("備註", store.visit_note, true)}</div></section>
     <section class="section"><h3>最近巡店歷程</h3>${renderHistory(store.visit_history)}</section>
     <section class="section"><button class="update-launch" type="button" data-start-update>開始巡店更新</button></section></article>`;
 }
@@ -120,7 +114,7 @@ function renderMatches(matches) {
     return;
   }
   if (matches.length === 1) return renderStore(matches[0]);
-  $("#results").innerHTML = `<h2 class="multiple-title">找到 ${matches.length} 個可能店家</h2><div class="match-list">${matches.map((store, index) => `<button class="match-button" data-index="${index}" type="button"><strong>${escapeHtml(store.channel === "GT" ? gtDisplayName(store) : store.store_name)}</strong><span>${escapeHtml(text(store.channel))}｜${escapeHtml(text(store.city))} ${escapeHtml(text(store.district))}</span></button>`).join("")}</div>`;
+  $("#results").innerHTML = `<h2 class="multiple-title">找到 ${matches.length} 個可能店家</h2><div class="match-list">${matches.map((store, index) => `<button class="match-button" data-index="${index}" type="button"><strong>${escapeHtml(store.store_name)}</strong><span>${escapeHtml(text(store.channel))}｜${escapeHtml(text(store.city))} ${escapeHtml(text(store.district))}</span></button>`).join("")}</div>`;
   $$(".match-button").forEach(button => button.addEventListener("click", () => renderStore(matches[Number(button.dataset.index)])));
 }
 
@@ -172,7 +166,7 @@ function createNewCVSStore(query = "") {
 function gtForm(store, saved = {}) {
   return `<div class="form-section"><h3>基本資料</h3><div class="form-grid">${fieldHTML("visit_date", "巡店日期", saved.visit_date || localDateISO(), "date")}${fieldHTML("store_name", "店家名稱", saved.store_name || store.store_name)}${selectHTML("cooperation", "配合度", ["", "高", "中", "低", "待觀察"], saved.cooperation || "")}${selectHTML("line_oa", "LINE OA", [{ value: "", label: "—" }, { value: "true", label: "有" }, { value: "false", label: "無" }], saved.line_oa === true ? "true" : saved.line_oa === false ? "false" : "")}${fieldHTML("customer_group", "客群", saved.customer_group || "")}${fieldHTML("sales", "銷售", saved.sales || "")}</div></div>
     <div class="form-section"><h3>現場品項狀況</h3>${productStatusTable(saved.product_status || {})}</div>
-    <div class="form-section"><h3>本次異動</h3><div class="form-grid">${selectHTML("optimization", "本次完成優化", [{ value: "false", label: "否" }, { value: "true", label: "是" }], saved.optimization ? "true" : "false")}${fieldHTML("new_slots", "新增格數", String(saved.new_slots ?? 0), "number")}${selectHTML("monster_box", "怪獸盒", [{ value: "false", label: "無" }, { value: "true", label: "有" }], saved.monster_box ? "true" : "false")}${selectHTML("annual_contract", "年度合約", ["", "續約", "無意願續約", "新增格數簽約", "牌面好無產值", "不建議續約"], saved.annual_contract || "")}${textareaHTML("opportunity", "機會點", saved.opportunity || "")}${textareaHTML("note", "備註", saved.note || "")}</div></div>`;
+    <div class="form-section"><h3>本次異動</h3><div class="form-grid">${selectHTML("optimization", "本次完成優化", [{ value: "false", label: "否" }, { value: "true", label: "是" }], saved.optimization ? "true" : "false")}${fieldHTML("new_slots", "新增格數", String(saved.new_slots ?? 0), "number")}${selectHTML("monster_box", "怪獸盒", [{ value: "false", label: "無" }, { value: "true", label: "有" }], saved.monster_box ? "true" : "false")}${selectHTML("annual_contract", "年度合約", ["", "續約", "無意願續約", "新增格數簽約", "牌面好無產值", "不建議續約"], saved.annual_contract || "")}${textareaHTML("optimization_content", "優化調整內容", saved.optimization_content || "")}${textareaHTML("note", "備註", saved.note || "")}</div></div>`;
 }
 
 function cvsForm(store, saved = {}) {
@@ -215,7 +209,7 @@ function collectGT() {
     line_oa: boolOrUndefined($("#line_oa").value),
     customer_group: $("#customer_group").value.trim(),
     sales: $("#sales").value.trim(),
-    opportunity: $("#opportunity").value.trim(),
+    optimization_content: $("#optimization_content").value.trim(),
     optimization: $("#optimization").value === "true",
     new_slots: Math.max(0, Number.parseInt($("#new_slots").value || "0", 10)),
     monster_box: $("#monster_box").value === "true",
@@ -511,7 +505,7 @@ $("#storeQuery").addEventListener("input", event => {
   const matches = query ? searchStores(query, 6) : [];
 
   $("#suggestions").hidden = !matches.length;
-  $("#suggestions").innerHTML = matches.map((store, index) => `<button class="suggestion" data-index="${index}" type="button"><span>${escapeHtml(store.channel === "GT" ? gtDisplayName(store) : store.store_name)}</span><small>${escapeHtml(text(store.channel))}</small></button>`).join("");
+  $("#suggestions").innerHTML = matches.map((store, index) => `<button class="suggestion" data-index="${index}" type="button"><span>${escapeHtml(store.store_name)}</span><small>${escapeHtml(text(store.channel))}</small></button>`).join("");
 
   $$(".suggestion").forEach(button => button.addEventListener("click", () => {
     const store = matches[Number(button.dataset.index)];
