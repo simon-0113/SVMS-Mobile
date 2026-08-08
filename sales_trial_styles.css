@@ -1,0 +1,18 @@
+
+/* SVMS Mobile 2.2 Trial - GT 6/7月進貨品項 */
+.sales-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:12px}
+.sales-summary>div{padding:10px;border:1px solid var(--line);border-radius:10px;background:#f9fafb}
+.sales-summary span{display:block;color:var(--muted);font-size:11px;margin-bottom:4px}
+.sales-summary strong{font-size:17px}
+.sales-table{overflow:hidden;border:1px solid var(--line);border-radius:10px}
+.sales-row{display:grid;grid-template-columns:minmax(150px,1fr) 62px 62px;align-items:center;border-top:1px solid var(--line);min-height:38px}
+.sales-row:first-child{border-top:0}
+.sales-row>div{padding:8px;text-align:center;font-size:13px}
+.sales-row .sales-product{text-align:left;overflow-wrap:anywhere}
+.sales-header{background:#f3f4f6;font-weight:800}
+.sales-empty{padding:16px;color:var(--muted);font-size:13px}
+@media(max-width:560px){
+  .sales-summary{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .sales-row{grid-template-columns:minmax(125px,1fr) 54px 54px}
+  .sales-summary strong{font-size:15px}
+}
