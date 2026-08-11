@@ -136,25 +136,34 @@ function textareaHTML(id, label, value = "") {
   return `<div class="form-field full"><label for="${id}">${escapeHtml(label)}</label><textarea id="${id}">${escapeHtml(value)}</textarea></div>`;
 }
 
-function productStatusTable(saved = {}) {
+function productStatusTable(saved = {}, savedOsdOriginal = {}) {
   const groups = productCatalog?.groups || [];
   const standalone = productCatalog?.standalone || [];
   const rows = products => products.map(product => {
     const status = saved[product] || "";
-    return `<div class="product-row" data-product="${escapeHtml(product)}"><div class="product-name">${escapeHtml(product)}</div>${["display", "distribution", "out_of_stock"].map(value => `<label class="status-cell"><input type="checkbox" name="product_${escapeHtml(product)}" value="${value}" ${status === value ? "checked" : ""}><span>${value === "display" ? "陳列" : value === "distribution" ? "分布" : "缺貨"}</span></label>`).join("")}</div>`;
+    const osdOriginal = savedOsdOriginal[product] || "";
+    const originVisible = status === "out_of_stock";
+    return `<div class="product-row" data-product="${escapeHtml(product)}"><div class="product-name">${escapeHtml(product)}</div>${["display", "distribution", "out_of_stock"].map(value => `<label class="status-cell"><input type="checkbox" name="product_${escapeHtml(product)}" value="${value}" ${status === value ? "checked" : ""}><span>${value === "display" ? "陳列" : value === "distribution" ? "分布" : "缺貨"}</span></label>`).join("")}<div class="osd-origin" ${originVisible ? "" : "hidden"} style="grid-column:1/-1;margin:6px 0 10px;padding:8px 10px;border:1px solid #e2e6ec;border-radius:10px;background:#fafbfc;"><span style="margin-right:12px;font-weight:600;">缺貨原屬：</span><label style="margin-right:14px;"><input type="radio" name="osd_origin_${escapeHtml(product)}" value="display" ${osdOriginal === "display" ? "checked" : ""}> 原屬陳列</label><label><input type="radio" name="osd_origin_${escapeHtml(product)}" value="distribution" ${osdOriginal === "distribution" ? "checked" : ""}> 原屬分布</label></div></div>`;
   }).join("");
-  return `<div class="product-status"><div class="product-row product-header"><div>品項</div><div>陳列</div><div>分布</div><div>缺貨</div></div>${groups.map(group => `<div class="series-title">${escapeHtml(group.series)}</div>${rows(group.products)}`).join("")}${standalone.length ? `<div class="series-title">其他</div>${rows(standalone)}` : ""}</div><p class="form-help">所有品項預設空白；每個品項只能選擇一種狀態。</p>`;
+  return `<div class="product-status"><div class="product-row product-header"><div>品項</div><div>陳列</div><div>分布</div><div>缺貨</div></div>${groups.map(group => `<div class="series-title">${escapeHtml(group.series)}</div>${rows(group.products)}`).join("")}${standalone.length ? `<div class="series-title">其他</div>${rows(standalone)}` : ""}</div><p class="form-help">每個品項只能選擇一種狀態；選擇「缺貨」時，必須再指定原屬陳列或原屬分布。</p>`;
 }
 
 function bindProductStatusControls() {
   $$(".product-row[data-product]").forEach(row => {
-    const controls = [...row.querySelectorAll('input[type="checkbox"]')];
+    const controls = [...row.querySelectorAll('.status-cell input[type="checkbox"]')];
+    const originBox = row.querySelector(".osd-origin");
+    const originRadios = [...row.querySelectorAll('.osd-origin input[type="radio"]')];
+    const syncOrigin = () => {
+      const osd = controls.find(control => control.value === "out_of_stock");
+      const show = !!osd?.checked;
+      if (originBox) originBox.hidden = !show;
+      if (!show) originRadios.forEach(radio => { radio.checked = false; });
+    };
     controls.forEach(control => control.addEventListener("change", () => {
-      if (!control.checked) return;
-      controls.forEach(other => {
-        if (other !== control) other.checked = false;
-      });
+      if (control.checked) controls.forEach(other => { if (other !== control) other.checked = false; });
+      syncOrigin();
     }));
+    syncOrigin();
   });
 }
 
@@ -171,7 +180,7 @@ function createNewCVSStore(query = "") {
 
 function gtForm(store, saved = {}) {
   return `<div class="form-section"><h3>基本資料</h3><div class="form-grid">${fieldHTML("visit_date", "巡店日期", saved.visit_date || localDateISO(), "date")}${fieldHTML("store_name", "店家名稱", saved.store_name || store.store_name)}${selectHTML("cooperation", "配合度", ["", "高", "中", "低", "待觀察"], saved.cooperation || "")}${selectHTML("line_oa", "LINE OA", [{ value: "", label: "—" }, { value: "true", label: "有" }, { value: "false", label: "無" }], saved.line_oa === true ? "true" : saved.line_oa === false ? "false" : "")}${fieldHTML("customer_group", "客群", saved.customer_group || "")}${fieldHTML("sales", "銷售", saved.sales || "")}</div></div>
-    <div class="form-section"><h3>現場品項狀況</h3>${productStatusTable(saved.product_status || {})}</div>
+    <div class="form-section"><h3>現場品項狀況</h3>${productStatusTable(saved.product_status || {}, saved.osd_original_type || {})}</div>
     <div class="form-section"><h3>本次異動</h3><div class="form-grid">${selectHTML("optimization", "本次完成優化", [{ value: "false", label: "否" }, { value: "true", label: "是" }], saved.optimization ? "true" : "false")}${fieldHTML("new_slots", "新增格數", String(saved.new_slots ?? 0), "number")}${selectHTML("monster_box", "怪獸盒", [{ value: "false", label: "無" }, { value: "true", label: "有" }], saved.monster_box ? "true" : "false")}${selectHTML("annual_contract", "年度合約", ["", "續約", "無意願續約", "新增格數簽約", "牌面好無產值", "不建議續約"], saved.annual_contract || "")}${textareaHTML("optimization_content", "優化調整內容", saved.optimization_content || "")}${textareaHTML("note", "備註", saved.note || "")}</div></div>`;
 }
 
@@ -196,10 +205,23 @@ function boolOrUndefined(value) {
 
 function collectGT() {
   const productStatus = {};
+  const osdOriginalType = {};
+  const missingOsdOrigin = [];
   $$(".product-row[data-product]").forEach(row => {
-    const checked = row.querySelector("input:checked");
-    if (checked) productStatus[row.dataset.product] = checked.value;
+    const checked = row.querySelector('.status-cell input[type="checkbox"]:checked');
+    if (checked) {
+      productStatus[row.dataset.product] = checked.value;
+      if (checked.value === "out_of_stock") {
+        const origin = row.querySelector('.osd-origin input[type="radio"]:checked');
+        if (origin) osdOriginalType[row.dataset.product] = origin.value;
+        else missingOsdOrigin.push(row.dataset.product);
+      }
+    }
   });
+  if (missingOsdOrigin.length) {
+    alert(`以下缺貨品項尚未指定「原屬陳列／原屬分布」：\n${missingOsdOrigin.join("、")}`);
+    throw new Error("OSD_ORIGINAL_TYPE_REQUIRED");
+  }
   const display = Object.keys(productStatus).filter(product => productStatus[product] === "display");
   const distribution = Object.keys(productStatus).filter(product => productStatus[product] === "distribution");
   const outOfStock = Object.keys(productStatus).filter(product => productStatus[product] === "out_of_stock");
@@ -210,6 +232,7 @@ function collectGT() {
     display,
     distribution,
     out_of_stock: outOfStock,
+    osd_original_type: osdOriginalType,
     product_status: productStatus,
     cooperation: $("#cooperation").value,
     line_oa: boolOrUndefined($("#line_oa").value),
