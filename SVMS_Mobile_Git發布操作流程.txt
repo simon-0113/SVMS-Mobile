@@ -1,0 +1,119 @@
+SVMS Mobile｜Git 更新發布操作流程
+
+用途： 當你修改或覆蓋 SVMS Mobile 專案內的 app.js、index.html、style.css
+等檔案後， 使用以下流程將新版推送到 GitHub，讓 Cloudflare Pages
+自動部署最新版。
+
+================================================== 一、開啟 SVMS Mobile
+專案資料夾 ==================================================
+
+先進入你目前正式使用的 SVMS Mobile 專案資料夾。
+
+確認資料夾內可以看到： - app.js - index.html - style.css - data 資料夾 -
+.git 資料夾（若 Windows 隱藏檔未顯示，不一定看得到）
+
+================================================== 二、在這個資料夾開啟
+CMD ==================================================
+
+方法：
+
+1.  點一下檔案總管上方「路徑列」
+2.  輸入：
+
+cmd
+
+3.  按 Enter
+
+這樣開啟的 CMD 就會直接位於目前 SVMS Mobile 專案資料夾。
+
+================================================== 三、依序執行 Git 指令
+==================================================
+
+【第 1 步｜加入所有本次修改】
+
+git add .
+
+按 Enter。
+
+【第 2 步｜建立版本紀錄】
+
+git commit -m “Update SVMS Mobile”
+
+按 Enter。
+
+如果顯示： nothing to commit, working tree clean
+
+代表目前沒有新的修改需要 Commit，不是故障。
+
+【第 3 步｜先同步 GitHub 最新版本】
+
+git pull –rebase origin main
+
+按 Enter。
+
+正常可能顯示： Already up to date.
+
+或成功完成 rebase。
+
+【第 4 步｜推送新版】
+
+git push origin main
+
+按 Enter。
+
+正常最後會看到類似：
+
+main -> main
+
+代表 GitHub Push 成功。
+
+================================================== 四、等待 Cloudflare
+Pages 自動部署 ==================================================
+
+Git Push 成功後，不需要另外上傳網站。
+
+流程：
+
+本機 SVMS Mobile ↓ git push origin main ↓ GitHub ↓ Cloudflare Pages
+自動偵測 ↓ 部署新版 SVMS Mobile ↓ https://svms-mobile.pages.dev/
+
+通常等待一下後重新開啟網站即可測試最新版。
+
+================================================== 日後固定操作
+==================================================
+
+每次更新程式後，只要：
+
+git add . git commit -m “Update SVMS Mobile” git pull –rebase origin
+main git push origin main
+
+================================================== 重要提醒
+==================================================
+
+1.  一定要在「SVMS Mobile 正式專案資料夾」裡開 CMD。
+
+2.  不要在 StoreVisitMasterAI_v2 的 Generate Engine 資料夾執行這組 Git
+    指令。
+
+3.  git pull –rebase 如果出現 Conflict／CONFLICT： 不要繼續 git push。
+    先停止，把 CMD 畫面截圖確認。
+
+4.  git push 成功後，Cloudflare Pages 才會取得新版。
+
+5.  手機已經「加入主畫面」的 SVMS Mobile 不需要刪掉重新加入。
+    網站部署新版後，重新開啟即可取得新版；若仍看到舊畫面，可完全關閉後再開一次。
+
+================================================== 快速版
+==================================================
+
+git add . git commit -m “Update SVMS Mobile” git pull –rebase origin
+main git push origin main
+
+看到： main -> main
+
+＝發布成功
+
+git add app.js
+git commit -m "Add team Dropbox upload"
+git pull --rebase origin main
+git push origin main

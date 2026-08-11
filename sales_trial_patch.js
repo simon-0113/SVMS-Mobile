@@ -2,7 +2,10 @@
 
 (() => {
   let salesDatabase = null;
-  let salesByCustomerId = new Map();
+  let salesByName = new Map();
+  let salesByDistributorName = new Map();
+  let salesByDistributorCustomerId = new Map();
+  let salesByAddress = new Map();
 
   const style = document.createElement("style");
   style.textContent = `
@@ -18,147 +21,69 @@
   .sales-header{background:#f3f4f6;font-weight:800}
   .sales-empty{padding:16px;color:var(--muted);font-size:13px}
   @media(max-width:560px){
-    .sales-summary{grid-template-columns:repeat(3,minmax(0,1fr))}
     .sales-row{grid-template-columns:minmax(125px,1fr) 54px 54px}
     .sales-summary strong{font-size:15px}
   }`;
   document.head.appendChild(style);
-
-  function normalizeId(value) {
-    return String(value ?? "").trim().replace(/\.0$/, "");
-  }
-
-  function normalizePerson(value) {
-    return String(value || "").normalize("NFKC").trim().toUpperCase().replace(/\s+/g, "");
-  }
-
-  function normalizeAddress(value) {
-    return String(value || "")
-      .normalize("NFKC")
-      .toUpperCase()
-      .replace(/[臺台]/g, "台")
-      .replace(/[－—–]/g, "-")
-      .replace(/\s+/g, "")
-      .replace(/[，,。．]/g, "")
-      .replace(/號之/g, "號");
-  }
-
-  function nameTokens(value) {
-    const raw = String(value || "").normalize("NFKC").toUpperCase();
-    const cleaned = raw
-      .replace(/[()（）【】\[\]]/g, " ")
-      .replace(/[_－—–]/g, "-")
-      .replace(/[.,，。．/／]/g, " ")
-      .replace(/\s+/g, " ")
-      .trim();
-
-    const generic = [
-      "商店","商行","超商","超市","便利商店","便利","購物中心","購物商場",
-      "五金百貨","五金","百貨","菸酒","菸酒專賣店","洋酒","有限公司","股份有限公司",
-      "店","PS"
-    ];
-
-    let compact = cleaned.replace(/\s/g, "");
-    generic.forEach(word => { compact = compact.replaceAll(word, ""); });
-
-    const parts = cleaned
-      .split(/[\s\-]+/)
-      .map(x => x.trim())
-      .filter(Boolean)
-      .filter(x => !generic.includes(x));
-
-    if (compact) parts.push(compact);
-    return [...new Set(parts.filter(x => x.length >= 2))];
-  }
-
-  function isSimilarStoreName(gtName, salesName) {
-    const gt = normalize(gtName);
-    const sales = normalize(salesName);
-
-    if (!gt || !sales) return false;
-    if (gt === sales) return true;
-    if (gt.includes(sales) || sales.includes(gt)) return true;
-
-    const gtTokens = nameTokens(gtName);
-    const salesTokens = nameTokens(salesName);
-
-    return gtTokens.some(a =>
-      salesTokens.some(b =>
-        a === b ||
-        (a.length >= 3 && b.includes(a)) ||
-        (b.length >= 3 && a.includes(b))
-      )
-    );
-  }
-
-  function sameAddress(a, b) {
-    const x = normalizeAddress(a);
-    const y = normalizeAddress(b);
-    if (!x || !y) return false;
-    if (x === y) return true;
-
-    // 只接受「高度接近」地址，不做全資料庫地址猜測
-    const minLen = Math.min(x.length, y.length);
-    if (minLen < 8) return false;
-    return x.includes(y) || y.includes(x);
-  }
-
-  function getSalesRecord(store) {
-    if (!store || !salesDatabase || typeof normalize !== "function") return null;
-
-    // 第一順位：經銷客戶編號
-    const customerId = normalizeId(store.distributor_customer_id);
-    if (customerId) {
-      const idMatches = salesByCustomerId.get(customerId) || [];
-      if (idMatches.length === 1) return idMatches[0];
-
-      // 編號若意外重複，仍用經銷商確認
-      if (idMatches.length > 1) {
-        const distributor = normalize(store.distributor || "");
-        const narrowed = idMatches.filter(item =>
-          normalize(item.distributor || item.distributor_source || "") === distributor
-        );
-        return narrowed.length === 1 ? narrowed[0] : null;
-      }
-      return null;
-    }
-
-    // 第二順位：店名只負責產生「相似候選」
-    let candidates = (salesDatabase.stores || []).filter(item =>
-      isSimilarStoreName(store.store_name, item.store_name)
-    );
-    if (!candidates.length) return null;
-
-    // 第三順位：確認經銷商
-    const distributor = normalize(store.distributor || "");
-    if (!distributor) return null;
-    candidates = candidates.filter(item =>
-      normalize(item.distributor || item.distributor_source || "") === distributor
-    );
-    if (!candidates.length) return null;
-
-    // 第四順位：確認經銷業務
-    const salesperson = normalizePerson(store.distributor_salesperson);
-    if (!salesperson) return null;
-    candidates = candidates.filter(item =>
-      normalizePerson(item.salesperson) === salesperson
-    );
-    if (!candidates.length) return null;
-
-    // 第五順位：地址做最後確認
-    const address = normalizeAddress(store.address);
-    if (!address) return null;
-    candidates = candidates.filter(item => sameAddress(address, item.address));
-
-    // 必須唯一，否則不匯出
-    return candidates.length === 1 ? candidates[0] : null;
-  }
 
   function formatSalesQty(value) {
     if (value === null || value === undefined || value === "") return "—";
     const num = Number(value);
     if (Number.isNaN(num)) return String(value);
     return Number.isInteger(num) ? String(num) : String(Math.round(num * 1000) / 1000);
+  }
+
+  function normalizeAddress(value) {
+    return String(value || "")
+      .normalize("NFKC")
+      .toUpperCase()
+      .replace(/[台臺]/g, "台")
+      .replace(/[\s_\-－—()（）【】[\]．。、,，./／]/g, "");
+  }
+
+  function customerIdKey(distributor, customerId) {
+    const d = String(distributor || "").trim();
+    const c = String(customerId || "").trim().toUpperCase();
+    return d && c ? `${normalize(d)}::${c}` : "";
+  }
+
+  function getSalesRecord(store) {
+    if (!store || typeof normalize !== "function") return null;
+
+    const distributor = String(store.distributor || "").trim();
+    const customerId = String(store.distributor_customer_id || "").trim().toUpperCase();
+    const nameKey = normalize(store.store_name);
+
+    // 1. 最安全：經銷商 + 經銷客戶編號
+    const cidKey = customerIdKey(distributor, customerId);
+    if (cidKey) {
+      const byId = salesByDistributorCustomerId.get(cidKey) || [];
+      if (byId.length === 1) return byId[0];
+      if (byId.length > 1) return null; // 不猜
+    }
+
+    // 2. 經銷商 + 店名
+    if (distributor) {
+      const directKey = `${normalize(distributor)}::${nameKey}`;
+      const direct = salesByDistributorName.get(directKey) || [];
+      if (direct.length === 1) return direct[0];
+    }
+
+    // 3. 只有資料足夠時才做地址確認
+    const storeAddress = normalizeAddress(store.address);
+    const candidates = salesByName.get(nameKey) || [];
+    if (candidates.length === 1) {
+      const candidate = candidates[0];
+      const sameDistributor = !distributor || normalize(candidate.distributor || "") === normalize(distributor);
+      const candidateAddress = normalizeAddress(candidate.address);
+      const sameAddress = !storeAddress || !candidateAddress ||
+        candidateAddress === storeAddress ||
+        candidateAddress.includes(storeAddress) ||
+        storeAddress.includes(candidateAddress);
+      if (sameDistributor && sameAddress) return candidate;
+    }
+
+    return null;
   }
 
   function renderSalesData(store) {
@@ -204,7 +129,6 @@
         <div class="sales-row sales-header"><div>品項</div><div>6月</div><div>7月</div></div>
         ${rows}
       </div>
-      <p class="form-help">進貨資料僅在店家身分安全配對成功後顯示。</p>
     </section>`;
   }
 
@@ -226,18 +150,33 @@
     })
     .then(data => {
       salesDatabase = data;
-      salesByCustomerId = new Map();
 
       (data.stores || []).forEach(item => {
-        const id = normalizeId(item.customer_id);
-        if (!id) return;
-        if (!salesByCustomerId.has(id)) salesByCustomerId.set(id, []);
-        salesByCustomerId.get(id).push(item);
+        const nameKey = normalize(item.store_name);
+        if (!salesByName.has(nameKey)) salesByName.set(nameKey, []);
+        salesByName.get(nameKey).push(item);
+
+        const distributor = String(item.distributor || item.distributor_source || "").trim();
+        if (distributor) {
+          const directKey = `${normalize(distributor)}::${nameKey}`;
+          if (!salesByDistributorName.has(directKey)) salesByDistributorName.set(directKey, []);
+          salesByDistributorName.get(directKey).push(item);
+
+          const idKey = customerIdKey(distributor, item.customer_id);
+          if (idKey) {
+            if (!salesByDistributorCustomerId.has(idKey)) salesByDistributorCustomerId.set(idKey, []);
+            salesByDistributorCustomerId.get(idKey).push(item);
+          }
+        }
+
+        const addressKey = normalizeAddress(item.address);
+        if (addressKey) {
+          if (!salesByAddress.has(addressKey)) salesByAddress.set(addressKey, []);
+          salesByAddress.get(addressKey).push(item);
+        }
       });
 
-      console.info(`[SVMS] Safe sales matching loaded: ${data.stores?.length || 0} records / ${salesByCustomerId.size} customer IDs`);
+      console.info(`[SVMS] Sales loaded: ${data.stores?.length || 0} records / ${salesByDistributorCustomerId.size} exact distributor-customer keys`);
     })
-    .catch(error => {
-      console.warn("[SVMS] Sales load failed:", error);
-    });
+    .catch(error => console.warn("[SVMS] Sales load failed:", error));
 })();

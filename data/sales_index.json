@@ -2,16 +2,14 @@
   "schema_version": "1.4",
   "sources": [
     "喬森6-7進貨資料.xlsx",
-    "洪郁6-7進貨資料.xlsx"
+    "洪郁6-7進貨資料.xlsx",
+    "巨弘昇6月銷售.xlsx",
+    "巨弘昇7月銷收.xlsx"
   ],
   "match_policy": [
-    "1. distributor_customer_id -> sales.customer_id exact match",
-    "2. if no customer id: similar store-name candidates only",
-    "3. filter candidate by distributor exact match",
-    "4. filter candidate by distributor salesperson exact match",
-    "5. confirm by normalized address",
-    "6. export sales only when exactly one candidate remains",
-    "7. no global address-only matching"
+    "GT: distributor + distributor_customer_id exact match first",
+    "fallback only when source has enough fields to confirm: similar store_name + distributor + distributor salesperson + address",
+    "unsafe ambiguous fallback is rejected"
   ],
   "months": [
     "2026-06",
@@ -41789,7 +41787,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -41817,7 +41815,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -41845,7 +41843,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -41869,7 +41867,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -41895,7 +41893,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -41925,7 +41923,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -41956,7 +41954,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -41979,7 +41977,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -42012,7 +42010,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -42036,7 +42034,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -42059,7 +42057,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -42077,7 +42075,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -42092,7 +42090,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -42109,7 +42107,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -42142,7 +42140,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -42175,7 +42173,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -42192,7 +42190,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -42225,7 +42223,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -42261,7 +42259,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -42278,7 +42276,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -42311,7 +42309,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -42338,7 +42336,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -42363,7 +42361,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -42400,7 +42398,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -42436,7 +42434,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -42461,7 +42459,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -42494,7 +42492,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -42525,7 +42523,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -42559,7 +42557,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -42592,7 +42590,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -42617,7 +42615,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -42640,7 +42638,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -42672,7 +42670,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -42701,7 +42699,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -42734,7 +42732,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -42757,7 +42755,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -42786,7 +42784,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -42826,7 +42824,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -42854,7 +42852,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -42886,7 +42884,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -42918,7 +42916,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -42961,7 +42959,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -42989,7 +42987,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -43015,7 +43013,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -43051,7 +43049,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -43080,7 +43078,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -43106,7 +43104,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -43132,7 +43130,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -43163,7 +43161,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -43188,7 +43186,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -43221,7 +43219,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -43251,7 +43249,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -43279,7 +43277,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -43308,7 +43306,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -43346,7 +43344,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -43372,7 +43370,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -43413,7 +43411,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -43451,7 +43449,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -43477,7 +43475,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -43506,7 +43504,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -43539,7 +43537,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -43586,7 +43584,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -43618,7 +43616,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -43641,7 +43639,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -43667,7 +43665,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -43697,7 +43695,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -43729,7 +43727,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -43753,7 +43751,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -43784,7 +43782,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -43822,7 +43820,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -43850,7 +43848,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -43881,7 +43879,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -43912,7 +43910,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -43938,7 +43936,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -43963,7 +43961,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -43982,7 +43980,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -43999,7 +43997,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -44016,7 +44014,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -44042,7 +44040,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -44079,7 +44077,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -44108,7 +44106,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -44132,7 +44130,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -44149,7 +44147,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -44172,7 +44170,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -44195,7 +44193,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -44212,7 +44210,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -44246,7 +44244,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -44270,7 +44268,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -44313,7 +44311,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -44345,7 +44343,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -44371,7 +44369,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -44389,7 +44387,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -44436,7 +44434,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -44461,7 +44459,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -44490,7 +44488,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -44513,7 +44511,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -44539,7 +44537,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -44575,7 +44573,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -44601,7 +44599,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -44625,7 +44623,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -44640,7 +44638,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -44666,7 +44664,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -44703,7 +44701,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -44726,7 +44724,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -44751,7 +44749,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -44782,7 +44780,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -44807,7 +44805,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -44832,7 +44830,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -44870,7 +44868,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -44888,7 +44886,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -44919,7 +44917,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -44950,7 +44948,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -44976,7 +44974,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -45006,7 +45004,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -45036,7 +45034,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -45070,7 +45068,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -45100,7 +45098,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -45118,7 +45116,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -45147,7 +45145,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -45178,7 +45176,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -45211,7 +45209,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -45250,7 +45248,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -45274,7 +45272,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -45315,7 +45313,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -45337,7 +45335,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -45362,7 +45360,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -45385,7 +45383,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -45413,7 +45411,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -45428,7 +45426,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -45456,7 +45454,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -45496,7 +45494,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -45513,7 +45511,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -45545,7 +45543,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -45578,7 +45576,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -45612,7 +45610,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -45644,7 +45642,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -45671,7 +45669,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -45709,7 +45707,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -45732,7 +45730,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -45757,7 +45755,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -45785,7 +45783,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -45813,7 +45811,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -45843,7 +45841,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -45876,7 +45874,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -45911,7 +45909,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -45950,7 +45948,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -45975,7 +45973,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -46000,7 +45998,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -46042,7 +46040,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -46060,7 +46058,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -46085,7 +46083,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -46112,7 +46110,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -46140,7 +46138,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -46168,7 +46166,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -46201,7 +46199,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -46225,7 +46223,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -46258,7 +46256,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -46283,7 +46281,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -46318,7 +46316,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -46353,7 +46351,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -46371,7 +46369,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -46399,7 +46397,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -46427,7 +46425,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -46453,7 +46451,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -46495,7 +46493,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -46519,7 +46517,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -46551,7 +46549,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -46582,7 +46580,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -46610,7 +46608,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -46635,7 +46633,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -46662,7 +46660,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -46695,7 +46693,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -46722,7 +46720,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -46755,7 +46753,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -46781,7 +46779,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -46815,7 +46813,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -46849,7 +46847,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -46880,7 +46878,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -46909,7 +46907,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -46950,7 +46948,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -46974,7 +46972,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -47004,7 +47002,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -47028,7 +47026,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -47053,7 +47051,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -47076,7 +47074,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -47094,7 +47092,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -47122,7 +47120,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -47146,7 +47144,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -47182,7 +47180,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -47215,7 +47213,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -47240,7 +47238,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -47266,7 +47264,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -47288,7 +47286,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -47328,7 +47326,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -47351,7 +47349,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -47381,7 +47379,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -47416,7 +47414,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -47450,7 +47448,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -47473,7 +47471,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -47507,7 +47505,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -47530,7 +47528,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -47568,7 +47566,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -47591,7 +47589,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -47619,7 +47617,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -47644,7 +47642,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -47674,7 +47672,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -47707,7 +47705,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -47736,7 +47734,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -47753,7 +47751,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -47776,7 +47774,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -47799,7 +47797,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -47836,7 +47834,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -47869,7 +47867,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -47893,7 +47891,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -47927,7 +47925,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -47957,7 +47955,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -47982,7 +47980,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -48009,7 +48007,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -48034,7 +48032,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -48064,7 +48062,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -48098,7 +48096,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -48142,7 +48140,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -48185,7 +48183,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -48209,7 +48207,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -48237,7 +48235,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -48269,7 +48267,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -48297,7 +48295,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -48318,7 +48316,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -48356,7 +48354,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -48385,7 +48383,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -48414,7 +48412,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -48443,7 +48441,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -48490,7 +48488,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -48516,7 +48514,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -48543,7 +48541,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -48576,7 +48574,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -48606,7 +48604,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -48632,7 +48630,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -48679,7 +48677,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -48706,7 +48704,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -48737,7 +48735,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -48766,7 +48764,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -48791,7 +48789,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -48819,7 +48817,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -48844,7 +48842,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -48861,7 +48859,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -48879,7 +48877,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -48909,7 +48907,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -48941,7 +48939,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -48972,7 +48970,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -48989,7 +48987,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -49018,7 +49016,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -49035,7 +49033,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -49063,7 +49061,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -49093,7 +49091,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -49120,7 +49118,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -49135,7 +49133,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -49164,7 +49162,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -49188,7 +49186,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -49212,7 +49210,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -49239,7 +49237,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -49264,7 +49262,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -49294,7 +49292,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -49328,7 +49326,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -49355,7 +49353,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -49384,7 +49382,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -49423,7 +49421,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -49454,7 +49452,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -49486,7 +49484,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -49523,7 +49521,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -49550,7 +49548,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -49567,7 +49565,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -49595,7 +49593,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -49645,7 +49643,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -49662,7 +49660,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -49702,7 +49700,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -49731,7 +49729,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -49752,7 +49750,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -49781,7 +49779,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -49817,7 +49815,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -49851,7 +49849,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -49882,7 +49880,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -49906,7 +49904,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -49923,7 +49921,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -49938,7 +49936,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -49953,7 +49951,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -49987,7 +49985,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -50014,7 +50012,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -50037,7 +50035,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -50062,7 +50060,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -50094,7 +50092,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -50120,7 +50118,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -50137,7 +50135,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -50160,7 +50158,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -50184,7 +50182,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -50228,7 +50226,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -50260,7 +50258,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -50284,7 +50282,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -50310,7 +50308,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -50341,7 +50339,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -50375,7 +50373,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -50417,7 +50415,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -50448,7 +50446,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -50489,7 +50487,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -50516,7 +50514,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -50540,7 +50538,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -50562,7 +50560,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -50592,7 +50590,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -50623,7 +50621,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -50649,7 +50647,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -50675,7 +50673,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -50698,7 +50696,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -50724,7 +50722,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -50753,7 +50751,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -50789,7 +50787,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -50822,7 +50820,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -50840,7 +50838,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -50868,7 +50866,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -50907,7 +50905,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -50948,7 +50946,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -50976,7 +50974,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -51005,7 +51003,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -51041,7 +51039,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -51064,7 +51062,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -51090,7 +51088,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -51114,7 +51112,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -51146,7 +51144,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -51173,7 +51171,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -51200,7 +51198,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -51223,7 +51221,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -51247,7 +51245,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -51286,7 +51284,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -51315,7 +51313,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -51342,7 +51340,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -51369,7 +51367,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -51398,7 +51396,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -51428,7 +51426,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -51451,7 +51449,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -51475,7 +51473,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -51492,7 +51490,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -51510,7 +51508,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -51536,7 +51534,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -51553,7 +51551,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -51578,7 +51576,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -51612,7 +51610,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -51653,7 +51651,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -51688,7 +51686,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -51724,7 +51722,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -51757,7 +51755,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -51782,7 +51780,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -51806,7 +51804,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -51832,7 +51830,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -51856,7 +51854,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -51879,7 +51877,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -51908,7 +51906,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -51925,7 +51923,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -51960,7 +51958,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -51983,7 +51981,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -52009,7 +52007,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -52043,7 +52041,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -52071,7 +52069,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -52101,7 +52099,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -52121,7 +52119,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -52152,7 +52150,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -52191,7 +52189,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -52236,7 +52234,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -52265,7 +52263,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -52301,7 +52299,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -52332,7 +52330,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -52365,7 +52363,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -52398,7 +52396,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -52421,7 +52419,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -52449,7 +52447,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -52473,7 +52471,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -52504,7 +52502,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -52535,7 +52533,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -52558,7 +52556,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -52576,7 +52574,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -52600,7 +52598,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -52630,7 +52628,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -52654,7 +52652,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -52685,7 +52683,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -52708,7 +52706,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -52735,7 +52733,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -52767,7 +52765,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -52796,7 +52794,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -52820,7 +52818,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -52844,7 +52842,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -52861,7 +52859,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -52892,7 +52890,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -52910,7 +52908,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -52943,7 +52941,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -52970,7 +52968,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -53006,7 +53004,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -53031,7 +53029,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -53062,7 +53060,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -53099,7 +53097,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -53117,7 +53115,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -53140,7 +53138,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -53163,7 +53161,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -53195,7 +53193,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -53225,7 +53223,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -53250,7 +53248,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -53273,7 +53271,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -53319,7 +53317,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -53362,7 +53360,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -53379,7 +53377,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -53405,7 +53403,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -53422,7 +53420,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -53457,7 +53455,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -53483,7 +53481,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -53507,7 +53505,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -53530,7 +53528,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -53558,7 +53556,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -53575,7 +53573,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -53595,7 +53593,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -53621,7 +53619,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -53644,7 +53642,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -53677,7 +53675,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -53711,7 +53709,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -53728,7 +53726,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -53754,7 +53752,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -53775,7 +53773,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -53792,7 +53790,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -53826,7 +53824,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -53853,7 +53851,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -53879,7 +53877,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -53909,7 +53907,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -53941,7 +53939,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -53984,7 +53982,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -54015,7 +54013,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -54041,7 +54039,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -54058,7 +54056,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -54075,7 +54073,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -54099,7 +54097,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -54123,7 +54121,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -54140,7 +54138,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -54182,7 +54180,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -54211,7 +54209,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -54226,7 +54224,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -54263,7 +54261,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -54280,7 +54278,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -54304,7 +54302,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -54321,7 +54319,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -54349,7 +54347,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -54389,7 +54387,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -54413,7 +54411,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -54428,7 +54426,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -54459,7 +54457,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -54482,7 +54480,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -54512,7 +54510,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -54537,7 +54535,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -54563,7 +54561,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -54589,7 +54587,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -54630,7 +54628,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -54659,7 +54657,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -54694,7 +54692,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -54712,7 +54710,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -54750,7 +54748,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -54775,7 +54773,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -54799,7 +54797,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -54814,7 +54812,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -54849,7 +54847,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -54895,7 +54893,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -54910,7 +54908,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -54944,7 +54942,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -54971,7 +54969,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55001,7 +54999,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55016,7 +55014,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55041,7 +55039,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55068,7 +55066,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55091,7 +55089,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55117,7 +55115,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55134,7 +55132,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55171,7 +55169,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55202,7 +55200,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55219,7 +55217,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55245,7 +55243,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55269,7 +55267,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55311,7 +55309,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55328,7 +55326,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55355,7 +55353,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55378,7 +55376,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55406,7 +55404,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55440,7 +55438,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55470,7 +55468,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55498,7 +55496,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55525,7 +55523,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55562,7 +55560,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55577,7 +55575,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55594,7 +55592,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55619,7 +55617,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55637,7 +55635,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55654,7 +55652,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55677,7 +55675,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55721,7 +55719,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55744,7 +55742,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55767,7 +55765,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55790,7 +55788,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55808,7 +55806,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55831,7 +55829,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55848,7 +55846,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55874,7 +55872,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55889,7 +55887,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55906,7 +55904,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55929,7 +55927,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55954,7 +55952,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -55978,7 +55976,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -56004,7 +56002,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -56024,7 +56022,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -56047,7 +56045,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -56071,7 +56069,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -56094,7 +56092,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -56129,7 +56127,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -56150,7 +56148,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -56174,7 +56172,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -56198,7 +56196,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -56224,7 +56222,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -56252,7 +56250,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -56287,7 +56285,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -56310,7 +56308,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -56330,7 +56328,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -56347,7 +56345,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -56379,7 +56377,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -56402,7 +56400,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -56428,7 +56426,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -56455,7 +56453,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -56480,7 +56478,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -56508,7 +56506,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -56534,7 +56532,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -56581,7 +56579,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -56604,7 +56602,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -56632,7 +56630,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -56649,7 +56647,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -56672,7 +56670,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -56695,7 +56693,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -56718,7 +56716,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -56735,7 +56733,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -56783,7 +56781,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -56807,7 +56805,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -56846,7 +56844,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -56871,7 +56869,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -56901,7 +56899,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -56928,7 +56926,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -56962,7 +56960,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -56983,7 +56981,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57000,7 +56998,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57017,7 +57015,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57040,7 +57038,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57057,7 +57055,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57083,7 +57081,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57108,7 +57106,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57140,7 +57138,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57168,7 +57166,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57197,7 +57195,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57214,7 +57212,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57237,7 +57235,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57260,7 +57258,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57279,7 +57277,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57296,7 +57294,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57315,7 +57313,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57333,7 +57331,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57350,7 +57348,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57368,7 +57366,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57385,7 +57383,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57405,7 +57403,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57426,7 +57424,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57449,7 +57447,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57467,7 +57465,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57492,7 +57490,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57518,7 +57516,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57535,7 +57533,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57552,7 +57550,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57569,7 +57567,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57607,7 +57605,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57629,7 +57627,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57651,7 +57649,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57668,7 +57666,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57683,7 +57681,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57700,7 +57698,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57721,7 +57719,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57736,7 +57734,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57758,7 +57756,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57775,7 +57773,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57793,7 +57791,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57810,7 +57808,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57828,7 +57826,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57846,7 +57844,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57864,7 +57862,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57882,7 +57880,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57899,7 +57897,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57918,7 +57916,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57941,7 +57939,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57963,7 +57961,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -57992,7 +57990,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58009,7 +58007,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58026,7 +58024,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58041,7 +58039,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58056,7 +58054,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58071,7 +58069,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58089,7 +58087,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58107,7 +58105,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58124,7 +58122,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58141,7 +58139,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58162,7 +58160,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58181,7 +58179,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58199,7 +58197,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58217,7 +58215,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58236,7 +58234,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58258,7 +58256,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58275,7 +58273,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58293,7 +58291,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58311,7 +58309,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58328,7 +58326,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58345,7 +58343,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58364,7 +58362,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58381,7 +58379,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58398,7 +58396,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58415,7 +58413,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58434,7 +58432,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58457,7 +58455,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58474,7 +58472,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58493,7 +58491,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58510,7 +58508,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58527,7 +58525,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58546,7 +58544,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58563,7 +58561,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58580,7 +58578,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58599,7 +58597,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58617,7 +58615,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58634,7 +58632,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58651,7 +58649,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58668,7 +58666,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58685,7 +58683,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58703,7 +58701,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58720,7 +58718,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58737,7 +58735,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58754,7 +58752,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58772,7 +58770,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58787,7 +58785,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58804,7 +58802,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58819,7 +58817,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58843,7 +58841,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58858,7 +58856,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58873,7 +58871,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58888,7 +58886,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58903,7 +58901,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58918,7 +58916,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58933,7 +58931,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58948,7 +58946,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58968,7 +58966,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58983,7 +58981,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -58998,7 +58996,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59015,7 +59013,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59038,7 +59036,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59059,7 +59057,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59077,7 +59075,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59094,7 +59092,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59114,7 +59112,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59129,7 +59127,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59144,7 +59142,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59159,7 +59157,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59177,7 +59175,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59197,7 +59195,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59214,7 +59212,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59231,7 +59229,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59250,7 +59248,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59265,7 +59263,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59280,7 +59278,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59297,7 +59295,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59314,7 +59312,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59331,7 +59329,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59349,7 +59347,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59366,7 +59364,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59384,7 +59382,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59399,7 +59397,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59414,7 +59412,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59429,7 +59427,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59444,7 +59442,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59459,7 +59457,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59474,7 +59472,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59489,7 +59487,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59504,7 +59502,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59519,7 +59517,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59534,7 +59532,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59551,7 +59549,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59569,7 +59567,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59586,7 +59584,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59604,7 +59602,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59631,7 +59629,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59646,7 +59644,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59663,7 +59661,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59678,7 +59676,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59698,7 +59696,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59717,7 +59715,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59735,7 +59733,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59750,7 +59748,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59765,7 +59763,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59783,7 +59781,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59798,7 +59796,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59813,7 +59811,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59832,7 +59830,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59847,7 +59845,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59864,7 +59862,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59879,7 +59877,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59894,7 +59892,7 @@
           "products": {}
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59914,7 +59912,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59935,7 +59933,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59957,7 +59955,7 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
     },
     {
@@ -59975,8 +59973,3861 @@
           }
         }
       },
-      "distributor": "洪郁",
+      "distributor": "",
       "source_owner": "洪郁"
+    },
+    {
+      "store_name": "STOP超商",
+      "customer_id": "ZRA0102",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 8,
+          "products": {
+            "寶亨9號雙晶球": 1,
+            "寶亨6號": 1,
+            "小寶亨6號": 3,
+            "小寶亨藍牌6號": 2,
+            "小寶亨大地紅": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "明有商行",
+      "customer_id": "ZRA0201",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 8,
+          "products": {
+            "愛喜雙紫1毫克": 1,
+            "愛喜(黑) 4mg": 2,
+            "寶亨9號雙晶球": 1,
+            "寶亨Mojito晶球 6": 1,
+            "小寶亨6號": 1,
+            "小寶亨3號": 2
+          }
+        }
+      }
+    },
+    {
+      "store_name": "明益生鮮超",
+      "customer_id": "ZRA0202",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 4,
+          "products": {
+            "寶亨9號雙晶球": 1,
+            "小寶亨6號": 1,
+            "小寶亨3號": 1,
+            "寶亨(紫)SAWA": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "旺客多",
+      "customer_id": "ZRA0203",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 21,
+          "products": {
+            "寶亨9號雙晶球": 1,
+            "寶亨6號": 2,
+            "小寶亨6號": 2,
+            "小寶亨藍牌6號": 9,
+            "名世長支(紅)T8": 6,
+            "嘉年華(紅)": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "金塊超商",
+      "customer_id": "ZRA0401",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 7,
+          "products": {
+            "寶亨9號": 1,
+            "名世長支(紅)T8": 5,
+            "名世長支(藍)T5": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "恬園平價",
+      "customer_id": "ZRA0501",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 9,
+          "products": {
+            "寶亨9號雙晶球": 2,
+            "寶亨Mojito晶球 6": 1,
+            "小寶亨藍牌6號": 3,
+            "小寶亨大地紅": 2,
+            "寶亨(紫)SAWA": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "豪久大賣場",
+      "customer_id": "ZRA0503",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 16,
+          "products": {
+            "寶亨9號雙晶球": 2,
+            "寶亨6號": 2,
+            "寶亨Mojito晶球 6": 2,
+            "小寶亨6號": 2,
+            "小寶亨藍牌6號": 4,
+            "小寶亨大地紅": 2,
+            "名世長支(藍)T5": 1,
+            "寶亨(紫)SAWA": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "合家歡",
+      "customer_id": "ZRA0601",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 61,
+          "products": {
+            "愛喜(薄荷)": 1,
+            "寶亨9號雙晶球": 5,
+            "寶亨6號": 3,
+            "寶亨3號": 1,
+            "寶亨Mojito晶球 6": 7,
+            "寶亨Mojito晶球 1": 5,
+            "小寶亨藍牌6號": 1,
+            "名世長支(紅)T8": 24,
+            "名世長支(藍)T5": 12,
+            "寶亨(綠)SAWA": 1,
+            "寶亨(紫)SAWA": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "翁財記",
+      "customer_id": "ZRA0701",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 21,
+          "products": {
+            "寶亨6號": 2,
+            "寶亨9號": 1,
+            "名世長支(紅)T8": 3,
+            "名世長支(藍)T5": 13,
+            "嘉年華(紅)": 1,
+            "嘉年華(藍)": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "客來興便利",
+      "customer_id": "ZRA0702",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 19,
+          "products": {
+            "寶亨9號雙晶球": 2,
+            "寶亨9號": 1,
+            "小寶亨6號": 5,
+            "名世長支(藍)T5": 8,
+            "伊歐尼紫色1號": 1,
+            "嘉年華(紅)": 1,
+            "嘉年華(藍)": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "咁麥店",
+      "customer_id": "ZRA0901",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 7,
+          "products": {
+            "寶亨6號": 3,
+            "名世長支(紅)T8": 1,
+            "名世長支(藍)T5": 3
+          }
+        }
+      }
+    },
+    {
+      "store_name": "千洋",
+      "customer_id": "ZRA0902",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 33,
+          "products": {
+            "寶亨9號雙晶球": 1,
+            "寶亨6號": 1,
+            "小寶亨6號": 7,
+            "小寶亨3號": 2,
+            "小寶亨藍牌6號": 1,
+            "名世長支(紅)T8": 10,
+            "名世長支(藍)T5": 6,
+            "寶亨(綠)SAWA": 1,
+            "寶亨(紫)SAWA": 4
+          }
+        }
+      }
+    },
+    {
+      "store_name": "中日超商",
+      "customer_id": "ZRA1001",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 1,
+          "products": {
+            "名世長支(藍)T5": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "大賣超市",
+      "customer_id": "ZRA1002",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 21.5,
+          "products": {
+            "寶亨9號雙晶球": 2,
+            "寶亨6號": 1,
+            "小寶亨6號": 1,
+            "小寶亨藍牌6號": 1,
+            "小寶亨大地紅": 2,
+            "名世長支(紅)T8": 10,
+            "寶亨(紫)SAWA": 4,
+            "寶亨(金)SAWA": 0.5
+          }
+        }
+      }
+    },
+    {
+      "store_name": "富旺超市",
+      "customer_id": "ZRA1004",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 13,
+          "products": {
+            "寶亨9號": 1,
+            "小寶亨6號": 2,
+            "名世長支(紅)T8": 5,
+            "名世長支(藍)T5": 3,
+            "寶亨(紫)SAWA": 2
+          }
+        }
+      }
+    },
+    {
+      "store_name": "仁智便利",
+      "customer_id": "ZRB0101",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 11,
+          "products": {
+            "寶亨6號": 4,
+            "小寶亨6號": 1,
+            "小寶亨3號": 2,
+            "小寶亨大地紅": 1,
+            "寶亨(紫)SAWA": 3
+          }
+        }
+      }
+    },
+    {
+      "store_name": "中日-竹東",
+      "customer_id": "ZRB0102",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 13,
+          "products": {
+            "寶亨9號": 3,
+            "小寶亨6號": 8,
+            "小寶亨藍牌6號": 2
+          }
+        }
+      }
+    },
+    {
+      "store_name": "陽光平價",
+      "customer_id": "ZRB0104",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 9,
+          "products": {
+            "寶亨9號雙晶球": 2,
+            "寶亨6號": 5,
+            "名世長支(紅)T8": 2
+          }
+        }
+      }
+    },
+    {
+      "store_name": "全國五金",
+      "customer_id": "ZRB0105",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 13,
+          "products": {
+            "寶亨9號雙晶球": 1,
+            "寶亨6號": 1,
+            "小寶亨大地紅": 1,
+            "名世長支(紅)T8": 7,
+            "名世長支(藍)T5": 3
+          }
+        }
+      }
+    },
+    {
+      "store_name": "大九九",
+      "customer_id": "ZRB0109",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 9,
+          "products": {
+            "寶亨9號雙晶球": 1,
+            "寶亨6號": 2,
+            "小寶亨6號": 2,
+            "小寶亨大地紅": 1,
+            "名世長支(紅)T8": 1,
+            "名世長支(藍)T5": 2
+          }
+        }
+      }
+    },
+    {
+      "store_name": "人緣百貨",
+      "customer_id": "ZRB0111",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 2,
+          "products": {
+            "寶亨6號": 2
+          }
+        }
+      }
+    },
+    {
+      "store_name": "正光商店",
+      "customer_id": "ZRB0115",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 3,
+          "products": {
+            "寶亨6號": 3
+          }
+        }
+      }
+    },
+    {
+      "store_name": "美好商店",
+      "customer_id": "ZRB0117",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 3,
+          "products": {
+            "寶亨6號": 1,
+            "寶亨法藍絲晶球": 1,
+            "寶亨Mojito晶球 1": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "尚好行",
+      "customer_id": "ZRB0123",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 7,
+          "products": {
+            "小寶亨藍牌6號": 5,
+            "名世長支(藍)T5": 1,
+            "嘉年華(藍)": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "益眾超商",
+      "customer_id": "ZRB0201",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 10,
+          "products": {
+            "寶亨6號": 2,
+            "小寶亨藍牌6號": 2,
+            "小寶亨大地紅": 2,
+            "名世長支(紅)T8": 2,
+            "寶亨(紫)SAWA": 2
+          }
+        }
+      }
+    },
+    {
+      "store_name": "萊福誠",
+      "customer_id": "ZRB0202",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 8,
+          "products": {
+            "名世長支(紅)T8": 7,
+            "名世長支(藍)T5": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "高楊",
+      "customer_id": "ZRB0204",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 4,
+          "products": {
+            "寶亨9號雙晶球": 1,
+            "寶亨6號": 1,
+            "小寶亨藍牌6號": 1,
+            "嘉年華(紅)": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "名笙",
+      "customer_id": "ZRB0205",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 37,
+          "products": {
+            "寶亨6號": 6,
+            "寶亨Mojito晶球 6": 1,
+            "小寶亨6號": 7,
+            "小寶亨3號": 1,
+            "小寶亨藍牌6號": 5,
+            "小寶亨大地紅": 2,
+            "名世長支(紅)T8": 12,
+            "名世長支(藍)T5": 2,
+            "嘉年華(藍)": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "大弘商店",
+      "customer_id": "ZRB0208",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 2,
+          "products": {
+            "寶亨9號雙晶球": 1,
+            "寶亨6號": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "愛來超市",
+      "customer_id": "ZRB0209",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 1,
+          "products": {
+            "小寶亨6號": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "新鎮-仁美",
+      "customer_id": "ZRB0211",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 15,
+          "products": {
+            "小寶亨6號": 4,
+            "小寶亨藍牌6號": 4,
+            "小寶亨大地紅": 1,
+            "名世長支(紅)T8": 3,
+            "名世長支(藍)T5": 3
+          }
+        }
+      }
+    },
+    {
+      "store_name": "鼎豐五金",
+      "customer_id": "ZRB0212",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 17,
+          "products": {
+            "寶亨Mojito晶球 6": 4,
+            "小寶亨藍牌6號": 4,
+            "寶亨X8": 1,
+            "寶亨(紫)SAWA": 4,
+            "嘉年華(藍)": 1,
+            "寶亨午後": 3
+          }
+        }
+      }
+    },
+    {
+      "store_name": "滿滿",
+      "customer_id": "ZRB0301",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 28,
+          "products": {
+            "寶亨9號雙晶球": 1,
+            "寶亨9號": 1,
+            "小寶亨6號": 4,
+            "名世長支(紅)T8": 12,
+            "名世長支(藍)T5": 10
+          }
+        }
+      }
+    },
+    {
+      "store_name": "佳酒莊",
+      "customer_id": "ZRB0303",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 40,
+          "products": {
+            "寶亨6號": 1,
+            "寶亨Mojito晶球 6": 2,
+            "小寶亨6號": 18,
+            "小寶亨3號": 15,
+            "寶亨(紫)SAWA": 4
+          }
+        }
+      }
+    },
+    {
+      "store_name": "好運",
+      "customer_id": "ZRB0304",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 16,
+          "products": {
+            "寶亨3號": 1,
+            "寶亨9號": 1,
+            "小寶亨6號": 1,
+            "名世長支(紅)T8": 3,
+            "名世長支(藍)T5": 7,
+            "寶亨(紫)SAWA": 1,
+            "嘉年華(紅)": 1,
+            "嘉年華(藍)": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "合阡商號",
+      "customer_id": "ZRB0305",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 16,
+          "products": {
+            "寶亨9號雙晶球": 1,
+            "寶亨9號": 1,
+            "小寶亨6號": 1,
+            "小寶亨藍牌6號": 4,
+            "名世長支(紅)T8": 5,
+            "名世長支(藍)T5": 3,
+            "寶亨(綠)SAWA": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "99大賣場",
+      "customer_id": "ZRB0306",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 6,
+          "products": {
+            "小寶亨6號": 4,
+            "名世長支(藍)T5": 2
+          }
+        }
+      }
+    },
+    {
+      "store_name": "南北商行",
+      "customer_id": "ZRB0307",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 1,
+          "products": {
+            "名世長支(藍)T5": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "全麥",
+      "customer_id": "ZRB0308",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 40,
+          "products": {
+            "愛喜(藍)": 2,
+            "寶亨9號雙晶球": 6,
+            "寶亨6號": 1,
+            "寶亨3號": 2,
+            "寶亨Mojito晶球 6": 2,
+            "寶亨9號": 1,
+            "小寶亨6號": 3,
+            "小寶亨3號": 5,
+            "小寶亨藍牌6號": 8,
+            "小寶亨大地紅": 2,
+            "寶亨CLÁSICO棕7": 2,
+            "寶亨 鈦黑": 5,
+            "寶亨X8": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "大流通永仁",
+      "customer_id": "ZRB0309",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 12,
+          "products": {
+            "寶亨9號雙晶球": 1,
+            "寶亨9號": 1,
+            "名世長支(紅)T8": 7,
+            "名世長支(藍)T5": 3
+          }
+        }
+      }
+    },
+    {
+      "store_name": "永和便利",
+      "customer_id": "ZRB0310",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 2,
+          "products": {
+            "寶亨6號": 1,
+            "寶亨9號": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "億客堂",
+      "customer_id": "ZRB0312",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 10,
+          "products": {
+            "寶亨9號雙晶球": 1,
+            "寶亨6號": 1,
+            "寶亨1號": 1,
+            "寶亨9號": 1,
+            "名世長支(紅)T8": 6
+          }
+        }
+      }
+    },
+    {
+      "store_name": "大仁超商",
+      "customer_id": "ZRB0313",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 12,
+          "products": {
+            "寶亨Mojito晶球 6": 1,
+            "小寶亨6號": 1,
+            "小寶亨藍牌6號": 2,
+            "小寶亨大地紅": 2,
+            "名世長支(紅)T8": 1,
+            "名世長支(藍)T5": 1,
+            "寶亨(綠)SAWA": 4
+          }
+        }
+      }
+    },
+    {
+      "store_name": "姊妹商店",
+      "customer_id": "ZRB0316",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 1,
+          "products": {
+            "小寶亨藍牌6號": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "加鑫五金",
+      "customer_id": "ZRB0317",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 8,
+          "products": {
+            "名世長支(紅)T8": 6,
+            "名世長支(藍)T5": 2
+          }
+        }
+      }
+    },
+    {
+      "store_name": "大華洋行",
+      "customer_id": "ZRB0319",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 1,
+          "products": {
+            "小寶亨6號": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "金鳴洋行",
+      "customer_id": "ZRB0321",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 58,
+          "products": {
+            "愛喜(藍)": 5,
+            "愛喜紫晶靈 1mg": 4,
+            "愛喜(黑) 4mg": 1,
+            "寶亨9號雙晶球": 10,
+            "寶亨6號": 5,
+            "寶亨3號": 3,
+            "寶亨法藍絲晶球": 2,
+            "寶亨Mojito晶球 6": 3,
+            "寶亨Mojito晶球 1": 4,
+            "寶亨(綠)SAWA": 4,
+            "寶亨(紫)SAWA": 9,
+            "寶亨(金)SAWA": 3,
+            "伊歐尼紫色1號": 2,
+            "寶亨紫極SAWA9號": 3
+          }
+        }
+      }
+    },
+    {
+      "store_name": "巨蛋超商",
+      "customer_id": "ZRB0401",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 3,
+          "products": {
+            "寶亨9號雙晶球": 2,
+            "名世長支(藍)T5": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "富而樂龔厝",
+      "customer_id": "ZRB0403",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 1,
+          "products": {
+            "寶亨9號": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "福記",
+      "customer_id": "ZRB0404",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 9,
+          "products": {
+            "寶亨9號雙晶球": 1,
+            "寶亨6號": 4,
+            "寶亨9號": 1,
+            "小寶亨藍牌6號": 2,
+            "小寶亨大地紅": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "娥媽媽平",
+      "customer_id": "ZRB0405",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 34,
+          "products": {
+            "寶亨9號雙晶球": 2,
+            "寶亨6號": 1,
+            "寶亨9號": 1,
+            "小寶亨藍牌6號": 7,
+            "小寶亨大地紅": 1,
+            "名世長支(藍)T5": 10,
+            "寶亨CLÁSICO棕7": 4,
+            "寶亨(綠)SAWA": 6,
+            "寶亨(紫)SAWA": 2
+          }
+        }
+      }
+    },
+    {
+      "store_name": "123平價",
+      "customer_id": "ZRB0406",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 5,
+          "products": {
+            "寶亨9號雙晶球": 1,
+            "寶亨9號": 2,
+            "寶亨(紫)SAWA": 2
+          }
+        }
+      }
+    },
+    {
+      "store_name": "好康多",
+      "customer_id": "ZRB0409",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 1,
+          "products": {
+            "寶亨9號": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "雄青超市",
+      "customer_id": "ZRB0410",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 4,
+          "products": {
+            "寶亨9號雙晶球": 3,
+            "寶亨9號": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "如憶洋酒",
+      "customer_id": "ZRB0411",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 5,
+          "products": {
+            "寶亨9號雙晶球": 3,
+            "寶亨Mojito晶球 6": 1,
+            "寶亨9號": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "金日",
+      "customer_id": "ZRB0501",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 13.2,
+          "products": {
+            "寶亨9號雙晶球": 2,
+            "寶亨3號": 0.7,
+            "寶亨Mojito晶球 6": 1,
+            "寶亨9號": 1,
+            "小寶亨6號": 3,
+            "小寶亨藍牌6號": 5,
+            "寶亨(金)SAWA": 0.5
+          }
+        }
+      }
+    },
+    {
+      "store_name": "大八",
+      "customer_id": "ZRB0504",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 28,
+          "products": {
+            "愛喜(藍)": 1,
+            "寶亨9號雙晶球": 11,
+            "寶亨6號": 2,
+            "寶亨3號": 1,
+            "寶亨Mojito晶球 6": 2,
+            "寶亨9號": 2,
+            "小寶亨藍牌6號": 6,
+            "小寶亨大地紅": 1,
+            "寶亨(紫)SAWA": 2
+          }
+        }
+      }
+    },
+    {
+      "store_name": "新宏昌",
+      "customer_id": "ZRB0505",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 24,
+          "products": {
+            "愛喜紫晶靈 1mg": 1,
+            "寶亨9號雙晶球": 1,
+            "寶亨6號": 1,
+            "寶亨Mojito晶球 6": 1,
+            "寶亨9號": 4,
+            "小寶亨6號": 1,
+            "名世長支(紅)T8": 2,
+            "寶亨CLÁSICO棕7": 5,
+            "寶亨(紫)SAWA": 6,
+            "嘉年華(紅)": 2
+          }
+        }
+      }
+    },
+    {
+      "store_name": "佳佳",
+      "customer_id": "ZRB0507",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 7,
+          "products": {
+            "寶亨9號": 1,
+            "名世長支(藍)T5": 6
+          }
+        }
+      }
+    },
+    {
+      "store_name": "麗家商號",
+      "customer_id": "ZRB0508",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 4,
+          "products": {
+            "寶亨6號": 1,
+            "寶亨9號": 2,
+            "小寶亨大地紅": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "珍旺",
+      "customer_id": "ZRB0510",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 10,
+          "products": {
+            "寶亨9號": 1,
+            "名世長支(紅)T8": 3,
+            "名世長支(藍)T5": 5,
+            "寶亨(紫)SAWA": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "大八2店",
+      "customer_id": "ZRB0512",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 14,
+          "products": {
+            "小寶亨藍牌6號": 12,
+            "寶亨(紫)SAWA": 1,
+            "寶亨(金)SAWA": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "志和商號",
+      "customer_id": "ZRB0513",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 10,
+          "products": {
+            "小寶亨6號": 2,
+            "小寶亨藍牌6號": 2,
+            "小寶亨大地紅": 2,
+            "名世長支(藍)T5": 4
+          }
+        }
+      }
+    },
+    {
+      "store_name": "新鎮-林園",
+      "customer_id": "ZRB0514",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 3.3,
+          "products": {
+            "寶亨3號": 0.3,
+            "小寶亨6號": 1,
+            "小寶亨藍牌6號": 1,
+            "寶亨(紫)SAWA": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "祥發",
+      "customer_id": "ZRB0601",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 4,
+          "products": {
+            "小寶亨6號": 2,
+            "小寶亨藍牌6號": 2
+          }
+        }
+      }
+    },
+    {
+      "store_name": "陽明商店",
+      "customer_id": "ZRB0605",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 1,
+          "products": {
+            "寶亨9號": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "新世宏",
+      "customer_id": "ZRB0606",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 1,
+          "products": {
+            "寶亨9號": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "新鎮-美山",
+      "customer_id": "ZRB0608",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 24,
+          "products": {
+            "寶亨6號": 2,
+            "寶亨Mojito晶球 6": 1,
+            "寶亨9號": 2,
+            "小寶亨6號": 5,
+            "小寶亨大地紅": 4,
+            "名世長支(紅)T8": 6,
+            "名世長支(藍)T5": 2,
+            "寶亨(紫)SAWA": 2
+          }
+        }
+      }
+    },
+    {
+      "store_name": "新新商行",
+      "customer_id": "ZRB0609",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 9,
+          "products": {
+            "寶亨9號": 1,
+            "名世長支(紅)T8": 6,
+            "名世長支(藍)T5": 2
+          }
+        }
+      }
+    },
+    {
+      "store_name": "緯承企業",
+      "customer_id": "ZRB0610",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 2,
+          "products": {
+            "名世長支(藍)T5": 1,
+            "寶亨(紫)SAWA": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "鳥松農會",
+      "customer_id": "ZRB0612",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 3,
+          "products": {
+            "愛喜(黑) 4mg": 2,
+            "寶亨9號": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "鴻文五福",
+      "customer_id": "ZRB0703",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 7,
+          "products": {
+            "寶亨6號": 2,
+            "寶亨9號": 1,
+            "小寶亨3號": 2,
+            "小寶亨大地紅": 2
+          }
+        }
+      }
+    },
+    {
+      "store_name": "鴻文南光",
+      "customer_id": "ZRB0704",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 35,
+          "products": {
+            "愛喜(薄荷)": 1,
+            "愛喜藍晶靈 4mg": 3,
+            "愛喜(黑) 4mg": 2,
+            "寶亨9號雙晶球": 5,
+            "寶亨6號": 3,
+            "寶亨Mojito晶球 6": 7,
+            "小寶亨藍牌6號": 9,
+            "小寶亨大地紅": 1,
+            "寶亨(紫)SAWA": 4
+          }
+        }
+      }
+    },
+    {
+      "store_name": "鴻圖商行",
+      "customer_id": "ZRB0707",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 26,
+          "products": {
+            "寶亨9號雙晶球": 2,
+            "寶亨6號": 1,
+            "寶亨Mojito晶球 6": 2,
+            "寶亨9號": 1,
+            "小寶亨6號": 1,
+            "小寶亨3號": 1,
+            "小寶亨大地紅": 2,
+            "名世長支(紅)T8": 5,
+            "名世長支(藍)T5": 11
+          }
+        }
+      }
+    },
+    {
+      "store_name": "一甲農務",
+      "customer_id": "ZRB0708",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 3,
+          "products": {
+            "愛喜(黑) 4mg": 2,
+            "寶亨9號": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "九久一甲",
+      "customer_id": "ZRB0710",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 5,
+          "products": {
+            "寶亨6號": 5
+          }
+        }
+      }
+    },
+    {
+      "store_name": "藍宇",
+      "customer_id": "ZRB0718",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 1,
+          "products": {
+            "寶亨9號": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "鑫呈商行",
+      "customer_id": "ZRB0721",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 19,
+          "products": {
+            "寶亨9號雙晶球": 2,
+            "寶亨Mojito晶球 6": 1,
+            "小寶亨3號": 2,
+            "小寶亨藍牌6號": 1,
+            "小寶亨大地紅": 1,
+            "名世長支(紅)T8": 5,
+            "名世長支(藍)T5": 5,
+            "寶亨(金)SAWA": 2
+          }
+        }
+      }
+    },
+    {
+      "store_name": "鑫浤菸酒",
+      "customer_id": "ZRB0722",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 9,
+          "products": {
+            "愛喜(薄荷)": 3,
+            "寶亨9號雙晶球": 2,
+            "寶亨6號": 2,
+            "寶亨Mojito晶球 6": 2
+          }
+        }
+      }
+    },
+    {
+      "store_name": "卡娃伊便利",
+      "customer_id": "ZRB0805",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 38,
+          "products": {
+            "寶亨9號雙晶球": 1,
+            "寶亨6號": 6,
+            "寶亨9號": 1,
+            "小寶亨6號": 5,
+            "小寶亨3號": 1,
+            "小寶亨藍牌6號": 5,
+            "小寶亨大地紅": 2,
+            "名世長支(紅)T8": 6,
+            "名世長支(藍)T5": 4,
+            "寶亨CLÁSICO棕7": 2,
+            "寶亨(紫)SAWA": 4,
+            "嘉年華(藍)": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "TTL德盈",
+      "customer_id": "ZRB0806",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 23,
+          "products": {
+            "愛喜紫晶靈 1mg": 1,
+            "寶亨9號雙晶球": 1,
+            "寶亨3號": 2,
+            "寶亨1號": 1,
+            "小寶亨6號": 3,
+            "小寶亨藍牌6號": 1,
+            "名世長支(紅)T8": 3,
+            "名世長支(藍)T5": 9,
+            "寶亨CLÁSICO棕7": 1,
+            "寶亨(紫)SAWA": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "阿Q便利",
+      "customer_id": "ZRB0808",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 4,
+          "products": {
+            "寶亨9號": 1,
+            "小寶亨3號": 3
+          }
+        }
+      }
+    },
+    {
+      "store_name": "八谷",
+      "customer_id": "ZRB0809",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 34,
+          "products": {
+            "寶亨9號雙晶球": 1,
+            "寶亨3號": 1,
+            "寶亨Mojito晶球 6": 1,
+            "小寶亨6號": 10,
+            "小寶亨藍牌6號": 6,
+            "小寶亨大地紅": 1,
+            "名世長支(紅)T8": 4,
+            "名世長支(藍)T5": 8,
+            "寶亨CLÁSICO棕7": 1,
+            "寶亨(紫)SAWA": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "文民",
+      "customer_id": "ZRB0811",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 1,
+          "products": {
+            "嘉年華(紅)": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "宏達平價",
+      "customer_id": "ZRB0812",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 22,
+          "products": {
+            "寶亨9號雙晶球": 2,
+            "寶亨6號": 4,
+            "寶亨Mojito晶球 6": 1,
+            "小寶亨6號": 1,
+            "小寶亨3號": 1,
+            "小寶亨藍牌6號": 2,
+            "小寶亨大地紅": 1,
+            "名世長支(藍)T5": 6,
+            "寶亨(紫)SAWA": 3,
+            "嘉年華(紅)": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "中油商店",
+      "customer_id": "ZRB0814",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 27,
+          "products": {
+            "寶亨9號雙晶球": 3,
+            "寶亨6號": 1,
+            "寶亨9號": 2,
+            "小寶亨6號": 2,
+            "小寶亨藍牌6號": 2,
+            "名世長支(紅)T8": 6,
+            "名世長支(藍)T5": 6,
+            "寶亨(紫)SAWA": 4,
+            "嘉年華(藍)": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "鈦鑫五金",
+      "customer_id": "ZRB0904",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 42,
+          "products": {
+            "愛喜藍晶靈 4mg": 3,
+            "寶亨9號雙晶球": 4,
+            "寶亨6號": 3,
+            "寶亨Mojito晶球 6": 5,
+            "小寶亨6號": 1,
+            "小寶亨3號": 1,
+            "小寶亨藍牌6號": 5,
+            "小寶亨大地紅": 2,
+            "名世長支(紅)T8": 5,
+            "名世長支(藍)T5": 2,
+            "寶亨(紫)SAWA": 11
+          }
+        }
+      }
+    },
+    {
+      "store_name": "澤發行",
+      "customer_id": "ZRB0906",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 17,
+          "products": {
+            "小寶亨藍牌6號": 5,
+            "小寶亨大地紅": 10,
+            "名世長支(紅)T8": 2
+          }
+        }
+      }
+    },
+    {
+      "store_name": "富而樂",
+      "customer_id": "ZRB0909",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 15,
+          "products": {
+            "寶亨6號": 3,
+            "小寶亨3號": 2,
+            "小寶亨藍牌6號": 4,
+            "寶亨(綠)SAWA": 3,
+            "寶亨(紫)SAWA": 3
+          }
+        }
+      }
+    },
+    {
+      "store_name": "大明洋行",
+      "customer_id": "ZRB0912",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 35,
+          "products": {
+            "愛喜(黑) 4mg": 5,
+            "寶亨9號雙晶球": 5,
+            "寶亨6號": 5,
+            "寶亨Mojito晶球 6": 1,
+            "小寶亨6號": 3,
+            "小寶亨3號": 5,
+            "小寶亨藍牌6號": 1,
+            "小寶亨大地紅": 2,
+            "名世長支(紅)T8": 1,
+            "名世長支(藍)T5": 4,
+            "寶亨(紫)SAWA": 3
+          }
+        }
+      }
+    },
+    {
+      "store_name": "日富超商",
+      "customer_id": "ZRB0914",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 2,
+          "products": {
+            "名世長支(紅)T8": 2
+          }
+        }
+      }
+    },
+    {
+      "store_name": "伍甲平價",
+      "customer_id": "ZRB0919",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 13,
+          "products": {
+            "寶亨9號雙晶球": 1,
+            "小寶亨6號": 1,
+            "小寶亨3號": 3,
+            "名世長支(紅)T8": 4,
+            "名世長支(藍)T5": 3,
+            "寶亨(紫)SAWA": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "國宅商店",
+      "customer_id": "ZRB0921",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 17,
+          "products": {
+            "寶亨9號雙晶球": 1,
+            "寶亨6號": 3,
+            "小寶亨6號": 4,
+            "小寶亨3號": 1,
+            "小寶亨藍牌6號": 1,
+            "名世長支(紅)T8": 1,
+            "名世長支(藍)T5": 5,
+            "寶亨(紫)SAWA": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "寶檳-中崙",
+      "customer_id": "ZRB0924",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 214,
+          "products": {
+            "寶亨9號雙晶球": 60,
+            "寶亨6號": 40,
+            "寶亨Mojito晶球 6": 10,
+            "寶亨Mojito晶球 1": 14,
+            "小寶亨6號": 12,
+            "小寶亨3號": 32,
+            "名世長支(紅)T8": 16,
+            "名世長支(藍)T5": 11,
+            "寶亨(綠)SAWA": 2,
+            "寶亨(紫)SAWA": 17
+          }
+        }
+      }
+    },
+    {
+      "store_name": "大成菸酒",
+      "customer_id": "ZRB0925",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 108,
+          "products": {
+            "愛喜(薄荷)": 8,
+            "愛喜(藍)": 2,
+            "愛喜紫晶靈 1mg": 10,
+            "愛喜(黑) 4mg": 10,
+            "寶亨9號雙晶球": 7,
+            "寶亨6號": 1,
+            "寶亨3號": 12,
+            "寶亨1號": 7,
+            "寶亨法藍絲晶球": 1,
+            "寶亨Mojito晶球 6": 4,
+            "寶亨Mojito晶球 1": 5,
+            "小寶亨6號": 10,
+            "小寶亨3號": 2,
+            "名世長支(紅)T8": 14,
+            "名世長支(藍)T5": 8,
+            "寶亨(紫)SAWA": 3,
+            "寶亨(金)SAWA": 2,
+            "寶亨午後": 2
+          }
+        }
+      }
+    },
+    {
+      "store_name": "界揚海洋",
+      "customer_id": "ZRB0929",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 42,
+          "products": {
+            "寶亨9號雙晶球": 4,
+            "寶亨6號": 4,
+            "寶亨Mojito晶球 6": 2,
+            "小寶亨6號": 4,
+            "小寶亨3號": 4,
+            "小寶亨大地紅": 2,
+            "名世長支(紅)T8": 9,
+            "名世長支(藍)T5": 5,
+            "寶亨(綠)SAWA": 1,
+            "寶亨(紫)SAWA": 5,
+            "嘉年華(紅)": 1,
+            "嘉年華(藍)": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "翁園福利",
+      "customer_id": "ZRB1001",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 1,
+          "products": {
+            "寶亨9號": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "九久中山",
+      "customer_id": "ZRB1002",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 10,
+          "products": {
+            "愛喜(薄荷)": 3,
+            "愛喜(黑) 4mg": 3,
+            "寶亨9號": 2,
+            "小寶亨6號": 2
+          }
+        }
+      }
+    },
+    {
+      "store_name": "捷統",
+      "customer_id": "ZRB1003",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 4,
+          "products": {
+            "寶亨9號": 1,
+            "名世長支(紅)T8": 1,
+            "名世長支(藍)T5": 1,
+            "寶亨(紫)SAWA": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "廣新 平價",
+      "customer_id": "ZRB1005",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 2,
+          "products": {
+            "寶亨9號": 2
+          }
+        }
+      }
+    },
+    {
+      "store_name": "春成商號",
+      "customer_id": "ZRB1006",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 6,
+          "products": {
+            "寶亨9號雙晶球": 2,
+            "寶亨6號": 1,
+            "寶亨9號": 1,
+            "小寶亨藍牌6號": 2
+          }
+        }
+      }
+    },
+    {
+      "store_name": "芳林平價",
+      "customer_id": "ZRB1009",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 6,
+          "products": {
+            "寶亨(綠)SAWA": 2,
+            "寶亨(紫)SAWA": 4
+          }
+        },
+        "2026-07": {
+          "ktg_total": 28,
+          "products": {
+            "寶亨9號雙晶球": 2,
+            "寶亨6號": 3,
+            "小寶亨3號": 2,
+            "小寶亨藍牌6號": 2,
+            "小寶亨大地紅": 3,
+            "名世長支(紅)T8": 6,
+            "寶亨(綠)SAWA": 1,
+            "寶亨(紫)SAWA": 7,
+            "寶亨(金)SAWA": 2
+          }
+        }
+      }
+    },
+    {
+      "store_name": "宇記平價",
+      "customer_id": "ZRB1014",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 13,
+          "products": {
+            "寶亨9號雙晶球": 2,
+            "名世長支(紅)T8": 3,
+            "名世長支(藍)T5": 5,
+            "寶亨(紫)SAWA": 3
+          }
+        },
+        "2026-07": {
+          "ktg_total": 8,
+          "products": {
+            "寶亨9號雙晶球": 3,
+            "小寶亨6號": 1,
+            "名世長支(藍)T5": 2,
+            "寶亨(紫)SAWA": 2
+          }
+        }
+      }
+    },
+    {
+      "store_name": "大通平價",
+      "customer_id": "ZRB1017",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 9,
+          "products": {
+            "寶亨9號雙晶球": 4,
+            "小寶亨6號": 1,
+            "寶亨(紫)SAWA": 4
+          }
+        },
+        "2026-07": {
+          "ktg_total": 16,
+          "products": {
+            "寶亨9號雙晶球": 4,
+            "寶亨Mojito晶球 6": 1,
+            "小寶亨6號": 1,
+            "小寶亨3號": 2,
+            "小寶亨藍牌6號": 1,
+            "名世長支(紅)T8": 3,
+            "名世長支(藍)T5": 1,
+            "寶亨(綠)SAWA": 2,
+            "寶亨(紫)SAWA": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "元丰菸酒",
+      "customer_id": "ZRB1018",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 4,
+          "products": {
+            "名世長支(藍)T5": 4
+          }
+        },
+        "2026-07": {
+          "ktg_total": 9,
+          "products": {
+            "名世長支(紅)T8": 5,
+            "名世長支(藍)T5": 3,
+            "寶亨(綠)SAWA": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "99鳳林",
+      "customer_id": "ZRB1019",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 3,
+          "products": {
+            "寶亨9號雙晶球": 1,
+            "寶亨6號": 1,
+            "寶亨(紫)SAWA": 1
+          }
+        },
+        "2026-07": {
+          "ktg_total": 0,
+          "products": {}
+        }
+      }
+    },
+    {
+      "store_name": "皇品酒莊",
+      "customer_id": "ZRB1020",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 4,
+          "products": {
+            "寶亨Mojito晶球 6": 4
+          }
+        },
+        "2026-07": {
+          "ktg_total": 5,
+          "products": {
+            "寶亨9號雙晶球": 2,
+            "寶亨Mojito晶球 6": 3
+          }
+        }
+      }
+    },
+    {
+      "store_name": "佳酒莊鳳林",
+      "customer_id": "ZRB1024",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 2,
+          "products": {
+            "小寶亨藍牌1號": 2
+          }
+        },
+        "2026-07": {
+          "ktg_total": 5,
+          "products": {
+            "小寶亨藍牌6號": 4,
+            "小寶亨大地紅": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "中華商行",
+      "customer_id": "ZRC0102",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 8,
+          "products": {
+            "寶亨9號雙晶球": 4,
+            "小寶亨3號": 2,
+            "小寶亨大地紅": 2
+          }
+        }
+      }
+    },
+    {
+      "store_name": "明鴻",
+      "customer_id": "ZRC0103",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 45,
+          "products": {
+            "寶亨6號": 7,
+            "寶亨Mojito晶球 6": 6,
+            "小寶亨6號": 5,
+            "小寶亨藍牌6號": 15,
+            "名世長支(紅)T8": 6,
+            "名世長支(藍)T5": 4,
+            "寶亨(紫)SAWA": 2
+          }
+        }
+      }
+    },
+    {
+      "store_name": "尚紘",
+      "customer_id": "ZRC0106",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 11,
+          "products": {
+            "寶亨9號雙晶球": 3,
+            "寶亨6號": 1,
+            "名世長支(藍)T5": 4,
+            "寶亨(紫)SAWA": 2,
+            "嘉年華(紅)": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "全虹便利商",
+      "customer_id": "ZRC0108",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 1,
+          "products": {
+            "寶亨(綠)SAWA": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "越南店",
+      "customer_id": "ZRC0109",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 15,
+          "products": {
+            "名世長支(紅)T8": 11,
+            "名世長支(藍)T5": 4
+          }
+        }
+      }
+    },
+    {
+      "store_name": "芳林",
+      "customer_id": "ZRC0119",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 5,
+          "products": {
+            "寶亨9號雙晶球": 1,
+            "寶亨6號": 2,
+            "寶亨Mojito晶球 6": 1,
+            "小寶亨大地紅": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "富沅商行",
+      "customer_id": "ZRC0204",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 44,
+          "products": {
+            "愛喜藍晶靈 4mg": 2,
+            "愛喜雙紫1毫克": 1,
+            "寶亨9號雙晶球": 3,
+            "寶亨6號": 10,
+            "寶亨法藍絲晶球": 6,
+            "寶亨Mojito晶球 6": 2,
+            "寶亨9號": 1,
+            "小寶亨3號": 1,
+            "名世長支(紅)T8": 11,
+            "名世長支(藍)T5": 5,
+            "寶亨X8": 1,
+            "嘉年華(藍)": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "皇意商行",
+      "customer_id": "ZRC0206",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 11,
+          "products": {
+            "寶亨9號雙晶球": 1,
+            "寶亨Mojito晶球 6": 1,
+            "名世長支(紅)T8": 2,
+            "名世長支(藍)T5": 6,
+            "寶亨(金)SAWA": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "協福隆",
+      "customer_id": "ZRC0211",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 4,
+          "products": {
+            "小寶亨大地紅": 1,
+            "名世長支(藍)T5": 2,
+            "嘉年華(紅)": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "建誠",
+      "customer_id": "ZRC0216",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 20,
+          "products": {
+            "寶亨6號": 1,
+            "小寶亨6號": 3,
+            "小寶亨3號": 1,
+            "小寶亨大地紅": 1,
+            "名世長支(紅)T8": 6,
+            "名世長支(藍)T5": 8
+          }
+        }
+      }
+    },
+    {
+      "store_name": "茂德商號",
+      "customer_id": "ZRC0218",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 1,
+          "products": {
+            "寶亨6號": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "卉源",
+      "customer_id": "ZRC0224",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 2,
+          "products": {
+            "小寶亨藍牌6號": 1,
+            "嘉年華(紅)": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "福生來來",
+      "customer_id": "ZRC0225",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 8,
+          "products": {
+            "寶亨6號": 6,
+            "名世長支(紅)T8": 2
+          }
+        }
+      }
+    },
+    {
+      "store_name": "旭品菸酒商",
+      "customer_id": "ZRC0232",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 20,
+          "products": {
+            "寶亨Mojito晶球 1": 2,
+            "寶亨9號": 1,
+            "名世長支(紅)T8": 7,
+            "名世長支(藍)T5": 9,
+            "寶亨(紫)SAWA": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "輝鴻菸酒",
+      "customer_id": "ZRC0233",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 20,
+          "products": {
+            "寶亨9號": 1,
+            "名世長支(紅)T8": 10,
+            "名世長支(藍)T5": 8,
+            "寶亨午後": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "宏津食品行",
+      "customer_id": "ZRC0302",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 4,
+          "products": {
+            "寶亨9號": 1,
+            "小寶亨大地紅": 3
+          }
+        }
+      }
+    },
+    {
+      "store_name": "建興商號",
+      "customer_id": "ZRC0303",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 1,
+          "products": {
+            "寶亨9號雙晶球": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "社區甘仔店",
+      "customer_id": "ZRC0304",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 1,
+          "products": {
+            "小寶亨大地紅": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "旺宸天一行",
+      "customer_id": "ZRC0305",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 5,
+          "products": {
+            "寶亨6號": 4,
+            "小寶亨藍牌6號": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "七美商店",
+      "customer_id": "ZRC0306",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 2,
+          "products": {
+            "名世長支(紅)T8": 2
+          }
+        }
+      }
+    },
+    {
+      "store_name": "大九九",
+      "customer_id": "ZRC0309",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 6,
+          "products": {
+            "寶亨6號": 1,
+            "小寶亨3號": 1,
+            "名世長支(紅)T8": 2,
+            "名世長支(藍)T5": 2
+          }
+        }
+      }
+    },
+    {
+      "store_name": "久大超市",
+      "customer_id": "ZRC0310",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 4,
+          "products": {
+            "名世長支(紅)T8": 3,
+            "名世長支(藍)T5": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "嘉惠便利超",
+      "customer_id": "ZRC0311",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 5,
+          "products": {
+            "小寶亨藍牌6號": 1,
+            "小寶亨大地紅": 2,
+            "名世長支(藍)T5": 2
+          }
+        }
+      }
+    },
+    {
+      "store_name": "粵記商號",
+      "customer_id": "ZRC0401",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 13,
+          "products": {
+            "寶亨9號雙晶球": 1,
+            "寶亨6號": 2,
+            "寶亨9號": 3,
+            "小寶亨6號": 2,
+            "小寶亨藍牌6號": 1,
+            "小寶亨大地紅": 4
+          }
+        }
+      }
+    },
+    {
+      "store_name": "日丰商行",
+      "customer_id": "ZRC0403",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 5,
+          "products": {
+            "寶亨9號": 1,
+            "名世長支(紅)T8": 4
+          }
+        }
+      }
+    },
+    {
+      "store_name": "新珍行",
+      "customer_id": "ZRC0404",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 18,
+          "products": {
+            "寶亨9號": 2,
+            "名世長支(紅)T8": 1,
+            "名世長支(藍)T5": 15
+          }
+        }
+      }
+    },
+    {
+      "store_name": "富權商店",
+      "customer_id": "ZRC0407",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 10,
+          "products": {
+            "寶亨6號": 1,
+            "寶亨9號": 1,
+            "名世長支(紅)T8": 8
+          }
+        }
+      }
+    },
+    {
+      "store_name": "益豐商號",
+      "customer_id": "ZRC0413",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 20,
+          "products": {
+            "名世長支(藍)T5": 20
+          }
+        }
+      }
+    },
+    {
+      "store_name": "金大盤食品",
+      "customer_id": "ZRC0414",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 4,
+          "products": {
+            "小寶亨6號": 1,
+            "寶亨(紫)SAWA": 3
+          }
+        }
+      }
+    },
+    {
+      "store_name": "香利商店",
+      "customer_id": "ZRC0508",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 7,
+          "products": {
+            "寶亨Mojito晶球 6": 1,
+            "小寶亨6號": 6
+          }
+        }
+      }
+    },
+    {
+      "store_name": "宏順平價",
+      "customer_id": "ZRC0510",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 6,
+          "products": {
+            "名世長支(紅)T8": 6
+          }
+        }
+      }
+    },
+    {
+      "store_name": "女子商店",
+      "customer_id": "ZRC0512",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 6,
+          "products": {
+            "名世長支(紅)T8": 3,
+            "名世長支(藍)T5": 3
+          }
+        }
+      }
+    },
+    {
+      "store_name": "涼夏",
+      "customer_id": "ZRC0519",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 1,
+          "products": {
+            "名世長支(藍)T5": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "惟娜",
+      "customer_id": "ZRC0520",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 1,
+          "products": {
+            "嘉年華(紅)": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "寶美商店",
+      "customer_id": "ZRC0607",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 5,
+          "products": {
+            "寶亨6號": 1,
+            "名世長支(藍)T5": 4
+          }
+        }
+      }
+    },
+    {
+      "store_name": "富峰平價",
+      "customer_id": "ZRC0612",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 7,
+          "products": {
+            "寶亨9號雙晶球": 4,
+            "寶亨6號": 1,
+            "寶亨Mojito晶球 6": 1,
+            "名世長支(藍)T5": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "千倉稟",
+      "customer_id": "ZRC0613",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 11,
+          "products": {
+            "寶亨6號": 2,
+            "寶亨1號": 2,
+            "寶亨Mojito晶球 1": 6,
+            "寶亨X8": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "好鄰居",
+      "customer_id": "ZRC0615",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 13,
+          "products": {
+            "寶亨6號": 6,
+            "寶亨9號": 1,
+            "寶亨(紫)SAWA": 6
+          }
+        }
+      }
+    },
+    {
+      "store_name": "正源菸酒大",
+      "customer_id": "ZRC0616",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 15,
+          "products": {
+            "寶亨9號": 1,
+            "名世長支(紅)T8": 9,
+            "名世長支(藍)T5": 5
+          }
+        }
+      }
+    },
+    {
+      "store_name": "仁心商店",
+      "customer_id": "ZRC0619",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 6,
+          "products": {
+            "小寶亨6號": 2,
+            "名世長支(紅)T8": 4
+          }
+        }
+      }
+    },
+    {
+      "store_name": "冠欣",
+      "customer_id": "ZRC0620",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 10,
+          "products": {
+            "名世長支(紅)T8": 3,
+            "名世長支(藍)T5": 7
+          }
+        }
+      }
+    },
+    {
+      "store_name": "小時刻",
+      "customer_id": "ZRC0626",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 1,
+          "products": {
+            "寶亨Mojito晶球 6": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "佳美便利",
+      "customer_id": "ZRC0701",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 1,
+          "products": {
+            "寶亨9號": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "名家超級",
+      "customer_id": "ZRC0702",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 1,
+          "products": {
+            "寶亨9號": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "川易平價",
+      "customer_id": "ZRC0707",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 1,
+          "products": {
+            "寶亨9號": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "東倉-海洋",
+      "customer_id": "ZRC0712",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 31,
+          "products": {
+            "愛喜(黑) 4mg": 2,
+            "寶亨9號雙晶球": 3,
+            "寶亨6號": 6,
+            "寶亨Mojito晶球 6": 3,
+            "小寶亨6號": 1,
+            "小寶亨3號": 1,
+            "小寶亨大地紅": 4,
+            "名世長支(藍)T5": 10,
+            "伊歐尼紫色1號": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "弘利商店",
+      "customer_id": "ZRC0714",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 1,
+          "products": {
+            "寶亨9號": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "揚昇洋行",
+      "customer_id": "ZRC0719",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 72,
+          "products": {
+            "寶亨9號雙晶球": 5,
+            "寶亨6號": 2,
+            "寶亨Mojito晶球 6": 5,
+            "小寶亨6號": 10,
+            "小寶亨3號": 2,
+            "小寶亨藍牌6號": 9,
+            "小寶亨大地紅": 1,
+            "名世長支(紅)T8": 15,
+            "名世長支(藍)T5": 21,
+            "寶亨(紫)SAWA": 2
+          }
+        }
+      }
+    },
+    {
+      "store_name": "全榮雜貨店",
+      "customer_id": "ZRC0807",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 1,
+          "products": {
+            "嘉年華(藍)": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "萬順",
+      "customer_id": "ZRC0811",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 21,
+          "products": {
+            "寶亨9號雙晶球": 1,
+            "寶亨3號": 1,
+            "小寶亨6號": 3,
+            "小寶亨藍牌6號": 1,
+            "小寶亨大地紅": 2,
+            "名世長支(紅)T8": 4,
+            "名世長支(藍)T5": 6,
+            "寶亨CLÁSICO棕7": 1,
+            "寶亨(紫)SAWA": 1,
+            "嘉年華(紅)": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "億客堂超市",
+      "customer_id": "ZRC0903",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 3,
+          "products": {
+            "寶亨9號": 3
+          }
+        }
+      }
+    },
+    {
+      "store_name": "麻將洋行",
+      "customer_id": "ZRC0905",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 32,
+          "products": {
+            "愛喜藍晶靈 4mg": 2,
+            "寶亨9號雙晶球": 6,
+            "寶亨6號": 9,
+            "寶亨法藍絲晶球": 2,
+            "寶亨9號": 4,
+            "小寶亨藍牌6號": 4,
+            "名世長支(藍)T5": 3,
+            "寶亨(綠)SAWA": 1,
+            "寶亨(紫)SAWA": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "鳳翊洋行",
+      "customer_id": "ZRC0920",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 8,
+          "products": {
+            "寶亨9號雙晶球": 2,
+            "小寶亨6號": 1,
+            "小寶亨藍牌6號": 1,
+            "名世長支(紅)T8": 2,
+            "名世長支(藍)T5": 2
+          }
+        }
+      }
+    },
+    {
+      "store_name": "上順-昭明",
+      "customer_id": "ZRK0554",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 4,
+          "products": {
+            "寶亨6號": 4
+          }
+        }
+      }
+    },
+    {
+      "store_name": "巧好吃",
+      "customer_id": "ZRK0611",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 1,
+          "products": {
+            "小寶亨大地紅": 1
+          }
+        }
+      }
+    },
+    {
+      "store_name": "新鎮-屏東",
+      "customer_id": "ZRT0601",
+      "salesperson": "",
+      "distributor_source": "巨弘昇",
+      "distributor": "巨弘昇",
+      "source_owner": "",
+      "months": {
+        "2026-06": {
+          "ktg_total": 0,
+          "products": {}
+        },
+        "2026-07": {
+          "ktg_total": 21,
+          "products": {
+            "小寶亨6號": 5,
+            "名世長支(紅)T8": 9,
+            "名世長支(藍)T5": 7
+          }
+        }
+      }
     }
   ]
 }
