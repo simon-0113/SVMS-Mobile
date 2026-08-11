@@ -697,6 +697,25 @@ $("#storeQuery").addEventListener("input", event => {
 
 $("#cancelUpdateButton").addEventListener("click", () => showView("searchView", "查詢店家"));
 
+function sameSessionStore(entry, update, channel) {
+  if (!entry || !update) return false;
+  if (entry.channel !== channel) return false;
+  if ((entry.update?.visit_date || "") !== (update.visit_date || "")) return false;
+
+  const entryName = entry.update?.store_name || entry.store_name || "";
+  const updateName = update.store_name || "";
+
+  if (channel === "GT") {
+    return normalize(entryName) === normalize(updateName);
+  }
+
+  const entryType = (entry.update?.store_type || entry.original_channel || "").toUpperCase();
+  const updateType = (update.store_type || "").toUpperCase();
+
+  return normalize(entryName) === normalize(updateName)
+    && (!entryType || !updateType || entryType === updateType);
+}
+
 $("#visitUpdateForm").addEventListener("submit", event => {
   event.preventDefault();
 
@@ -725,9 +744,34 @@ $("#visitUpdateForm").addEventListener("submit", event => {
     update
   };
 
-  const next = editingId
-    ? session.map(entry => entry.id === editingId ? item : entry)
-    : [...session, item];
+  let next;
+  let duplicateReplaced = false;
+
+  if (editingId) {
+    next = session.map(entry => entry.id === editingId ? item : entry);
+  } else {
+    const duplicateIndex = session.findIndex(entry => sameSessionStore(entry, update, channel));
+
+    if (duplicateIndex >= 0) {
+      const existing = session[duplicateIndex];
+      const confirmed = confirm(
+        `今日巡店已有此店家資料。\n\n店家：${update.store_name}\n日期：${update.visit_date}\n\n是否以本次內容更新原資料？`
+      );
+      if (!confirmed) return;
+
+      const replacement = {
+        ...item,
+        id: existing.id,
+        added_at: existing.added_at || item.added_at,
+        updated_at: new Date().toISOString()
+      };
+
+      next = session.map((entry, index) => index === duplicateIndex ? replacement : entry);
+      duplicateReplaced = true;
+    } else {
+      next = [...session, item];
+    }
+  }
 
   saveSession(next);
 
@@ -753,7 +797,13 @@ $("#visitUpdateForm").addEventListener("submit", event => {
 
   currentStore = null;
 
-  alert(editingId ? "今日巡店資料已修改。" : "已加入今日巡店。");
+  alert(
+    editingId
+      ? "今日巡店資料已修改。"
+      : duplicateReplaced
+        ? "已更新今日巡店原有店家資料。"
+        : "已加入今日巡店。"
+  );
   showView("homeView", "首頁");
 });
 
