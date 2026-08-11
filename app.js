@@ -754,7 +754,8 @@ $("#visitUpdateForm").addEventListener("submit", event => {
   currentStore = null;
 
   alert(editingId ? "今日巡店資料已修改。" : "已加入今日巡店。");
-  showView("sessionView", "今日巡店");
+  clearSearchState();
+  showView("homeView", "首頁");
 });
 
 $("#completeSessionButton").addEventListener("click", async () => {
