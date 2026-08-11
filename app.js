@@ -10,82 +10,10 @@ const SESSION_DB_NAME = "svms_mobile_session_backup";
 const SESSION_DB_STORE = "session";
 const SESSION_DB_RECORD = "today_session";
 
-const SVMS_USER_NAME_KEY = "svms_mobile_user_name_v1";
-const SVMS_UPLOAD_ENDPOINT = "https://svms-team-upload.t0926400467.workers.dev/";
-
 const $ = selector => document.querySelector(selector);
 const $$ = selector => [...document.querySelectorAll(selector)];
 const text = (value, fallback = "—") => value === null || value === undefined || value === "" ? fallback : String(value);
 const escapeHtml = value => text(value, "").replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;");
-
-function getSvmsUserName() {
-  return (localStorage.getItem(SVMS_USER_NAME_KEY) || "").trim();
-}
-
-function saveSvmsUserName(name) {
-  localStorage.setItem(SVMS_USER_NAME_KEY, String(name || "").trim());
-}
-
-function safeFilePart(value) {
-  return String(value || "")
-    .trim()
-    .replace(/[\\/:*?"<>|]/g, "_")
-    .replace(/\s+/g, "_")
-    .slice(0, 40);
-}
-
-function localTimestampForFile() {
-  const d = new Date();
-  const p = n => String(n).padStart(2, "0");
-  return `${d.getFullYear()}${p(d.getMonth() + 1)}${p(d.getDate())}_${p(d.getHours())}${p(d.getMinutes())}${p(d.getSeconds())}`;
-}
-
-async function uploadTeamPending(payload) {
-  const userName = getSvmsUserName();
-
-  if (!userName) {
-    alert("請先到「設定」輸入個人名稱並儲存。");
-    showView("settingsView", "使用者設定");
-    return false;
-  }
-
-  if (!SVMS_UPLOAD_ENDPOINT || SVMS_UPLOAD_ENDPOINT.includes("PASTE_YOUR_WORKER_URL")) {
-    alert("尚未設定 Dropbox 上傳服務網址。");
-    return false;
-  }
-
-  const fileName = `${safeFilePart(userName)}_${localTimestampForFile()}.json`;
-  const uploadPayload = {
-    ...payload,
-    user_name: userName,
-    batch_id: `${localDateISO().replaceAll("-", "")}_${safeFilePart(userName)}_mobile`,
-    uploaded_at: new Date().toISOString()
-  };
-
-  try {
-    const response = await fetch(SVMS_UPLOAD_ENDPOINT, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        file_name: fileName,
-        payload: uploadPayload
-      })
-    });
-
-    const result = await response.json().catch(() => ({}));
-
-    if (!response.ok || !result.ok) {
-      throw new Error(result.error || `HTTP ${response.status}`);
-    }
-
-    alert(`更新已上傳到 Dropbox\n使用者：${userName}\n檔名：${result.file_name || fileName}`);
-    return true;
-  } catch (error) {
-    console.error("[SVMS] Dropbox upload failed:", error);
-    alert(`上傳失敗：${error.message}\n今日巡店資料仍保留，可稍後重試或使用下載更新檔。`);
-    return false;
-  }
-}
 
 function localDateISO() {
   const now = new Date();
@@ -136,37 +64,6 @@ function showView(id, title) {
   $("#pageTitle").textContent = title;
   $("#backButton").hidden = id === "homeView";
   if (id === "sessionView") renderSession();
-
-  if (id === "settingsView") {
-    const host = $("#settingsView");
-    if (host) {
-      const currentName = getSvmsUserName();
-      host.innerHTML = `
-        <div class="card">
-          <h2>使用者設定</h2>
-          <div class="form-field full">
-            <label for="svmsUserName">個人名稱</label>
-            <input id="svmsUserName" type="text" maxlength="40" placeholder="例如：Eric" value="${escapeHtml(currentName)}">
-          </div>
-          <button id="saveSvmsUserNameButton" class="update-launch" type="button">儲存</button>
-          <p class="form-help">只需設定一次，之後上傳巡店更新會自動帶入此名稱。</p>
-        </div>`;
-
-      $("#saveSvmsUserNameButton").addEventListener("click", () => {
-        const name = $("#svmsUserName").value.trim();
-        if (!name) return alert("請輸入個人名稱。");
-        saveSvmsUserName(name);
-        alert(`已儲存使用者名稱：${name}`);
-      });
-    }
-  }
-
-  if (id === "searchView") {
-    setTimeout(() => {
-      const storeQuery = $("#storeQuery");
-      if (storeQuery) storeQuery.focus();
-    }, 50);
-  }
   window.scrollTo(0, 0);
 }
 
@@ -181,19 +78,13 @@ function pills(values) {
 
 function renderHistory(history) {
   if (!history?.length) return `<div class="value">—</div>`;
-  return history.slice(0, 5).map(item => `<div class="history-item"><div class="history-date">${escapeHtml(text(item["巡店日期"]))}</div><div class="history-detail">${[["配合度", item["配合度"]], ["銷售", item["銷售"]], ["備註", item["備註"]]].filter(([, v]) => v).map(([k, v]) => `${escapeHtml(k)}：${escapeHtml(v)}`).join("<br>") || "—"}</div></div>`).join("");
-}
-
-
-function gtDisplayName(store) {
-  const distributor = text(store?.distributor, "").trim();
-  return distributor ? `${store.store_name}（${distributor}）` : store.store_name;
+  return history.slice(0, 5).map(item => `<div class="history-item"><div class="history-date">${escapeHtml(text(item["巡店日期"]))}</div><div class="history-detail">${[["配合度", item["配合度"]], ["銷售", item["銷售"]], ["備註", item["備註"]], ["機會點", item["機會點"]]].filter(([, v]) => v).map(([k, v]) => `${escapeHtml(k)}：${escapeHtml(v)}`).join("<br>") || "—"}</div></div>`).join("");
 }
 
 function renderGT(store) {
-  return `<article class="card"><div class="card-head"><h2>${escapeHtml(gtDisplayName(store))}</h2><div class="meta">GT｜${escapeHtml(text(store.city))} ${escapeHtml(text(store.district))}</div></div>
-    <section class="section"><h3>GT查核資料</h3><div class="info-grid">${info("經銷商", store.distributor)}${info("經銷商業務", store.distributor_salesperson)}${info("地址", store.address, true)}${info("合作等級", store.audit_cooperation)}${info("簽約型態", store.contract_type)}${info("簽約格數", store.contract_slots)}${info("陳列獎金", store.display_bonus)}<div class="info full"><span class="label">查核陳列</span>${pills(store.audit_display)}</div><div class="info full"><span class="label">查核分布</span>${pills(store.audit_distribution)}</div></div></section>
-    <section class="section"><h3>GT巡店資料</h3><div class="info-grid">${info("最近巡店日期", store.visit_date)}${info("配合度", store.visit_cooperation)}${info("客群", store.visit_customer_group)}${info("銷售", store.visit_sales)}${info("備註", store.visit_note, true)}</div></section>
+  return `<article class="card"><div class="card-head"><h2>${escapeHtml(store.store_name)}</h2><div class="meta">GT｜${escapeHtml(text(store.city))} ${escapeHtml(text(store.district))}</div></div>
+    <section class="section"><h3>GT查核資料</h3><div class="info-grid">${info("地址", store.address, true)}${info("合作等級", store.audit_cooperation)}${info("簽約型態", store.contract_type)}${info("簽約格數", store.contract_slots)}${info("陳列獎金", store.display_bonus)}<div class="info full"><span class="label">查核陳列</span>${pills(store.audit_display)}</div><div class="info full"><span class="label">查核分布</span>${pills(store.audit_distribution)}</div></div></section>
+    <section class="section"><h3>GT巡店資料</h3><div class="info-grid">${info("最近巡店日期", store.visit_date)}${info("配合度", store.visit_cooperation)}${info("客群", store.visit_customer_group)}${info("銷售", store.visit_sales)}${info("機會點", store.visit_opportunity, true)}${info("備註", store.visit_note, true)}</div></section>
     <section class="section"><h3>最近巡店歷程</h3>${renderHistory(store.visit_history)}</section>
     <section class="section"><button class="update-launch" type="button" data-start-update>開始巡店更新</button></section></article>`;
 }
@@ -223,7 +114,7 @@ function renderMatches(matches) {
     return;
   }
   if (matches.length === 1) return renderStore(matches[0]);
-  $("#results").innerHTML = `<h2 class="multiple-title">找到 ${matches.length} 個可能店家</h2><div class="match-list">${matches.map((store, index) => `<button class="match-button" data-index="${index}" type="button"><strong>${escapeHtml(store.channel === "GT" ? gtDisplayName(store) : store.store_name)}</strong><span>${escapeHtml(text(store.channel))}｜${escapeHtml(text(store.city))} ${escapeHtml(text(store.district))}</span></button>`).join("")}</div>`;
+  $("#results").innerHTML = `<h2 class="multiple-title">找到 ${matches.length} 個可能店家</h2><div class="match-list">${matches.map((store, index) => `<button class="match-button" data-index="${index}" type="button"><strong>${escapeHtml(store.store_name)}</strong><span>${escapeHtml(text(store.channel))}｜${escapeHtml(text(store.city))} ${escapeHtml(text(store.district))}</span></button>`).join("")}</div>`;
   $$(".match-button").forEach(button => button.addEventListener("click", () => renderStore(matches[Number(button.dataset.index)])));
 }
 
@@ -239,34 +130,25 @@ function textareaHTML(id, label, value = "") {
   return `<div class="form-field full"><label for="${id}">${escapeHtml(label)}</label><textarea id="${id}">${escapeHtml(value)}</textarea></div>`;
 }
 
-function productStatusTable(saved = {}, savedOsdOriginal = {}) {
+function productStatusTable(saved = {}) {
   const groups = productCatalog?.groups || [];
   const standalone = productCatalog?.standalone || [];
   const rows = products => products.map(product => {
     const status = saved[product] || "";
-    const osdOriginal = savedOsdOriginal[product] || "";
-    const originVisible = status === "out_of_stock";
-    return `<div class="product-row" data-product="${escapeHtml(product)}"><div class="product-name">${escapeHtml(product)}</div>${["display", "distribution", "out_of_stock"].map(value => `<label class="status-cell"><input type="checkbox" name="product_${escapeHtml(product)}" value="${value}" ${status === value ? "checked" : ""}><span>${value === "display" ? "陳列" : value === "distribution" ? "分布" : "缺貨"}</span></label>`).join("")}<div class="osd-origin" ${originVisible ? "" : "hidden"} style="grid-column:1/-1;margin:6px 0 10px;padding:8px 10px;border:1px solid #e2e6ec;border-radius:10px;background:#fafbfc;"><span style="margin-right:12px;font-weight:600;">缺貨原屬：</span><label style="margin-right:14px;"><input type="radio" name="osd_origin_${escapeHtml(product)}" value="display" ${osdOriginal === "display" ? "checked" : ""}> 原屬陳列</label><label><input type="radio" name="osd_origin_${escapeHtml(product)}" value="distribution" ${osdOriginal === "distribution" ? "checked" : ""}> 原屬分布</label></div></div>`;
+    return `<div class="product-row" data-product="${escapeHtml(product)}"><div class="product-name">${escapeHtml(product)}</div>${["display", "distribution", "out_of_stock"].map(value => `<label class="status-cell"><input type="checkbox" name="product_${escapeHtml(product)}" value="${value}" ${status === value ? "checked" : ""}><span>${value === "display" ? "陳列" : value === "distribution" ? "分布" : "缺貨"}</span></label>`).join("")}</div>`;
   }).join("");
-  return `<div class="product-status"><div class="product-row product-header"><div>品項</div><div>陳列</div><div>分布</div><div>缺貨</div></div>${groups.map(group => `<div class="series-title">${escapeHtml(group.series)}</div>${rows(group.products)}`).join("")}${standalone.length ? `<div class="series-title">其他</div>${rows(standalone)}` : ""}</div><p class="form-help">每個品項只能選擇一種狀態；選擇「缺貨」時，必須再指定原屬陳列或原屬分布。</p>`;
+  return `<div class="product-status"><div class="product-row product-header"><div>品項</div><div>陳列</div><div>分布</div><div>缺貨</div></div>${groups.map(group => `<div class="series-title">${escapeHtml(group.series)}</div>${rows(group.products)}`).join("")}${standalone.length ? `<div class="series-title">其他</div>${rows(standalone)}` : ""}</div><p class="form-help">所有品項預設空白；每個品項只能選擇一種狀態。</p>`;
 }
 
 function bindProductStatusControls() {
   $$(".product-row[data-product]").forEach(row => {
-    const controls = [...row.querySelectorAll('.status-cell input[type="checkbox"]')];
-    const originBox = row.querySelector(".osd-origin");
-    const originRadios = [...row.querySelectorAll('.osd-origin input[type="radio"]')];
-    const syncOrigin = () => {
-      const osd = controls.find(control => control.value === "out_of_stock");
-      const show = !!osd?.checked;
-      if (originBox) originBox.hidden = !show;
-      if (!show) originRadios.forEach(radio => { radio.checked = false; });
-    };
+    const controls = [...row.querySelectorAll('input[type="checkbox"]')];
     controls.forEach(control => control.addEventListener("change", () => {
-      if (control.checked) controls.forEach(other => { if (other !== control) other.checked = false; });
-      syncOrigin();
+      if (!control.checked) return;
+      controls.forEach(other => {
+        if (other !== control) other.checked = false;
+      });
     }));
-    syncOrigin();
   });
 }
 
@@ -283,8 +165,8 @@ function createNewCVSStore(query = "") {
 
 function gtForm(store, saved = {}) {
   return `<div class="form-section"><h3>基本資料</h3><div class="form-grid">${fieldHTML("visit_date", "巡店日期", saved.visit_date || localDateISO(), "date")}${fieldHTML("store_name", "店家名稱", saved.store_name || store.store_name)}${selectHTML("cooperation", "配合度", ["", "高", "中", "低", "待觀察"], saved.cooperation || "")}${selectHTML("line_oa", "LINE OA", [{ value: "", label: "—" }, { value: "true", label: "有" }, { value: "false", label: "無" }], saved.line_oa === true ? "true" : saved.line_oa === false ? "false" : "")}${fieldHTML("customer_group", "客群", saved.customer_group || "")}${fieldHTML("sales", "銷售", saved.sales || "")}</div></div>
-    <div class="form-section"><h3>現場品項狀況</h3>${productStatusTable(saved.product_status || {}, saved.osd_original_type || {})}</div>
-    <div class="form-section"><h3>本次異動</h3><div class="form-grid">${selectHTML("optimization", "本次完成優化", [{ value: "false", label: "否" }, { value: "true", label: "是" }], saved.optimization ? "true" : "false")}${fieldHTML("new_slots", "新增格數", String(saved.new_slots ?? 0), "number")}${selectHTML("monster_box", "怪獸盒", [{ value: "false", label: "無" }, { value: "true", label: "有" }], saved.monster_box ? "true" : "false")}${selectHTML("annual_contract", "年度合約", ["", "續約", "無意願續約", "新增格數簽約", "牌面好無產值", "不建議續約"], saved.annual_contract || "")}${textareaHTML("optimization_content", "優化調整內容", saved.optimization_content || "")}${textareaHTML("note", "備註", saved.note || "")}</div></div>`;
+    <div class="form-section"><h3>現場品項狀況</h3>${productStatusTable(saved.product_status || {})}</div>
+    <div class="form-section"><h3>本次異動</h3><div class="form-grid">${selectHTML("optimization", "本次完成優化", [{ value: "false", label: "否" }, { value: "true", label: "是" }], saved.optimization ? "true" : "false")}${fieldHTML("new_slots", "新增格數", String(saved.new_slots ?? 0), "number")}${selectHTML("monster_box", "怪獸盒", [{ value: "false", label: "無" }, { value: "true", label: "有" }], saved.monster_box ? "true" : "false")}${selectHTML("annual_contract", "年度合約", ["", "續約", "無意願續約", "新增格數簽約", "牌面好無產值", "不建議續約"], saved.annual_contract || "")}${textareaHTML("opportunity", "機會點", saved.opportunity || "")}${textareaHTML("note", "備註", saved.note || "")}</div></div>`;
 }
 
 function cvsForm(store, saved = {}) {
@@ -308,23 +190,10 @@ function boolOrUndefined(value) {
 
 function collectGT() {
   const productStatus = {};
-  const osdOriginalType = {};
-  const missingOsdOrigin = [];
   $$(".product-row[data-product]").forEach(row => {
-    const checked = row.querySelector('.status-cell input[type="checkbox"]:checked');
-    if (checked) {
-      productStatus[row.dataset.product] = checked.value;
-      if (checked.value === "out_of_stock") {
-        const origin = row.querySelector('.osd-origin input[type="radio"]:checked');
-        if (origin) osdOriginalType[row.dataset.product] = origin.value;
-        else missingOsdOrigin.push(row.dataset.product);
-      }
-    }
+    const checked = row.querySelector("input:checked");
+    if (checked) productStatus[row.dataset.product] = checked.value;
   });
-  if (missingOsdOrigin.length) {
-    alert(`以下缺貨品項尚未指定「原屬陳列／原屬分布」：\n${missingOsdOrigin.join("、")}`);
-    throw new Error("OSD_ORIGINAL_TYPE_REQUIRED");
-  }
   const display = Object.keys(productStatus).filter(product => productStatus[product] === "display");
   const distribution = Object.keys(productStatus).filter(product => productStatus[product] === "distribution");
   const outOfStock = Object.keys(productStatus).filter(product => productStatus[product] === "out_of_stock");
@@ -335,13 +204,12 @@ function collectGT() {
     display,
     distribution,
     out_of_stock: outOfStock,
-    osd_original_type: osdOriginalType,
     product_status: productStatus,
     cooperation: $("#cooperation").value,
     line_oa: boolOrUndefined($("#line_oa").value),
     customer_group: $("#customer_group").value.trim(),
     sales: $("#sales").value.trim(),
-    optimization_content: $("#optimization_content").value.trim(),
+    opportunity: $("#opportunity").value.trim(),
     optimization: $("#optimization").value === "true",
     new_slots: Math.max(0, Number.parseInt($("#new_slots").value || "0", 10)),
     monster_box: $("#monster_box").value === "true",
@@ -545,50 +413,6 @@ function renderSession() {
   updateSessionCounts();
   $("#sessionEmpty").hidden = session.length > 0;
   $("#completeSessionButton").disabled = session.length === 0;
-
-  let uploadButton = $("#uploadTeamPendingButton");
-  if (!uploadButton) {
-    uploadButton = document.createElement("button");
-    uploadButton.id = "uploadTeamPendingButton";
-    uploadButton.type = "button";
-    uploadButton.className = $("#completeSessionButton").className;
-    uploadButton.textContent = "上傳更新到 Dropbox";
-    $("#completeSessionButton").insertAdjacentElement("afterend", uploadButton);
-
-    uploadButton.addEventListener("click", async () => {
-      const currentSession = getSession();
-      if (!currentSession.length) return;
-
-      const userName = getSvmsUserName();
-      if (!userName) {
-        alert("請先到「設定」輸入個人名稱並儲存。");
-        showView("settingsView", "使用者設定");
-        return;
-      }
-
-      const confirmed = confirm(
-        `確定上傳今日巡店？\n\n使用者：${userName}\n巡店：${currentSession.length} 間\n\n上傳成功後會清空今日巡店。`
-      );
-      if (!confirmed) return;
-
-      uploadButton.disabled = true;
-      uploadButton.textContent = "上傳中...";
-
-      const success = await uploadTeamPending(buildPendingPayload(currentSession));
-
-      if (success) {
-        await clearSessionEverywhere();
-        renderSession();
-      } else {
-        uploadButton.disabled = false;
-        uploadButton.textContent = "上傳更新到 Dropbox";
-      }
-    });
-  }
-
-  uploadButton.disabled = session.length === 0;
-  uploadButton.textContent = "上傳更新到 Dropbox";
-
   $("#sessionList").innerHTML = session.map(item => `<article class="session-item"><div><h3>${escapeHtml(item.store_name)}</h3><p>${escapeHtml(item.channel)}｜加入時間 ${escapeHtml(formatTime(item.added_at))}</p></div><div class="session-actions"><button type="button" data-edit="${item.id}">修改</button><button type="button" data-delete="${item.id}">刪除</button></div></article>`).join("");
 
   $$('[data-edit]').forEach(button => button.addEventListener("click", () => {
@@ -666,7 +490,7 @@ async function initialize() {
 }
 
 $$(".home-action").forEach(button => button.addEventListener("click", () => {
-  const titles = { searchView: "查詢店家", sessionView: "今日巡店", settingsView: "使用者設定" };
+  const titles = { searchView: "查詢店家", sessionView: "今日巡店", settingsView: "設定" };
   showView(button.dataset.view, titles[button.dataset.view]);
 }));
 
@@ -681,7 +505,7 @@ $("#storeQuery").addEventListener("input", event => {
   const matches = query ? searchStores(query, 6) : [];
 
   $("#suggestions").hidden = !matches.length;
-  $("#suggestions").innerHTML = matches.map((store, index) => `<button class="suggestion" data-index="${index}" type="button"><span>${escapeHtml(store.channel === "GT" ? gtDisplayName(store) : store.store_name)}</span><small>${escapeHtml(text(store.channel))}</small></button>`).join("");
+  $("#suggestions").innerHTML = matches.map((store, index) => `<button class="suggestion" data-index="${index}" type="button"><span>${escapeHtml(store.store_name)}</span><small>${escapeHtml(text(store.channel))}</small></button>`).join("");
 
   $$(".suggestion").forEach(button => button.addEventListener("click", () => {
     const store = matches[Number(button.dataset.index)];
@@ -725,28 +549,6 @@ $("#visitUpdateForm").addEventListener("submit", event => {
     : [...session, item];
 
   saveSession(next);
-
-  // SVMS_CLEAR_SEARCH_AFTER_VISIT_V1
-  // 完成巡店後清空上一間店，回到查詢頁時可直接輸入下一間。
-  const storeQuery = $("#storeQuery");
-  if (storeQuery) storeQuery.value = "";
-
-  const results = $("#results");
-  if (results) {
-    results.innerHTML = "";
-    results.hidden = true;
-  }
-
-  const suggestions = $("#suggestions");
-  if (suggestions) {
-    suggestions.innerHTML = "";
-    suggestions.hidden = true;
-  }
-
-  const emptyState = $("#emptyState");
-  if (emptyState) emptyState.hidden = false;
-
-  currentStore = null;
 
   alert(editingId ? "今日巡店資料已修改。" : "已加入今日巡店。");
   showView("sessionView", "今日巡店");
