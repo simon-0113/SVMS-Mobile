@@ -64,6 +64,12 @@ function showView(id, title) {
   $("#pageTitle").textContent = title;
   $("#backButton").hidden = id === "homeView";
   if (id === "sessionView") renderSession();
+  if (id === "searchView") {
+    setTimeout(() => {
+      const storeQuery = $("#storeQuery");
+      if (storeQuery) storeQuery.focus();
+    }, 50);
+  }
   window.scrollTo(0, 0);
 }
 
@@ -578,6 +584,28 @@ $("#visitUpdateForm").addEventListener("submit", event => {
     : [...session, item];
 
   saveSession(next);
+
+  // SVMS_CLEAR_SEARCH_AFTER_VISIT_V1
+  // 完成巡店後清空上一間店，回到查詢頁時可直接輸入下一間。
+  const storeQuery = $("#storeQuery");
+  if (storeQuery) storeQuery.value = "";
+
+  const results = $("#results");
+  if (results) {
+    results.innerHTML = "";
+    results.hidden = true;
+  }
+
+  const suggestions = $("#suggestions");
+  if (suggestions) {
+    suggestions.innerHTML = "";
+    suggestions.hidden = true;
+  }
+
+  const emptyState = $("#emptyState");
+  if (emptyState) emptyState.hidden = false;
+
+  currentStore = null;
 
   alert(editingId ? "今日巡店資料已修改。" : "已加入今日巡店。");
   showView("sessionView", "今日巡店");
