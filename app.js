@@ -616,6 +616,14 @@ function renderSession() {
   }));
 
   $$('[data-delete]').forEach(button => button.addEventListener("click", () => {
+    const item = getSession().find(entry => entry.id === button.dataset.delete);
+    if (!item) return;
+
+    const confirmed = confirm(
+      `確定要刪除這筆今日巡店資料？\n\n店家：${item.store_name}\n\n刪除後將無法從今日巡店中復原。`
+    );
+    if (!confirmed) return;
+
     const next = getSession().filter(entry => entry.id !== button.dataset.delete);
     saveSession(next);
     renderSession();
