@@ -10,10 +10,82 @@ const SESSION_DB_NAME = "svms_mobile_session_backup";
 const SESSION_DB_STORE = "session";
 const SESSION_DB_RECORD = "today_session";
 
+const SVMS_USER_NAME_KEY = "svms_mobile_user_name_v1";
+const SVMS_UPLOAD_ENDPOINT = "https://svms-team-upload.t0926400467.workers.dev/";
+
 const $ = selector => document.querySelector(selector);
 const $$ = selector => [...document.querySelectorAll(selector)];
 const text = (value, fallback = "—") => value === null || value === undefined || value === "" ? fallback : String(value);
 const escapeHtml = value => text(value, "").replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;");
+
+function getSvmsUserName() {
+  return (localStorage.getItem(SVMS_USER_NAME_KEY) || "").trim();
+}
+
+function saveSvmsUserName(name) {
+  localStorage.setItem(SVMS_USER_NAME_KEY, String(name || "").trim());
+}
+
+function safeFilePart(value) {
+  return String(value || "")
+    .trim()
+    .replace(/[\\/:*?"<>|]/g, "_")
+    .replace(/\s+/g, "_")
+    .slice(0, 40);
+}
+
+function localTimestampForFile() {
+  const d = new Date();
+  const p = n => String(n).padStart(2, "0");
+  return `${d.getFullYear()}${p(d.getMonth() + 1)}${p(d.getDate())}_${p(d.getHours())}${p(d.getMinutes())}${p(d.getSeconds())}`;
+}
+
+async function uploadTeamPending(payload) {
+  const userName = getSvmsUserName();
+
+  if (!userName) {
+    alert("請先到「設定」輸入個人名稱並儲存。");
+    showView("settingsView", "使用者設定");
+    return false;
+  }
+
+  if (!SVMS_UPLOAD_ENDPOINT || SVMS_UPLOAD_ENDPOINT.includes("PASTE_YOUR_WORKER_URL")) {
+    alert("尚未設定 Dropbox 上傳服務網址。");
+    return false;
+  }
+
+  const fileName = `${safeFilePart(userName)}_${localTimestampForFile()}.json`;
+  const uploadPayload = {
+    ...payload,
+    user_name: userName,
+    batch_id: `${localDateISO().replaceAll("-", "")}_${safeFilePart(userName)}_mobile`,
+    uploaded_at: new Date().toISOString()
+  };
+
+  try {
+    const response = await fetch(SVMS_UPLOAD_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        file_name: fileName,
+        payload: uploadPayload
+      })
+    });
+
+    const result = await response.json().catch(() => ({}));
+
+    if (!response.ok || !result.ok) {
+      throw new Error(result.error || `HTTP ${response.status}`);
+    }
+
+    alert(`更新已上傳到 Dropbox\n使用者：${userName}\n檔名：${result.file_name || fileName}`);
+    return true;
+  } catch (error) {
+    console.error("[SVMS] Dropbox upload failed:", error);
+    alert(`上傳失敗：${error.message}\n今日巡店資料仍保留，可稍後重試或使用下載更新檔。`);
+    return false;
+  }
+}
 
 function localDateISO() {
   const now = new Date();
@@ -64,6 +136,31 @@ function showView(id, title) {
   $("#pageTitle").textContent = title;
   $("#backButton").hidden = id === "homeView";
   if (id === "sessionView") renderSession();
+
+  if (id === "settingsView") {
+    const host = $("#settingsView");
+    if (host) {
+      const currentName = getSvmsUserName();
+      host.innerHTML = `
+        <div class="card">
+          <h2>使用者設定</h2>
+          <div class="form-field full">
+            <label for="svmsUserName">個人名稱</label>
+            <input id="svmsUserName" type="text" maxlength="40" placeholder="例如：Eric" value="${escapeHtml(currentName)}">
+          </div>
+          <button id="saveSvmsUserNameButton" class="update-launch" type="button">儲存</button>
+          <p class="form-help">只需設定一次，之後上傳巡店更新會自動帶入此名稱。</p>
+        </div>`;
+
+      $("#saveSvmsUserNameButton").addEventListener("click", () => {
+        const name = $("#svmsUserName").value.trim();
+        if (!name) return alert("請輸入個人名稱。");
+        saveSvmsUserName(name);
+        alert(`已儲存使用者名稱：${name}`);
+      });
+    }
+  }
+
   if (id === "searchView") {
     setTimeout(() => {
       const storeQuery = $("#storeQuery");
@@ -448,6 +545,50 @@ function renderSession() {
   updateSessionCounts();
   $("#sessionEmpty").hidden = session.length > 0;
   $("#completeSessionButton").disabled = session.length === 0;
+
+  let uploadButton = $("#uploadTeamPendingButton");
+  if (!uploadButton) {
+    uploadButton = document.createElement("button");
+    uploadButton.id = "uploadTeamPendingButton";
+    uploadButton.type = "button";
+    uploadButton.className = $("#completeSessionButton").className;
+    uploadButton.textContent = "上傳更新到 Dropbox";
+    $("#completeSessionButton").insertAdjacentElement("afterend", uploadButton);
+
+    uploadButton.addEventListener("click", async () => {
+      const currentSession = getSession();
+      if (!currentSession.length) return;
+
+      const userName = getSvmsUserName();
+      if (!userName) {
+        alert("請先到「設定」輸入個人名稱並儲存。");
+        showView("settingsView", "使用者設定");
+        return;
+      }
+
+      const confirmed = confirm(
+        `確定上傳今日巡店？\n\n使用者：${userName}\n巡店：${currentSession.length} 間\n\n上傳成功後會清空今日巡店。`
+      );
+      if (!confirmed) return;
+
+      uploadButton.disabled = true;
+      uploadButton.textContent = "上傳中...";
+
+      const success = await uploadTeamPending(buildPendingPayload(currentSession));
+
+      if (success) {
+        await clearSessionEverywhere();
+        renderSession();
+      } else {
+        uploadButton.disabled = false;
+        uploadButton.textContent = "上傳更新到 Dropbox";
+      }
+    });
+  }
+
+  uploadButton.disabled = session.length === 0;
+  uploadButton.textContent = "上傳更新到 Dropbox";
+
   $("#sessionList").innerHTML = session.map(item => `<article class="session-item"><div><h3>${escapeHtml(item.store_name)}</h3><p>${escapeHtml(item.channel)}｜加入時間 ${escapeHtml(formatTime(item.added_at))}</p></div><div class="session-actions"><button type="button" data-edit="${item.id}">修改</button><button type="button" data-delete="${item.id}">刪除</button></div></article>`).join("");
 
   $$('[data-edit]').forEach(button => button.addEventListener("click", () => {
@@ -525,7 +666,7 @@ async function initialize() {
 }
 
 $$(".home-action").forEach(button => button.addEventListener("click", () => {
-  const titles = { searchView: "查詢店家", sessionView: "今日巡店", settingsView: "設定" };
+  const titles = { searchView: "查詢店家", sessionView: "今日巡店", settingsView: "使用者設定" };
   showView(button.dataset.view, titles[button.dataset.view]);
 }));
 
