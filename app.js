@@ -108,7 +108,7 @@ function photoSectionHTML() {
     <div class="form-section">
       <h3>現場照片</h3>
       <div style="padding:12px;border:1px solid #e2e6ec;border-radius:12px;background:#fafbfc;">
-        <input id="visitPhotoInput" type="file" accept="image/*" capture="environment" multiple hidden>
+        <input id="visitPhotoInput" type="file" accept="image/*" multiple hidden>
         <button id="visitPhotoButton" type="button" class="update-launch">📷 拍照 / 選擇照片</button>
         <p class="form-help" style="margin-top:8px;">照片會先在手機端自動壓縮並保存於今日巡店；完成今日巡店時才統一上傳 Dropbox。</p>
         <div id="visitPhotoStatus" class="form-help">尚未加入照片。</div>
