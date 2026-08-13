@@ -2,3 +2,68 @@
 
 .not-found p{margin:8px 0 14px;color:var(--muted);font-size:13px;line-height:1.5}
 .add-cvs-button{width:100%;padding:12px 14px;border:0;border-radius:10px;background:#374151;color:#fff;font-weight:800}
+
+/* SVMS｜現場品項狀況：提示＋底部即時統計 */
+.product-status-help{
+  margin:0 0 10px;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.5;
+}
+
+.product-status-summary{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:nowrap;
+  gap:10px;
+  margin-top:10px;
+  padding:10px 12px;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:#f9fafb;
+  font-size:13px;
+  font-weight:700;
+  white-space:nowrap;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+}
+
+.product-status-summary .summary-title{
+  color:var(--ink);
+  font-weight:800;
+}
+
+.product-status-summary .summary-separator{
+  color:#9ca3af;
+  font-weight:400;
+}
+
+.product-status-summary .summary-display{
+  color:#059669;
+}
+
+.product-status-summary .summary-distribution{
+  color:#2563eb;
+}
+
+.product-status-summary .summary-out{
+  color:#ea580c;
+}
+
+.product-status-summary strong{
+  font-size:15px;
+}
+
+@media(max-width:560px){
+  .product-status-summary{
+    justify-content:flex-start;
+    gap:7px;
+    padding:9px 10px;
+    font-size:12px;
+  }
+  .product-status-summary strong{
+    font-size:14px;
+  }
+}
+
