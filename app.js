@@ -699,7 +699,19 @@ function productStatusTable(saved = {}, savedOsdOriginal = {}) {
     const originVisible = status === "out_of_stock";
     return `<div class="product-row" data-product="${escapeHtml(product)}"><div class="product-name">${escapeHtml(product)}</div>${["display", "distribution", "out_of_stock"].map(value => `<label class="status-cell"><input type="checkbox" name="product_${escapeHtml(product)}" value="${value}" ${status === value ? "checked" : ""}><span>${value === "display" ? "陳列" : value === "distribution" ? "分布" : "缺貨"}</span></label>`).join("")}<div class="osd-origin" ${originVisible ? "" : "hidden"} style="grid-column:1/-1;margin:6px 0 10px;padding:8px 10px;border:1px solid #e2e6ec;border-radius:10px;background:#fafbfc;"><span style="margin-right:12px;font-weight:600;">缺貨原屬：</span><label style="margin-right:14px;"><input type="radio" name="osd_origin_${escapeHtml(product)}" value="display" ${osdOriginal === "display" ? "checked" : ""}> 原屬陳列</label><label><input type="radio" name="osd_origin_${escapeHtml(product)}" value="distribution" ${osdOriginal === "distribution" ? "checked" : ""}> 原屬分布</label></div></div>`;
   }).join("");
-  return `<div class="product-status"><div class="product-row product-header"><div>品項</div><div>陳列</div><div>分布</div><div>缺貨</div></div>${groups.map(group => `<div class="series-title">${escapeHtml(group.series)}</div>${rows(group.products)}`).join("")}${standalone.length ? `<div class="series-title">其他</div>${rows(standalone)}` : ""}</div><p class="form-help">每個品項只能選擇一種狀態；選擇「缺貨」時，必須再指定原屬陳列或原屬分布。</p>`;
+  return `<p class="form-help product-status-help">每個品項只能選擇一種狀態；選擇「缺貨」時，必須再指定原屬陳列或原屬分布。</p><div class="product-status"><div class="product-row product-header"><div>品項</div><div>陳列</div><div>分布</div><div>缺貨</div></div>${groups.map(group => `<div class="series-title">${escapeHtml(group.series)}</div>${rows(group.products)}`).join("")}${standalone.length ? `<div class="series-title">其他</div>${rows(standalone)}` : ""}</div><div class="product-status-summary" id="productStatusSummary"><span>已選品項統計</span><strong>陳列 <b data-status-count="display">0</b> ｜ 分布 <b data-status-count="distribution">0</b> ｜ 缺貨 <b data-status-count="out_of_stock">0</b></strong></div>`;
+}
+
+function updateProductStatusSummary() {
+  const counts = { display: 0, distribution: 0, out_of_stock: 0 };
+  $$(".product-row[data-product]").forEach(row => {
+    const checked = row.querySelector('.status-cell input[type="checkbox"]:checked');
+    if (checked && Object.prototype.hasOwnProperty.call(counts, checked.value)) counts[checked.value] += 1;
+  });
+  Object.entries(counts).forEach(([status, count]) => {
+    const target = document.querySelector(`[data-status-count="${status}"]`);
+    if (target) target.textContent = String(count);
+  });
 }
 
 function bindProductStatusControls() {
@@ -716,9 +728,11 @@ function bindProductStatusControls() {
     controls.forEach(control => control.addEventListener("change", () => {
       if (control.checked) controls.forEach(other => { if (other !== control) other.checked = false; });
       syncOrigin();
+      updateProductStatusSummary();
     }));
     syncOrigin();
   });
+  updateProductStatusSummary();
 }
 
 function createNewCVSStore(query = "") {
