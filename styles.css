@@ -121,3 +121,64 @@
     font-size:12px;
   }
 }
+
+
+/* SVMS Mobile：缺貨原屬對齊 + 品項欄位標題置頂 */
+.osd-origin{
+  font-size:12px;
+  line-height:1.4;
+}
+
+.osd-origin > span{
+  font-size:12px;
+  font-weight:700!important;
+}
+
+.osd-origin label{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  font-size:12px;
+  line-height:1.4;
+}
+
+.osd-origin input[type="radio"]{
+  width:18px;
+  height:18px;
+  margin:0;
+  vertical-align:middle;
+}
+
+.product-header{
+  position:sticky;
+  top:0;
+  z-index:8;
+  box-shadow:0 1px 0 var(--line);
+}
+
+.product-header > div{
+  background:#f3f4f6;
+}
+
+@media(max-width:560px){
+  .osd-origin{
+    padding:7px 8px!important;
+    font-size:12px;
+  }
+
+  .osd-origin > span,
+  .osd-origin label{
+    font-size:12px;
+  }
+
+  .osd-origin input[type="radio"]{
+    width:18px;
+    height:18px;
+  }
+
+  .product-header{
+    position:sticky;
+    top:0;
+    z-index:8;
+  }
+}
