@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-08-18T22:29:00",
-  "store_count": 794,
+  "generated_at": "2026-08-19T20:06:34",
+  "store_count": 809,
   "stores": [
     {
       "channel": "711",
       "store_name": "711勵志門市",
       "aliases": [
         "711勵志門市",
-        "7-ELEVEN711勵志門市",
         "7ELEVEN711勵志門市",
-        "7_ELEVEN711勵志門市"
+        "7_ELEVEN711勵志門市",
+        "7-ELEVEN711勵志門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -75,9 +75,9 @@
       "store_name": "711嘉興門市",
       "aliases": [
         "711嘉興門市",
-        "7-ELEVEN711嘉興門市",
         "7_ELEVEN711嘉興門市",
-        "7ELEVEN711嘉興門市"
+        "7ELEVEN711嘉興門市",
+        "7-ELEVEN711嘉興門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -109,8 +109,8 @@
       "store_name": "711坪高門市",
       "aliases": [
         "711坪高門市",
-        "7ELEVEN711坪高門市",
         "7_ELEVEN711坪高門市",
+        "7ELEVEN711坪高門市",
         "7-ELEVEN711坪高門市"
       ],
       "sources": [
@@ -142,9 +142,9 @@
       "store_name": "711大坪頂門市",
       "aliases": [
         "711大坪頂門市",
+        "7_ELEVEN711大坪頂門市",
         "7ELEVEN711大坪頂門市",
-        "7-ELEVEN711大坪頂門市",
-        "7_ELEVEN711大坪頂門市"
+        "7-ELEVEN711大坪頂門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -175,9 +175,9 @@
       "store_name": "711崗埔門市",
       "aliases": [
         "711崗埔門市",
+        "7-ELEVEN711崗埔門市",
         "7ELEVEN711崗埔門市",
-        "7_ELEVEN711崗埔門市",
-        "7-ELEVEN711崗埔門市"
+        "7_ELEVEN711崗埔門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -209,8 +209,8 @@
       "store_name": "711新兆湘門市",
       "aliases": [
         "711新兆湘門市",
-        "7-ELEVEN711新兆湘門市",
         "7_ELEVEN711新兆湘門市",
+        "7-ELEVEN711新兆湘門市",
         "7ELEVEN711新兆湘門市"
       ],
       "sources": [
@@ -242,9 +242,9 @@
       "store_name": "711明鳳門市",
       "aliases": [
         "711明鳳門市",
-        "7-ELEVEN711明鳳門市",
         "7ELEVEN711明鳳門市",
-        "7_ELEVEN711明鳳門市"
+        "7_ELEVEN711明鳳門市",
+        "7-ELEVEN711明鳳門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -309,8 +309,8 @@
       "store_name": "711桂誠門市",
       "aliases": [
         "711桂誠門市",
-        "7ELEVEN711桂誠門市",
         "7_ELEVEN711桂誠門市",
+        "7ELEVEN711桂誠門市",
         "7-ELEVEN711桂誠門市"
       ],
       "sources": [
@@ -343,8 +343,8 @@
       "aliases": [
         "711森鴻門市",
         "7-ELEVEN711森鴻門市",
-        "7ELEVEN711森鴻門市",
-        "7_ELEVEN711森鴻門市"
+        "7_ELEVEN711森鴻門市",
+        "7ELEVEN711森鴻門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -377,8 +377,8 @@
       "aliases": [
         "711樺鑫門市",
         "7ELEVEN711樺鑫門市",
-        "7-ELEVEN711樺鑫門市",
-        "7_ELEVEN711樺鑫門市"
+        "7_ELEVEN711樺鑫門市",
+        "7-ELEVEN711樺鑫門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -410,8 +410,8 @@
       "aliases": [
         "711民治門市",
         "7_ELEVEN711民治門市",
-        "7ELEVEN711民治門市",
-        "7-ELEVEN711民治門市"
+        "7-ELEVEN711民治門市",
+        "7ELEVEN711民治門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -442,8 +442,8 @@
       "store_name": "711港口門市",
       "aliases": [
         "711港口門市",
-        "7ELEVEN711港口門市",
         "7-ELEVEN711港口門市",
+        "7ELEVEN711港口門市",
         "7_ELEVEN711港口門市"
       ],
       "sources": [
@@ -475,9 +475,9 @@
       "store_name": "711港后門市",
       "aliases": [
         "711港后門市",
+        "7_ELEVEN711港后門市",
         "7-ELEVEN711港后門市",
-        "7ELEVEN711港后門市",
-        "7_ELEVEN711港后門市"
+        "7ELEVEN711港后門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -508,9 +508,9 @@
       "store_name": "711維仁門市",
       "aliases": [
         "711維仁門市",
-        "7-ELEVEN711維仁門市",
+        "7ELEVEN711維仁門市",
         "7_ELEVEN711維仁門市",
-        "7ELEVEN711維仁門市"
+        "7-ELEVEN711維仁門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -542,9 +542,9 @@
       "store_name": "711肯娣門市",
       "aliases": [
         "711肯娣門市",
+        "7ELEVEN711肯娣門市",
         "7-ELEVEN711肯娣門市",
-        "7_ELEVEN711肯娣門市",
-        "7ELEVEN711肯娣門市"
+        "7_ELEVEN711肯娣門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -575,9 +575,9 @@
       "store_name": "711華仁門市",
       "aliases": [
         "711華仁門市",
-        "7ELEVEN711華仁門市",
+        "7_ELEVEN711華仁門市",
         "7-ELEVEN711華仁門市",
-        "7_ELEVEN711華仁門市"
+        "7ELEVEN711華仁門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -643,8 +643,8 @@
       "store_name": "711高桂門市",
       "aliases": [
         "711高桂門市",
-        "7_ELEVEN711高桂門市",
         "7ELEVEN711高桂門市",
+        "7_ELEVEN711高桂門市",
         "7-ELEVEN711高桂門市"
       ],
       "sources": [
@@ -673,12 +673,49 @@
     },
     {
       "channel": "711",
+      "store_name": "三村",
+      "aliases": [
+        "三村",
+        "711三村",
+        "7-11三村",
+        "7_11三村",
+        "7-ELEVEN三村",
+        "7ELEVEN三村",
+        "7_ELEVEN三村"
+      ],
+      "sources": [
+        "CVS巡店總表_Master正式版.xlsx"
+      ],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "客群": "住宅區",
+          "小煙架": "X",
+          "銷售": "未提供",
+          "銷售等級": "",
+          "LINE OA": "X",
+          "配合度": "中",
+          "備註": "不先進先出，調撥巧克力及紫愛喜，小煙架在吊掛"
+        }
+      ],
+      "visit_date": "2026-08-19",
+      "city": "台南市",
+      "district": "永康區",
+      "customer_group": "住宅區",
+      "small_rack": "X",
+      "sales": "未提供",
+      "line_oa": "X",
+      "cooperation": "中",
+      "note": "不先進先出，調撥巧克力及紫愛喜，小煙架在吊掛"
+    },
+    {
+      "channel": "711",
       "store_name": "亞新灣門市",
       "aliases": [
         "亞新灣門市",
         "711亞新灣門市",
-        "7_11亞新灣門市",
         "7-11亞新灣門市",
+        "7_11亞新灣門市",
         "7ELEVEN亞新灣門市",
         "7-ELEVEN亞新灣門市",
         "7_ELEVEN亞新灣門市"
@@ -771,11 +808,11 @@
       "aliases": [
         "信賢門市",
         "711信賢門市",
-        "7-11信賢門市",
         "7_11信賢門市",
-        "7-ELEVEN信賢門市",
+        "7-11信賢門市",
+        "7ELEVEN信賢門市",
         "7_ELEVEN信賢門市",
-        "7ELEVEN信賢門市"
+        "7-ELEVEN信賢門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -855,11 +892,11 @@
       "aliases": [
         "光尚門市",
         "711光尚門市",
-        "7_11光尚門市",
         "7-11光尚門市",
+        "7_11光尚門市",
         "7_ELEVEN光尚門市",
-        "7ELEVEN光尚門市",
-        "7-ELEVEN光尚門市"
+        "7-ELEVEN光尚門市",
+        "7ELEVEN光尚門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -888,15 +925,124 @@
     },
     {
       "channel": "711",
+      "store_name": "創意",
+      "aliases": [
+        "創意",
+        "711創意",
+        "7-11創意",
+        "7_11創意",
+        "7ELEVEN創意",
+        "7-ELEVEN創意",
+        "7_ELEVEN創意"
+      ],
+      "sources": [
+        "CVS巡店總表_Master正式版.xlsx"
+      ],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "客群": "工廠",
+          "小煙架": "V",
+          "銷售": "未提供",
+          "銷售等級": "",
+          "LINE OA": "",
+          "配合度": "中",
+          "備註": ""
+        }
+      ],
+      "visit_date": "2026-08-19",
+      "city": "台南市",
+      "district": "永康區",
+      "customer_group": "工廠",
+      "small_rack": "V",
+      "sales": "未提供",
+      "cooperation": "中"
+    },
+    {
+      "channel": "711",
+      "store_name": "南應大",
+      "aliases": [
+        "南應大",
+        "711南應大",
+        "7_11南應大",
+        "7-11南應大",
+        "7-ELEVEN南應大",
+        "7_ELEVEN南應大",
+        "7ELEVEN南應大"
+      ],
+      "sources": [
+        "CVS巡店總表_Master正式版.xlsx"
+      ],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "客群": "大學",
+          "小煙架": "X",
+          "銷售": "未提供",
+          "銷售等級": "",
+          "LINE OA": "X",
+          "配合度": "中",
+          "備註": "調撥煙：寶1、法蘭斯"
+        }
+      ],
+      "visit_date": "2026-08-19",
+      "city": "台南市",
+      "district": "永康區",
+      "customer_group": "大學",
+      "small_rack": "X",
+      "sales": "未提供",
+      "line_oa": "X",
+      "cooperation": "中",
+      "note": "調撥煙：寶1、法蘭斯"
+    },
+    {
+      "channel": "711",
+      "store_name": "台南蔡",
+      "aliases": [
+        "台南蔡",
+        "711台南蔡",
+        "7-11台南蔡",
+        "7_11台南蔡",
+        "7_ELEVEN台南蔡",
+        "7-ELEVEN台南蔡",
+        "7ELEVEN台南蔡"
+      ],
+      "sources": [
+        "CVS巡店總表_Master正式版.xlsx"
+      ],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "客群": "未提供",
+          "小煙架": "V",
+          "銷售": "未提供",
+          "銷售等級": "",
+          "LINE OA": "X",
+          "配合度": "中",
+          "備註": "小煙架半層，調撥煙"
+        }
+      ],
+      "visit_date": "2026-08-19",
+      "city": "台南市",
+      "district": "永康區",
+      "customer_group": "未提供",
+      "small_rack": "V",
+      "sales": "未提供",
+      "line_oa": "X",
+      "cooperation": "中",
+      "note": "小煙架半層，調撥煙"
+    },
+    {
+      "channel": "711",
       "store_name": "合莊門市",
       "aliases": [
         "合莊門市",
         "711合莊門市",
         "7-11合莊門市",
         "7_11合莊門市",
-        "7-ELEVEN合莊門市",
         "7ELEVEN合莊門市",
-        "7_ELEVEN合莊門市"
+        "7_ELEVEN合莊門市",
+        "7-ELEVEN合莊門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -931,9 +1077,9 @@
         "711名言",
         "7_11名言",
         "7-11名言",
-        "7ELEVEN名言",
         "7_ELEVEN名言",
-        "7-ELEVEN名言"
+        "7-ELEVEN名言",
+        "7ELEVEN名言"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -964,10 +1110,10 @@
       "aliases": [
         "和旺門市",
         "711和旺門市",
-        "7-11和旺門市",
         "7_11和旺門市",
-        "7_ELEVEN和旺門市",
+        "7-11和旺門市",
         "7-ELEVEN和旺門市",
+        "7_ELEVEN和旺門市",
         "7ELEVEN和旺門市"
       ],
       "sources": [
@@ -1048,11 +1194,11 @@
       "aliases": [
         "大輔門市",
         "711大輔門市",
-        "7-11大輔門市",
         "7_11大輔門市",
+        "7-11大輔門市",
+        "7-ELEVEN大輔門市",
         "7ELEVEN大輔門市",
-        "7_ELEVEN大輔門市",
-        "7-ELEVEN大輔門市"
+        "7_ELEVEN大輔門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -1097,9 +1243,9 @@
         "711大順門市",
         "7-11大順門市",
         "7_11大順門市",
-        "7ELEVEN大順門市",
+        "7-ELEVEN大順門市",
         "7_ELEVEN大順門市",
-        "7-ELEVEN大順門市"
+        "7ELEVEN大順門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -1135,8 +1281,8 @@
         "7-11天健門市",
         "7_11天健門市",
         "7ELEVEN天健門市",
-        "7-ELEVEN天健門市",
-        "7_ELEVEN天健門市"
+        "7_ELEVEN天健門市",
+        "7-ELEVEN天健門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -1172,8 +1318,8 @@
         "7-11好正義門市",
         "7_11好正義門市",
         "7ELEVEN好正義門市",
-        "7-ELEVEN好正義門市",
-        "7_ELEVEN好正義門市"
+        "7_ELEVEN好正義門市",
+        "7-ELEVEN好正義門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -1216,11 +1362,11 @@
       "aliases": [
         "宏文門市",
         "711宏文門市",
-        "7-11宏文門市",
         "7_11宏文門市",
-        "7-ELEVEN宏文門市",
+        "7-11宏文門市",
         "7_ELEVEN宏文門市",
-        "7ELEVEN宏文門市"
+        "7ELEVEN宏文門市",
+        "7-ELEVEN宏文門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -1255,9 +1401,9 @@
         "711宏華門市",
         "7_11宏華門市",
         "7-11宏華門市",
-        "7_ELEVEN宏華門市",
+        "7-ELEVEN宏華門市",
         "7ELEVEN宏華門市",
-        "7-ELEVEN宏華門市"
+        "7_ELEVEN宏華門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -1292,9 +1438,9 @@
         "711宏順門市",
         "7_11宏順門市",
         "7-11宏順門市",
+        "7ELEVEN宏順門市",
         "7_ELEVEN宏順門市",
-        "7-ELEVEN宏順門市",
-        "7ELEVEN宏順門市"
+        "7-ELEVEN宏順門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -1322,15 +1468,51 @@
     },
     {
       "channel": "711",
+      "store_name": "尚頂",
+      "aliases": [
+        "尚頂",
+        "711尚頂",
+        "7-11尚頂",
+        "7_11尚頂",
+        "7_ELEVEN尚頂",
+        "7-ELEVEN尚頂",
+        "7ELEVEN尚頂"
+      ],
+      "sources": [
+        "CVS巡店總表_Master正式版.xlsx"
+      ],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "客群": "幹道型",
+          "小煙架": "X",
+          "銷售": "未提供",
+          "銷售等級": "",
+          "LINE OA": "X",
+          "配合度": "中",
+          "備註": ""
+        }
+      ],
+      "visit_date": "2026-08-19",
+      "city": "台南市",
+      "district": "永康區",
+      "customer_group": "幹道型",
+      "small_rack": "X",
+      "sales": "未提供",
+      "line_oa": "X",
+      "cooperation": "中"
+    },
+    {
+      "channel": "711",
       "store_name": "崛星門市",
       "aliases": [
         "崛星門市",
         "711崛星門市",
         "7-11崛星門市",
         "7_11崛星門市",
+        "7_ELEVEN崛星門市",
         "7ELEVEN崛星門市",
-        "7-ELEVEN崛星門市",
-        "7_ELEVEN崛星門市"
+        "7-ELEVEN崛星門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -1376,8 +1558,8 @@
         "7_11廣東門市",
         "7-11廣東門市",
         "7-ELEVEN廣東門市",
-        "7ELEVEN廣東門市",
-        "7_ELEVEN廣東門市"
+        "7_ELEVEN廣東門市",
+        "7ELEVEN廣東門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -1446,11 +1628,11 @@
       "aliases": [
         "復中門市",
         "711復中門市",
-        "7-11復中門市",
         "7_11復中門市",
+        "7-11復中門市",
         "7-ELEVEN復中門市",
-        "7ELEVEN復中門市",
-        "7_ELEVEN復中門市"
+        "7_ELEVEN復中門市",
+        "7ELEVEN復中門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -1485,9 +1667,9 @@
         "711復橫門市",
         "7_11復橫門市",
         "7-11復橫門市",
+        "7_ELEVEN復橫門市",
         "7-ELEVEN復橫門市",
-        "7ELEVEN復橫門市",
-        "7_ELEVEN復橫門市"
+        "7ELEVEN復橫門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -1521,11 +1703,11 @@
       "aliases": [
         "德陽門市",
         "711德陽門市",
-        "7_11德陽門市",
         "7-11德陽門市",
+        "7_11德陽門市",
         "7_ELEVEN德陽門市",
-        "7-ELEVEN德陽門市",
-        "7ELEVEN德陽門市"
+        "7ELEVEN德陽門市",
+        "7-ELEVEN德陽門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -1558,11 +1740,11 @@
       "aliases": [
         "愛仁門市",
         "711愛仁門市",
-        "7_11愛仁門市",
         "7-11愛仁門市",
-        "7_ELEVEN愛仁門市",
+        "7_11愛仁門市",
+        "7ELEVEN愛仁門市",
         "7-ELEVEN愛仁門市",
-        "7ELEVEN愛仁門市"
+        "7_ELEVEN愛仁門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -1594,10 +1776,10 @@
       "aliases": [
         "文昌門市",
         "711文昌門市",
-        "7-11文昌門市",
         "7_11文昌門市",
-        "7_ELEVEN文昌門市",
+        "7-11文昌門市",
         "7ELEVEN文昌門市",
+        "7_ELEVEN文昌門市",
         "7-ELEVEN文昌門市"
       ],
       "sources": [
@@ -1631,11 +1813,11 @@
       "aliases": [
         "文漾門市",
         "711文漾門市",
-        "7-11文漾門市",
         "7_11文漾門市",
+        "7-11文漾門市",
+        "7_ELEVEN文漾門市",
         "7-ELEVEN文漾門市",
-        "7ELEVEN文漾門市",
-        "7_ELEVEN文漾門市"
+        "7ELEVEN文漾門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -1678,11 +1860,11 @@
       "aliases": [
         "新三華門市",
         "711新三華門市",
-        "7_11新三華門市",
         "7-11新三華門市",
-        "7-ELEVEN新三華門市",
+        "7_11新三華門市",
+        "7_ELEVEN新三華門市",
         "7ELEVEN新三華門市",
-        "7_ELEVEN新三華門市"
+        "7-ELEVEN新三華門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -1718,8 +1900,8 @@
         "7_11新仁政門市",
         "7-11新仁政門市",
         "7-ELEVEN新仁政門市",
-        "7ELEVEN新仁政門市",
-        "7_ELEVEN新仁政門市"
+        "7_ELEVEN新仁政門市",
+        "7ELEVEN新仁政門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -1758,15 +1940,86 @@
     },
     {
       "channel": "711",
+      "store_name": "新大豐",
+      "aliases": [
+        "新大豐",
+        "711新大豐",
+        "7_11新大豐",
+        "7-11新大豐",
+        "7ELEVEN新大豐",
+        "7-ELEVEN新大豐",
+        "7_ELEVEN新大豐"
+      ],
+      "sources": [
+        "CVS巡店總表_Master正式版.xlsx"
+      ],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "客群": "居民",
+          "小煙架": "V",
+          "銷售": "未提供",
+          "銷售等級": "",
+          "LINE OA": "X",
+          "配合度": "中",
+          "備註": ""
+        }
+      ],
+      "visit_date": "2026-08-19",
+      "city": "高雄市",
+      "district": "三民區",
+      "customer_group": "居民",
+      "small_rack": "V",
+      "sales": "未提供",
+      "line_oa": "X",
+      "cooperation": "中"
+    },
+    {
+      "channel": "711",
+      "store_name": "新家專",
+      "aliases": [
+        "新家專",
+        "711新家專",
+        "7-11新家專",
+        "7_11新家專",
+        "7-ELEVEN新家專",
+        "7ELEVEN新家專",
+        "7_ELEVEN新家專"
+      ],
+      "sources": [
+        "CVS巡店總表_Master正式版.xlsx"
+      ],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "客群": "大學",
+          "小煙架": "V",
+          "銷售": "未提供",
+          "銷售等級": "",
+          "LINE OA": "",
+          "配合度": "中",
+          "備註": ""
+        }
+      ],
+      "visit_date": "2026-08-19",
+      "city": "台南市",
+      "district": "永康區",
+      "customer_group": "大學",
+      "small_rack": "V",
+      "sales": "未提供",
+      "cooperation": "中"
+    },
+    {
+      "channel": "711",
       "store_name": "新新賢門市",
       "aliases": [
         "新新賢門市",
         "711新新賢門市",
         "7_11新新賢門市",
         "7-11新新賢門市",
-        "7ELEVEN新新賢門市",
+        "7-ELEVEN新新賢門市",
         "7_ELEVEN新新賢門市",
-        "7-ELEVEN新新賢門市"
+        "7ELEVEN新新賢門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -1802,8 +2055,8 @@
         "7_11新景友門市",
         "7-11新景友門市",
         "7_ELEVEN新景友門市",
-        "7ELEVEN新景友門市",
-        "7-ELEVEN新景友門市"
+        "7-ELEVEN新景友門市",
+        "7ELEVEN新景友門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -1838,9 +2091,9 @@
         "711新球庭門市",
         "7-11新球庭門市",
         "7_11新球庭門市",
+        "7-ELEVEN新球庭門市",
         "7_ELEVEN新球庭門市",
-        "7ELEVEN新球庭門市",
-        "7-ELEVEN新球庭門市"
+        "7ELEVEN新球庭門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -1873,11 +2126,11 @@
       "aliases": [
         "新盛心門市",
         "711新盛心門市",
-        "7-11新盛心門市",
         "7_11新盛心門市",
+        "7-11新盛心門市",
+        "7ELEVEN新盛心門市",
         "7-ELEVEN新盛心門市",
-        "7_ELEVEN新盛心門市",
-        "7ELEVEN新盛心門市"
+        "7_ELEVEN新盛心門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -1916,15 +2169,50 @@
     },
     {
       "channel": "711",
+      "store_name": "新真愛",
+      "aliases": [
+        "新真愛",
+        "711新真愛",
+        "7-11新真愛",
+        "7_11新真愛",
+        "7ELEVEN新真愛",
+        "7-ELEVEN新真愛",
+        "7_ELEVEN新真愛"
+      ],
+      "sources": [
+        "CVS巡店總表_Master正式版.xlsx"
+      ],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "客群": "住宅",
+          "小煙架": "V",
+          "銷售": "未提供",
+          "銷售等級": "",
+          "LINE OA": "",
+          "配合度": "中",
+          "備註": ""
+        }
+      ],
+      "visit_date": "2026-08-19",
+      "city": "台南市",
+      "district": "永康區",
+      "customer_group": "住宅",
+      "small_rack": "V",
+      "sales": "未提供",
+      "cooperation": "中"
+    },
+    {
+      "channel": "711",
       "store_name": "新聖明門市",
       "aliases": [
         "新聖明門市",
         "711新聖明門市",
         "7_11新聖明門市",
         "7-11新聖明門市",
-        "7_ELEVEN新聖明門市",
+        "7-ELEVEN新聖明門市",
         "7ELEVEN新聖明門市",
-        "7-ELEVEN新聖明門市"
+        "7_ELEVEN新聖明門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -1967,11 +2255,11 @@
       "aliases": [
         "新豐門市",
         "711新豐門市",
-        "7-11新豐門市",
         "7_11新豐門市",
+        "7-11新豐門市",
+        "7_ELEVEN新豐門市",
         "7ELEVEN新豐門市",
-        "7-ELEVEN新豐門市",
-        "7_ELEVEN新豐門市"
+        "7-ELEVEN新豐門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -2004,11 +2292,11 @@
       "aliases": [
         "明星門市",
         "711明星門市",
-        "7-11明星門市",
         "7_11明星門市",
-        "7ELEVEN明星門市",
+        "7-11明星門市",
         "7_ELEVEN明星門市",
-        "7-ELEVEN明星門市"
+        "7-ELEVEN明星門市",
+        "7ELEVEN明星門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -2037,14 +2325,50 @@
     },
     {
       "channel": "711",
+      "store_name": "時尚",
+      "aliases": [
+        "時尚",
+        "711時尚",
+        "7-11時尚",
+        "7_11時尚",
+        "7-ELEVEN時尚",
+        "7_ELEVEN時尚",
+        "7ELEVEN時尚"
+      ],
+      "sources": [
+        "CVS巡店總表_Master正式版.xlsx"
+      ],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "客群": "住宅、補習班",
+          "小煙架": "V",
+          "銷售": "未提供",
+          "銷售等級": "",
+          "LINE OA": "V",
+          "配合度": "中",
+          "備註": ""
+        }
+      ],
+      "visit_date": "2026-08-19",
+      "city": "台南市",
+      "district": "永康區",
+      "customer_group": "住宅、補習班",
+      "small_rack": "V",
+      "sales": "未提供",
+      "line_oa": "V",
+      "cooperation": "中"
+    },
+    {
+      "channel": "711",
       "store_name": "晴朗門市",
       "aliases": [
         "晴朗門市",
         "711晴朗門市",
         "7-11晴朗門市",
         "7_11晴朗門市",
-        "7-ELEVEN晴朗門市",
         "7ELEVEN晴朗門市",
+        "7-ELEVEN晴朗門市",
         "7_ELEVEN晴朗門市"
       ],
       "sources": [
@@ -2088,11 +2412,11 @@
       "aliases": [
         "月光山門市",
         "711月光山門市",
-        "7_11月光山門市",
         "7-11月光山門市",
-        "7_ELEVEN月光山門市",
+        "7_11月光山門市",
+        "7-ELEVEN月光山門市",
         "7ELEVEN月光山門市",
-        "7-ELEVEN月光山門市"
+        "7_ELEVEN月光山門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -2124,11 +2448,11 @@
       "aliases": [
         "東泥門市",
         "711東泥門市",
-        "7-11東泥門市",
         "7_11東泥門市",
+        "7-11東泥門市",
+        "7_ELEVEN東泥門市",
         "7-ELEVEN東泥門市",
-        "7ELEVEN東泥門市",
-        "7_ELEVEN東泥門市"
+        "7ELEVEN東泥門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -2161,11 +2485,11 @@
       "aliases": [
         "柯達門市",
         "711柯達門市",
-        "7-11柯達門市",
         "7_11柯達門市",
-        "7-ELEVEN柯達門市",
+        "7-11柯達門市",
+        "7ELEVEN柯達門市",
         "7_ELEVEN柯達門市",
-        "7ELEVEN柯達門市"
+        "7-ELEVEN柯達門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -2193,14 +2517,50 @@
     },
     {
       "channel": "711",
+      "store_name": "桂田",
+      "aliases": [
+        "桂田",
+        "711桂田",
+        "7-11桂田",
+        "7_11桂田",
+        "7_ELEVEN桂田",
+        "7-ELEVEN桂田",
+        "7ELEVEN桂田"
+      ],
+      "sources": [
+        "CVS巡店總表_Master正式版.xlsx"
+      ],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "客群": "桂田酒店旁",
+          "小煙架": "V",
+          "銷售": "未提供",
+          "銷售等級": "",
+          "LINE OA": "V",
+          "配合度": "高",
+          "備註": ""
+        }
+      ],
+      "visit_date": "2026-08-19",
+      "city": "台南市",
+      "district": "永康區",
+      "customer_group": "桂田酒店旁",
+      "small_rack": "V",
+      "sales": "未提供",
+      "line_oa": "V",
+      "cooperation": "高"
+    },
+    {
+      "channel": "711",
       "store_name": "桂誠門市",
       "aliases": [
         "桂誠門市",
         "711桂誠門市",
-        "7_11桂誠門市",
         "7-11桂誠門市",
-        "7_ELEVEN桂誠門市",
+        "7_11桂誠門市",
         "7ELEVEN桂誠門市",
+        "7_ELEVEN桂誠門市",
         "7-ELEVEN桂誠門市"
       ],
       "sources": [
@@ -2234,11 +2594,11 @@
       "aliases": [
         "正仁門市",
         "711正仁門市",
-        "7_11正仁門市",
         "7-11正仁門市",
-        "7_ELEVEN正仁門市",
+        "7_11正仁門市",
+        "7ELEVEN正仁門市",
         "7-ELEVEN正仁門市",
-        "7ELEVEN正仁門市"
+        "7_ELEVEN正仁門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -2272,11 +2632,11 @@
       "aliases": [
         "正成門市",
         "711正成門市",
-        "7_11正成門市",
         "7-11正成門市",
-        "7_ELEVEN正成門市",
+        "7_11正成門市",
         "7-ELEVEN正成門市",
-        "7ELEVEN正成門市"
+        "7ELEVEN正成門市",
+        "7_ELEVEN正成門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -2319,10 +2679,10 @@
       "aliases": [
         "正文門市",
         "711正文門市",
-        "7_11正文門市",
         "7-11正文門市",
-        "7-ELEVEN正文門市",
+        "7_11正文門市",
         "7ELEVEN正文門市",
+        "7-ELEVEN正文門市",
         "7_ELEVEN正文門市"
       ],
       "sources": [
@@ -2369,8 +2729,8 @@
         "7-11正美門市",
         "7_11正美門市",
         "7-ELEVEN正美門市",
-        "7ELEVEN正美門市",
-        "7_ELEVEN正美門市"
+        "7_ELEVEN正美門市",
+        "7ELEVEN正美門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -2401,11 +2761,11 @@
       "aliases": [
         "永泰門市",
         "711永泰門市",
-        "7_11永泰門市",
         "7-11永泰門市",
+        "7_11永泰門市",
         "7ELEVEN永泰門市",
-        "7_ELEVEN永泰門市",
-        "7-ELEVEN永泰門市"
+        "7-ELEVEN永泰門市",
+        "7_ELEVEN永泰門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -2441,8 +2801,8 @@
         "7_11永益門市",
         "7-11永益門市",
         "7_ELEVEN永益門市",
-        "7-ELEVEN永益門市",
-        "7ELEVEN永益門市"
+        "7ELEVEN永益門市",
+        "7-ELEVEN永益門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -2477,9 +2837,9 @@
         "711汕頭門市",
         "7-11汕頭門市",
         "7_11汕頭門市",
-        "7-ELEVEN汕頭門市",
+        "7_ELEVEN汕頭門市",
         "7ELEVEN汕頭門市",
-        "7_ELEVEN汕頭門市"
+        "7-ELEVEN汕頭門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -2525,8 +2885,8 @@
         "7_11沿海門市",
         "7-11沿海門市",
         "7ELEVEN沿海門市",
-        "7-ELEVEN沿海門市",
-        "7_ELEVEN沿海門市"
+        "7_ELEVEN沿海門市",
+        "7-ELEVEN沿海門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -2561,9 +2921,9 @@
         "711海音門市",
         "7_11海音門市",
         "7-11海音門市",
+        "7ELEVEN海音門市",
         "7_ELEVEN海音門市",
-        "7-ELEVEN海音門市",
-        "7ELEVEN海音門市"
+        "7-ELEVEN海音門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -2598,9 +2958,9 @@
         "711清漢門市",
         "7-11清漢門市",
         "7_11清漢門市",
-        "7-ELEVEN清漢門市",
+        "7_ELEVEN清漢門市",
         "7ELEVEN清漢門市",
-        "7_ELEVEN清漢門市"
+        "7-ELEVEN清漢門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -2632,10 +2992,10 @@
       "aliases": [
         "獅甲門市",
         "711獅甲門市",
-        "7-11獅甲門市",
         "7_11獅甲門市",
-        "7-ELEVEN獅甲門市",
+        "7-11獅甲門市",
         "7ELEVEN獅甲門市",
+        "7-ELEVEN獅甲門市",
         "7_ELEVEN獅甲門市"
       ],
       "sources": [
@@ -2681,8 +3041,8 @@
         "711瑞賢門市",
         "7_11瑞賢門市",
         "7-11瑞賢門市",
-        "7_ELEVEN瑞賢門市",
         "7-ELEVEN瑞賢門市",
+        "7_ELEVEN瑞賢門市",
         "7ELEVEN瑞賢門市"
       ],
       "sources": [
@@ -2716,11 +3076,11 @@
       "aliases": [
         "福海門市",
         "711福海門市",
-        "7_11福海門市",
         "7-11福海門市",
-        "7_ELEVEN福海門市",
+        "7_11福海門市",
         "7-ELEVEN福海門市",
-        "7ELEVEN福海門市"
+        "7ELEVEN福海門市",
+        "7_ELEVEN福海門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -2755,9 +3115,9 @@
         "711竹中門市",
         "7_11竹中門市",
         "7-11竹中門市",
-        "7-ELEVEN竹中門市",
         "7ELEVEN竹中門市",
-        "7_ELEVEN竹中門市"
+        "7_ELEVEN竹中門市",
+        "7-ELEVEN竹中門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -2802,9 +3162,9 @@
         "711維洲門市",
         "7-11維洲門市",
         "7_11維洲門市",
-        "7ELEVEN維洲門市",
+        "7-ELEVEN維洲門市",
         "7_ELEVEN維洲門市",
-        "7-ELEVEN維洲門市"
+        "7ELEVEN維洲門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -2839,9 +3199,9 @@
         "711總圖門市",
         "7-11總圖門市",
         "7_11總圖門市",
-        "7-ELEVEN總圖門市",
+        "7_ELEVEN總圖門市",
         "7ELEVEN總圖門市",
-        "7_ELEVEN總圖門市"
+        "7-ELEVEN總圖門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -2884,10 +3244,10 @@
       "aliases": [
         "美田門市",
         "711美田門市",
-        "7_11美田門市",
         "7-11美田門市",
-        "7_ELEVEN美田門市",
+        "7_11美田門市",
         "7ELEVEN美田門市",
+        "7_ELEVEN美田門市",
         "7-ELEVEN美田門市"
       ],
       "sources": [
@@ -2933,8 +3293,8 @@
         "711翔盛門市",
         "7_11翔盛門市",
         "7-11翔盛門市",
-        "7_ELEVEN翔盛門市",
         "7ELEVEN翔盛門市",
+        "7_ELEVEN翔盛門市",
         "7-ELEVEN翔盛門市"
       ],
       "sources": [
@@ -2980,9 +3340,9 @@
         "711興壇門市",
         "7_11興壇門市",
         "7-11興壇門市",
-        "7_ELEVEN興壇門市",
         "7ELEVEN興壇門市",
-        "7-ELEVEN興壇門市"
+        "7-ELEVEN興壇門市",
+        "7_ELEVEN興壇門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -3014,11 +3374,11 @@
       "aliases": [
         "興村門市",
         "711興村門市",
-        "7_11興村門市",
         "7-11興村門市",
+        "7_11興村門市",
         "7_ELEVEN興村門市",
-        "7-ELEVEN興村門市",
-        "7ELEVEN興村門市"
+        "7ELEVEN興村門市",
+        "7-ELEVEN興村門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -3051,10 +3411,10 @@
       "aliases": [
         "苓民門市",
         "711苓民門市",
-        "7-11苓民門市",
         "7_11苓民門市",
-        "7-ELEVEN苓民門市",
+        "7-11苓民門市",
         "7_ELEVEN苓民門市",
+        "7-ELEVEN苓民門市",
         "7ELEVEN苓民門市"
       ],
       "sources": [
@@ -3135,11 +3495,11 @@
       "aliases": [
         "華秀門市",
         "711華秀門市",
-        "7-11華秀門市",
         "7_11華秀門市",
+        "7-11華秀門市",
         "7_ELEVEN華秀門市",
-        "7ELEVEN華秀門市",
-        "7-ELEVEN華秀門市"
+        "7-ELEVEN華秀門市",
+        "7ELEVEN華秀門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -3172,11 +3532,11 @@
       "aliases": [
         "萬應門市",
         "711萬應門市",
-        "7-11萬應門市",
         "7_11萬應門市",
-        "7_ELEVEN萬應門市",
+        "7-11萬應門市",
+        "7ELEVEN萬應門市",
         "7-ELEVEN萬應門市",
-        "7ELEVEN萬應門市"
+        "7_ELEVEN萬應門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -3211,9 +3571,9 @@
         "711身修門市",
         "7-11身修門市",
         "7_11身修門市",
-        "7_ELEVEN身修門市",
+        "7ELEVEN身修門市",
         "7-ELEVEN身修門市",
-        "7ELEVEN身修門市"
+        "7_ELEVEN身修門市"
       ],
       "sources": [
         "CVS巡店總表_Master正式版.xlsx"
@@ -3246,10 +3606,10 @@
       "aliases": [
         "銀光門市",
         "711銀光門市",
-        "7_11銀光門市",
         "7-11銀光門市",
-        "7_ELEVEN銀光門市",
+        "7_11銀光門市",
         "7-ELEVEN銀光門市",
+        "7_ELEVEN銀光門市",
         "7ELEVEN銀光門市"
       ],
       "sources": [
@@ -3330,8 +3690,8 @@
       "aliases": [
         "雅慶門市",
         "711雅慶門市",
-        "7_11雅慶門市",
         "7-11雅慶門市",
+        "7_11雅慶門市",
         "7ELEVEN雅慶門市",
         "7_ELEVEN雅慶門市",
         "7-ELEVEN雅慶門市"
@@ -3360,6 +3720,78 @@
       "line_oa": "待確認",
       "cooperation": "高",
       "note": "涼菸客群多，店員態度好。"
+    },
+    {
+      "channel": "711",
+      "store_name": "鹽忠",
+      "aliases": [
+        "鹽忠",
+        "711鹽忠",
+        "7_11鹽忠",
+        "7-11鹽忠",
+        "7_ELEVEN鹽忠",
+        "7ELEVEN鹽忠",
+        "7-ELEVEN鹽忠"
+      ],
+      "sources": [
+        "CVS巡店總表_Master正式版.xlsx"
+      ],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "客群": "住宅",
+          "小煙架": "V",
+          "銷售": "未提供",
+          "銷售等級": "",
+          "LINE OA": "X",
+          "配合度": "中",
+          "備註": ""
+        }
+      ],
+      "visit_date": "2026-08-19",
+      "city": "台南市",
+      "district": "永康區",
+      "customer_group": "住宅",
+      "small_rack": "V",
+      "sales": "未提供",
+      "line_oa": "X",
+      "cooperation": "中"
+    },
+    {
+      "channel": "711",
+      "store_name": "鹽行",
+      "aliases": [
+        "鹽行",
+        "711鹽行",
+        "7-11鹽行",
+        "7_11鹽行",
+        "7ELEVEN鹽行",
+        "7-ELEVEN鹽行",
+        "7_ELEVEN鹽行"
+      ],
+      "sources": [
+        "CVS巡店總表_Master正式版.xlsx"
+      ],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "客群": "小學、補習班附近",
+          "小煙架": "V",
+          "銷售": "未提供",
+          "銷售等級": "",
+          "LINE OA": "X",
+          "配合度": "中",
+          "備註": ""
+        }
+      ],
+      "visit_date": "2026-08-19",
+      "city": "台南市",
+      "district": "永康區",
+      "customer_group": "小學、補習班附近",
+      "small_rack": "V",
+      "sales": "未提供",
+      "line_oa": "X",
+      "cooperation": "中"
     },
     {
       "channel": "FM",
@@ -3450,6 +3882,70 @@
       "sales": "未提供",
       "line_oa": "待確認",
       "cooperation": "中"
+    },
+    {
+      "channel": "FM",
+      "store_name": "台南學府",
+      "aliases": [
+        "台南學府",
+        "FM台南學府",
+        "全家台南學府"
+      ],
+      "sources": [
+        "CVS巡店總表_Master正式版.xlsx"
+      ],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "客群": "大學",
+          "小煙架": "X",
+          "銷售": "未提供",
+          "銷售等級": "",
+          "LINE OA": "V",
+          "配合度": "中",
+          "備註": ""
+        }
+      ],
+      "visit_date": "2026-08-19",
+      "city": "台南市",
+      "district": "永康區",
+      "customer_group": "大學",
+      "small_rack": "X",
+      "sales": "未提供",
+      "line_oa": "V",
+      "cooperation": "中"
+    },
+    {
+      "channel": "FM",
+      "store_name": "台南新民",
+      "aliases": [
+        "台南新民",
+        "FM台南新民",
+        "全家台南新民"
+      ],
+      "sources": [
+        "CVS巡店總表_Master正式版.xlsx"
+      ],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "客群": "大學",
+          "小煙架": "",
+          "銷售": "未提供",
+          "銷售等級": "",
+          "LINE OA": "V",
+          "配合度": "中",
+          "備註": "主事：高高的女生"
+        }
+      ],
+      "visit_date": "2026-08-19",
+      "city": "台南市",
+      "district": "永康區",
+      "customer_group": "大學",
+      "sales": "未提供",
+      "line_oa": "V",
+      "cooperation": "中",
+      "note": "主事：高高的女生"
     },
     {
       "channel": "FM",
@@ -4482,6 +4978,38 @@
       "note": "參與寶亨原味派對。"
     },
     {
+      "channel": "FM",
+      "store_name": "鹽洲",
+      "aliases": [
+        "鹽洲",
+        "FM鹽洲",
+        "全家鹽洲"
+      ],
+      "sources": [
+        "CVS巡店總表_Master正式版.xlsx"
+      ],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "客群": "住宅",
+          "小煙架": "",
+          "銷售": "未提供",
+          "銷售等級": "",
+          "LINE OA": "X",
+          "配合度": "中",
+          "備註": "大地紅固定客"
+        }
+      ],
+      "visit_date": "2026-08-19",
+      "city": "台南市",
+      "district": "永康區",
+      "customer_group": "住宅",
+      "sales": "未提供",
+      "line_oa": "X",
+      "cooperation": "中",
+      "note": "大地紅固定客"
+    },
+    {
       "channel": "GT",
       "store_name": "(春珠)來來(昶健商業有限公司)",
       "aliases": [
@@ -4554,9 +5082,9 @@
       "channel": "GT",
       "store_name": "123-吉利",
       "aliases": [
-        "123吉利",
         "123_吉利",
-        "123-吉利"
+        "123-吉利",
+        "123吉利"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -4678,9 +5206,9 @@
       "channel": "GT",
       "store_name": "21世紀生活百貨-質也",
       "aliases": [
-        "21世紀生活百貨-質也",
         "21世紀生活百貨_質也",
-        "21世紀生活百貨質也"
+        "21世紀生活百貨質也",
+        "21世紀生活百貨-質也"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -4745,9 +5273,9 @@
       "channel": "GT",
       "store_name": "49五金百貨-裕信店",
       "aliases": [
-        "49五金百貨裕信店",
         "49五金百貨-裕信店",
-        "49五金百貨_裕信店"
+        "49五金百貨_裕信店",
+        "49五金百貨裕信店"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -4779,9 +5307,9 @@
       "channel": "GT",
       "store_name": "49五金百貨-長和店",
       "aliases": [
-        "49五金百貨-長和店",
         "49五金百貨長和店",
-        "49五金百貨_長和店"
+        "49五金百貨_長和店",
+        "49五金百貨-長和店"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -4895,13 +5423,34 @@
       "store_name": "99五金-大發",
       "aliases": [
         "99五金_大發",
-        "99五金-大發",
-        "99五金大發"
+        "99五金大發",
+        "99五金-大發"
       ],
       "sources": [
+        "GT巡店總表_Master正式版.xlsx",
         "GT查核總表.xlsx"
       ],
-      "visit_history": [],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "陳列": [
+            "名世紅",
+            "寶亨9號",
+            "寶亨6號2",
+            "寶亨9號晶球"
+          ],
+          "分布": [
+            "85小寶亨6號",
+            "小寶亨紅",
+            "小寶亨6號",
+            "嘉年華紅",
+            "嘉年華藍"
+          ],
+          "銷售": "未提供",
+          "配合度": "低",
+          "備註": ""
+        }
+      ],
       "address": "高雄市大寮區萬丹路32號",
       "distributor": "巨弘昇",
       "distributor_salesperson": "衣錦榮",
@@ -4910,23 +5459,51 @@
       "contract_type": "Display_陳列",
       "contract_slots": "8",
       "display_bonus": "250",
+      "optimization": "0",
+      "new_slots": "0",
+      "monster_box": "0",
+      "contract_compliant": "0",
+      "annual_contract": "不建議續約",
       "audit_display": [
         "名世紅",
-        "名世藍",
-        "好時韻7",
-        "85小寶亨6號",
-        "小寶亨6號",
         "寶亨9號",
         "寶亨6號2",
         "寶亨9號晶球"
+      ],
+      "audit_distribution": [
+        "85小寶亨6號",
+        "小寶亨紅",
+        "小寶亨6號",
+        "嘉年華紅",
+        "嘉年華藍"
+      ],
+      "visit_date": "2026-08-19",
+      "city": "待確認",
+      "district": "待確認",
+      "store_type": "一般商店",
+      "visit_sales": "未提供",
+      "visit_cooperation": "低",
+      "line_oa": "X",
+      "visit_display": [
+        "名世紅",
+        "寶亨9號",
+        "寶亨6號2",
+        "寶亨9號晶球"
+      ],
+      "visit_distribution": [
+        "85小寶亨6號",
+        "小寶亨紅",
+        "小寶亨6號",
+        "嘉年華紅",
+        "嘉年華藍"
       ]
     },
     {
       "channel": "GT",
       "store_name": "99五金-潮州店",
       "aliases": [
-        "99五金潮州店",
         "99五金_潮州店",
+        "99五金潮州店",
         "99五金-潮州店"
       ],
       "sources": [
@@ -4967,8 +5544,8 @@
       "channel": "GT",
       "store_name": "99五金百貨-廣東-創意",
       "aliases": [
-        "99五金百貨廣東創意",
         "99五金百貨-廣東-創意",
+        "99五金百貨廣東創意",
         "99五金百貨_廣東_創意"
       ],
       "sources": [
@@ -5002,8 +5579,8 @@
       "channel": "GT",
       "store_name": "99五金百貨-永大-創新",
       "aliases": [
-        "99五金百貨永大創新",
         "99五金百貨_永大_創新",
+        "99五金百貨永大創新",
         "99五金百貨-永大-創新"
       ],
       "sources": [
@@ -5047,9 +5624,9 @@
       "channel": "GT",
       "store_name": "99五金百貨-興中",
       "aliases": [
-        "99五金百貨_興中",
         "99五金百貨-興中",
-        "99五金百貨興中"
+        "99五金百貨興中",
+        "99五金百貨_興中"
       ],
       "sources": [
         "GT巡店總表_Master正式版.xlsx",
@@ -5230,8 +5807,8 @@
       "channel": "GT",
       "store_name": "99-創成",
       "aliases": [
-        "99_創成",
         "99創成",
+        "99_創成",
         "99-創成"
       ],
       "sources": [
@@ -5308,9 +5885,9 @@
       "channel": "GT",
       "store_name": "ABC便利商店-自強",
       "aliases": [
-        "ABC便利商店自強",
         "ABC便利商店_自強",
-        "ABC便利商店-自強"
+        "ABC便利商店-自強",
+        "ABC便利商店自強"
       ],
       "sources": [
         "GT巡店總表_Master正式版.xlsx",
@@ -5413,8 +5990,8 @@
       "channel": "GT",
       "store_name": "TTL台灣菸酒便利商店-正義",
       "aliases": [
-        "TTL台灣菸酒便利商店正義",
         "TTL台灣菸酒便利商店-正義",
+        "TTL台灣菸酒便利商店正義",
         "TTL台灣菸酒便利商店_正義"
       ],
       "sources": [
@@ -5483,9 +6060,9 @@
       "channel": "GT",
       "store_name": "TTL-尚久",
       "aliases": [
-        "TTL_尚久",
         "TTL-尚久",
-        "TTL尚久"
+        "TTL尚久",
+        "TTL_尚久"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -6170,9 +6747,9 @@
       "channel": "GT",
       "store_name": "中日-三隆",
       "aliases": [
-        "中日_三隆",
+        "中日-三隆",
         "中日三隆",
-        "中日-三隆"
+        "中日_三隆"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -6196,9 +6773,9 @@
       "channel": "GT",
       "store_name": "中油-媜發",
       "aliases": [
-        "中油_媜發",
+        "中油-媜發",
         "中油媜發",
-        "中油-媜發"
+        "中油_媜發"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -6317,9 +6894,9 @@
       "channel": "GT",
       "store_name": "九久菸酒-中山東",
       "aliases": [
-        "九久菸酒-中山東",
         "九久菸酒中山東",
-        "九久菸酒_中山東"
+        "九久菸酒_中山東",
+        "九久菸酒-中山東"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -6368,8 +6945,8 @@
       "store_name": "九九五金-建豐店",
       "aliases": [
         "九九五金-建豐店",
-        "九九五金_建豐店",
-        "九九五金建豐店"
+        "九九五金建豐店",
+        "九九五金_建豐店"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -6688,8 +7265,8 @@
       "channel": "GT",
       "store_name": "五折天-林西店",
       "aliases": [
-        "五折天林西店",
         "五折天_林西店",
+        "五折天林西店",
         "五折天-林西店"
       ],
       "sources": [
@@ -6724,9 +7301,9 @@
       "channel": "GT",
       "store_name": "五折天生活館-鳳松",
       "aliases": [
-        "五折天生活館鳳松",
+        "五折天生活館_鳳松",
         "五折天生活館-鳳松",
-        "五折天生活館_鳳松"
+        "五折天生活館鳳松"
       ],
       "sources": [
         "GT巡店總表_Master正式版.xlsx",
@@ -6807,8 +7384,8 @@
       "store_name": "五折天-石津店",
       "aliases": [
         "五折天_石津店",
-        "五折天-石津店",
-        "五折天石津店"
+        "五折天石津店",
+        "五折天-石津店"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -6842,9 +7419,9 @@
       "channel": "GT",
       "store_name": "五折天-祈吟",
       "aliases": [
-        "五折天_祈吟",
         "五折天祈吟",
-        "五折天-祈吟"
+        "五折天-祈吟",
+        "五折天_祈吟"
       ],
       "sources": [
         "GT巡店總表_Master正式版.xlsx",
@@ -6965,23 +7542,70 @@
         "亨銘洋酒行"
       ],
       "sources": [
+        "GT巡店總表_Master正式版.xlsx",
         "GT查核總表.xlsx"
       ],
-      "visit_history": [],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "陳列": [
+            "名世紅",
+            "名世藍",
+            "好時韻7",
+            "85小寶亨6號",
+            "小寶亨6號",
+            "寶亨6號2"
+          ],
+          "分布": [
+            "好時韻10",
+            "小寶亨紅"
+          ],
+          "銷售": "未提供",
+          "配合度": "低",
+          "備註": "無拜訪必要"
+        }
+      ],
       "address": "高雄市前鎮區光華二路300號",
       "distributor": "喬森",
       "distributor_salesperson": "潘治龍",
       "distributor_customer_id": "6060",
       "audit_cooperation": "L",
+      "optimization": "0",
+      "new_slots": "0",
+      "monster_box": "0",
+      "contract_compliant": "0",
+      "audit_note": "無拜訪必要",
       "audit_display": [
         "名世紅",
         "名世藍",
-        "好時韻10",
         "好時韻7",
         "85小寶亨6號",
-        "小寶亨紅",
         "小寶亨6號",
         "寶亨6號2"
+      ],
+      "audit_distribution": [
+        "好時韻10",
+        "小寶亨紅"
+      ],
+      "visit_date": "2026-08-19",
+      "city": "待確認",
+      "district": "待確認",
+      "store_type": "一般商店",
+      "visit_sales": "未提供",
+      "visit_cooperation": "低",
+      "line_oa": "X",
+      "visit_note": "無拜訪必要",
+      "visit_display": [
+        "名世紅",
+        "名世藍",
+        "好時韻7",
+        "85小寶亨6號",
+        "小寶亨6號",
+        "寶亨6號2"
+      ],
+      "visit_distribution": [
+        "好時韻10",
+        "小寶亨紅"
       ]
     },
     {
@@ -7094,6 +7718,25 @@
       ],
       "visit_history": [
         {
+          "巡店日期": "2026-08-19",
+          "陳列": [
+            "名世藍",
+            "85小寶亨6號",
+            "寶亨9號",
+            "寶亨6號2",
+            "寶亨9號晶球",
+            "寶亨紫沙",
+            "嘉年華紅",
+            "嘉年華藍"
+          ],
+          "分布": [
+            "名世紅"
+          ],
+          "銷售": "未提供",
+          "配合度": "高",
+          "備註": "客群年輕人多，新品可第一波上架"
+        },
+        {
           "巡店日期": "2026-07-23",
           "陳列": [
             "寶9",
@@ -7121,43 +7764,45 @@
       "contract_type": "Display_陳列",
       "contract_slots": "8",
       "display_bonus": "200",
+      "optimization": "1",
+      "new_slots": "0",
+      "monster_box": "0",
+      "contract_compliant": "1",
+      "annual_contract": "續約",
+      "optimization_content": "原味系列集中 涼菸>原味",
       "audit_display": [
-        "名世紅",
         "名世藍",
         "85小寶亨6號",
-        "85小寶亨3號",
-        "小寶亨6號",
         "寶亨9號",
+        "寶亨6號2",
         "寶亨9號晶球",
+        "寶亨紫沙",
         "嘉年華紅",
         "嘉年華藍"
       ],
       "audit_distribution": [
-        "小寶亨紅",
-        "寶亨6號2",
-        "寶亨紫沙",
-        "寶亨綠沙",
-        "伊歐尼紫色1號"
+        "名世紅"
       ],
-      "visit_date": "2026-07-23",
+      "visit_date": "2026-08-19",
       "city": "待確認",
       "district": "待確認",
       "store_type": "一般商店",
       "visit_sales": "未提供",
       "visit_cooperation": "高",
+      "line_oa": "V",
       "visit_note": "客群年輕人多，新品可第一波上架",
       "visit_display": [
-        "寶9",
-        "寶6",
-        "9號雙晶球",
-        "6號晶球",
-        "85小寶亨6",
-        "名世紅",
         "名世藍",
-        "好時韻7"
+        "85小寶亨6號",
+        "寶亨9號",
+        "寶亨6號2",
+        "寶亨9號晶球",
+        "寶亨紫沙",
+        "嘉年華紅",
+        "嘉年華藍"
       ],
       "visit_distribution": [
-        "好時韻10"
+        "名世紅"
       ]
     },
     {
@@ -7232,8 +7877,8 @@
       "store_name": "佳佳-山川",
       "aliases": [
         "佳佳_山川",
-        "佳佳山川",
-        "佳佳-山川"
+        "佳佳-山川",
+        "佳佳山川"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -7261,9 +7906,9 @@
       "channel": "GT",
       "store_name": "佳佳批發廣場-梓官店-昌佳",
       "aliases": [
+        "佳佳批發廣場_梓官店_昌佳",
         "佳佳批發廣場梓官店昌佳",
-        "佳佳批發廣場-梓官店-昌佳",
-        "佳佳批發廣場_梓官店_昌佳"
+        "佳佳批發廣場-梓官店-昌佳"
       ],
       "sources": [
         "GT巡店總表_Master正式版.xlsx",
@@ -7378,8 +8023,8 @@
       "channel": "GT",
       "store_name": "佳佳購物中心-成和",
       "aliases": [
-        "佳佳購物中心_成和",
         "佳佳購物中心-成和",
+        "佳佳購物中心_成和",
         "佳佳購物中心成和"
       ],
       "sources": [
@@ -7633,9 +8278,9 @@
       "channel": "GT",
       "store_name": "佳酒莊-鳳山八德-佳衡",
       "aliases": [
-        "佳酒莊_鳳山八德_佳衡",
         "佳酒莊鳳山八德佳衡",
-        "佳酒莊-鳳山八德-佳衡"
+        "佳酒莊-鳳山八德-佳衡",
+        "佳酒莊_鳳山八德_佳衡"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -7802,8 +8447,8 @@
       "channel": "GT",
       "store_name": "便利商店-長谷行",
       "aliases": [
-        "便利商店_長谷行",
         "便利商店長谷行",
+        "便利商店_長谷行",
         "便利商店-長谷行"
       ],
       "sources": [
@@ -7983,9 +8628,28 @@
         "億客來生鮮超市"
       ],
       "sources": [
+        "GT巡店總表_Master正式版.xlsx",
         "GT查核總表.xlsx"
       ],
-      "visit_history": [],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "陳列": [
+            "名世紅",
+            "名世藍",
+            "85小寶亨6號",
+            "小寶亨6號",
+            "寶亨9號",
+            "寶亨6號2",
+            "寶亨9號晶球",
+            "寶亨紫沙"
+          ],
+          "分布": [],
+          "銷售": "名世",
+          "配合度": "高",
+          "備註": ""
+        }
+      ],
       "address": "台南市新市區復興路32號",
       "distributor": "德裕成",
       "distributor_salesperson": "11-黃俊傑",
@@ -7994,6 +8658,11 @@
       "contract_type": "Display_陳列",
       "contract_slots": "8",
       "display_bonus": "350",
+      "optimization": "0",
+      "new_slots": "0",
+      "monster_box": "0",
+      "contract_compliant": "1",
+      "annual_contract": "續約",
       "audit_display": [
         "名世紅",
         "名世藍",
@@ -8002,7 +8671,23 @@
         "寶亨9號",
         "寶亨6號2",
         "寶亨9號晶球",
-        "寶亨6號晶球",
+        "寶亨紫沙"
+      ],
+      "visit_date": "2026-08-19",
+      "city": "待確認",
+      "district": "待確認",
+      "store_type": "一般商店",
+      "visit_sales": "名世",
+      "visit_cooperation": "高",
+      "line_oa": "V",
+      "visit_display": [
+        "名世紅",
+        "名世藍",
+        "85小寶亨6號",
+        "小寶亨6號",
+        "寶亨9號",
+        "寶亨6號2",
+        "寶亨9號晶球",
         "寶亨紫沙"
       ]
     },
@@ -8135,8 +8820,8 @@
       "channel": "GT",
       "store_name": "元豐-順雷",
       "aliases": [
-        "元豐-順雷",
         "元豐順雷",
+        "元豐-順雷",
         "元豐_順雷"
       ],
       "sources": [
@@ -8454,9 +9139,9 @@
       "channel": "GT",
       "store_name": "光里商店-光里",
       "aliases": [
-        "光里商店-光里",
+        "光里商店_光里",
         "光里商店光里",
-        "光里商店_光里"
+        "光里商店-光里"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -8667,8 +9352,8 @@
       "store_name": "全國五金-億萬種",
       "aliases": [
         "全國五金億萬種",
-        "全國五金_億萬種",
-        "全國五金-億萬種"
+        "全國五金-億萬種",
+        "全國五金_億萬種"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -8816,9 +9501,9 @@
       "channel": "GT",
       "store_name": "全展五金百貨-福德",
       "aliases": [
-        "全展五金百貨福德",
         "全展五金百貨_福德",
-        "全展五金百貨-福德"
+        "全展五金百貨-福德",
+        "全展五金百貨福德"
       ],
       "sources": [
         "GT巡店總表_Master正式版.xlsx",
@@ -8905,9 +9590,30 @@
         "全峰五金百貨商行"
       ],
       "sources": [
+        "GT巡店總表_Master正式版.xlsx",
         "GT查核總表.xlsx"
       ],
-      "visit_history": [],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "陳列": [
+            "名世紅",
+            "名世藍",
+            "85小寶亨6號",
+            "小寶亨紅",
+            "小寶亨6號",
+            "寶亨9號",
+            "寶亨6號2",
+            "寶亨3號",
+            "寶亨9號晶球",
+            "寶亨紫沙"
+          ],
+          "分布": [],
+          "銷售": "未提供",
+          "配合度": "高",
+          "備註": "分佈表有小白，現場沒有"
+        }
+      ],
       "address": "台南市新市區中正路398-1號",
       "distributor": "德裕成",
       "distributor_salesperson": "11-黃俊傑",
@@ -8920,11 +9626,36 @@
       "purchase_bonus_1": "200",
       "purchase_quantity_2": "15",
       "purchase_bonus_2": "300",
+      "optimization": "1",
+      "new_slots": "0",
+      "monster_box": "0",
+      "contract_compliant": "1",
+      "optimization_content": "調整牌面",
+      "audit_note": "分佈表有小白，現場沒有",
       "audit_display": [
         "名世紅",
         "名世藍",
         "85小寶亨6號",
-        "85小寶亨3號",
+        "小寶亨紅",
+        "小寶亨6號",
+        "寶亨9號",
+        "寶亨6號2",
+        "寶亨3號",
+        "寶亨9號晶球",
+        "寶亨紫沙"
+      ],
+      "visit_date": "2026-08-19",
+      "city": "待確認",
+      "district": "待確認",
+      "store_type": "一般商店",
+      "visit_sales": "未提供",
+      "visit_cooperation": "高",
+      "line_oa": "V",
+      "visit_note": "分佈表有小白，現場沒有",
+      "visit_display": [
+        "名世紅",
+        "名世藍",
+        "85小寶亨6號",
         "小寶亨紅",
         "小寶亨6號",
         "寶亨9號",
@@ -9418,9 +10149,9 @@
       "channel": "GT",
       "store_name": "凰富超市-進學",
       "aliases": [
-        "凰富超市-進學",
         "凰富超市進學",
-        "凰富超市_進學"
+        "凰富超市_進學",
+        "凰富超市-進學"
       ],
       "sources": [
         "GT巡店總表_Master正式版.xlsx",
@@ -9878,9 +10609,9 @@
       "channel": "GT",
       "store_name": "北海道生鮮超市-正強店",
       "aliases": [
-        "北海道生鮮超市_正強店",
         "北海道生鮮超市正強店",
-        "北海道生鮮超市-正強店"
+        "北海道生鮮超市-正強店",
+        "北海道生鮮超市_正強店"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -9926,9 +10657,9 @@
       "channel": "GT",
       "store_name": "北海道生鮮超市-湖內",
       "aliases": [
-        "北海道生鮮超市_湖內",
         "北海道生鮮超市-湖內",
-        "北海道生鮮超市湖內"
+        "北海道生鮮超市湖內",
+        "北海道生鮮超市_湖內"
       ],
       "sources": [
         "GT巡店總表_Master正式版.xlsx",
@@ -9982,9 +10713,9 @@
       "channel": "GT",
       "store_name": "北海道生鮮超市-潤發店",
       "aliases": [
+        "北海道生鮮超市-潤發店",
         "北海道生鮮超市_潤發店",
-        "北海道生鮮超市潤發店",
-        "北海道生鮮超市-潤發店"
+        "北海道生鮮超市潤發店"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -10021,13 +10752,32 @@
       "store_name": "北海道超市-新市",
       "aliases": [
         "北海道超市新市",
-        "北海道超市_新市",
-        "北海道超市-新市"
+        "北海道超市-新市",
+        "北海道超市_新市"
       ],
       "sources": [
+        "GT巡店總表_Master正式版.xlsx",
         "GT查核總表.xlsx"
       ],
-      "visit_history": [],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "陳列": [
+            "名世紅",
+            "名世藍",
+            "85小寶亨6號",
+            "小寶亨紅",
+            "小寶亨6號",
+            "寶亨9號",
+            "寶亨6號2",
+            "寶亨9號晶球"
+          ],
+          "分布": [],
+          "銷售": "未提供",
+          "配合度": "高",
+          "備註": "原本放寶6涼，寶9上架改成寶9，寶6涼分佈表應該要修正"
+        }
+      ],
       "address": "台南市新市區仁愛街256號1F",
       "distributor": "德裕成",
       "distributor_salesperson": "11-黃俊傑",
@@ -10036,6 +10786,11 @@
       "contract_type": "Display_陳列",
       "contract_slots": "8",
       "display_bonus": "300",
+      "optimization": "0",
+      "new_slots": "0",
+      "monster_box": "0",
+      "contract_compliant": "1",
+      "audit_note": "原本放寶6涼，寶9上架改成寶9，寶6涼分佈表應該要修正",
       "audit_display": [
         "名世紅",
         "名世藍",
@@ -10044,17 +10799,34 @@
         "小寶亨6號",
         "寶亨9號",
         "寶亨6號2",
-        "寶亨9號晶球",
-        "寶亨6號晶球"
+        "寶亨9號晶球"
+      ],
+      "visit_date": "2026-08-19",
+      "city": "待確認",
+      "district": "待確認",
+      "store_type": "一般商店",
+      "visit_sales": "未提供",
+      "visit_cooperation": "高",
+      "line_oa": "V",
+      "visit_note": "原本放寶6涼，寶9上架改成寶9，寶6涼分佈表應該要修正",
+      "visit_display": [
+        "名世紅",
+        "名世藍",
+        "85小寶亨6號",
+        "小寶亨紅",
+        "小寶亨6號",
+        "寶亨9號",
+        "寶亨6號2",
+        "寶亨9號晶球"
       ]
     },
     {
       "channel": "GT",
       "store_name": "北海道-路竹",
       "aliases": [
+        "北海道-路竹",
         "北海道路竹",
-        "北海道_路竹",
-        "北海道-路竹"
+        "北海道_路竹"
       ],
       "sources": [
         "GT巡店總表_Master正式版.xlsx",
@@ -10652,8 +11424,8 @@
       "channel": "GT",
       "store_name": "友善便利商店-岡山店",
       "aliases": [
-        "友善便利商店_岡山店",
         "友善便利商店-岡山店",
+        "友善便利商店_岡山店",
         "友善便利商店岡山店"
       ],
       "sources": [
@@ -10694,9 +11466,9 @@
       "channel": "GT",
       "store_name": "台彩-松連行",
       "aliases": [
+        "台彩-松連行",
         "台彩_松連行",
-        "台彩松連行",
-        "台彩-松連行"
+        "台彩松連行"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -10729,8 +11501,8 @@
       "store_name": "台灣巨蛋-日盛",
       "aliases": [
         "台灣巨蛋_日盛",
-        "台灣巨蛋日盛",
-        "台灣巨蛋-日盛"
+        "台灣巨蛋-日盛",
+        "台灣巨蛋日盛"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -10764,8 +11536,8 @@
       "store_name": "台灣巨蛋超商-尚陞",
       "aliases": [
         "台灣巨蛋超商_尚陞",
-        "台灣巨蛋超商尚陞",
-        "台灣巨蛋超商-尚陞"
+        "台灣巨蛋超商-尚陞",
+        "台灣巨蛋超商尚陞"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -10796,9 +11568,9 @@
       "channel": "GT",
       "store_name": "台灣巨蛋超商-成功",
       "aliases": [
+        "台灣巨蛋超商-成功",
         "台灣巨蛋超商_成功",
-        "台灣巨蛋超商成功",
-        "台灣巨蛋超商-成功"
+        "台灣巨蛋超商成功"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -10930,9 +11702,9 @@
       "channel": "GT",
       "store_name": "台糖-泉福",
       "aliases": [
-        "台糖泉福",
+        "台糖-泉福",
         "台糖_泉福",
-        "台糖-泉福"
+        "台糖泉福"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -11206,9 +11978,32 @@
         "合成珍商店"
       ],
       "sources": [
+        "GT巡店總表_Master正式版.xlsx",
         "GT查核總表.xlsx"
       ],
-      "visit_history": [],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "陳列": [
+            "名世紅",
+            "名世藍",
+            "好時韻10",
+            "85小寶亨6號",
+            "小寶亨紅",
+            "小寶亨6號",
+            "寶亨9號",
+            "寶亨6號2",
+            "寶亨9號晶球",
+            "寶亨紫沙"
+          ],
+          "分布": [
+            "好時韻7"
+          ],
+          "銷售": "名世紅佳",
+          "配合度": "中",
+          "備註": "修改合約，缺2格，建議簽10"
+        }
+      ],
       "address": "台南市新市區光華街210號",
       "distributor": "德裕成",
       "distributor_salesperson": "11-黃俊傑",
@@ -11217,29 +12012,58 @@
       "contract_type": "Display_陳列",
       "contract_slots": "12",
       "display_bonus": "300",
+      "optimization": "0",
+      "new_slots": "0",
+      "monster_box": "0",
+      "contract_compliant": "1",
+      "annual_contract": "續約",
+      "audit_note": "修改合約，缺2格，建議簽10",
       "audit_display": [
         "名世紅",
         "名世藍",
         "好時韻10",
-        "好時韻7",
         "85小寶亨6號",
-        "85小寶亨3號",
         "小寶亨紅",
         "小寶亨6號",
         "寶亨9號",
         "寶亨6號2",
         "寶亨9號晶球",
-        "寶亨6號晶球",
         "寶亨紫沙"
+      ],
+      "audit_distribution": [
+        "好時韻7"
+      ],
+      "visit_date": "2026-08-19",
+      "city": "待確認",
+      "district": "待確認",
+      "store_type": "一般商店",
+      "visit_sales": "名世紅佳",
+      "visit_cooperation": "中",
+      "line_oa": "X",
+      "visit_note": "修改合約，缺2格，建議簽10",
+      "visit_display": [
+        "名世紅",
+        "名世藍",
+        "好時韻10",
+        "85小寶亨6號",
+        "小寶亨紅",
+        "小寶亨6號",
+        "寶亨9號",
+        "寶亨6號2",
+        "寶亨9號晶球",
+        "寶亨紫沙"
+      ],
+      "visit_distribution": [
+        "好時韻7"
       ]
     },
     {
       "channel": "GT",
       "store_name": "合歡菸酒-夏林店",
       "aliases": [
+        "合歡菸酒夏林店",
         "合歡菸酒-夏林店",
-        "合歡菸酒_夏林店",
-        "合歡菸酒夏林店"
+        "合歡菸酒_夏林店"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -11422,9 +12246,32 @@
         "吉利商店(金葳平價商店)"
       ],
       "sources": [
+        "GT巡店總表_Master正式版.xlsx",
         "GT查核總表.xlsx"
       ],
-      "visit_history": [],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "陳列": [
+            "名世紅",
+            "名世藍",
+            "85小寶亨6號",
+            "小寶亨紅",
+            "小寶亨6號",
+            "寶亨9號",
+            "寶亨6號2",
+            "寶亨3號",
+            "寶亨9號晶球",
+            "寶亨6號晶球",
+            "嘉年華紅",
+            "嘉年華藍"
+          ],
+          "分布": [],
+          "銷售": "未提供",
+          "配合度": "中",
+          "備註": ""
+        }
+      ],
       "address": "嘉義縣東石鄉栗子崙600號",
       "distributor": "玄星",
       "distributor_salesperson": "姚勝薰",
@@ -11433,7 +12280,31 @@
       "contract_type": "Display_陳列",
       "contract_slots": "10",
       "display_bonus": "350",
+      "optimization": "0",
+      "new_slots": "0",
+      "monster_box": "0",
+      "contract_compliant": "1",
       "audit_display": [
+        "名世紅",
+        "名世藍",
+        "85小寶亨6號",
+        "小寶亨紅",
+        "小寶亨6號",
+        "寶亨9號",
+        "寶亨6號2",
+        "寶亨3號",
+        "寶亨9號晶球",
+        "寶亨6號晶球",
+        "嘉年華紅",
+        "嘉年華藍"
+      ],
+      "visit_date": "2026-08-19",
+      "city": "待確認",
+      "district": "待確認",
+      "store_type": "一般商店",
+      "visit_sales": "未提供",
+      "visit_cooperation": "中",
+      "visit_display": [
         "名世紅",
         "名世藍",
         "85小寶亨6號",
@@ -11693,9 +12564,28 @@
         "和成興超市(和成興商號)"
       ],
       "sources": [
+        "GT巡店總表_Master正式版.xlsx",
         "GT查核總表.xlsx"
       ],
-      "visit_history": [],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "陳列": [
+            "名世紅",
+            "名世藍",
+            "85小寶亨6號",
+            "小寶亨紅",
+            "小寶亨6號",
+            "寶亨6號2",
+            "嘉年華紅",
+            "嘉年華藍"
+          ],
+          "分布": [],
+          "銷售": "未提供",
+          "配合度": "中",
+          "備註": ""
+        }
+      ],
       "address": "嘉義縣東石鄉東石154-22號",
       "distributor": "玄星",
       "distributor_salesperson": "姚勝薰",
@@ -11704,13 +12594,33 @@
       "contract_type": "Display_陳列",
       "contract_slots": "8",
       "display_bonus": "150",
+      "optimization": "1",
+      "new_slots": "0",
+      "monster_box": "0",
+      "contract_compliant": "1",
+      "optimization_content": "牌面調整",
       "audit_display": [
         "名世紅",
         "名世藍",
         "85小寶亨6號",
         "小寶亨紅",
         "小寶亨6號",
-        "寶亨9號",
+        "寶亨6號2",
+        "嘉年華紅",
+        "嘉年華藍"
+      ],
+      "visit_date": "2026-08-19",
+      "city": "待確認",
+      "district": "待確認",
+      "store_type": "一般商店",
+      "visit_sales": "未提供",
+      "visit_cooperation": "中",
+      "visit_display": [
+        "名世紅",
+        "名世藍",
+        "85小寶亨6號",
+        "小寶亨紅",
+        "小寶亨6號",
         "寶亨6號2",
         "嘉年華紅",
         "嘉年華藍"
@@ -12321,9 +13231,9 @@
       "channel": "GT",
       "store_name": "嘉陞洋行-發財",
       "aliases": [
+        "嘉陞洋行-發財",
         "嘉陞洋行發財",
-        "嘉陞洋行_發財",
-        "嘉陞洋行-發財"
+        "嘉陞洋行_發財"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -12482,6 +13392,32 @@
       ],
       "visit_history": [
         {
+          "巡店日期": "2026-08-19",
+          "陳列": [
+            "名世紅",
+            "名世藍",
+            "85小寶亨6號",
+            "小寶亨紅",
+            "小寶亨6號",
+            "寶亨9號",
+            "寶亨6號2",
+            "寶亨3號",
+            "寶亨1號",
+            "寶亨9號晶球",
+            "寶亨6號晶球",
+            "寶亨1號晶球",
+            "寶亨紫沙",
+            "寶亨金沙",
+            "寶亨綠沙",
+            "嘉年華紅",
+            "嘉年華藍"
+          ],
+          "分布": [],
+          "銷售": "待觀察",
+          "配合度": "高",
+          "備註": "不配合活動，店家佛系賣菸；已完成陳列優化。"
+        },
+        {
           "巡店日期": "2026-07-20",
           "陳列": [
             "寶9",
@@ -12516,11 +13452,16 @@
       "contract_type": "Display_陳列",
       "contract_slots": "16",
       "display_bonus": "500",
+      "optimization": "1",
+      "new_slots": "0",
+      "monster_box": "0",
+      "contract_compliant": "1",
+      "annual_contract": "續約",
+      "optimization_content": "寶亨家族集中 名世鮮眼處",
       "audit_display": [
         "名世紅",
         "名世藍",
         "85小寶亨6號",
-        "85小寶亨3號",
         "小寶亨紅",
         "小寶亨6號",
         "寶亨9號",
@@ -12529,38 +13470,39 @@
         "寶亨1號",
         "寶亨9號晶球",
         "寶亨6號晶球",
-        "寶亨黃沙",
+        "寶亨1號晶球",
         "寶亨紫沙",
         "寶亨金沙",
         "寶亨綠沙",
         "嘉年華紅",
         "嘉年華藍"
       ],
-      "visit_date": "2026-07-20",
+      "visit_date": "2026-08-19",
       "city": "高雄市",
       "district": "待確認",
       "store_type": "一般商店",
       "visit_sales": "待觀察",
-      "visit_cooperation": "低",
+      "visit_cooperation": "高",
+      "line_oa": "X",
       "visit_note": "不配合活動，店家佛系賣菸；已完成陳列優化。",
       "visit_display": [
-        "寶9",
-        "寶6",
-        "寶3",
-        "寶1",
-        "9號雙晶球",
-        "6號晶球",
-        "紫沙",
-        "黃沙",
-        "金沙",
-        "綠沙",
-        "小寶亨紅",
-        "小寶亨藍",
-        "85小寶亨6",
         "名世紅",
         "名世藍",
-        "好時韻10",
-        "好時韻7"
+        "85小寶亨6號",
+        "小寶亨紅",
+        "小寶亨6號",
+        "寶亨9號",
+        "寶亨6號2",
+        "寶亨3號",
+        "寶亨1號",
+        "寶亨9號晶球",
+        "寶亨6號晶球",
+        "寶亨1號晶球",
+        "寶亨紫沙",
+        "寶亨金沙",
+        "寶亨綠沙",
+        "嘉年華紅",
+        "嘉年華藍"
       ]
     },
     {
@@ -12750,9 +13692,9 @@
       "channel": "GT",
       "store_name": "多褔超商-大廟",
       "aliases": [
-        "多褔超商-大廟",
+        "多褔超商大廟",
         "多褔超商_大廟",
-        "多褔超商大廟"
+        "多褔超商-大廟"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -12859,9 +13801,9 @@
       "channel": "GT",
       "store_name": "大九九-九嘉",
       "aliases": [
+        "大九九_九嘉",
         "大九九九嘉",
-        "大九九-九嘉",
-        "大九九_九嘉"
+        "大九九-九嘉"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -12931,9 +13873,9 @@
       "channel": "GT",
       "store_name": "大九九五金 - 中華西店",
       "aliases": [
-        "大九九五金 _ 中華西店",
         "大九九五金 - 中華西店",
-        "大九九五金  中華西店"
+        "大九九五金  中華西店",
+        "大九九五金 _ 中華西店"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -12989,9 +13931,9 @@
       "channel": "GT",
       "store_name": "大九九大賣場-興業東(九琪有限公司)",
       "aliases": [
-        "大九九大賣場-興業東(九琪有限公司)",
+        "大九九大賣場_興業東(九琪有限公司)",
         "大九九大賣場興業東(九琪有限公司)",
-        "大九九大賣場_興業東(九琪有限公司)"
+        "大九九大賣場-興業東(九琪有限公司)"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -13028,9 +13970,9 @@
       "channel": "GT",
       "store_name": "大九九大賣場-軍輝(玖華商行)",
       "aliases": [
-        "大九九大賣場-軍輝(玖華商行)",
         "大九九大賣場_軍輝(玖華商行)",
-        "大九九大賣場軍輝(玖華商行)"
+        "大九九大賣場軍輝(玖華商行)",
+        "大九九大賣場-軍輝(玖華商行)"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -13061,9 +14003,9 @@
       "channel": "GT",
       "store_name": "大九九大賣場-頭橋(九莉商行)",
       "aliases": [
-        "大九九大賣場-頭橋(九莉商行)",
+        "大九九大賣場頭橋(九莉商行)",
         "大九九大賣場_頭橋(九莉商行)",
-        "大九九大賣場頭橋(九莉商行)"
+        "大九九大賣場-頭橋(九莉商行)"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -13097,9 +14039,9 @@
       "channel": "GT",
       "store_name": "大九九-興達(東久商行)",
       "aliases": [
-        "大九九興達(東久商行)",
         "大九九_興達(東久商行)",
-        "大九九-興達(東久商行)"
+        "大九九-興達(東久商行)",
+        "大九九興達(東久商行)"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -13161,8 +14103,8 @@
       "channel": "GT",
       "store_name": "大八商行2店-大晟",
       "aliases": [
-        "大八商行2店大晟",
         "大八商行2店-大晟",
+        "大八商行2店大晟",
         "大八商行2店_大晟"
       ],
       "sources": [
@@ -13261,8 +14203,8 @@
       "store_name": "大千-大大",
       "aliases": [
         "大千-大大",
-        "大千大大",
-        "大千_大大"
+        "大千_大大",
+        "大千大大"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -13325,9 +14267,9 @@
       "channel": "GT",
       "store_name": "大和菸酒-阿蓮",
       "aliases": [
-        "大和菸酒_阿蓮",
+        "大和菸酒-阿蓮",
         "大和菸酒阿蓮",
-        "大和菸酒-阿蓮"
+        "大和菸酒_阿蓮"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -13367,8 +14309,8 @@
       "store_name": "大坪頂購物中心-誠閔",
       "aliases": [
         "大坪頂購物中心_誠閔",
-        "大坪頂購物中心誠閔",
-        "大坪頂購物中心-誠閔"
+        "大坪頂購物中心-誠閔",
+        "大坪頂購物中心誠閔"
       ],
       "sources": [
         "GT巡店總表_Master正式版.xlsx",
@@ -14215,8 +15157,8 @@
       "channel": "GT",
       "store_name": "大統生鮮超市 - 大灣店",
       "aliases": [
-        "大統生鮮超市 - 大灣店",
         "大統生鮮超市 _ 大灣店",
+        "大統生鮮超市 - 大灣店",
         "大統生鮮超市  大灣店"
       ],
       "sources": [
@@ -14743,9 +15685,46 @@
         "天下菸酒商行"
       ],
       "sources": [
+        "GT巡店總表_Master正式版.xlsx",
         "GT查核總表.xlsx"
       ],
-      "visit_history": [],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "陳列": [
+            "名世紅",
+            "名世藍",
+            "85小寶亨6號",
+            "85小寶亨3號",
+            "小寶亨紅",
+            "小寶亨6號",
+            "寶亨9號",
+            "寶亨6號2",
+            "寶亨3號",
+            "寶亨1號",
+            "寶亨9號晶球",
+            "寶亨6號晶球",
+            "寶亨1號晶球",
+            "寶亨法蘭絲3號晶球",
+            "紫極SAWA9號",
+            "寶亨黃沙",
+            "寶亨紫沙",
+            "寶亨金沙",
+            "寶亨綠沙",
+            "寶亨格藍",
+            "寶亨棕7",
+            "寶亨午後",
+            "愛喜晶球綠",
+            "愛喜晶球藍",
+            "愛喜晶球紫",
+            "愛喜藍白"
+          ],
+          "分布": [],
+          "銷售": "未提供",
+          "配合度": "高",
+          "備註": ""
+        }
+      ],
       "address": "台南市新市區中正路326號",
       "distributor": "德裕成",
       "distributor_salesperson": "11-黃俊傑",
@@ -14758,11 +15737,14 @@
       "purchase_bonus_1": "200",
       "purchase_quantity_2": "15",
       "purchase_bonus_2": "300",
+      "optimization": "0",
+      "new_slots": "0",
+      "monster_box": "0",
+      "contract_compliant": "1",
+      "annual_contract": "續約",
       "audit_display": [
         "名世紅",
         "名世藍",
-        "好時韻10",
-        "好時韻7",
         "85小寶亨6號",
         "85小寶亨3號",
         "小寶亨紅",
@@ -14775,6 +15757,42 @@
         "寶亨6號晶球",
         "寶亨1號晶球",
         "寶亨法蘭絲3號晶球",
+        "紫極SAWA9號",
+        "寶亨黃沙",
+        "寶亨紫沙",
+        "寶亨金沙",
+        "寶亨綠沙",
+        "寶亨格藍",
+        "寶亨棕7",
+        "寶亨午後",
+        "愛喜晶球綠",
+        "愛喜晶球藍",
+        "愛喜晶球紫",
+        "愛喜藍白"
+      ],
+      "visit_date": "2026-08-19",
+      "city": "待確認",
+      "district": "待確認",
+      "store_type": "一般商店",
+      "visit_sales": "未提供",
+      "visit_cooperation": "高",
+      "line_oa": "X",
+      "visit_display": [
+        "名世紅",
+        "名世藍",
+        "85小寶亨6號",
+        "85小寶亨3號",
+        "小寶亨紅",
+        "小寶亨6號",
+        "寶亨9號",
+        "寶亨6號2",
+        "寶亨3號",
+        "寶亨1號",
+        "寶亨9號晶球",
+        "寶亨6號晶球",
+        "寶亨1號晶球",
+        "寶亨法蘭絲3號晶球",
+        "紫極SAWA9號",
         "寶亨黃沙",
         "寶亨紫沙",
         "寶亨金沙",
@@ -15025,9 +16043,9 @@
       "channel": "GT",
       "store_name": "奕欣洋行-梓官店-冠欣",
       "aliases": [
-        "奕欣洋行-梓官店-冠欣",
         "奕欣洋行_梓官店_冠欣",
-        "奕欣洋行梓官店冠欣"
+        "奕欣洋行梓官店冠欣",
+        "奕欣洋行-梓官店-冠欣"
       ],
       "sources": [
         "GT巡店總表_Master正式版.xlsx",
@@ -15117,8 +16135,8 @@
       "channel": "GT",
       "store_name": "奕欣洋酒-東港店",
       "aliases": [
-        "奕欣洋酒東港店",
         "奕欣洋酒-東港店",
+        "奕欣洋酒東港店",
         "奕欣洋酒_東港店"
       ],
       "sources": [
@@ -15166,8 +16184,8 @@
       "store_name": "奕欣-鳳陽",
       "aliases": [
         "奕欣_鳳陽",
-        "奕欣鳳陽",
-        "奕欣-鳳陽"
+        "奕欣-鳳陽",
+        "奕欣鳳陽"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -15204,9 +16222,9 @@
       "channel": "GT",
       "store_name": "好印象超市-公館",
       "aliases": [
-        "好印象超市公館",
         "好印象超市_公館",
-        "好印象超市-公館"
+        "好印象超市-公館",
+        "好印象超市公館"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -15265,9 +16283,9 @@
       "channel": "GT",
       "store_name": "好媳婦超市-高樹",
       "aliases": [
+        "好媳婦超市-高樹",
         "好媳婦超市高樹",
-        "好媳婦超市_高樹",
-        "好媳婦超市-高樹"
+        "好媳婦超市_高樹"
       ],
       "sources": [
         "GT巡店總表_Master正式版.xlsx",
@@ -15348,8 +16366,8 @@
       "store_name": "好康多-林園",
       "aliases": [
         "好康多-林園",
-        "好康多_林園",
-        "好康多林園"
+        "好康多林園",
+        "好康多_林園"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -15468,8 +16486,8 @@
       "store_name": "好鄰居-中庄-連豐",
       "aliases": [
         "好鄰居中庄連豐",
-        "好鄰居-中庄-連豐",
-        "好鄰居_中庄_連豐"
+        "好鄰居_中庄_連豐",
+        "好鄰居-中庄-連豐"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -15948,9 +16966,9 @@
       "channel": "GT",
       "store_name": "宏展五金-興中",
       "aliases": [
-        "宏展五金_興中",
         "宏展五金-興中",
-        "宏展五金興中"
+        "宏展五金興中",
+        "宏展五金_興中"
       ],
       "sources": [
         "GT巡店總表_Master正式版.xlsx",
@@ -16811,8 +17829,8 @@
       "channel": "GT",
       "store_name": "富而樂-後厝",
       "aliases": [
-        "富而樂後厝",
         "富而樂-後厝",
+        "富而樂後厝",
         "富而樂_後厝"
       ],
       "sources": [
@@ -16846,9 +17864,9 @@
       "channel": "GT",
       "store_name": "富而樂-豐泰",
       "aliases": [
-        "富而樂_豐泰",
+        "富而樂-豐泰",
         "富而樂豐泰",
-        "富而樂-豐泰"
+        "富而樂_豐泰"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -17012,8 +18030,8 @@
       "store_name": "寶彬洋行-九如",
       "aliases": [
         "寶彬洋行九如",
-        "寶彬洋行_九如",
-        "寶彬洋行-九如"
+        "寶彬洋行-九如",
+        "寶彬洋行_九如"
       ],
       "sources": [
         "GT巡店總表_Master正式版.xlsx"
@@ -17063,9 +18081,9 @@
       "channel": "GT",
       "store_name": "寶檳-寶富",
       "aliases": [
-        "寶檳_寶富",
+        "寶檳寶富",
         "寶檳-寶富",
-        "寶檳寶富"
+        "寶檳_寶富"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -17097,9 +18115,9 @@
       "channel": "GT",
       "store_name": "寶檳-寶順",
       "aliases": [
-        "寶檳-寶順",
+        "寶檳寶順",
         "寶檳_寶順",
-        "寶檳寶順"
+        "寶檳-寶順"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -17131,9 +18149,9 @@
       "channel": "GT",
       "store_name": "寶檳洋行-九如",
       "aliases": [
-        "寶檳洋行-九如",
+        "寶檳洋行九如",
         "寶檳洋行_九如",
-        "寶檳洋行九如"
+        "寶檳洋行-九如"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -17167,9 +18185,9 @@
       "channel": "GT",
       "store_name": "寶檳洋酒-鳳林-寶祥",
       "aliases": [
-        "寶檳洋酒鳳林寶祥",
         "寶檳洋酒_鳳林_寶祥",
-        "寶檳洋酒-鳳林-寶祥"
+        "寶檳洋酒-鳳林-寶祥",
+        "寶檳洋酒鳳林寶祥"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -17305,14 +18323,38 @@
       "channel": "GT",
       "store_name": "寶貝熊便利屋-尚頂",
       "aliases": [
-        "寶貝熊便利屋-尚頂",
+        "寶貝熊便利屋尚頂",
         "寶貝熊便利屋_尚頂",
-        "寶貝熊便利屋尚頂"
+        "寶貝熊便利屋-尚頂"
       ],
       "sources": [
+        "GT巡店總表_Master正式版.xlsx",
         "GT查核總表.xlsx"
       ],
-      "visit_history": [],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "陳列": [
+            "名世紅",
+            "名世藍",
+            "好時韻7",
+            "85小寶亨6號",
+            "小寶亨紅",
+            "小寶亨6號",
+            "寶亨9號",
+            "寶亨3號",
+            "寶亨9號晶球",
+            "寶亨6號晶球",
+            "寶亨綠沙"
+          ],
+          "分布": [
+            "好時韻10"
+          ],
+          "銷售": "未提供",
+          "配合度": "中",
+          "備註": ""
+        }
+      ],
       "address": "台南市永康區尚頂路120號",
       "distributor": "德裕成",
       "distributor_salesperson": "14-吳晨睿",
@@ -17321,20 +18363,48 @@
       "contract_type": "Display_陳列",
       "contract_slots": "12",
       "display_bonus": "400",
+      "optimization": "0",
+      "new_slots": "0",
+      "monster_box": "0",
+      "contract_compliant": "0",
       "audit_display": [
         "名世紅",
         "名世藍",
-        "好時韻10",
         "好時韻7",
         "85小寶亨6號",
         "小寶亨紅",
         "小寶亨6號",
         "寶亨9號",
-        "寶亨6號2",
         "寶亨3號",
         "寶亨9號晶球",
         "寶亨6號晶球",
         "寶亨綠沙"
+      ],
+      "audit_distribution": [
+        "好時韻10"
+      ],
+      "visit_date": "2026-08-19",
+      "city": "待確認",
+      "district": "待確認",
+      "store_type": "一般商店",
+      "visit_sales": "未提供",
+      "visit_cooperation": "中",
+      "line_oa": "X",
+      "visit_display": [
+        "名世紅",
+        "名世藍",
+        "好時韻7",
+        "85小寶亨6號",
+        "小寶亨紅",
+        "小寶亨6號",
+        "寶亨9號",
+        "寶亨3號",
+        "寶亨9號晶球",
+        "寶亨6號晶球",
+        "寶亨綠沙"
+      ],
+      "visit_distribution": [
+        "好時韻10"
       ]
     },
     {
@@ -17764,9 +18834,9 @@
       "channel": "GT",
       "store_name": "巨蛋-四溝",
       "aliases": [
-        "巨蛋-四溝",
         "巨蛋四溝",
-        "巨蛋_四溝"
+        "巨蛋_四溝",
+        "巨蛋-四溝"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -17794,9 +18864,9 @@
       "channel": "GT",
       "store_name": "巨蛋-赤山",
       "aliases": [
-        "巨蛋-赤山",
         "巨蛋赤山",
-        "巨蛋_赤山"
+        "巨蛋_赤山",
+        "巨蛋-赤山"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -17908,20 +18978,63 @@
         "廣新商行"
       ],
       "sources": [
+        "GT巡店總表_Master正式版.xlsx",
         "GT查核總表.xlsx"
       ],
-      "visit_history": [],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "陳列": [
+            "名世藍",
+            "寶亨9號",
+            "寶亨6號2"
+          ],
+          "分布": [
+            "名世紅",
+            "嘉年華紅",
+            "嘉年華藍"
+          ],
+          "銷售": "未提供",
+          "配合度": "高",
+          "備註": ""
+        }
+      ],
       "address": "高雄市大寮區萬丹路420號",
       "distributor": "巨弘昇",
       "distributor_salesperson": "衣錦榮",
       "distributor_customer_id": "ZRB1005",
       "audit_cooperation": "M",
+      "optimization": "0",
+      "new_slots": "0",
+      "monster_box": "0",
+      "contract_compliant": "0",
+      "annual_contract": "續約",
       "audit_display": [
-        "名世紅",
         "名世藍",
-        "好時韻7",
         "寶亨9號",
-        "寶亨9號晶球"
+        "寶亨6號2"
+      ],
+      "audit_distribution": [
+        "名世紅",
+        "嘉年華紅",
+        "嘉年華藍"
+      ],
+      "visit_date": "2026-08-19",
+      "city": "待確認",
+      "district": "待確認",
+      "store_type": "一般商店",
+      "visit_sales": "未提供",
+      "visit_cooperation": "高",
+      "line_oa": "X",
+      "visit_display": [
+        "名世藍",
+        "寶亨9號",
+        "寶亨6號2"
+      ],
+      "visit_distribution": [
+        "名世紅",
+        "嘉年華紅",
+        "嘉年華藍"
       ]
     },
     {
@@ -18043,9 +19156,9 @@
       "channel": "GT",
       "store_name": "建成商店-隆興商店",
       "aliases": [
-        "建成商店-隆興商店",
         "建成商店_隆興商店",
-        "建成商店隆興商店"
+        "建成商店隆興商店",
+        "建成商店-隆興商店"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -18528,9 +19641,28 @@
         "律發商店"
       ],
       "sources": [
+        "GT巡店總表_Master正式版.xlsx",
         "GT查核總表.xlsx"
       ],
-      "visit_history": [],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "陳列": [
+            "名世藍",
+            "85小寶亨3號",
+            "小寶亨6號",
+            "寶亨9號",
+            "寶亨6號2",
+            "寶亨9號晶球",
+            "嘉年華紅",
+            "嘉年華藍"
+          ],
+          "分布": [],
+          "銷售": "未提供",
+          "配合度": "高",
+          "備註": ""
+        }
+      ],
       "address": "嘉義縣六腳鄉蒜頭村蒜頭133號",
       "distributor": "玄星",
       "distributor_salesperson": "劉柏毅",
@@ -18539,15 +19671,38 @@
       "contract_type": "Display_陳列",
       "contract_slots": "8",
       "display_bonus": "250",
+      "optimization": "1",
+      "new_slots": "0",
+      "monster_box": "0",
+      "contract_compliant": "1",
+      "annual_contract": "續約",
+      "optimization_content": "牌面調整",
       "audit_display": [
-        "名世紅",
         "名世藍",
-        "85小寶亨6號",
         "85小寶亨3號",
         "小寶亨6號",
         "寶亨9號",
         "寶亨6號2",
-        "寶亨9號晶球"
+        "寶亨9號晶球",
+        "嘉年華紅",
+        "嘉年華藍"
+      ],
+      "visit_date": "2026-08-19",
+      "city": "待確認",
+      "district": "待確認",
+      "store_type": "一般商店",
+      "visit_sales": "未提供",
+      "visit_cooperation": "高",
+      "line_oa": "X",
+      "visit_display": [
+        "名世藍",
+        "85小寶亨3號",
+        "小寶亨6號",
+        "寶亨9號",
+        "寶亨6號2",
+        "寶亨9號晶球",
+        "嘉年華紅",
+        "嘉年華藍"
       ]
     },
     {
@@ -18587,9 +19742,9 @@
       "channel": "GT",
       "store_name": "復興商店-長治",
       "aliases": [
+        "復興商店_長治",
         "復興商店長治",
-        "復興商店-長治",
-        "復興商店_長治"
+        "復興商店-長治"
       ],
       "sources": [
         "GT巡店總表_Master正式版.xlsx",
@@ -18744,14 +19899,36 @@
         "德昇購物"
       ],
       "sources": [
+        "GT巡店總表_Master正式版.xlsx",
         "GT查核總表.xlsx"
       ],
-      "visit_history": [],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "陳列": [
+            "名世紅",
+            "名世藍",
+            "85小寶亨6號",
+            "小寶亨紅",
+            "寶亨6號2",
+            "嘉年華紅",
+            "嘉年華藍"
+          ],
+          "分布": [],
+          "銷售": "未提供",
+          "配合度": "中",
+          "備註": ""
+        }
+      ],
       "address": "高雄市苓雅區武仁街52號",
       "distributor": "喬森",
       "distributor_salesperson": "鄭宏展",
       "distributor_customer_id": "7034",
       "audit_cooperation": "M",
+      "optimization": "0",
+      "new_slots": "0",
+      "monster_box": "0",
+      "contract_compliant": "0",
       "audit_display": [
         "名世紅",
         "名世藍",
@@ -18761,13 +19938,21 @@
         "嘉年華紅",
         "嘉年華藍"
       ],
-      "audit_distribution": [
-        "85小寶亨3號",
-        "小寶亨6號",
-        "寶亨9號晶球",
-        "寶亨6號晶球",
-        "寶亨紫沙",
-        "寶亨綠沙"
+      "visit_date": "2026-08-19",
+      "city": "待確認",
+      "district": "待確認",
+      "store_type": "一般商店",
+      "visit_sales": "未提供",
+      "visit_cooperation": "中",
+      "line_oa": "X",
+      "visit_display": [
+        "名世紅",
+        "名世藍",
+        "85小寶亨6號",
+        "小寶亨紅",
+        "寶亨6號2",
+        "嘉年華紅",
+        "嘉年華藍"
       ]
     },
     {
@@ -19258,9 +20443,40 @@
         "慶和商店"
       ],
       "sources": [
+        "GT巡店總表_Master正式版.xlsx",
         "GT查核總表.xlsx"
       ],
-      "visit_history": [],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "陳列": [
+            "名世紅",
+            "名世藍",
+            "85小寶亨6號",
+            "小寶亨紅",
+            "小寶亨6號",
+            "寶亨9號",
+            "寶亨6號2",
+            "寶亨3號",
+            "寶亨9號晶球",
+            "寶亨6號晶球",
+            "紫極SAWA9號",
+            "寶亨黃沙",
+            "寶亨紫沙",
+            "寶亨金沙",
+            "寶亨綠沙",
+            "寶亨格藍",
+            "寶亨棕7",
+            "伊歐尼紫色1號",
+            "嘉年華紅",
+            "嘉年華藍"
+          ],
+          "分布": [],
+          "銷售": "未提供",
+          "配合度": "高",
+          "備註": ""
+        }
+      ],
       "address": "嘉義縣六腳鄉潭子墘91號",
       "distributor": "玄星",
       "distributor_salesperson": "楊宗達",
@@ -19269,6 +20485,11 @@
       "contract_type": "Display_陳列",
       "contract_slots": "12",
       "display_bonus": "300",
+      "optimization": "1",
+      "new_slots": "0",
+      "monster_box": "0",
+      "contract_compliant": "1",
+      "optimization_content": "牌面調整",
       "audit_display": [
         "名世紅",
         "名世藍",
@@ -19285,6 +20506,36 @@
         "寶亨紫沙",
         "寶亨金沙",
         "寶亨綠沙",
+        "寶亨格藍",
+        "寶亨棕7",
+        "伊歐尼紫色1號",
+        "嘉年華紅",
+        "嘉年華藍"
+      ],
+      "visit_date": "2026-08-19",
+      "city": "待確認",
+      "district": "待確認",
+      "store_type": "一般商店",
+      "visit_sales": "未提供",
+      "visit_cooperation": "高",
+      "line_oa": "X",
+      "visit_display": [
+        "名世紅",
+        "名世藍",
+        "85小寶亨6號",
+        "小寶亨紅",
+        "小寶亨6號",
+        "寶亨9號",
+        "寶亨6號2",
+        "寶亨3號",
+        "寶亨9號晶球",
+        "寶亨6號晶球",
+        "紫極SAWA9號",
+        "寶亨黃沙",
+        "寶亨紫沙",
+        "寶亨金沙",
+        "寶亨綠沙",
+        "寶亨格藍",
         "寶亨棕7",
         "伊歐尼紫色1號",
         "嘉年華紅",
@@ -19617,9 +20868,28 @@
         "捷統"
       ],
       "sources": [
+        "GT巡店總表_Master正式版.xlsx",
         "GT查核總表.xlsx"
       ],
-      "visit_history": [],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "陳列": [
+            "名世紅",
+            "名世藍",
+            "小寶亨紅",
+            "小寶亨6號",
+            "寶亨9號",
+            "寶亨6號2",
+            "寶亨9號晶球",
+            "寶亨紫沙"
+          ],
+          "分布": [],
+          "銷售": "未提供",
+          "配合度": "高",
+          "備註": ""
+        }
+      ],
       "address": "高雄市大寮區鳳林4路010號",
       "distributor": "巨弘昇",
       "distributor_salesperson": "衣錦榮",
@@ -19628,10 +20898,31 @@
       "contract_type": "Display_陳列",
       "contract_slots": "8",
       "display_bonus": "250",
+      "optimization": "1",
+      "new_slots": "0",
+      "monster_box": "0",
+      "contract_compliant": "1",
+      "optimization_content": "集中陳列",
       "audit_display": [
         "名世紅",
         "名世藍",
-        "85小寶亨6號",
+        "小寶亨紅",
+        "小寶亨6號",
+        "寶亨9號",
+        "寶亨6號2",
+        "寶亨9號晶球",
+        "寶亨紫沙"
+      ],
+      "visit_date": "2026-08-19",
+      "city": "待確認",
+      "district": "待確認",
+      "store_type": "一般商店",
+      "visit_sales": "未提供",
+      "visit_cooperation": "高",
+      "line_oa": "X",
+      "visit_display": [
+        "名世紅",
+        "名世藍",
         "小寶亨紅",
         "小寶亨6號",
         "寶亨9號",
@@ -19931,9 +21222,32 @@
         "新成商店"
       ],
       "sources": [
+        "GT巡店總表_Master正式版.xlsx",
         "GT查核總表.xlsx"
       ],
-      "visit_history": [],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "陳列": [
+            "名世紅",
+            "名世藍",
+            "85小寶亨6號",
+            "85小寶亨3號",
+            "小寶亨紅",
+            "小寶亨6號",
+            "寶亨9號",
+            "寶亨6號2",
+            "寶亨6號晶球",
+            "寶亨紫沙",
+            "嘉年華紅",
+            "嘉年華藍"
+          ],
+          "分布": [],
+          "銷售": "未提供",
+          "配合度": "高",
+          "備註": ""
+        }
+      ],
       "address": "嘉義縣六腳鄉蒜頭村蒜頭189號",
       "distributor": "玄星",
       "distributor_salesperson": "劉柏毅",
@@ -19942,6 +21256,11 @@
       "contract_type": "Display_陳列",
       "contract_slots": "10",
       "display_bonus": "250",
+      "optimization": "1",
+      "new_slots": "0",
+      "monster_box": "0",
+      "contract_compliant": "1",
+      "optimization_content": "牌面優化",
       "audit_display": [
         "名世紅",
         "名世藍",
@@ -19951,7 +21270,29 @@
         "小寶亨6號",
         "寶亨9號",
         "寶亨6號2",
-        "寶亨9號晶球",
+        "寶亨6號晶球",
+        "寶亨紫沙",
+        "嘉年華紅",
+        "嘉年華藍"
+      ],
+      "visit_date": "2026-08-19",
+      "city": "待確認",
+      "district": "待確認",
+      "store_type": "一般商店",
+      "visit_sales": "未提供",
+      "visit_cooperation": "高",
+      "line_oa": "X",
+      "visit_display": [
+        "名世紅",
+        "名世藍",
+        "85小寶亨6號",
+        "85小寶亨3號",
+        "小寶亨紅",
+        "小寶亨6號",
+        "寶亨9號",
+        "寶亨6號2",
+        "寶亨6號晶球",
+        "寶亨紫沙",
         "嘉年華紅",
         "嘉年華藍"
       ]
@@ -20356,9 +21697,9 @@
       "channel": "GT",
       "store_name": "新義發-草衙",
       "aliases": [
-        "新義發草衙",
+        "新義發-草衙",
         "新義發_草衙",
-        "新義發-草衙"
+        "新義發草衙"
       ],
       "sources": [
         "GT巡店總表_Master正式版.xlsx",
@@ -20849,8 +22190,8 @@
       "store_name": "日發商號-茄萣",
       "aliases": [
         "日發商號-茄萣",
-        "日發商號_茄萣",
-        "日發商號茄萣"
+        "日發商號茄萣",
+        "日發商號_茄萣"
       ],
       "sources": [
         "GT巡店總表_Master正式版.xlsx",
@@ -21947,9 +23288,33 @@
         "春成"
       ],
       "sources": [
+        "GT巡店總表_Master正式版.xlsx",
         "GT查核總表.xlsx"
       ],
-      "visit_history": [],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "陳列": [
+            "名世紅",
+            "85小寶亨6號",
+            "小寶亨紅",
+            "小寶亨6號",
+            "寶亨9號",
+            "寶亨6號2",
+            "寶亨9號晶球",
+            "寶亨6號晶球",
+            "寶亨紫沙",
+            "嘉年華紅"
+          ],
+          "分布": [
+            "名世藍",
+            "嘉年華藍"
+          ],
+          "銷售": "未提供",
+          "配合度": "高",
+          "備註": ""
+        }
+      ],
       "address": "高雄市大寮區鳳林三路641號",
       "distributor": "巨弘昇",
       "distributor_salesperson": "衣錦榮",
@@ -21958,16 +23323,48 @@
       "contract_type": "Display_陳列",
       "contract_slots": "10",
       "display_bonus": "200",
+      "optimization": "1",
+      "new_slots": "0",
+      "monster_box": "0",
+      "contract_compliant": "1",
+      "optimization_content": "調整牌面",
       "audit_display": [
         "名世紅",
-        "名世藍",
         "85小寶亨6號",
         "小寶亨紅",
         "小寶亨6號",
         "寶亨9號",
         "寶亨6號2",
+        "寶亨9號晶球",
+        "寶亨6號晶球",
         "寶亨紫沙",
-        "嘉年華紅",
+        "嘉年華紅"
+      ],
+      "audit_distribution": [
+        "名世藍",
+        "嘉年華藍"
+      ],
+      "visit_date": "2026-08-19",
+      "city": "待確認",
+      "district": "待確認",
+      "store_type": "一般商店",
+      "visit_sales": "未提供",
+      "visit_cooperation": "高",
+      "line_oa": "X",
+      "visit_display": [
+        "名世紅",
+        "85小寶亨6號",
+        "小寶亨紅",
+        "小寶亨6號",
+        "寶亨9號",
+        "寶亨6號2",
+        "寶亨9號晶球",
+        "寶亨6號晶球",
+        "寶亨紫沙",
+        "嘉年華紅"
+      ],
+      "visit_distribution": [
+        "名世藍",
         "嘉年華藍"
       ]
     },
@@ -22086,9 +23483,9 @@
       "channel": "GT",
       "store_name": "昱群超市-昇耀",
       "aliases": [
-        "昱群超市_昇耀",
+        "昱群超市-昇耀",
         "昱群超市昇耀",
-        "昱群超市-昇耀"
+        "昱群超市_昇耀"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -22166,14 +23563,34 @@
       "channel": "GT",
       "store_name": "朋友商店-1店",
       "aliases": [
-        "朋友商店1店",
         "朋友商店_1店",
+        "朋友商店1店",
         "朋友商店-1店"
       ],
       "sources": [
+        "GT巡店總表_Master正式版.xlsx",
         "GT查核總表.xlsx"
       ],
-      "visit_history": [],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "陳列": [
+            "名世紅",
+            "名世藍",
+            "85小寶亨6號",
+            "小寶亨紅",
+            "小寶亨6號",
+            "寶亨9號",
+            "寶亨6號2",
+            "寶亨紫沙",
+            "伊歐尼紫色1號"
+          ],
+          "分布": [],
+          "銷售": "未提供",
+          "配合度": "高",
+          "備註": ""
+        }
+      ],
       "address": "台南市永康區中正路319號",
       "distributor": "德裕成",
       "distributor_salesperson": "9-許永縉",
@@ -22182,6 +23599,12 @@
       "contract_type": "Display_陳列",
       "contract_slots": "8",
       "display_bonus": "150",
+      "optimization": "1",
+      "new_slots": "0",
+      "monster_box": "0",
+      "contract_compliant": "1",
+      "annual_contract": "續約",
+      "optimization_content": "調整牌面",
       "audit_display": [
         "名世紅",
         "名世藍",
@@ -22190,16 +23613,35 @@
         "小寶亨6號",
         "寶亨9號",
         "寶亨6號2",
-        "寶亨紫沙"
+        "寶亨紫沙",
+        "伊歐尼紫色1號"
+      ],
+      "visit_date": "2026-08-19",
+      "city": "待確認",
+      "district": "待確認",
+      "store_type": "一般商店",
+      "visit_sales": "未提供",
+      "visit_cooperation": "高",
+      "line_oa": "V",
+      "visit_display": [
+        "名世紅",
+        "名世藍",
+        "85小寶亨6號",
+        "小寶亨紅",
+        "小寶亨6號",
+        "寶亨9號",
+        "寶亨6號2",
+        "寶亨紫沙",
+        "伊歐尼紫色1號"
       ]
     },
     {
       "channel": "GT",
       "store_name": "朋友商店-2店",
       "aliases": [
-        "朋友商店2店",
+        "朋友商店-2店",
         "朋友商店_2店",
-        "朋友商店-2店"
+        "朋友商店2店"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -22241,9 +23683,36 @@
         "朋友商店_3店"
       ],
       "sources": [
+        "GT巡店總表_Master正式版.xlsx",
         "GT查核總表.xlsx"
       ],
-      "visit_history": [],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "陳列": [
+            "名世紅",
+            "名世藍",
+            "85小寶亨6號",
+            "小寶亨紅",
+            "小寶亨6號",
+            "寶亨9號",
+            "寶亨6號2",
+            "寶亨3號",
+            "寶亨1號",
+            "寶亨9號晶球",
+            "寶亨6號晶球",
+            "寶亨紫沙",
+            "寶亨綠沙",
+            "寶亨棕7",
+            "嘉年華紅",
+            "嘉年華藍"
+          ],
+          "分布": [],
+          "銷售": "未提供",
+          "配合度": "高",
+          "備註": "賴oa高度使用者"
+        }
+      ],
       "address": "台南市永康區中正路690號",
       "distributor": "德裕成",
       "distributor_salesperson": "9-許永縉",
@@ -22256,7 +23725,39 @@
       "purchase_bonus_1": "200",
       "purchase_quantity_2": "15",
       "purchase_bonus_2": "300",
+      "optimization": "1",
+      "new_slots": "0",
+      "monster_box": "0",
+      "contract_compliant": "1",
+      "optimization_content": "調整牌面",
+      "audit_note": "賴oa高度使用者",
       "audit_display": [
+        "名世紅",
+        "名世藍",
+        "85小寶亨6號",
+        "小寶亨紅",
+        "小寶亨6號",
+        "寶亨9號",
+        "寶亨6號2",
+        "寶亨3號",
+        "寶亨1號",
+        "寶亨9號晶球",
+        "寶亨6號晶球",
+        "寶亨紫沙",
+        "寶亨綠沙",
+        "寶亨棕7",
+        "嘉年華紅",
+        "嘉年華藍"
+      ],
+      "visit_date": "2026-08-19",
+      "city": "待確認",
+      "district": "待確認",
+      "store_type": "一般商店",
+      "visit_sales": "未提供",
+      "visit_cooperation": "高",
+      "line_oa": "V",
+      "visit_note": "賴oa高度使用者",
+      "visit_display": [
         "名世紅",
         "名世藍",
         "85小寶亨6號",
@@ -22328,8 +23829,8 @@
       "store_name": "東倉-中庄",
       "aliases": [
         "東倉-中庄",
-        "東倉_中庄",
-        "東倉中庄"
+        "東倉中庄",
+        "東倉_中庄"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -22434,8 +23935,8 @@
       "store_name": "東急屋百貨-五甲",
       "aliases": [
         "東急屋百貨-五甲",
-        "東急屋百貨五甲",
-        "東急屋百貨_五甲"
+        "東急屋百貨_五甲",
+        "東急屋百貨五甲"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -22465,9 +23966,9 @@
       "channel": "GT",
       "store_name": "東急屋百貨-岩急-保泰",
       "aliases": [
-        "東急屋百貨岩急保泰",
+        "東急屋百貨-岩急-保泰",
         "東急屋百貨_岩急_保泰",
-        "東急屋百貨-岩急-保泰"
+        "東急屋百貨岩急保泰"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -22498,8 +23999,8 @@
       "store_name": "東急屋-自強",
       "aliases": [
         "東急屋_自強",
-        "東急屋自強",
-        "東急屋-自強"
+        "東急屋-自強",
+        "東急屋自強"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -23688,9 +25189,9 @@
       "channel": "GT",
       "store_name": "正一五金百貨-萬巒-正宇",
       "aliases": [
-        "正一五金百貨_萬巒_正宇",
+        "正一五金百貨萬巒正宇",
         "正一五金百貨-萬巒-正宇",
-        "正一五金百貨萬巒正宇"
+        "正一五金百貨_萬巒_正宇"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -23807,9 +25308,9 @@
       "channel": "GT",
       "store_name": "正一百貨五金行-路竹",
       "aliases": [
-        "正一百貨五金行_路竹",
         "正一百貨五金行-路竹",
-        "正一百貨五金行路竹"
+        "正一百貨五金行路竹",
+        "正一百貨五金行_路竹"
       ],
       "sources": [
         "GT巡店總表_Master正式版.xlsx"
@@ -23921,9 +25422,9 @@
       "channel": "GT",
       "store_name": "正一綜合大賣場-正大-恆春店",
       "aliases": [
+        "正一綜合大賣場-正大-恆春店",
         "正一綜合大賣場正大恆春店",
-        "正一綜合大賣場_正大_恆春店",
-        "正一綜合大賣場-正大-恆春店"
+        "正一綜合大賣場_正大_恆春店"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -23964,9 +25465,9 @@
       "channel": "GT",
       "store_name": "正一綜合大賣場-車城-正二",
       "aliases": [
+        "正一綜合大賣場車城正二",
         "正一綜合大賣場-車城-正二",
-        "正一綜合大賣場_車城_正二",
-        "正一綜合大賣場車城正二"
+        "正一綜合大賣場_車城_正二"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -24097,9 +25598,39 @@
         "正洲商店"
       ],
       "sources": [
+        "GT巡店總表_Master正式版.xlsx",
         "GT查核總表.xlsx"
       ],
-      "visit_history": [],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "陳列": [
+            "名世紅",
+            "名世藍",
+            "85小寶亨6號",
+            "小寶亨紅",
+            "小寶亨6號",
+            "寶亨9號",
+            "寶亨6號2",
+            "寶亨3號",
+            "寶亨1號",
+            "寶亨9號晶球",
+            "寶亨6號晶球",
+            "寶亨1號晶球",
+            "寶亨法蘭絲3號晶球",
+            "寶亨紫沙",
+            "寶亨綠沙",
+            "寶亨棕7",
+            "伊歐尼紫色1號",
+            "嘉年華紅",
+            "嘉年華藍"
+          ],
+          "分布": [],
+          "銷售": "未提供",
+          "配合度": "高",
+          "備註": ""
+        }
+      ],
       "address": "台南市永康區正南三路70-2號",
       "distributor": "德裕成",
       "distributor_salesperson": "9-許永縉",
@@ -24112,6 +25643,12 @@
       "purchase_bonus_1": "200",
       "purchase_quantity_2": "15",
       "purchase_bonus_2": "300",
+      "optimization": "1",
+      "new_slots": "0",
+      "monster_box": "0",
+      "contract_compliant": "1",
+      "annual_contract": "續約",
+      "optimization_content": "調牌面",
       "audit_display": [
         "名世紅",
         "名世藍",
@@ -24120,6 +25657,35 @@
         "小寶亨6號",
         "寶亨9號",
         "寶亨6號2",
+        "寶亨3號",
+        "寶亨1號",
+        "寶亨9號晶球",
+        "寶亨6號晶球",
+        "寶亨1號晶球",
+        "寶亨法蘭絲3號晶球",
+        "寶亨紫沙",
+        "寶亨綠沙",
+        "寶亨棕7",
+        "伊歐尼紫色1號",
+        "嘉年華紅",
+        "嘉年華藍"
+      ],
+      "visit_date": "2026-08-19",
+      "city": "待確認",
+      "district": "待確認",
+      "store_type": "一般商店",
+      "visit_sales": "未提供",
+      "visit_cooperation": "高",
+      "line_oa": "V",
+      "visit_display": [
+        "名世紅",
+        "名世藍",
+        "85小寶亨6號",
+        "小寶亨紅",
+        "小寶亨6號",
+        "寶亨9號",
+        "寶亨6號2",
+        "寶亨3號",
         "寶亨1號",
         "寶亨9號晶球",
         "寶亨6號晶球",
@@ -24137,9 +25703,9 @@
       "channel": "GT",
       "store_name": "正源-瑜源",
       "aliases": [
-        "正源瑜源",
+        "正源_瑜源",
         "正源-瑜源",
-        "正源_瑜源"
+        "正源瑜源"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -24425,8 +25991,8 @@
       "store_name": "永吉商行-冠賓",
       "aliases": [
         "永吉商行_冠賓",
-        "永吉商行冠賓",
-        "永吉商行-冠賓"
+        "永吉商行-冠賓",
+        "永吉商行冠賓"
       ],
       "sources": [
         "GT巡店總表_Master正式版.xlsx",
@@ -24601,9 +26167,33 @@
         "永新超市(永新便利商店)"
       ],
       "sources": [
+        "GT巡店總表_Master正式版.xlsx",
         "GT查核總表.xlsx"
       ],
-      "visit_history": [],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "陳列": [
+            "名世紅",
+            "名世藍",
+            "85小寶亨6號",
+            "小寶亨紅",
+            "小寶亨6號",
+            "寶亨9號",
+            "寶亨6號2",
+            "寶亨9號晶球",
+            "寶亨紫沙",
+            "寶亨棕7",
+            "寶亨午後",
+            "嘉年華紅",
+            "嘉年華藍"
+          ],
+          "分布": [],
+          "銷售": "未提供",
+          "配合度": "中",
+          "備註": "拿寶9跟他換紫沙"
+        }
+      ],
       "address": "嘉義縣鹿草鄉鹿草路277號",
       "distributor": "玄星",
       "distributor_salesperson": "林妙玲",
@@ -24612,7 +26202,36 @@
       "contract_type": "Display_陳列",
       "contract_slots": "10",
       "display_bonus": "250",
+      "optimization": "1",
+      "new_slots": "0",
+      "monster_box": "0",
+      "contract_compliant": "1",
+      "optimization_content": "牌面調整",
+      "audit_note": "拿寶9跟他換紫沙",
       "audit_display": [
+        "名世紅",
+        "名世藍",
+        "85小寶亨6號",
+        "小寶亨紅",
+        "小寶亨6號",
+        "寶亨9號",
+        "寶亨6號2",
+        "寶亨9號晶球",
+        "寶亨紫沙",
+        "寶亨棕7",
+        "寶亨午後",
+        "嘉年華紅",
+        "嘉年華藍"
+      ],
+      "visit_date": "2026-08-19",
+      "city": "待確認",
+      "district": "待確認",
+      "store_type": "一般商店",
+      "visit_sales": "未提供",
+      "visit_cooperation": "中",
+      "line_oa": "X",
+      "visit_note": "拿寶9跟他換紫沙",
+      "visit_display": [
         "名世紅",
         "名世藍",
         "85小寶亨6號",
@@ -24729,8 +26348,8 @@
       "channel": "GT",
       "store_name": "江雜貨店-添進",
       "aliases": [
-        "江雜貨店-添進",
         "江雜貨店_添進",
+        "江雜貨店-添進",
         "江雜貨店添進"
       ],
       "sources": [
@@ -24882,6 +26501,35 @@
       ],
       "visit_history": [
         {
+          "巡店日期": "2026-08-19",
+          "陳列": [
+            "名世紅",
+            "名世藍",
+            "好時韻10",
+            "85小寶亨6號",
+            "85小寶亨3號",
+            "小寶亨6號",
+            "寶亨9號",
+            "寶亨6號2",
+            "寶亨9號晶球",
+            "寶亨6號晶球",
+            "寶亨黃沙",
+            "寶亨紫沙",
+            "寶亨綠沙",
+            "寶亨棕7"
+          ],
+          "分布": [
+            "好時韻7",
+            "小寶亨紅",
+            "寶亨1號",
+            "寶亨1號晶球",
+            "寶亨金沙"
+          ],
+          "銷售": "寶亨9號銷售0；名世有銷售",
+          "配合度": "高",
+          "備註": "寶亨9號銷售0，名世會跑。"
+        },
+        {
           "巡店日期": "2026-07-20",
           "陳列": [
             "9號雙晶球",
@@ -24917,14 +26565,18 @@
       "contract_type": "Display_陳列",
       "contract_slots": "14",
       "display_bonus": "500",
+      "optimization": "1",
+      "new_slots": "0",
+      "monster_box": "0",
+      "contract_compliant": "1",
+      "annual_contract": "續約",
+      "optimization_content": "將原味 涼菸依濃度價格做調整",
       "audit_display": [
         "名世紅",
         "名世藍",
         "好時韻10",
-        "好時韻7",
         "85小寶亨6號",
         "85小寶亨3號",
-        "小寶亨紅",
         "小寶亨6號",
         "寶亨9號",
         "寶亨6號2",
@@ -24932,35 +26584,46 @@
         "寶亨6號晶球",
         "寶亨黃沙",
         "寶亨紫沙",
-        "寶亨綠沙"
+        "寶亨綠沙",
+        "寶亨棕7"
       ],
-      "visit_date": "2026-07-20",
+      "audit_distribution": [
+        "好時韻7",
+        "小寶亨紅",
+        "寶亨1號",
+        "寶亨1號晶球",
+        "寶亨金沙"
+      ],
+      "visit_date": "2026-08-19",
       "city": "高雄市",
       "district": "待確認",
       "store_type": "便利商店",
       "visit_sales": "寶亨9號銷售0；名世有銷售",
-      "visit_cooperation": "中",
+      "visit_cooperation": "高",
+      "line_oa": "V",
       "visit_note": "寶亨9號銷售0，名世會跑。",
       "visit_display": [
-        "9號雙晶球",
-        "寶9",
-        "寶6",
-        "寶1",
-        "棕7",
-        "黃沙",
-        "紫沙",
-        "綠沙",
         "名世紅",
         "名世藍",
-        "小寶亨藍",
-        "好時韻7",
-        "85小寶亨6",
-        "85小寶亨3"
+        "好時韻10",
+        "85小寶亨6號",
+        "85小寶亨3號",
+        "小寶亨6號",
+        "寶亨9號",
+        "寶亨6號2",
+        "寶亨9號晶球",
+        "寶亨6號晶球",
+        "寶亨黃沙",
+        "寶亨紫沙",
+        "寶亨綠沙",
+        "寶亨棕7"
       ],
       "visit_distribution": [
-        "金沙",
-        "好時韻10",
-        "小寶亨紅"
+        "好時韻7",
+        "小寶亨紅",
+        "寶亨1號",
+        "寶亨1號晶球",
+        "寶亨金沙"
       ]
     },
     {
@@ -25034,9 +26697,35 @@
         "波大商店"
       ],
       "sources": [
+        "GT巡店總表_Master正式版.xlsx",
         "GT查核總表.xlsx"
       ],
-      "visit_history": [],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "陳列": [
+            "名世紅",
+            "名世藍",
+            "好時韻10",
+            "好時韻7",
+            "85小寶亨6號",
+            "85小寶亨3號",
+            "小寶亨紅",
+            "小寶亨6號",
+            "寶亨9號",
+            "寶亨6號2",
+            "寶亨9號晶球",
+            "寶亨6號晶球",
+            "寶亨法蘭絲3號晶球",
+            "寶亨紫沙",
+            "寶亨綠沙"
+          ],
+          "分布": [],
+          "銷售": "未提供",
+          "配合度": "高",
+          "備註": "裡外都有菸架，外面的效期要注意"
+        }
+      ],
       "address": "台南市新市區大順六路227號",
       "distributor": "德裕成",
       "distributor_salesperson": "11-黃俊傑",
@@ -25045,7 +26734,38 @@
       "contract_type": "Display_陳列",
       "contract_slots": "14",
       "display_bonus": "350",
+      "optimization": "0",
+      "new_slots": "0",
+      "monster_box": "0",
+      "contract_compliant": "1",
+      "annual_contract": "續約",
+      "audit_note": "裡外都有菸架，外面的效期要注意",
       "audit_display": [
+        "名世紅",
+        "名世藍",
+        "好時韻10",
+        "好時韻7",
+        "85小寶亨6號",
+        "85小寶亨3號",
+        "小寶亨紅",
+        "小寶亨6號",
+        "寶亨9號",
+        "寶亨6號2",
+        "寶亨9號晶球",
+        "寶亨6號晶球",
+        "寶亨法蘭絲3號晶球",
+        "寶亨紫沙",
+        "寶亨綠沙"
+      ],
+      "visit_date": "2026-08-19",
+      "city": "待確認",
+      "district": "待確認",
+      "store_type": "一般商店",
+      "visit_sales": "未提供",
+      "visit_cooperation": "高",
+      "line_oa": "V",
+      "visit_note": "裡外都有菸架，外面的效期要注意",
+      "visit_display": [
         "名世紅",
         "名世藍",
         "好時韻10",
@@ -25139,9 +26859,38 @@
         "洋洋菸酒"
       ],
       "sources": [
+        "GT巡店總表_Master正式版.xlsx",
         "GT查核總表.xlsx"
       ],
-      "visit_history": [],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "陳列": [
+            "名世紅",
+            "名世藍",
+            "85小寶亨6號",
+            "85小寶亨3號",
+            "小寶亨紅",
+            "小寶亨6號",
+            "寶亨9號",
+            "寶亨6號2",
+            "寶亨9號晶球",
+            "寶亨X8晶球",
+            "寶亨6號晶球",
+            "寶亨1號晶球",
+            "寶亨法蘭絲3號晶球",
+            "寶亨紫沙",
+            "寶亨綠沙",
+            "伊歐尼紫色1號",
+            "嘉年華紅",
+            "嘉年華藍"
+          ],
+          "分布": [],
+          "銷售": "未提供",
+          "配合度": "低",
+          "備註": "牌面不願意調整，有標籤"
+        }
+      ],
       "address": "台南市永康區中正北路77號",
       "distributor": "德裕成",
       "distributor_salesperson": "9-許永縉",
@@ -25150,6 +26899,12 @@
       "contract_type": "Display_陳列",
       "contract_slots": "18",
       "display_bonus": "500",
+      "optimization": "0",
+      "new_slots": "0",
+      "monster_box": "0",
+      "contract_compliant": "1",
+      "annual_contract": "續約",
+      "audit_note": "牌面不願意調整，有標籤",
       "audit_display": [
         "名世紅",
         "名世藍",
@@ -25160,12 +26915,40 @@
         "寶亨9號",
         "寶亨6號2",
         "寶亨9號晶球",
+        "寶亨X8晶球",
         "寶亨6號晶球",
         "寶亨1號晶球",
         "寶亨法蘭絲3號晶球",
         "寶亨紫沙",
         "寶亨綠沙",
-        "寶亨棕7",
+        "伊歐尼紫色1號",
+        "嘉年華紅",
+        "嘉年華藍"
+      ],
+      "visit_date": "2026-08-19",
+      "city": "待確認",
+      "district": "待確認",
+      "store_type": "一般商店",
+      "visit_sales": "未提供",
+      "visit_cooperation": "低",
+      "line_oa": "X",
+      "visit_note": "牌面不願意調整，有標籤",
+      "visit_display": [
+        "名世紅",
+        "名世藍",
+        "85小寶亨6號",
+        "85小寶亨3號",
+        "小寶亨紅",
+        "小寶亨6號",
+        "寶亨9號",
+        "寶亨6號2",
+        "寶亨9號晶球",
+        "寶亨X8晶球",
+        "寶亨6號晶球",
+        "寶亨1號晶球",
+        "寶亨法蘭絲3號晶球",
+        "寶亨紫沙",
+        "寶亨綠沙",
         "伊歐尼紫色1號",
         "嘉年華紅",
         "嘉年華藍"
@@ -25639,9 +27422,9 @@
       "channel": "GT",
       "store_name": "源宥達企業社-尊南店",
       "aliases": [
-        "源宥達企業社尊南店",
         "源宥達企業社_尊南店",
-        "源宥達企業社-尊南店"
+        "源宥達企業社-尊南店",
+        "源宥達企業社尊南店"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -25687,9 +27470,32 @@
         "源山行商店"
       ],
       "sources": [
+        "GT巡店總表_Master正式版.xlsx",
         "GT查核總表.xlsx"
       ],
-      "visit_history": [],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "陳列": [
+            "名世紅",
+            "名世藍",
+            "85小寶亨3號",
+            "小寶亨紅",
+            "小寶亨6號",
+            "寶亨9號",
+            "寶亨6號2",
+            "寶亨6號晶球",
+            "寶亨紫沙",
+            "寶亨棕7",
+            "嘉年華紅",
+            "嘉年華藍"
+          ],
+          "分布": [],
+          "銷售": "未提供",
+          "配合度": "中",
+          "備註": ""
+        }
+      ],
       "address": "嘉義縣鹿草鄉頂潭16號旁",
       "distributor": "玄星",
       "distributor_salesperson": "林妙玲",
@@ -25698,15 +27504,39 @@
       "contract_type": "Display_陳列",
       "contract_slots": "10",
       "display_bonus": "250",
+      "optimization": "0",
+      "new_slots": "0",
+      "monster_box": "0",
+      "contract_compliant": "1",
       "audit_display": [
         "名世紅",
         "名世藍",
-        "85小寶亨6號",
+        "85小寶亨3號",
         "小寶亨紅",
         "小寶亨6號",
         "寶亨9號",
         "寶亨6號2",
-        "寶亨9號晶球",
+        "寶亨6號晶球",
+        "寶亨紫沙",
+        "寶亨棕7",
+        "嘉年華紅",
+        "嘉年華藍"
+      ],
+      "visit_date": "2026-08-19",
+      "city": "待確認",
+      "district": "待確認",
+      "store_type": "一般商店",
+      "visit_sales": "未提供",
+      "visit_cooperation": "中",
+      "visit_display": [
+        "名世紅",
+        "名世藍",
+        "85小寶亨3號",
+        "小寶亨紅",
+        "小寶亨6號",
+        "寶亨9號",
+        "寶亨6號2",
+        "寶亨6號晶球",
         "寶亨紫沙",
         "寶亨棕7",
         "嘉年華紅",
@@ -25807,9 +27637,9 @@
       "channel": "GT",
       "store_name": "滿滿五金-美濃",
       "aliases": [
-        "滿滿五金美濃",
+        "滿滿五金_美濃",
         "滿滿五金-美濃",
-        "滿滿五金_美濃"
+        "滿滿五金美濃"
       ],
       "sources": [
         "GT巡店總表_Master正式版.xlsx",
@@ -26496,9 +28326,9 @@
       "channel": "GT",
       "store_name": "生活品百貨-中埔店(品福商行)",
       "aliases": [
+        "生活品百貨_中埔店(品福商行)",
         "生活品百貨中埔店(品福商行)",
-        "生活品百貨-中埔店(品福商行)",
-        "生活品百貨_中埔店(品福商行)"
+        "生活品百貨-中埔店(品福商行)"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -26659,9 +28489,9 @@
       "channel": "GT",
       "store_name": "界揚超商-圓峰",
       "aliases": [
-        "界揚超商圓峰",
         "界揚超商_圓峰",
-        "界揚超商-圓峰"
+        "界揚超商-圓峰",
+        "界揚超商圓峰"
       ],
       "sources": [
         "GT巡店總表_Master正式版.xlsx",
@@ -26750,8 +28580,8 @@
       "store_name": "界揚超商-必瑩",
       "aliases": [
         "界揚超商_必瑩",
-        "界揚超商必瑩",
-        "界揚超商-必瑩"
+        "界揚超商-必瑩",
+        "界揚超商必瑩"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -26923,9 +28753,33 @@
         "益安便利(益安超級商場)"
       ],
       "sources": [
+        "GT巡店總表_Master正式版.xlsx",
         "GT查核總表.xlsx"
       ],
-      "visit_history": [],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "陳列": [
+            "名世紅",
+            "名世藍",
+            "85小寶亨6號",
+            "85小寶亨3號",
+            "小寶亨紅",
+            "小寶亨6號",
+            "寶亨9號",
+            "寶亨6號2",
+            "寶亨3號",
+            "寶亨9號晶球",
+            "寶亨6號晶球",
+            "嘉年華紅",
+            "嘉年華藍"
+          ],
+          "分布": [],
+          "銷售": "未提供",
+          "配合度": "待觀察",
+          "備註": ""
+        }
+      ],
       "address": "嘉義縣六腳鄉蘇厝寮120-1號",
       "distributor": "玄星",
       "distributor_salesperson": "姚勝薰",
@@ -26934,7 +28788,35 @@
       "contract_type": "Display_陳列",
       "contract_slots": "12",
       "display_bonus": "250",
+      "optimization": "1",
+      "new_slots": "0",
+      "monster_box": "0",
+      "contract_compliant": "1",
+      "annual_contract": "續約",
+      "optimization_content": "牌面調整",
       "audit_display": [
+        "名世紅",
+        "名世藍",
+        "85小寶亨6號",
+        "85小寶亨3號",
+        "小寶亨紅",
+        "小寶亨6號",
+        "寶亨9號",
+        "寶亨6號2",
+        "寶亨3號",
+        "寶亨9號晶球",
+        "寶亨6號晶球",
+        "嘉年華紅",
+        "嘉年華藍"
+      ],
+      "visit_date": "2026-08-19",
+      "city": "待確認",
+      "district": "待確認",
+      "store_type": "一般商店",
+      "visit_sales": "未提供",
+      "visit_cooperation": "待觀察",
+      "line_oa": "X",
+      "visit_display": [
         "名世紅",
         "名世藍",
         "85小寶亨6號",
@@ -27178,9 +29060,9 @@
       "channel": "GT",
       "store_name": "祥發便利商店-南台灣",
       "aliases": [
-        "祥發便利商店-南台灣",
+        "祥發便利商店_南台灣",
         "祥發便利商店南台灣",
-        "祥發便利商店_南台灣"
+        "祥發便利商店-南台灣"
       ],
       "sources": [
         "GT巡店總表_Master正式版.xlsx",
@@ -28723,23 +30605,63 @@
         "翁園超市"
       ],
       "sources": [
+        "GT巡店總表_Master正式版.xlsx",
         "GT查核總表.xlsx"
       ],
-      "visit_history": [],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "陳列": [],
+          "分布": [
+            "名世紅",
+            "名世藍",
+            "85小寶亨6號",
+            "小寶亨6號",
+            "寶亨9號",
+            "寶亨6號2",
+            "寶亨9號晶球",
+            "寶亨紫沙"
+          ],
+          "銷售": "未提供",
+          "配合度": "高",
+          "備註": ""
+        }
+      ],
       "address": "高雄市大寮區翁園路232號",
       "distributor": "巨弘昇",
       "distributor_salesperson": "衣錦榮",
       "distributor_customer_id": "ZRB1001",
       "audit_cooperation": "M",
-      "audit_display": [
+      "optimization": "0",
+      "new_slots": "0",
+      "monster_box": "0",
+      "contract_compliant": "0",
+      "audit_distribution": [
         "名世紅",
         "名世藍",
         "85小寶亨6號",
         "小寶亨6號",
+        "寶亨9號",
         "寶亨6號2",
         "寶亨9號晶球",
-        "寶亨紫沙",
-        "寶亨棕7"
+        "寶亨紫沙"
+      ],
+      "visit_date": "2026-08-19",
+      "city": "待確認",
+      "district": "待確認",
+      "store_type": "一般商店",
+      "visit_sales": "未提供",
+      "visit_cooperation": "高",
+      "line_oa": "X",
+      "visit_distribution": [
+        "名世紅",
+        "名世藍",
+        "85小寶亨6號",
+        "小寶亨6號",
+        "寶亨9號",
+        "寶亨6號2",
+        "寶亨9號晶球",
+        "寶亨紫沙"
       ]
     },
     {
@@ -29140,9 +31062,9 @@
       "channel": "GT",
       "store_name": "舒達-崗山",
       "aliases": [
-        "舒達-崗山",
         "舒達崗山",
-        "舒達_崗山"
+        "舒達_崗山",
+        "舒達-崗山"
       ],
       "sources": [
         "GT巡店總表_Master正式版.xlsx",
@@ -29799,9 +31721,9 @@
       "channel": "GT",
       "store_name": "萊福成-福友",
       "aliases": [
-        "萊福成-福友",
+        "萊福成_福友",
         "萊福成福友",
-        "萊福成_福友"
+        "萊福成-福友"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -30027,8 +31949,8 @@
       "store_name": "萬鴻菸酒-民雄(禾泰商行)",
       "aliases": [
         "萬鴻菸酒-民雄(禾泰商行)",
-        "萬鴻菸酒民雄(禾泰商行)",
-        "萬鴻菸酒_民雄(禾泰商行)"
+        "萬鴻菸酒_民雄(禾泰商行)",
+        "萬鴻菸酒民雄(禾泰商行)"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -30301,9 +32223,9 @@
       "channel": "GT",
       "store_name": "行家五金百貨-金佳野",
       "aliases": [
-        "行家五金百貨金佳野",
         "行家五金百貨_金佳野",
-        "行家五金百貨-金佳野"
+        "行家五金百貨-金佳野",
+        "行家五金百貨金佳野"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -31016,9 +32938,9 @@
       "channel": "GT",
       "store_name": "輕鬆購五金百貨-中山店",
       "aliases": [
-        "輕鬆購五金百貨中山店",
+        "輕鬆購五金百貨_中山店",
         "輕鬆購五金百貨-中山店",
-        "輕鬆購五金百貨_中山店"
+        "輕鬆購五金百貨中山店"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -31054,8 +32976,8 @@
       "channel": "GT",
       "store_name": "輕鬆購五金百貨-南科店",
       "aliases": [
-        "輕鬆購五金百貨_南科店",
         "輕鬆購五金百貨-南科店",
+        "輕鬆購五金百貨_南科店",
         "輕鬆購五金百貨南科店"
       ],
       "sources": [
@@ -31088,8 +33010,8 @@
       "channel": "GT",
       "store_name": "輕鬆購五金百貨-善化店",
       "aliases": [
-        "輕鬆購五金百貨善化店",
         "輕鬆購五金百貨_善化店",
+        "輕鬆購五金百貨善化店",
         "輕鬆購五金百貨-善化店"
       ],
       "sources": [
@@ -31156,9 +33078,9 @@
       "channel": "GT",
       "store_name": "輕鬆購五金百貨-安順店",
       "aliases": [
-        "輕鬆購五金百貨_安順店",
         "輕鬆購五金百貨-安順店",
-        "輕鬆購五金百貨安順店"
+        "輕鬆購五金百貨安順店",
+        "輕鬆購五金百貨_安順店"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -31193,14 +33115,35 @@
       "channel": "GT",
       "store_name": "輕鬆購五金百貨-家專店",
       "aliases": [
-        "輕鬆購五金百貨家專店",
+        "輕鬆購五金百貨_家專店",
         "輕鬆購五金百貨-家專店",
-        "輕鬆購五金百貨_家專店"
+        "輕鬆購五金百貨家專店"
       ],
       "sources": [
+        "GT巡店總表_Master正式版.xlsx",
         "GT查核總表.xlsx"
       ],
-      "visit_history": [],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "陳列": [
+            "名世紅",
+            "名世藍",
+            "85小寶亨6號",
+            "85小寶亨3號",
+            "小寶亨紅",
+            "小寶亨6號",
+            "寶亨9號",
+            "寶亨6號2",
+            "寶亨9號晶球",
+            "寶亨6號晶球"
+          ],
+          "分布": [],
+          "銷售": "未提供",
+          "配合度": "高",
+          "備註": "Line oa高度使用者"
+        }
+      ],
       "address": "台南市永康區中正路551號",
       "distributor": "德裕成",
       "distributor_salesperson": "9-許永縉",
@@ -31209,7 +33152,32 @@
       "contract_type": "Display_陳列",
       "contract_slots": "10",
       "display_bonus": "500",
+      "optimization": "0",
+      "new_slots": "0",
+      "monster_box": "0",
+      "contract_compliant": "1",
+      "audit_note": "Line oa高度使用者",
       "audit_display": [
+        "名世紅",
+        "名世藍",
+        "85小寶亨6號",
+        "85小寶亨3號",
+        "小寶亨紅",
+        "小寶亨6號",
+        "寶亨9號",
+        "寶亨6號2",
+        "寶亨9號晶球",
+        "寶亨6號晶球"
+      ],
+      "visit_date": "2026-08-19",
+      "city": "待確認",
+      "district": "待確認",
+      "store_type": "一般商店",
+      "visit_sales": "未提供",
+      "visit_cooperation": "高",
+      "line_oa": "V",
+      "visit_note": "Line oa高度使用者",
+      "visit_display": [
         "名世紅",
         "名世藍",
         "85小寶亨6號",
@@ -31226,14 +33194,35 @@
       "channel": "GT",
       "store_name": "輕鬆購五金百貨-新中店",
       "aliases": [
-        "輕鬆購五金百貨新中店",
         "輕鬆購五金百貨-新中店",
+        "輕鬆購五金百貨新中店",
         "輕鬆購五金百貨_新中店"
       ],
       "sources": [
+        "GT巡店總表_Master正式版.xlsx",
         "GT查核總表.xlsx"
       ],
-      "visit_history": [],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "陳列": [
+            "名世紅",
+            "名世藍",
+            "85小寶亨6號",
+            "小寶亨紅",
+            "小寶亨6號",
+            "寶亨9號",
+            "寶亨6號2",
+            "寶亨9號晶球",
+            "寶亨6號晶球",
+            "寶亨紫沙"
+          ],
+          "分布": [],
+          "銷售": "未提供",
+          "配合度": "低",
+          "備註": "按照毫克數擺，不願意挪動"
+        }
+      ],
       "address": "台南市永康區新中街155號",
       "distributor": "德裕成",
       "distributor_salesperson": "9-許永縉",
@@ -31242,7 +33231,33 @@
       "contract_type": "Display_陳列",
       "contract_slots": "10",
       "display_bonus": "500",
+      "optimization": "0",
+      "new_slots": "0",
+      "monster_box": "0",
+      "contract_compliant": "1",
+      "annual_contract": "續約",
+      "audit_note": "按照毫克數擺，不願意挪動",
       "audit_display": [
+        "名世紅",
+        "名世藍",
+        "85小寶亨6號",
+        "小寶亨紅",
+        "小寶亨6號",
+        "寶亨9號",
+        "寶亨6號2",
+        "寶亨9號晶球",
+        "寶亨6號晶球",
+        "寶亨紫沙"
+      ],
+      "visit_date": "2026-08-19",
+      "city": "待確認",
+      "district": "待確認",
+      "store_type": "一般商店",
+      "visit_sales": "未提供",
+      "visit_cooperation": "低",
+      "line_oa": "V",
+      "visit_note": "按照毫克數擺，不願意挪動",
+      "visit_display": [
         "名世紅",
         "名世藍",
         "85小寶亨6號",
@@ -31964,9 +33979,9 @@
       "channel": "GT",
       "store_name": "酒鼎菸酒專賣店-安南區",
       "aliases": [
-        "酒鼎菸酒專賣店-安南區",
         "酒鼎菸酒專賣店_安南區",
-        "酒鼎菸酒專賣店安南區"
+        "酒鼎菸酒專賣店安南區",
+        "酒鼎菸酒專賣店-安南區"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -32006,9 +34021,9 @@
       "channel": "GT",
       "store_name": "酒鼎菸酒專賣店-林森(力鼎商行)",
       "aliases": [
+        "酒鼎菸酒專賣店_林森(力鼎商行)",
         "酒鼎菸酒專賣店-林森(力鼎商行)",
-        "酒鼎菸酒專賣店林森(力鼎商行)",
-        "酒鼎菸酒專賣店_林森(力鼎商行)"
+        "酒鼎菸酒專賣店林森(力鼎商行)"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -32050,14 +34065,41 @@
       "channel": "GT",
       "store_name": "酒鼎菸酒-新市",
       "aliases": [
-        "酒鼎菸酒_新市",
         "酒鼎菸酒新市",
-        "酒鼎菸酒-新市"
+        "酒鼎菸酒-新市",
+        "酒鼎菸酒_新市"
       ],
       "sources": [
+        "GT巡店總表_Master正式版.xlsx",
         "GT查核總表.xlsx"
       ],
-      "visit_history": [],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "陳列": [
+            "名世紅",
+            "名世藍",
+            "85小寶亨6號",
+            "小寶亨紅",
+            "小寶亨6號",
+            "寶亨9號",
+            "寶亨6號2",
+            "寶亨3號",
+            "寶亨1號",
+            "寶亨9號晶球",
+            "寶亨6號晶球",
+            "寶亨1號晶球",
+            "寶亨黃沙",
+            "寶亨紫沙",
+            "寶亨綠沙",
+            "愛喜藍白"
+          ],
+          "分布": [],
+          "銷售": "未提供",
+          "配合度": "中",
+          "備註": "有兩品查核表與實際產品不符，有更換品項，洞數沒變"
+        }
+      ],
       "address": "台南市新市區中正路101號",
       "distributor": "德裕成",
       "distributor_salesperson": "11-黃俊傑",
@@ -32070,6 +34112,11 @@
       "purchase_bonus_1": "400",
       "purchase_quantity_2": "40",
       "purchase_bonus_2": "800",
+      "optimization": "0",
+      "new_slots": "0",
+      "monster_box": "0",
+      "contract_compliant": "1",
+      "audit_note": "有兩品查核表與實際產品不符，有更換品項，洞數沒變",
       "audit_display": [
         "名世紅",
         "名世藍",
@@ -32079,13 +34126,38 @@
         "寶亨9號",
         "寶亨6號2",
         "寶亨3號",
+        "寶亨1號",
         "寶亨9號晶球",
         "寶亨6號晶球",
         "寶亨1號晶球",
-        "寶亨法蘭絲3號晶球",
         "寶亨黃沙",
         "寶亨紫沙",
-        "寶亨金沙",
+        "寶亨綠沙",
+        "愛喜藍白"
+      ],
+      "visit_date": "2026-08-19",
+      "city": "待確認",
+      "district": "待確認",
+      "store_type": "一般商店",
+      "visit_sales": "未提供",
+      "visit_cooperation": "中",
+      "line_oa": "V",
+      "visit_note": "有兩品查核表與實際產品不符，有更換品項，洞數沒變",
+      "visit_display": [
+        "名世紅",
+        "名世藍",
+        "85小寶亨6號",
+        "小寶亨紅",
+        "小寶亨6號",
+        "寶亨9號",
+        "寶亨6號2",
+        "寶亨3號",
+        "寶亨1號",
+        "寶亨9號晶球",
+        "寶亨6號晶球",
+        "寶亨1號晶球",
+        "寶亨黃沙",
+        "寶亨紫沙",
         "寶亨綠沙",
         "愛喜藍白"
       ]
@@ -32367,9 +34439,9 @@
       "channel": "GT",
       "store_name": "里港農會超市-載興店",
       "aliases": [
+        "里港農會超市載興店",
         "里港農會超市_載興店",
-        "里港農會超市-載興店",
-        "里港農會超市載興店"
+        "里港農會超市-載興店"
       ],
       "sources": [
         "GT巡店總表_Master正式版.xlsx",
@@ -32632,9 +34704,37 @@
         "金富祥菸酒專賣店"
       ],
       "sources": [
+        "GT巡店總表_Master正式版.xlsx",
         "GT查核總表.xlsx"
       ],
-      "visit_history": [],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "陳列": [
+            "名世紅",
+            "名世藍",
+            "好時韻10",
+            "好時韻7",
+            "85小寶亨6號",
+            "85小寶亨3號",
+            "小寶亨紅",
+            "小寶亨6號",
+            "寶亨9號",
+            "寶亨6號2",
+            "寶亨3號",
+            "寶亨9號晶球",
+            "寶亨6號晶球",
+            "寶亨法蘭絲3號晶球",
+            "寶亨紫沙",
+            "愛喜晶球藍",
+            "叡頌YoGo"
+          ],
+          "分布": [],
+          "銷售": "未提供",
+          "配合度": "高",
+          "備註": ""
+        }
+      ],
       "address": "台南市新市區銘傳街78號",
       "distributor": "德裕成",
       "distributor_salesperson": "11-黃俊傑",
@@ -32647,7 +34747,38 @@
       "purchase_bonus_1": "200",
       "purchase_quantity_2": "15",
       "purchase_bonus_2": "300",
+      "optimization": "0",
+      "new_slots": "0",
+      "monster_box": "0",
+      "contract_compliant": "1",
+      "annual_contract": "續約",
       "audit_display": [
+        "名世紅",
+        "名世藍",
+        "好時韻10",
+        "好時韻7",
+        "85小寶亨6號",
+        "85小寶亨3號",
+        "小寶亨紅",
+        "小寶亨6號",
+        "寶亨9號",
+        "寶亨6號2",
+        "寶亨3號",
+        "寶亨9號晶球",
+        "寶亨6號晶球",
+        "寶亨法蘭絲3號晶球",
+        "寶亨紫沙",
+        "愛喜晶球藍",
+        "叡頌YoGo"
+      ],
+      "visit_date": "2026-08-19",
+      "city": "待確認",
+      "district": "待確認",
+      "store_type": "一般商店",
+      "visit_sales": "未提供",
+      "visit_cooperation": "高",
+      "line_oa": "V",
+      "visit_display": [
         "名世紅",
         "名世藍",
         "好時韻10",
@@ -33323,9 +35454,28 @@
         "長興便利商店"
       ],
       "sources": [
+        "GT巡店總表_Master正式版.xlsx",
         "GT查核總表.xlsx"
       ],
-      "visit_history": [],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "陳列": [
+            "名世紅",
+            "名世藍",
+            "好時韻10",
+            "好時韻7",
+            "85小寶亨6號",
+            "小寶亨紅",
+            "小寶亨6號",
+            "寶亨9號"
+          ],
+          "分布": [],
+          "銷售": "未提供",
+          "配合度": "中",
+          "備註": ""
+        }
+      ],
       "address": "台南市永康區中正南路686號",
       "distributor": "德裕成",
       "distributor_salesperson": "14-吳晨睿",
@@ -33334,6 +35484,11 @@
       "contract_type": "Display_陳列",
       "contract_slots": "8",
       "display_bonus": "150",
+      "optimization": "0",
+      "new_slots": "0",
+      "monster_box": "0",
+      "contract_compliant": "1",
+      "annual_contract": "續約",
       "audit_display": [
         "名世紅",
         "名世藍",
@@ -33342,8 +35497,24 @@
         "85小寶亨6號",
         "小寶亨紅",
         "小寶亨6號",
-        "寶亨9號",
-        "寶亨6號2"
+        "寶亨9號"
+      ],
+      "visit_date": "2026-08-19",
+      "city": "待確認",
+      "district": "待確認",
+      "store_type": "一般商店",
+      "visit_sales": "未提供",
+      "visit_cooperation": "中",
+      "line_oa": "X",
+      "visit_display": [
+        "名世紅",
+        "名世藍",
+        "好時韻10",
+        "好時韻7",
+        "85小寶亨6號",
+        "小寶亨紅",
+        "小寶亨6號",
+        "寶亨9號"
       ]
     },
     {
@@ -33421,9 +35592,9 @@
       "channel": "GT",
       "store_name": "阿Q便利商店-瓜瓜",
       "aliases": [
-        "阿Q便利商店瓜瓜",
+        "阿Q便利商店_瓜瓜",
         "阿Q便利商店-瓜瓜",
-        "阿Q便利商店_瓜瓜"
+        "阿Q便利商店瓜瓜"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -33748,9 +35919,32 @@
         "隆興五金(西井村生活五金實業有限公司)"
       ],
       "sources": [
+        "GT巡店總表_Master正式版.xlsx",
         "GT查核總表.xlsx"
       ],
-      "visit_history": [],
+      "visit_history": [
+        {
+          "巡店日期": "2026-08-19",
+          "陳列": [
+            "名世紅",
+            "名世藍",
+            "85小寶亨6號",
+            "85小寶亨3號",
+            "小寶亨6號",
+            "小寶亨1號",
+            "寶亨9號",
+            "寶亨9號晶球",
+            "寶亨紫沙",
+            "寶亨棕7",
+            "寶亨午後",
+            "嘉年華紅"
+          ],
+          "分布": [],
+          "銷售": "未提供",
+          "配合度": "中",
+          "備註": "牌面調整"
+        }
+      ],
       "address": "嘉義縣鹿草鄉鹿草村51號1F",
       "distributor": "玄星",
       "distributor_salesperson": "林妙玲",
@@ -33759,13 +35953,42 @@
       "contract_type": "Display_陳列",
       "contract_slots": "10",
       "display_bonus": "350",
+      "optimization": "1",
+      "new_slots": "0",
+      "monster_box": "0",
+      "contract_compliant": "1",
+      "annual_contract": "續約",
+      "optimization_content": "調整牌面",
+      "audit_note": "牌面調整",
       "audit_display": [
         "名世紅",
         "名世藍",
         "85小寶亨6號",
         "85小寶亨3號",
-        "小寶亨紅",
         "小寶亨6號",
+        "小寶亨1號",
+        "寶亨9號",
+        "寶亨9號晶球",
+        "寶亨紫沙",
+        "寶亨棕7",
+        "寶亨午後",
+        "嘉年華紅"
+      ],
+      "visit_date": "2026-08-19",
+      "city": "待確認",
+      "district": "待確認",
+      "store_type": "一般商店",
+      "visit_sales": "未提供",
+      "visit_cooperation": "中",
+      "line_oa": "X",
+      "visit_note": "牌面調整",
+      "visit_display": [
+        "名世紅",
+        "名世藍",
+        "85小寶亨6號",
+        "85小寶亨3號",
+        "小寶亨6號",
+        "小寶亨1號",
         "寶亨9號",
         "寶亨9號晶球",
         "寶亨紫沙",
@@ -34150,8 +36373,8 @@
       "store_name": "頂級五金-路竹",
       "aliases": [
         "頂級五金_路竹",
-        "頂級五金路竹",
-        "頂級五金-路竹"
+        "頂級五金-路竹",
+        "頂級五金路竹"
       ],
       "sources": [
         "GT巡店總表_Master正式版.xlsx",
@@ -34701,8 +36924,8 @@
       "store_name": "鴻文-盈冠",
       "aliases": [
         "鴻文盈冠",
-        "鴻文_盈冠",
-        "鴻文-盈冠"
+        "鴻文-盈冠",
+        "鴻文_盈冠"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -34729,9 +36952,9 @@
       "channel": "GT",
       "store_name": "鴻文-鴻升",
       "aliases": [
-        "鴻文_鴻升",
+        "鴻文鴻升",
         "鴻文-鴻升",
-        "鴻文鴻升"
+        "鴻文_鴻升"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -34877,8 +37100,8 @@
       "store_name": "麒麟商行-安和店",
       "aliases": [
         "麒麟商行安和店",
-        "麒麟商行-安和店",
-        "麒麟商行_安和店"
+        "麒麟商行_安和店",
+        "麒麟商行-安和店"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -34916,9 +37139,9 @@
       "channel": "GT",
       "store_name": "麒麟商行-復國",
       "aliases": [
-        "麒麟商行_復國",
         "麒麟商行復國",
-        "麒麟商行-復國"
+        "麒麟商行-復國",
+        "麒麟商行_復國"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -34956,9 +37179,9 @@
       "channel": "GT",
       "store_name": "麒麟商行-裕農店",
       "aliases": [
+        "麒麟商行裕農店",
         "麒麟商行_裕農店",
-        "麒麟商行-裕農店",
-        "麒麟商行裕農店"
+        "麒麟商行-裕農店"
       ],
       "sources": [
         "GT查核總表.xlsx"
@@ -35185,8 +37408,8 @@
       "channel": "GT",
       "store_name": "齊普生鮮超市-仁德中正",
       "aliases": [
-        "齊普生鮮超市-仁德中正",
         "齊普生鮮超市_仁德中正",
+        "齊普生鮮超市-仁德中正",
         "齊普生鮮超市仁德中正"
       ],
       "sources": [
