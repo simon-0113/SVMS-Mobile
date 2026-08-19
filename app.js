@@ -15,7 +15,7 @@ const SVMS_UPLOAD_ENDPOINT = "https://svms-team-upload.t0926400467.workers.dev/"
 
 const PHOTO_DB_STORE = "photos";
 const PHOTO_MAX_EDGE = 1600;
-const PHOTO_JPEG_QUALITY = 0.76;
+const PHOTO_JPEG_QUALITY = 0.72;
 
 let currentPhotoDraft = [];
 let currentPhotoOriginalIds = new Set();
@@ -229,7 +229,7 @@ async function compressPhoto(file) {
 
   let blob = await canvasToBlob(canvas, "image/jpeg", PHOTO_JPEG_QUALITY);
   if (blob.size > 1200 * 1024) {
-    blob = await canvasToBlob(canvas, "image/jpeg", 0.64);
+    blob = await canvasToBlob(canvas, "image/jpeg", 0.68);
   }
   return blob;
 }
@@ -645,7 +645,6 @@ function renderGT(store) {
   return `<article class="card"><div class="card-head"><h2>${escapeHtml(gtDisplayName(store))}</h2><div class="meta">GT｜${escapeHtml(text(store.city))} ${escapeHtml(text(store.district))}</div></div>
     <section class="section"><h3>GT查核資料</h3><div class="info-grid">${info("經銷商", store.distributor)}${info("經銷商業務", store.distributor_salesperson)}${info("地址", store.address, true)}${info("合作等級", store.audit_cooperation)}${info("簽約型態", store.contract_type)}${info("簽約格數", store.contract_slots)}${info("陳列獎金", store.display_bonus)}<div class="info full"><span class="label">查核陳列</span>${pills(store.audit_display)}</div><div class="info full"><span class="label">查核分布</span>${pills(store.audit_distribution)}</div></div></section>
     <section class="section"><h3>GT巡店資料</h3><div class="info-grid">${info("最近巡店日期", store.visit_date)}${info("配合度", store.visit_cooperation)}${info("客群", store.visit_customer_group)}${info("銷售", store.visit_sales)}${info("備註", store.visit_note, true)}</div></section>
-    <section class="section"><h3>最近巡店歷程</h3>${renderHistory(store.visit_history)}</section>
     <section class="section"><button class="update-launch" type="button" data-start-update>開始巡店更新</button></section></article>`;
 }
 

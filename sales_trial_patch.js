@@ -136,7 +136,7 @@
     const originalRenderGT = renderGT;
     renderGT = function(store) {
       const html = originalRenderGT(store);
-      const marker = '<section class="section"><h3>最近巡店歷程</h3>';
+      const marker = '<section class="section"><h3>GT巡店資料</h3>';
       return html.includes(marker)
         ? html.replace(marker, `${renderSalesData(store)}${marker}`)
         : html;
