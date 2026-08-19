@@ -77,7 +77,7 @@
 .product-header>div{line-height:1.25}
 @media(max-width:560px){
   .product-status{
-    overflow:hidden;
+    overflow:visible;
   }
   .product-row{
     min-width:0;
@@ -180,5 +180,35 @@
     position:sticky;
     top:0;
     z-index:8;
+  }
+}
+
+
+/* SVMS Mobile Sticky Header Fix */
+.product-status{
+  overflow:visible!important;
+}
+
+.product-header{
+  position:sticky!important;
+  top:0!important;
+  z-index:30!important;
+  background:#f3f4f6!important;
+  box-shadow:0 2px 4px rgba(17,24,39,.10);
+}
+
+.product-header > div{
+  background:#f3f4f6!important;
+}
+
+@media(max-width:560px){
+  .product-status{
+    overflow:visible!important;
+  }
+
+  .product-header{
+    position:sticky!important;
+    top:0!important;
+    z-index:30!important;
   }
 }
