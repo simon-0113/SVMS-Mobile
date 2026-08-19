@@ -703,17 +703,13 @@ function productReferenceBadge(status) {
 }
 
 function latestVisitProductReference(store) {
-  const history = Array.isArray(store?.visit_history) ? store.visit_history : [];
-  if (!history.length) return { date: "", display: [], distribution: [] };
-
-  const latest = [...history].sort((a, b) =>
-    String(b?.["巡店日期"] || "").localeCompare(String(a?.["巡店日期"] || ""))
-  )[0] || {};
-
+  // 「上次巡店紀錄」直接讀 GT巡店總表主表目前最新的品項資料。
+  // Query Engine 已將 GT巡店總表「品項」解析為 visit_display / visit_distribution。
+  // 不再讀取 visit_history，避免歷程排序或空白歷程造成顯示不一致。
   return {
-    date: String(latest["巡店日期"] || ""),
-    display: Array.isArray(latest["陳列"]) ? latest["陳列"] : [],
-    distribution: Array.isArray(latest["分布"]) ? latest["分布"] : []
+    date: String(store?.visit_date || ""),
+    display: Array.isArray(store?.visit_display) ? store.visit_display : [],
+    distribution: Array.isArray(store?.visit_distribution) ? store.visit_distribution : []
   };
 }
 
