@@ -702,56 +702,44 @@ function productReferenceBadge(status) {
   return `<span class="reference-badge reference-none"><span class="reference-mark">—</span>未登記</span>`;
 }
 
-function latestVisitProductReference(store) {
-  // 「上次巡店紀錄」直接讀 GT巡店總表主表目前最新的品項資料。
-  // Query Engine 已將 GT巡店總表「品項」解析為 visit_display / visit_distribution。
-  // 不再讀取 visit_history，避免歷程排序或空白歷程造成顯示不一致。
-  return {
-    date: String(store?.visit_date || ""),
-    display: Array.isArray(store?.visit_display) ? store.visit_display : [],
-    distribution: Array.isArray(store?.visit_distribution) ? store.visit_distribution : []
-  };
-}
 
 function productStatusTable(saved = {}, savedOsdOriginal = {}, store = null) {
   const groups = productCatalog?.groups || [];
   const standalone = productCatalog?.standalone || [];
   const auditDisplay = Array.isArray(store?.audit_display) ? store.audit_display : [];
   const auditDistribution = Array.isArray(store?.audit_distribution) ? store.audit_distribution : [];
-  const latestVisit = latestVisitProductReference(store);
 
   const rows = products => products.map(product => {
     const status = saved[product] || "";
     const osdOriginal = savedOsdOriginal[product] || "";
     const originVisible = status === "out_of_stock";
     const auditStatus = productReferenceStatus(product, auditDisplay, auditDistribution);
-    const visitStatus = productReferenceStatus(product, latestVisit.display, latestVisit.distribution);
+
     return `<div class="product-row" data-product="${escapeHtml(product)}">
       <div class="product-name">${escapeHtml(product)}</div>
       <div class="reference-cell">${productReferenceBadge(auditStatus)}</div>
-      <div class="reference-cell">${productReferenceBadge(visitStatus)}</div>
       ${["display", "distribution", "out_of_stock"].map(value => `<label class="status-cell"><input type="checkbox" name="product_${escapeHtml(product)}" value="${value}" ${status === value ? "checked" : ""}><span>${value === "display" ? "陳列" : value === "distribution" ? "分布" : "缺貨"}</span></label>`).join("")}
       <div class="osd-origin" ${originVisible ? "" : "hidden"} style="grid-column:1/-1;margin:6px 0 10px;padding:8px 10px;border:1px solid #e2e6ec;border-radius:10px;background:#fafbfc;"><span style="margin-right:12px;font-weight:600;">缺貨原屬：</span><label style="margin-right:14px;"><input type="radio" name="osd_origin_${escapeHtml(product)}" value="display" ${osdOriginal === "display" ? "checked" : ""}> 原屬陳列</label><label><input type="radio" name="osd_origin_${escapeHtml(product)}" value="distribution" ${osdOriginal === "distribution" ? "checked" : ""}> 原屬分布</label></div>
     </div>`;
   }).join("");
 
-  const latestLabel = latestVisit.date ? `上次巡店：${escapeHtml(latestVisit.date)}` : "上次巡店：無紀錄";
   return `
-    <p class="product-status-help">每個品項只能選擇一種狀態；選擇「缺貨」時，必須再指定原屬陳列或原屬分布。參考欄位不會自動勾選本次巡店。</p>
-    <div class="product-reference-note"><span>總表目前狀態＝GT查核總表正式資料</span><span>${latestLabel}</span></div>
+    <p class="product-status-help">每個品項只能選擇一種狀態；選擇「缺貨」時，必須再指定原屬陳列或原屬分布。總表狀態僅供參考，不會自動勾選本次巡店。</p>
     <div class="product-status">
-      <div class="product-row product-header"><div>品項</div><div>總表目前<br>狀態</div><div>上次巡店<br>紀錄</div><div>陳列</div><div>分布</div><div>缺貨</div></div>
+      <div class="product-row product-header"><div>品項</div><div>總表<br>狀態</div><div>陳列</div><div>分布</div><div>缺貨</div></div>
       ${groups.map(group => `<div class="series-title">${escapeHtml(group.series)}</div>${rows(group.products)}`).join("")}
       ${standalone.length ? `<div class="series-title">其他</div>${rows(standalone)}` : ""}
     </div>
     <div class="product-status-summary" id="productStatusSummary">
-      <span class="summary-title">已選品項統計</span><span class="summary-separator">|</span>
-      <span class="summary-item summary-display">陳列：<strong id="displayCount">0</strong></span><span class="summary-separator">|</span>
-      <span class="summary-item summary-distribution">分布：<strong id="distributionCount">0</strong></span><span class="summary-separator">|</span>
+      <span class="summary-title">已選品項統計</span>
+      <span class="summary-separator">|</span>
+      <span class="summary-item summary-display">陳列：<strong id="displayCount">0</strong></span>
+      <span class="summary-separator">|</span>
+      <span class="summary-item summary-distribution">分布：<strong id="distributionCount">0</strong></span>
+      <span class="summary-separator">|</span>
       <span class="summary-item summary-out">缺貨：<strong id="outOfStockCount">0</strong></span>
     </div>`;
 }
-
 function updateProductStatusSummary() {
   let displayCount = 0;
   let distributionCount = 0;
