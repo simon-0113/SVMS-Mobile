@@ -645,15 +645,74 @@ function gtDisplayName(store) {
   return details.length ? `${store.store_name}（${details.join("｜")}）` : store.store_name;
 }
 
+function meaningful(value) {
+  return value !== null && value !== undefined && value !== "";
+}
+
+function auditHighlights(store) {
+  const rows = [];
+  const optimization = String(store.last_audit_optimization ?? "").trim();
+  const newSlots = Number(store.last_audit_new_slots || 0);
+  const monsterBox = String(store.last_audit_monster_box ?? "").trim();
+  const compliant = String(store.last_audit_contract_compliant ?? "").trim();
+
+  if (["1", "TRUE", "true", "是"].includes(optimization)) rows.push(["優化", "已完成"]);
+  if (Number.isFinite(newSlots) && newSlots > 0) rows.push(["新增格數", `${newSlots} 格`]);
+  if (["1", "TRUE", "true", "是", "有"].includes(monsterBox)) rows.push(["寄賣／怪獸盒", "有"]);
+  if (meaningful(store.last_audit_contract_compliant)) {
+    const ok = ["1", "TRUE", "true", "是", "符合"].includes(compliant);
+    rows.push(["合約格數", ok ? "符合" : "不符合"]);
+  }
+  if (meaningful(store.last_audit_annual_contract)) rows.push(["年度合約", store.last_audit_annual_contract]);
+  if (meaningful(store.last_audit_optimization_content)) rows.push(["優化內容", store.last_audit_optimization_content]);
+  if (meaningful(store.last_audit_note)) rows.push(["備註", store.last_audit_note]);
+  return rows;
+}
+
+function renderAuditHighlights(store) {
+  const rows = auditHighlights(store);
+  if (!rows.length) return "";
+  return `<section class="section highlight-section"><h3>📌 上月查核重點</h3><div class="compact-info-list">${rows.map(([label, value]) => `<div class="compact-info-row"><span>${escapeHtml(label)}</span><strong>${escapeHtml(text(value))}</strong></div>`).join("")}</div></section>`;
+}
+
+function formatQty(value) {
+  if (value === null || value === undefined || value === "") return "—";
+  const num = Number(value);
+  if (Number.isNaN(num)) return String(value);
+  return Number.isInteger(num) ? String(num) : String(Math.round(num * 1000) / 1000);
+}
+
+function renderCampaign(store) {
+  const campaign = store.campaign;
+  if (!campaign) return "";
+  return `<section class="section campaign-section"><h3>🎉 活動資訊</h3><div class="campaign-title">參與｜${escapeHtml(campaign.name || "寶亨原味派對")}</div><div class="compact-info-list">${meaningful(campaign.baseline) ? `<div class="compact-info-row"><span>活動基準值</span><strong>${escapeHtml(formatQty(campaign.baseline))}</strong></div>` : ""}${meaningful(campaign.communication_baseline) ? `<div class="compact-info-row"><span>溝通基準值</span><strong>${escapeHtml(formatQty(campaign.communication_baseline))}</strong></div>` : ""}</div></section>`;
+}
+
+function renderCVSSales(store) {
+  const months = store.cvs_sales?.months || {};
+  const keys = Object.keys(months).sort().slice(-3);
+  if (!keys.length) return "";
+  const cards = keys.map(key => {
+    const data = months[key] || {};
+    const monthLabel = `${Number(key.slice(5, 7))}月`;
+    const products = (data.top_products || []).slice(0, 5);
+    return `<div class="cvs-sales-month"><div class="cvs-sales-month-head"><strong>${escapeHtml(monthLabel)}</strong><span>總銷售 <b>${escapeHtml(formatQty(data.total))}</b></span></div>${products.length ? `<ol class="cvs-top-products">${products.map(item => `<li><span>${escapeHtml(item.product)}</span><strong>${escapeHtml(formatQty(item.qty))}</strong></li>`).join("")}</ol>` : `<div class="sales-empty">本月無單品銷售資料</div>`}</div>`;
+  }).join("");
+  return `<section class="section cvs-sales-section"><h3>📊 銷售資料</h3>${cards}</section>`;
+}
+
 function renderGT(store) {
-  return `<article class="card"><div class="card-head"><h2>${escapeHtml(gtDisplayName(store))}</h2><div class="meta">GT｜${escapeHtml(text(store.city))} ${escapeHtml(text(store.district))}</div></div>
+  return `<article class="card"><div class="card-head"><h2>GT／${escapeHtml(gtDisplayName(store))}</h2></div>
+    ${renderAuditHighlights(store)}
     <section class="section"><h3>GT查核資料</h3><div class="info-grid">${info("經銷商", store.distributor)}${info("經銷商業務", store.distributor_salesperson)}${info("經銷客戶編號", store.distributor_customer_id)}${info("地址", store.address, true)}${info("合作等級", store.audit_cooperation)}${info("簽約型態", store.contract_type)}${info("簽約格數", store.contract_slots)}${info("陳列獎金", store.display_bonus)}${info("進貨條數①", store.purchase_quantity_1)}${info("進貨獎金①", store.purchase_bonus_1)}${info("進貨條數②", store.purchase_quantity_2)}${info("進貨獎金②", store.purchase_bonus_2)}<div class="info full"><span class="label">查核陳列</span>${pills(store.audit_display)}</div><div class="info full"><span class="label">查核分布</span>${pills(store.audit_distribution)}</div></div></section>
     <section class="section"><h3>GT巡店資料</h3><div class="info-grid">${info("最近巡店日期", store.visit_date)}${info("配合度", store.visit_cooperation)}${info("客群", store.visit_customer_group)}${info("銷售", store.visit_sales)}${info("備註", store.visit_note, true)}</div></section>
     <section class="section"><button class="update-launch" type="button" data-start-update>開始巡店更新</button></section></article>`;
 }
 
 function renderCVS(store) {
-  return `<article class="card"><div class="card-head"><h2>${escapeHtml(store.store_name)}</h2><div class="meta">${escapeHtml(text(store.channel))}｜${escapeHtml(text(store.city))} ${escapeHtml(text(store.district))}</div></div>
+  return `<article class="card"><div class="card-head"><h2>${escapeHtml(text(store.channel))}／${escapeHtml(store.store_name)}</h2></div>
+    ${renderCampaign(store)}
+    ${renderCVSSales(store)}
     <section class="section"><h3>門市資料</h3><div class="info-grid">${info("最近巡店日期", store.visit_date)}${info("小煙架", store.small_rack)}${info("LINE OA", store.line_oa)}${info("配合度", store.cooperation)}${info("客群", store.customer_group, true)}${info("銷售", store.sales, true)}${info("備註", store.note, true)}</div></section>
     <section class="section"><button class="update-launch" type="button" data-start-update>開始巡店更新</button></section></article>`;
 }

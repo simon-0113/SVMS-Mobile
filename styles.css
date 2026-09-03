@@ -212,3 +212,31 @@
     z-index:30!important;
   }
 }
+
+/* SVMS Mobile 2026-09 精簡資訊卡 */
+.card-head h2{margin:0;font-size:20px;line-height:1.35}
+.highlight-section,.campaign-section{background:#fafafa}
+.compact-info-list{display:grid;gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
+.compact-info-row{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;padding:10px 12px;border-top:1px solid var(--line);font-size:13px}
+.compact-info-row:first-child{border-top:0}
+.compact-info-row span{color:var(--muted)}
+.compact-info-row strong{text-align:right;overflow-wrap:anywhere}
+.campaign-title{margin-bottom:10px;font-size:15px;font-weight:800}
+.cvs-sales-month{margin-top:10px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
+.cvs-sales-month:first-of-type{margin-top:0}
+.cvs-sales-month-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 12px;background:#f3f4f6;font-size:13px}
+.cvs-sales-month-head>strong{font-size:15px}
+.cvs-sales-month-head b{font-size:16px}
+.cvs-top-products{margin:0;padding:0;list-style:none;counter-reset:rank}
+.cvs-top-products li{counter-increment:rank;display:grid;grid-template-columns:24px minmax(0,1fr) auto;gap:7px;align-items:center;padding:9px 12px;border-top:1px solid var(--line);font-size:13px}
+.cvs-top-products li::before{content:counter(rank) ".";color:var(--muted);font-weight:700}
+.cvs-top-products li span{overflow-wrap:anywhere}
+.cvs-top-products li strong{font-size:14px}
+@media(max-width:560px){
+  .section{padding:13px}
+  .card-head{padding:14px}
+  .card-head h2{font-size:18px}
+  .compact-info-row{padding:9px 10px}
+  .cvs-sales-month-head{padding:9px 10px}
+  .cvs-top-products li{padding:8px 10px}
+}
