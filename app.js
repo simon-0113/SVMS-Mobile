@@ -690,7 +690,7 @@ function renderCampaign(store) {
 
 function renderCVSSales(store) {
   const months = store.cvs_sales?.months || {};
-  const keys = Object.keys(months).sort().slice(-3);
+  const keys = Object.keys(months).sort().reverse().slice(0, 2);
   if (!keys.length) return "";
   const cards = keys.map(key => {
     const data = months[key] || {};
@@ -710,10 +710,14 @@ function renderGT(store) {
 }
 
 function renderCVS(store) {
+  const historySection = store.visit_history?.length
+    ? `<section class="section"><h3>巡店歷程</h3>${renderHistory(store.visit_history)}</section>`
+    : "";
   return `<article class="card"><div class="card-head"><h2>${escapeHtml(text(store.channel))}／${escapeHtml(store.store_name)}</h2></div>
     ${renderCampaign(store)}
     ${renderCVSSales(store)}
-    <section class="section"><h3>門市資料</h3><div class="info-grid">${info("最近巡店日期", store.visit_date)}${info("小煙架", store.small_rack)}${info("LINE OA", store.line_oa)}${info("配合度", store.cooperation)}${info("客群", store.customer_group, true)}${info("銷售", store.sales, true)}${info("備註", store.note, true)}</div></section>
+    <section class="section"><h3>門市資料</h3><div class="info-grid">${info("最近巡店日期", store.visit_date)}${info("小煙架", store.small_rack)}${info("LINE OA", store.line_oa)}${info("配合度", store.cooperation)}${info("客群", store.customer_group, true)}${info("備註", store.note, true)}</div></section>
+    ${historySection}
     <section class="section"><button class="update-launch" type="button" data-start-update>開始巡店更新</button></section></article>`;
 }
 
@@ -864,7 +868,7 @@ function gtForm(store, saved = {}) {
 }
 
 function cvsForm(store, saved = {}) {
-  return `<div class="form-section"><h3>門市資料</h3><div class="form-grid">${fieldHTML("visit_date", "巡店日期", saved.visit_date || localDateISO(), "date")}${fieldHTML("store_name", "門市名稱", saved.store_name || store.store_name)}${selectHTML("store_type", "門市類別", ["", "711", "FM", "HL", "OK"], saved.store_type || store.channel || "")}${fieldHTML("city", "縣市", saved.city || store.city || "")}${fieldHTML("district", "行政區", saved.district || store.district || "")}${selectHTML("cooperation", "配合度", ["", "高", "中", "低", "待觀察"], saved.cooperation || "")}${selectHTML("line_oa", "LINE OA", [{ value: "", label: "—" }, { value: "true", label: "有" }, { value: "false", label: "無" }], saved.line_oa === true ? "true" : saved.line_oa === false ? "false" : "")}${selectHTML("small_rack", "小煙架", [{ value: "", label: "—" }, { value: "true", label: "有" }, { value: "false", label: "無" }], saved.small_rack === true ? "true" : saved.small_rack === false ? "false" : "")}${fieldHTML("customer_group", "客群", saved.customer_group || "")}${fieldHTML("sales", "銷售資料", saved.sales || "")}${fieldHTML("sales_grade", "銷售等級", saved.sales_grade || "")}${fieldHTML("activity", "活動", saved.activity || "")}${textareaHTML("note", "備註", saved.note || "")}</div></div>${photoSectionHTML()}`;
+  return `<div class="form-section"><h3>門市資料</h3><div class="form-grid">${fieldHTML("visit_date", "巡店日期", saved.visit_date || localDateISO(), "date")}${fieldHTML("store_name", "門市名稱", saved.store_name || store.store_name)}${selectHTML("store_type", "門市類別", ["", "711", "FM", "HL", "OK"], saved.store_type || store.channel || "")}${selectHTML("cooperation", "配合度", ["", "高", "中", "低", "待觀察"], saved.cooperation || "")}${selectHTML("line_oa", "LINE OA", [{ value: "", label: "—" }, { value: "true", label: "有" }, { value: "false", label: "無" }], saved.line_oa === true ? "true" : saved.line_oa === false ? "false" : "")}${selectHTML("small_rack", "小煙架", [{ value: "", label: "—" }, { value: "true", label: "有" }, { value: "false", label: "無" }], saved.small_rack === true ? "true" : saved.small_rack === false ? "false" : "")}${fieldHTML("customer_group", "客群", saved.customer_group || "")}${textareaHTML("note", "備註", saved.note || "")}</div></div>${photoSectionHTML()}`;
 }
 
 async function openUpdate(store, sessionItem = null) {
@@ -936,15 +940,12 @@ function collectCVS() {
     visit_date: $("#visit_date").value,
     store_name: $("#store_name").value.trim(),
     store_type: $("#store_type").value,
-    city: $("#city").value.trim(),
-    district: $("#district").value.trim(),
+    city: text(currentStore?.city, "").trim(),
+    district: text(currentStore?.district, "").trim(),
     customer_group: $("#customer_group").value.trim(),
     small_rack: boolOrUndefined($("#small_rack").value),
-    sales: $("#sales").value.trim(),
-    sales_grade: $("#sales_grade").value.trim(),
     line_oa: boolOrUndefined($("#line_oa").value),
     cooperation: $("#cooperation").value,
-    activity: $("#activity").value.trim(),
     note: $("#note").value.trim()
   };
 }
