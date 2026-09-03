@@ -690,15 +690,37 @@ function renderCampaign(store) {
 
 function renderCVSSales(store) {
   const months = store.cvs_sales?.months || {};
-  const keys = Object.keys(months).sort().reverse().slice(0, 2);
-  if (!keys.length) return "";
-  const cards = keys.map(key => {
+  const allKeys = Object.keys(months).sort().reverse();
+  if (!allKeys.length) return "";
+
+  // 資訊卡預設只展開最新 2 個月，最新月份在最上方。
+  const recentKeys = allKeys.slice(0, 2);
+  const recentCards = recentKeys.map(key => {
     const data = months[key] || {};
     const monthLabel = `${Number(key.slice(5, 7))}月`;
     const products = (data.top_products || []).slice(0, 5);
     return `<div class="cvs-sales-month"><div class="cvs-sales-month-head"><strong>${escapeHtml(monthLabel)}</strong><span>總銷售 <b>${escapeHtml(formatQty(data.total))}</b></span></div>${products.length ? `<ol class="cvs-top-products">${products.map(item => `<li><span>${escapeHtml(item.product)}</span><strong>${escapeHtml(formatQty(item.qty))}</strong></li>`).join("")}</ol>` : `<div class="sales-empty">本月無單品銷售資料</div>`}</div>`;
   }).join("");
-  return `<section class="section cvs-sales-section"><h3>📊 銷售資料</h3>${cards}</section>`;
+
+  // 近 6 個月只顯示總銷售，月份依時間由舊到新，方便看趨勢。
+  const trendKeys = allKeys.slice(0, 6).reverse();
+  const trend = trendKeys.length
+    ? `<div class="cvs-sales-trend"><h4>📈 近6個月銷售趨勢</h4><div class="compact-info-list">${trendKeys.map(key => {
+        const data = months[key] || {};
+        const monthLabel = `${Number(key.slice(5, 7))}月`;
+        return `<div class="compact-info-row"><span>${escapeHtml(monthLabel)}</span><strong>${escapeHtml(formatQty(data.total))}</strong></div>`;
+      }).join("")}</div></div>`
+    : "";
+
+  // 完整歷史包含所有已匯入月份，最新 -> 最舊；每月顯示 TOP 10。
+  const fullHistory = `<details class="cvs-sales-history"><summary>查看完整銷售歷史</summary><div class="cvs-sales-history-body">${allKeys.map(key => {
+    const data = months[key] || {};
+    const monthLabel = `${Number(key.slice(5, 7))}月`;
+    const products = (data.top_products || []).slice(0, 10);
+    return `<div class="cvs-sales-month"><div class="cvs-sales-month-head"><strong>${escapeHtml(monthLabel)}</strong><span>總銷售 <b>${escapeHtml(formatQty(data.total))}</b></span></div>${products.length ? `<ol class="cvs-top-products">${products.map(item => `<li><span>${escapeHtml(item.product)}</span><strong>${escapeHtml(formatQty(item.qty))}</strong></li>`).join("")}</ol>` : `<div class="sales-empty">本月無單品銷售資料</div>`}</div>`;
+  }).join("")}</div></details>`;
+
+  return `<section class="section cvs-sales-section"><h3>📊 銷售資料</h3>${recentCards}${trend}${fullHistory}</section>`;
 }
 
 function renderGT(store) {
