@@ -1274,12 +1274,25 @@ function installProductAnalysisModule() {
   entry.innerHTML = `<span>📊 品項分析</span><small>CVS 銷售排行</small>`;
   homeButton.parentElement.appendChild(entry);
 
+  // Home UI order and labels: Search -> Today -> CVS Sales Analysis -> Settings.
+  const homeActions = homeButton.parentElement;
+  const searchAction = homeActions.querySelector('[data-view="searchView"]');
+  const sessionAction = homeActions.querySelector('[data-view="sessionView"]');
+  const settingsAction = homeActions.querySelector('[data-view="settingsView"]');
+
+  if (searchAction) searchAction.innerHTML = `<span>🔍 查詢店家</span>`;
+  if (sessionAction) sessionAction.innerHTML = `<span>📅 今日巡店</span>`;
+  entry.innerHTML = `<span>📊 CVS 銷售分析</span>`;
+  if (settingsAction) settingsAction.innerHTML = `<span>⚙️ 設定</span>`;
+
+  [searchAction, sessionAction, entry, settingsAction].filter(Boolean).forEach(action => homeActions.appendChild(action));
+
   const view = document.createElement("section");
   view.id = "productAnalysisView";
   view.className = "view";
   view.hidden = true;
   view.innerHTML = `<div class="card">
-    <h2>📊 CVS 品項分析</h2>
+    <h2>📊 CVS 銷售分析</h2>
     <div class="form-grid">
       <div class="form-field"><label for="paMdCode">查詢 MD CODE</label><select id="paMdCode"><option value="">全部 MD CODE</option></select></div>
       <div class="form-field"><label>查詢月份</label>
@@ -1306,7 +1319,7 @@ function installProductAnalysisModule() {
   homeView.insertAdjacentElement("afterend", view);
 
   entry.addEventListener("click", async () => {
-    showView("productAnalysisView", "品項分析");
+    showView("productAnalysisView", "CVS 銷售分析");
     await populateProductAnalysisFilters();
   });
   $("#paMonthToggle").addEventListener("click", () => {
