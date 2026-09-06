@@ -1280,10 +1280,10 @@ function installProductAnalysisModule() {
   const sessionAction = homeActions.querySelector('[data-view="sessionView"]');
   const settingsAction = homeActions.querySelector('[data-view="settingsView"]');
 
-  if (searchAction) searchAction.innerHTML = `<span>🔍 查詢店家</span>`;
-  if (sessionAction) sessionAction.innerHTML = `<span>📅 今日巡店</span>`;
-  entry.innerHTML = `<span>📊 CVS 銷售分析</span>`;
-  if (settingsAction) settingsAction.innerHTML = `<span>⚙️ 設定</span>`;
+  if (searchAction) searchAction.innerHTML = `<span>🔍 查詢店家</span><small>搜尋店家資訊、查看歷史紀錄</small>`;
+  if (sessionAction) sessionAction.innerHTML = `<span>📅 今日巡店</span><small>管理今日巡店名單與更新進度</small>`;
+  entry.innerHTML = `<span>📊 CVS 銷售分析</span><small>分析 CVS 銷售數據與門市排行</small>`;
+  if (settingsAction) settingsAction.innerHTML = `<span>⚙️ 設定</span><small>使用者與系統設定</small>`;
 
   [searchAction, sessionAction, entry, settingsAction].filter(Boolean).forEach(action => homeActions.appendChild(action));
 
