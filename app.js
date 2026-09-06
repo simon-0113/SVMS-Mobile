@@ -1310,7 +1310,7 @@ function installProductAnalysisModule() {
       </div>
       <div class="form-field"><label for="paChannel">門市類別</label><select id="paChannel"><option value="" selected disabled>--</option><option value="__ALL__">全部 CVS</option><option value="711">7-ELEVEN</option><option value="FM">FamilyMart</option><option value="HL">Hi-Life／萊爾富</option></select></div>
       <div class="form-field"><label for="paProduct">單品查詢</label><select id="paProduct"><option value="" selected disabled>--</option><option value="__ALL__">全部品項</option></select></div>
-      <div class="form-field"><label for="paCategory">品類查詢</label><select id="paCategory"><option value="" selected disabled>--</option><option value="__ALL__">全部品類</option></select><div class="form-help">依英文品名第 1＋第 2 個單字自動歸類；至少 2 個品項相同才形成品類。</div></div>
+      <div class="form-field"><label for="paCategory">品類查詢</label><select id="paCategory"><option value="" selected disabled>--</option></select><div class="form-help">依英文品名第 1＋第 2 個單字自動歸類；至少 2 個品項相同才形成品類。</div></div>
     </div>
     <button id="paSearchButton" class="update-launch" type="button">查詢排名</button>
     <div id="paLoadStatus" class="form-help" style="margin-top:8px"></div>
@@ -1348,8 +1348,8 @@ function installProductAnalysisModule() {
   });
   $("#paChannel").addEventListener("change", async () => { await refreshProductAnalysisFilters(); });
   $("#paMdCode").addEventListener("change", async () => { await refreshProductAndCategoryFilters(); });
-  $("#paProduct").addEventListener("change", () => { if ($("#paProduct").value && $("#paProduct").value !== "__ALL__") $("#paCategory").value = "__ALL__"; });
-  $("#paCategory").addEventListener("change", () => { if ($("#paCategory").value && $("#paCategory").value !== "__ALL__") $("#paProduct").value = "__ALL__"; });
+  $("#paProduct").addEventListener("change", () => { if ($("#paProduct").value && $("#paProduct").value !== "__ALL__") $("#paCategory").value = ""; });
+  $("#paCategory").addEventListener("change", () => { if ($("#paCategory").value) $("#paProduct").value = "__ALL__"; });
   $("#paSearchButton").addEventListener("click", () => { void renderProductAnalysis(); });
 }
 
@@ -1503,9 +1503,9 @@ async function refreshProductAndCategoryFilters() {
   const categories = paCategoryMap(sortedProducts);
   const cat = $("#paCategory");
   const oldCat = cat.value;
-  cat.innerHTML = `<option value="" disabled>--</option><option value="__ALL__">全部品類</option>${[...categories.keys()].sort().map(v => `<option value="${escapeHtml(v)}">${escapeHtml(v)}</option>`).join("")}`;
+  cat.innerHTML = `<option value="" disabled>--</option>${[...categories.keys()].sort().map(v => `<option value="${escapeHtml(v)}">${escapeHtml(v)}</option>`).join("")}`;
   if (oldCat === "") cat.value = "";
-  else if (oldCat === "__ALL__" || categories.has(oldCat)) cat.value = oldCat;
+  else if (categories.has(oldCat)) cat.value = oldCat;
 }
 
 function paStoreDetailsHtml(item, selectedProducts) {
@@ -1527,11 +1527,11 @@ async function renderProductAnalysis() {
   const mdCodeRaw = $("#paMdCode").value;
   const productRaw = $("#paProduct").value;
   const categoryRaw = $("#paCategory").value;
-  if (!channelRaw || !mdCodeRaw || !productRaw || !categoryRaw) return alert("請先完成所有查詢條件。");
+  if (!channelRaw || !mdCodeRaw || !productRaw) return alert("請先完成 MD CODE、月份、門市類別與單品查詢條件。");
   const channel = channelRaw === "__ALL__" ? "" : channelRaw;
   const mdCode = mdCodeRaw === "__ALL__" ? "" : mdCodeRaw;
   const product = productRaw === "__ALL__" ? "" : productRaw;
-  const category = categoryRaw === "__ALL__" ? "" : categoryRaw;
+  const category = categoryRaw || "";
 
   const productNames = new Set();
   for (const { data } of datasets) for (const name of (data.products || [])) productNames.add(name);
