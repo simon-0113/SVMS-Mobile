@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-06T14:38:42",
+  "generated_at": "2026-09-06T15:15:42",
   "months": [
     {
       "month": "2026-06",
@@ -11,8 +11,18 @@
         "FM",
         "HL"
       ],
-      "md_codes": [],
-      "size_bytes": 279136
+      "md_codes": [
+        "HTM",
+        "SMD01",
+        "SMD02",
+        "SMD03",
+        "SMD04",
+        "SMD05",
+        "SMD06",
+        "SMD98",
+        "SMS01"
+      ],
+      "size_bytes": 290179
     },
     {
       "month": "2026-05",
@@ -24,8 +34,17 @@
         "FM",
         "HL"
       ],
-      "md_codes": [],
-      "size_bytes": 253923
+      "md_codes": [
+        "HTM",
+        "SMD01",
+        "SMD02",
+        "SMD03",
+        "SMD04",
+        "SMD05",
+        "SMD06",
+        "SMS01"
+      ],
+      "size_bytes": 264941
     },
     {
       "month": "2026-04",
@@ -37,8 +56,17 @@
         "FM",
         "HL"
       ],
-      "md_codes": [],
-      "size_bytes": 253843
+      "md_codes": [
+        "HTM",
+        "SMD01",
+        "SMD02",
+        "SMD03",
+        "SMD04",
+        "SMD05",
+        "SMD06",
+        "SMS01"
+      ],
+      "size_bytes": 264861
     },
     {
       "month": "2026-03",
@@ -50,8 +78,17 @@
         "FM",
         "HL"
       ],
-      "md_codes": [],
-      "size_bytes": 254436
+      "md_codes": [
+        "HTM",
+        "SMD01",
+        "SMD02",
+        "SMD03",
+        "SMD04",
+        "SMD05",
+        "SMD06",
+        "SMS01"
+      ],
+      "size_bytes": 265454
     },
     {
       "month": "2026-02",
@@ -63,8 +100,17 @@
         "FM",
         "HL"
       ],
-      "md_codes": [],
-      "size_bytes": 253386
+      "md_codes": [
+        "HTM",
+        "SMD01",
+        "SMD02",
+        "SMD03",
+        "SMD04",
+        "SMD05",
+        "SMD06",
+        "SMS01"
+      ],
+      "size_bytes": 264404
     },
     {
       "month": "2026-01",
@@ -76,8 +122,17 @@
         "FM",
         "HL"
       ],
-      "md_codes": [],
-      "size_bytes": 254942
+      "md_codes": [
+        "HTM",
+        "SMD01",
+        "SMD02",
+        "SMD03",
+        "SMD04",
+        "SMD05",
+        "SMD06",
+        "SMS01"
+      ],
+      "size_bytes": 265960
     }
   ]
 }
