@@ -1283,13 +1283,17 @@ function installProductAnalysisModule() {
     <div class="form-grid">
       <div class="form-field"><label for="paMdCode">查詢 MD CODE</label><select id="paMdCode"><option value="">全部 MD CODE</option></select></div>
       <div class="form-field"><label>查詢月份</label>
-        <details id="paMonthDropdown" style="position:relative">
-          <summary id="paMonthSummary" style="cursor:pointer;list-style:none;border:1px solid #d8dee8;border-radius:10px;padding:12px;background:#fff">請選擇月份</summary>
-          <div style="position:absolute;z-index:20;left:0;right:0;top:calc(100% + 4px);background:#fff;border:1px solid #d8dee8;border-radius:10px;padding:8px;box-shadow:0 8px 24px rgba(15,23,42,.14)">
-            <div id="paMonths" class="compact-info-list"></div>
-            <div style="margin-top:8px;display:flex;gap:6px"><button id="paMonthAll" type="button" class="secondary-button">全選</button><button id="paMonthLatest" type="button" class="secondary-button">只選最新月</button></div>
+        <button id="paMonthToggle" type="button" style="width:100%;display:flex;justify-content:space-between;align-items:center;border:1px solid #d8dee8;border-radius:10px;padding:12px;background:#fff;text-align:left;font:inherit;color:inherit">
+          <span id="paMonthSummary">請選擇月份</span><span aria-hidden="true">▼</span>
+        </button>
+        <div id="paMonthPanel" hidden style="margin-top:6px;border:1px solid #d8dee8;border-radius:10px;padding:6px 10px;background:#fff">
+          <div id="paMonths"></div>
+          <div style="margin-top:6px;display:flex;gap:6px">
+            <button id="paMonthAll" type="button" class="secondary-button">全選</button>
+            <button id="paMonthLatest" type="button" class="secondary-button">只選最新月</button>
+            <button id="paMonthDone" type="button" class="secondary-button" style="margin-left:auto">確定</button>
           </div>
-        </details>
+        </div>
       </div>
       <div class="form-field"><label for="paChannel">門市類別</label><select id="paChannel"><option value="">全部 CVS</option><option value="711">7-ELEVEN</option><option value="FM">FamilyMart</option><option value="HL">Hi-Life／萊爾富</option></select></div>
       <div class="form-field"><label for="paProduct">單品查詢</label><select id="paProduct"><option value="">全部品項</option></select></div>
@@ -1304,6 +1308,13 @@ function installProductAnalysisModule() {
   entry.addEventListener("click", async () => {
     showView("productAnalysisView", "品項分析");
     await populateProductAnalysisFilters();
+  });
+  $("#paMonthToggle").addEventListener("click", () => {
+    const panel = $("#paMonthPanel");
+    panel.hidden = !panel.hidden;
+  });
+  $("#paMonthDone").addEventListener("click", () => {
+    $("#paMonthPanel").hidden = true;
   });
   $("#paMonths").addEventListener("change", async () => {
     updatePaMonthSummary();
@@ -1393,7 +1404,7 @@ async function populateProductAnalysisFilters() {
   try {
     const manifest = await loadProductAnalysisManifest();
     const months = (manifest.months || []).map(item => item.month);
-    $("#paMonths").innerHTML = months.map((m, i) => `<label class="compact-info-row" style="cursor:pointer"><span>${Number(m.slice(5,7))}月</span><input type="checkbox" value="${escapeHtml(m)}" ${i === 0 ? "checked" : ""}></label>`).join("");
+    $("#paMonths").innerHTML = months.map((m, i) => `<label style="display:flex;align-items:center;justify-content:space-between;min-height:34px;padding:3px 2px;cursor:pointer;border-bottom:1px solid #eef1f5"><span>${Number(m.slice(5,7))}月</span><input type="checkbox" value="${escapeHtml(m)}" ${i === 0 ? "checked" : ""} style="width:20px;height:20px;margin:0 2px 0 12px;flex:0 0 auto"></label>`).join("");
     updatePaMonthSummary();
     if (!months.length) {
       $("#paLoadStatus").textContent = "目前沒有品項分析資料。";
