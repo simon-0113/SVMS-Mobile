@@ -1280,10 +1280,10 @@ function installProductAnalysisModule() {
   const sessionAction = homeActions.querySelector('[data-view="sessionView"]');
   const settingsAction = homeActions.querySelector('[data-view="settingsView"]');
 
-  if (searchAction) searchAction.innerHTML = `<span>🔍 查詢店家</span><small>搜尋店家資訊、查看歷史紀錄</small>`;
-  if (sessionAction) sessionAction.innerHTML = `<span>📅 今日巡店</span><small>管理今日巡店名單與更新進度</small>`;
-  entry.innerHTML = `<span>📊 CVS 銷售分析</span><small>分析 CVS 銷售數據與門市排行</small>`;
-  if (settingsAction) settingsAction.innerHTML = `<span>⚙️ 設定</span><small>使用者與系統設定</small>`;
+  if (searchAction) searchAction.innerHTML = `<span style="display:flex;align-items:center;gap:12px;text-align:left"><span style="font-size:22px;line-height:1">🔍</span><span style="display:flex;flex-direction:column;align-items:flex-start;gap:3px"><strong>查詢店家</strong><small style="color:#111;font-size:.88em;font-weight:400">搜尋店家資訊、查看歷史紀錄</small></span></span>`;
+  if (sessionAction) sessionAction.innerHTML = `<span style="display:flex;align-items:center;gap:12px;text-align:left"><span style="font-size:22px;line-height:1">📅</span><span style="display:flex;flex-direction:column;align-items:flex-start;gap:3px"><strong>今日巡店</strong><small style="color:#111;font-size:.88em;font-weight:400">管理今日巡店名單與更新進度</small></span></span>`;
+  entry.innerHTML = `<span style="display:flex;align-items:center;gap:12px;text-align:left"><span style="font-size:22px;line-height:1">📊</span><span style="display:flex;flex-direction:column;align-items:flex-start;gap:3px"><strong>CVS 銷售分析</strong><small style="color:#111;font-size:.88em;font-weight:400">分析 CVS 銷售數據與門市排行</small></span></span>`;
+  if (settingsAction) settingsAction.innerHTML = `<span style="display:flex;align-items:center;gap:12px;text-align:left"><span style="font-size:22px;line-height:1">⚙️</span><span style="display:flex;flex-direction:column;align-items:flex-start;gap:3px"><strong>設定</strong><small style="color:#111;font-size:.88em;font-weight:400">使用者與系統設定</small></span></span>`;
 
   [searchAction, sessionAction, entry, settingsAction].filter(Boolean).forEach(action => homeActions.appendChild(action));
 
