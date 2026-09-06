@@ -1,0 +1,83 @@
+{
+  "generated_at": "2026-09-06T14:38:42",
+  "months": [
+    {
+      "month": "2026-06",
+      "file": "analytics/2026-06.json",
+      "store_count": 2937,
+      "product_count": 31,
+      "channels": [
+        "711",
+        "FM",
+        "HL"
+      ],
+      "md_codes": [],
+      "size_bytes": 279136
+    },
+    {
+      "month": "2026-05",
+      "file": "analytics/2026-05.json",
+      "store_count": 2780,
+      "product_count": 29,
+      "channels": [
+        "711",
+        "FM",
+        "HL"
+      ],
+      "md_codes": [],
+      "size_bytes": 253923
+    },
+    {
+      "month": "2026-04",
+      "file": "analytics/2026-04.json",
+      "store_count": 2780,
+      "product_count": 29,
+      "channels": [
+        "711",
+        "FM",
+        "HL"
+      ],
+      "md_codes": [],
+      "size_bytes": 253843
+    },
+    {
+      "month": "2026-03",
+      "file": "analytics/2026-03.json",
+      "store_count": 2780,
+      "product_count": 29,
+      "channels": [
+        "711",
+        "FM",
+        "HL"
+      ],
+      "md_codes": [],
+      "size_bytes": 254436
+    },
+    {
+      "month": "2026-02",
+      "file": "analytics/2026-02.json",
+      "store_count": 2780,
+      "product_count": 29,
+      "channels": [
+        "711",
+        "FM",
+        "HL"
+      ],
+      "md_codes": [],
+      "size_bytes": 253386
+    },
+    {
+      "month": "2026-01",
+      "file": "analytics/2026-01.json",
+      "store_count": 2780,
+      "product_count": 29,
+      "channels": [
+        "711",
+        "FM",
+        "HL"
+      ],
+      "md_codes": [],
+      "size_bytes": 254942
+    }
+  ]
+}
