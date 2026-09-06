@@ -1388,8 +1388,13 @@ function updatePaMonthSummary() {
   else summary.textContent = months.map(m => `${Number(m.slice(5,7))}月`).join("、");
 }
 
-async function paSelectedDatasets() {
-  const months = paSelectedMonths();
+async function paSelectedDatasets(useLatestWhenEmpty = false) {
+  let months = paSelectedMonths();
+  if (!months.length && useLatestWhenEmpty) {
+    const manifest = await loadProductAnalysisManifest();
+    const latest = (manifest.months || [])[0]?.month;
+    if (latest) months = [latest];
+  }
   return Promise.all(months.map(async month => ({ month, data: await loadProductAnalysisMonth(month) })));
 }
 
@@ -1423,7 +1428,18 @@ async function populateProductAnalysisFilters() {
       $("#paLoadStatus").textContent = "目前沒有品項分析資料。";
       return;
     }
-    await refreshProductAnalysisFilters();
+    // Keep month UI at --, but use latest month only to build selectable MD/product/category options.
+    const latestData = await loadProductAnalysisMonth(months[0]);
+    const mdCodes = new Set();
+    for (const row of (latestData.rows || [])) {
+      const md = String(row[2] || "").trim();
+      if (md) mdCodes.add(md);
+    }
+    const md = $("#paMdCode");
+    const sortedMd = [...mdCodes].sort((a,b)=>a.localeCompare(b, "zh-Hant", {numeric:true}));
+    md.innerHTML = `<option value="" selected disabled>--</option><option value="__ALL__">全部 MD CODE</option>${sortedMd.map(v => `<option value="${escapeHtml(v)}">${escapeHtml(v)}</option>`).join("")}`;
+    await refreshProductAndCategoryFilters();
+    $("#paLoadStatus").textContent = "請選擇查詢條件。";
   } catch (error) {
     console.error("[SVMS] Product analytics load failed:", error);
     $("#paLoadStatus").textContent = `分析資料載入失敗：${error.message}`;
@@ -1440,7 +1456,7 @@ async function refreshProductAnalysisFilters() {
   status.textContent = `載入 ${months.map(m => Number(m.slice(5,7)) + "月").join("、")}...`;
   const datasets = await paSelectedDatasets();
   const channelRaw = $("#paChannel")?.value || "";
-  const channel = channelRaw === "__ALL__" ? "" : channelRaw;
+  const channel = (channelRaw === "__ALL__" || channelRaw === "") ? "" : channelRaw;
   const mdCodes = new Set();
   let storeRows = 0;
   for (const { data } of datasets) {
@@ -1455,17 +1471,18 @@ async function refreshProductAnalysisFilters() {
   const oldMd = md.value;
   const sortedMd = [...mdCodes].sort((a,b)=>a.localeCompare(b, "zh-Hant", {numeric:true}));
   md.innerHTML = `<option value="" disabled>--</option><option value="__ALL__">全部 MD CODE</option>${sortedMd.map(v => `<option value="${escapeHtml(v)}">${escapeHtml(v)}</option>`).join("")}`;
-  if (oldMd === "__ALL__" || sortedMd.includes(oldMd)) md.value = oldMd;
+  if (oldMd === "") md.value = "";
+  else if (oldMd === "__ALL__" || sortedMd.includes(oldMd)) md.value = oldMd;
   await refreshProductAndCategoryFilters();
   status.textContent = `已載入 ${months.length} 個月份｜${storeRows} 筆門市月資料`;
 }
 
 async function refreshProductAndCategoryFilters() {
-  const datasets = await paSelectedDatasets();
+  const datasets = await paSelectedDatasets(true);
   const channelRaw = $("#paChannel")?.value || "";
-  const channel = channelRaw === "__ALL__" ? "" : channelRaw;
+  const channel = (channelRaw === "__ALL__" || channelRaw === "") ? "" : channelRaw;
   const mdCodeRaw = $("#paMdCode")?.value || "";
-  const mdCode = mdCodeRaw === "__ALL__" ? "" : mdCodeRaw;
+  const mdCode = (mdCodeRaw === "__ALL__" || mdCodeRaw === "") ? "" : mdCodeRaw;
   const products = new Set();
   for (const { data } of datasets) {
     const usedIndexes = new Set();
@@ -1480,13 +1497,15 @@ async function refreshProductAndCategoryFilters() {
   const prod = $("#paProduct");
   const oldProd = prod.value;
   prod.innerHTML = `<option value="" disabled>--</option><option value="__ALL__">全部品項</option>${sortedProducts.map(v => `<option value="${escapeHtml(v)}">${escapeHtml(v)}</option>`).join("")}`;
-  if (oldProd === "__ALL__" || sortedProducts.includes(oldProd)) prod.value = oldProd;
+  if (oldProd === "") prod.value = "";
+  else if (oldProd === "__ALL__" || sortedProducts.includes(oldProd)) prod.value = oldProd;
 
   const categories = paCategoryMap(sortedProducts);
   const cat = $("#paCategory");
   const oldCat = cat.value;
   cat.innerHTML = `<option value="" disabled>--</option><option value="__ALL__">全部品類</option>${[...categories.keys()].sort().map(v => `<option value="${escapeHtml(v)}">${escapeHtml(v)}</option>`).join("")}`;
-  if (oldCat === "__ALL__" || categories.has(oldCat)) cat.value = oldCat;
+  if (oldCat === "") cat.value = "";
+  else if (oldCat === "__ALL__" || categories.has(oldCat)) cat.value = oldCat;
 }
 
 function paStoreDetailsHtml(item, selectedProducts) {
