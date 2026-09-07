@@ -1297,9 +1297,8 @@ function installProductAnalysisModule() {
     <h2>📊 CVS 銷售分析</h2>
     <div class="form-field" style="margin-bottom:12px">
       <label for="paStoreSearch">單店查詢</label>
-      <input id="paStoreSearch" type="search" list="paStoreSuggestions" placeholder="輸入門市名稱，例如：信賢門市" autocomplete="off">
-      <datalist id="paStoreSuggestions"></datalist>
-      <div class="form-help">輸入店名後，只需選擇月份即可查看該店全部品項銷售。</div>
+      <input id="paStoreSearch" type="search" placeholder="輸入門市名稱，例如：信賢門市" autocomplete="off">
+      <div class="form-help">輸入完整或部分店名後按查詢；只需選擇月份即可查看該店全部品項銷售。</div>
     </div>
     <div class="form-grid">
       <div class="form-field"><label for="paMdCode">查詢 MD CODE</label><select id="paMdCode"><option value="" selected disabled>--</option><option value="__ALL__">全部 MD CODE</option></select></div>
@@ -1329,7 +1328,6 @@ function installProductAnalysisModule() {
   entry.addEventListener("click", async () => {
     showView("productAnalysisView", "CVS 銷售分析");
     await populateProductAnalysisFilters();
-    await refreshPaStoreSuggestions();
   });
   $("#paMonthToggle").addEventListener("click", () => {
     const panel = $("#paMonthPanel");
@@ -1359,7 +1357,6 @@ function installProductAnalysisModule() {
   $("#paMdCode").addEventListener("change", async () => { await refreshProductAndCategoryFilters(); });
   $("#paProduct").addEventListener("change", () => { if ($("#paProduct").value && $("#paProduct").value !== "__ALL__") $("#paCategory").value = ""; });
   $("#paCategory").addEventListener("change", () => { if ($("#paCategory").value) $("#paProduct").value = "__ALL__"; });
-  $("#paStoreSearch").addEventListener("focus", () => { void refreshPaStoreSuggestions(); });
   $("#paSearchButton").addEventListener("click", () => { void renderProductAnalysis(); });
 }
 
@@ -1529,28 +1526,14 @@ function paStoreDetailsHtml(item, selectedProducts) {
   </details>`;
 }
 
-async function refreshPaStoreSuggestions() {
-  const list = $("#paStoreSuggestions");
-  if (!list) return;
-  let datasets = await paSelectedDatasets();
-  if (!datasets.length) {
-    const manifest = await loadProductAnalysisManifest();
-    const latest = (manifest.months || [])[0]?.month;
-    if (latest) datasets = [{ month: latest, data: await loadProductAnalysisMonth(latest) }];
-  }
-  const names = new Set();
-  for (const { data } of datasets) {
-    for (const row of (data?.rows || [])) {
-      const name = String(row[1] || "").trim();
-      if (name) names.add(name);
-    }
-  }
-  list.innerHTML = [...names].sort((a,b)=>a.localeCompare(b, "zh-Hant"))
-    .map(name => `<option value="${escapeHtml(name)}"></option>`).join("");
-}
-
 function paStoreNameMatch(name, query) {
-  return String(name || "").trim().toLowerCase().includes(String(query || "").trim().toLowerCase());
+  const normalize = value => String(value || "")
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, "")
+    .replace(/^7[- ]?11/, "711")
+    .replace(/^familymart/i, "fm");
+  return normalize(name).includes(normalize(query));
 }
 
 async function renderProductAnalysis() {
