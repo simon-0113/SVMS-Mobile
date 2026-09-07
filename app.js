@@ -1295,6 +1295,12 @@ function installProductAnalysisModule() {
   view.hidden = true;
   view.innerHTML = `<div class="card">
     <h2>📊 CVS 銷售分析</h2>
+    <div class="form-field" style="margin-bottom:12px">
+      <label for="paStoreSearch">單店查詢</label>
+      <input id="paStoreSearch" type="search" list="paStoreSuggestions" placeholder="輸入門市名稱，例如：信賢門市" autocomplete="off">
+      <datalist id="paStoreSuggestions"></datalist>
+      <div class="form-help">輸入店名後，只需選擇月份即可查看該店全部品項銷售。</div>
+    </div>
     <div class="form-grid">
       <div class="form-field"><label for="paMdCode">查詢 MD CODE</label><select id="paMdCode"><option value="" selected disabled>--</option><option value="__ALL__">全部 MD CODE</option></select></div>
       <div class="form-field"><label>查詢月份</label>
@@ -1323,6 +1329,7 @@ function installProductAnalysisModule() {
   entry.addEventListener("click", async () => {
     showView("productAnalysisView", "CVS 銷售分析");
     await populateProductAnalysisFilters();
+    await refreshPaStoreSuggestions();
   });
   $("#paMonthToggle").addEventListener("click", () => {
     const panel = $("#paMonthPanel");
@@ -1352,6 +1359,7 @@ function installProductAnalysisModule() {
   $("#paMdCode").addEventListener("change", async () => { await refreshProductAndCategoryFilters(); });
   $("#paProduct").addEventListener("change", () => { if ($("#paProduct").value && $("#paProduct").value !== "__ALL__") $("#paCategory").value = ""; });
   $("#paCategory").addEventListener("change", () => { if ($("#paCategory").value) $("#paProduct").value = "__ALL__"; });
+  $("#paStoreSearch").addEventListener("focus", () => { void refreshPaStoreSuggestions(); });
   $("#paSearchButton").addEventListener("click", () => { void renderProductAnalysis(); });
 }
 
@@ -1521,10 +1529,110 @@ function paStoreDetailsHtml(item, selectedProducts) {
   </details>`;
 }
 
+async function refreshPaStoreSuggestions() {
+  const list = $("#paStoreSuggestions");
+  if (!list) return;
+  let datasets = await paSelectedDatasets();
+  if (!datasets.length) {
+    const manifest = await loadProductAnalysisManifest();
+    const latest = (manifest.months || [])[0]?.month;
+    if (latest) datasets = [{ month: latest, data: await loadProductAnalysisMonth(latest) }];
+  }
+  const names = new Set();
+  for (const { data } of datasets) {
+    for (const row of (data?.rows || [])) {
+      const name = String(row[1] || "").trim();
+      if (name) names.add(name);
+    }
+  }
+  list.innerHTML = [...names].sort((a,b)=>a.localeCompare(b, "zh-Hant"))
+    .map(name => `<option value="${escapeHtml(name)}"></option>`).join("");
+}
+
+function paStoreNameMatch(name, query) {
+  return String(name || "").trim().toLowerCase().includes(String(query || "").trim().toLowerCase());
+}
+
 async function renderProductAnalysis() {
   const months = paSelectedMonths();
   if (!months.length) return alert("請至少勾選一個查詢月份。");
   const datasets = await paSelectedDatasets();
+  const storeQuery = String($("#paStoreSearch")?.value || "").trim();
+  if (storeQuery) {
+    const matches = new Map();
+
+    for (const { month, data } of datasets) {
+      const products = data.products || [];
+      for (const row of (data.rows || [])) {
+        if (!paStoreNameMatch(row[1], storeQuery)) continue;
+        const key = `${row[0]}\u0001${row[1]}`;
+        let store = matches.get(key);
+        if (!store) {
+          store = {
+            channel: String(row[0] || ""),
+            store_name: String(row[1] || ""),
+            mdCodes: new Set(),
+            total: 0,
+            productTotals: new Map(),
+            monthTotals: new Map()
+          };
+          matches.set(key, store);
+        }
+        const md = String(row[2] || "").trim();
+        if (md) store.mdCodes.add(md);
+        let monthTotal = store.monthTotals.get(month) || 0;
+        const qtys = row[3] || [];
+        products.forEach((name, i) => {
+          const qty = Number(qtys[i] || 0) || 0;
+          store.total += qty;
+          monthTotal += qty;
+          store.productTotals.set(name, (store.productTotals.get(name) || 0) + qty);
+        });
+        store.monthTotals.set(month, monthTotal);
+      }
+    }
+
+    if (!matches.size) {
+      $("#paResults").innerHTML = `<div class="sales-empty">找不到「${escapeHtml(storeQuery)}」的銷售資料。</div>`;
+      return;
+    }
+
+    const allMatches = [...matches.values()];
+    const exactMatches = allMatches.filter(store => store.store_name.trim().toLowerCase() === storeQuery.toLowerCase());
+    const stores = (exactMatches.length ? exactMatches : allMatches)
+      .sort((a,b) => b.total - a.total || a.store_name.localeCompare(b.store_name, "zh-Hant"));
+    const monthLabel = months.length === 1
+      ? `${Number(months[0].slice(5,7))}月`
+      : months.map(m => Number(m.slice(5,7))).sort((a,b)=>a-b).join("、") + "月";
+
+    $("#paResults").innerHTML = stores.map(store => {
+      const productRows = [...store.productTotals.entries()]
+        .filter(([,qty]) => qty !== 0)
+        .sort((a,b) => b[1] - a[1] || a[0].localeCompare(b[0], "en"));
+      const monthRows = [...store.monthTotals.entries()]
+        .sort((a,b) => a[0].localeCompare(b[0]))
+        .map(([month, qty]) => `<div class="compact-info-row"><span>${Number(month.slice(5,7))}月</span><strong>${escapeHtml(formatQty(qty))}</strong></div>`).join("");
+
+      return `<section class="section">
+        <h3>🏪 ${escapeHtml(store.store_name)}</h3>
+        <div class="compact-info-list">
+          <div class="compact-info-row"><span>查詢月份</span><strong>${escapeHtml(monthLabel)}</strong></div>
+          <div class="compact-info-row"><span>門市類別</span><strong>${escapeHtml(store.channel || "--")}</strong></div>
+          <div class="compact-info-row"><span>MD CODE</span><strong>${escapeHtml([...store.mdCodes].join("、") || "--")}</strong></div>
+          <div class="compact-info-row"><span>門市總銷量</span><strong>${escapeHtml(formatQty(store.total))}</strong></div>
+        </div>
+      </section>
+      ${store.monthTotals.size > 1 ? `<section class="section"><h3>📅 月份銷售</h3><div class="compact-info-list">${monthRows}</div></section>` : ""}
+      <section class="section">
+        <h3>🏆 全部品項銷售明細</h3>
+        ${productRows.length
+          ? `<ol class="cvs-top-products">${productRows.map(([name,qty]) => `<li><span>${escapeHtml(name)}</span><strong>${escapeHtml(formatQty(qty))}</strong></li>`).join("")}</ol>`
+          : `<div class="sales-empty">此門市在所選月份沒有品項銷售資料。</div>`}
+      </section>`;
+    }).join("");
+    return;
+  }
+
   const channelRaw = $("#paChannel").value;
   const mdCodeRaw = $("#paMdCode").value;
   const productRaw = $("#paProduct").value;
