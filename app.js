@@ -1295,14 +1295,16 @@ function installProductAnalysisModule() {
   view.hidden = true;
   view.innerHTML = `<div class="card">
     <h2>📊 CVS 銷售分析</h2>
-    <div class="form-field" style="margin-bottom:12px">
-      <label for="paStoreSearch">單店查詢</label>
-      <input id="paStoreSearch" type="search" placeholder="輸入門市名稱，例如：信賢門市" autocomplete="off">
-      <div class="form-help">輸入完整或部分店名後按查詢；只需選擇月份即可查看該店全部品項銷售。</div>
-    </div>
     <div class="form-grid">
-      <div class="form-field"><label for="paMdCode">查詢 MD CODE</label><select id="paMdCode"><option value="" selected disabled>--</option><option value="__ALL__">全部 MD CODE</option></select></div>
-      <div class="form-field"><label>查詢月份</label>
+      <div class="form-field"><label for="paChannel">1. 查詢門市類別</label><select id="paChannel"><option value="" selected disabled>--</option><option value="__ALL__">全部 CVS</option><option value="711">7-ELEVEN</option><option value="FM">FamilyMart</option><option value="HL">Hi-Life／萊爾富</option></select></div>
+      <div class="form-field" style="position:relative">
+        <label for="paStoreSearch">2. 單店查詢</label>
+        <input id="paStoreSearch" type="search" placeholder="輸入店名後選擇門市" autocomplete="off">
+        <div id="paStoreMatches" hidden style="position:absolute;left:0;right:0;top:100%;z-index:20;max-height:240px;overflow:auto;border:1px solid #d8dee8;border-radius:10px;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,.12)"></div>
+        <div id="paStoreSelected" class="form-help">尚未選擇門市</div>
+      </div>
+      <div class="form-field"><label for="paMdCode">3. MD 區域查詢</label><select id="paMdCode"><option value="" selected disabled>--</option><option value="__ALL__">全部 MD CODE</option></select></div>
+      <div class="form-field"><label>4. 查詢月份</label>
         <button id="paMonthToggle" type="button" style="width:100%;display:flex;justify-content:space-between;align-items:center;border:1px solid #d8dee8;border-radius:10px;padding:12px;background:#fff;text-align:left;font:inherit;color:inherit">
           <span id="paMonthSummary">--</span><span aria-hidden="true">▼</span>
         </button>
@@ -1315,11 +1317,10 @@ function installProductAnalysisModule() {
           </div>
         </div>
       </div>
-      <div class="form-field"><label for="paChannel">門市類別</label><select id="paChannel"><option value="" selected disabled>--</option><option value="__ALL__">全部 CVS</option><option value="711">7-ELEVEN</option><option value="FM">FamilyMart</option><option value="HL">Hi-Life／萊爾富</option></select></div>
-      <div class="form-field"><label for="paProduct">單品查詢</label><select id="paProduct"><option value="" selected disabled>--</option><option value="__ALL__">全部品項</option></select></div>
-      <div class="form-field"><label for="paCategory">品類查詢</label><select id="paCategory"><option value="" selected disabled>--</option></select><div class="form-help">依英文品名第 1＋第 2 個單字自動歸類；至少 2 個品項相同才形成品類。</div></div>
+      <div class="form-field"><label for="paProduct">5. 單品查詢</label><select id="paProduct"><option value="" selected disabled>--</option><option value="__ALL__">全部品項</option></select></div>
+      <div class="form-field"><label for="paCategory">6. 分類查詢</label><select id="paCategory"><option value="" selected disabled>--</option></select><div class="form-help">依英文品名第 1＋第 2 個單字自動歸類；至少 2 個品項相同才形成分類。</div></div>
     </div>
-    <button id="paSearchButton" class="update-launch" type="button">查詢排名</button>
+    <button id="paSearchButton" class="update-launch" type="button">查詢</button>
     <div id="paLoadStatus" class="form-help" style="margin-top:8px"></div>
     <div id="paResults" style="margin-top:16px"></div>
   </div>`;
@@ -1353,7 +1354,20 @@ function installProductAnalysisModule() {
     updatePaMonthSummary();
     await refreshProductAnalysisFilters();
   });
-  $("#paChannel").addEventListener("change", async () => { await refreshProductAnalysisFilters(); });
+  $("#paChannel").addEventListener("change", async () => {
+    $("#paStoreSearch").value = "";
+    $("#paStoreMatches").hidden = true;
+    clearPaSelectedStore();
+    await refreshProductAnalysisFilters();
+  });
+  $("#paStoreSearch").addEventListener("input", () => {
+    clearPaSelectedStore();
+    clearTimeout(paStoreSearchTimer);
+    paStoreSearchTimer = setTimeout(() => { void updatePaStoreMatches(); }, 180);
+  });
+  $("#paStoreSearch").addEventListener("keydown", event => {
+    if (event.key === "Escape") $("#paStoreMatches").hidden = true;
+  });
   $("#paMdCode").addEventListener("change", async () => { await refreshProductAndCategoryFilters(); });
   $("#paProduct").addEventListener("change", () => { if ($("#paProduct").value && $("#paProduct").value !== "__ALL__") $("#paCategory").value = ""; });
   $("#paCategory").addEventListener("change", () => { if ($("#paCategory").value) $("#paProduct").value = "__ALL__"; });
@@ -1526,6 +1540,64 @@ function paStoreDetailsHtml(item, selectedProducts) {
   </details>`;
 }
 
+let paSelectedStore = null;
+let paStoreSearchTimer = null;
+
+function clearPaSelectedStore() {
+  paSelectedStore = null;
+  const status = $("#paStoreSelected");
+  if (status) status.textContent = "尚未選擇門市";
+}
+
+async function updatePaStoreMatches() {
+  const input = $("#paStoreSearch");
+  const box = $("#paStoreMatches");
+  if (!input || !box) return;
+  const query = input.value.trim();
+  if (!query) {
+    box.hidden = true;
+    box.innerHTML = "";
+    clearPaSelectedStore();
+    return;
+  }
+
+  const channelRaw = $("#paChannel")?.value || "";
+  const channel = (channelRaw === "__ALL__" || channelRaw === "") ? "" : channelRaw;
+  const datasets = await paSelectedDatasets(true);
+  const found = new Map();
+
+  for (const { data } of datasets) {
+    for (const row of (data.rows || [])) {
+      if (channel && row[0] !== channel) continue;
+      if (!paStoreNameMatch(row[1], query)) continue;
+      const key = `${row[0]}\u0001${row[1]}`;
+      if (!found.has(key)) found.set(key, { channel: String(row[0] || ""), store_name: String(row[1] || "") });
+      if (found.size >= 12) break;
+    }
+    if (found.size >= 12) break;
+  }
+
+  const rows = [...found.values()];
+  if (!rows.length) {
+    box.innerHTML = `<div style="padding:11px 12px;color:#667085">找不到符合的門市</div>`;
+  } else {
+    box.innerHTML = rows.map((store, i) =>
+      `<button type="button" data-pa-store="${i}" style="display:block;width:100%;padding:11px 12px;border:0;border-bottom:1px solid #eef1f5;background:#fff;text-align:left;font:inherit;cursor:pointer"><strong>${escapeHtml(store.store_name)}</strong><small style="display:block;margin-top:2px;color:#667085">${escapeHtml(store.channel)}</small></button>`
+    ).join("");
+    box.querySelectorAll("[data-pa-store]").forEach(button => {
+      button.addEventListener("click", () => {
+        const store = rows[Number(button.dataset.paStore)];
+        paSelectedStore = store;
+        input.value = store.store_name;
+        $("#paStoreSelected").textContent = `已選擇：${store.store_name}`;
+        box.hidden = true;
+        box.innerHTML = "";
+      });
+    });
+  }
+  box.hidden = false;
+}
+
 function paStoreNameMatch(name, query) {
   const normalize = value => String(value || "")
     .trim()
@@ -1541,13 +1613,15 @@ async function renderProductAnalysis() {
   if (!months.length) return alert("請至少勾選一個查詢月份。");
   const datasets = await paSelectedDatasets();
   const storeQuery = String($("#paStoreSearch")?.value || "").trim();
-  if (storeQuery) {
+  if (storeQuery && !paSelectedStore) return alert("請從單店查詢的建議清單中點選一間門市。");
+  if (paSelectedStore) {
     const matches = new Map();
 
     for (const { month, data } of datasets) {
       const products = data.products || [];
       for (const row of (data.rows || [])) {
-        if (!paStoreNameMatch(row[1], storeQuery)) continue;
+        if (String(row[0] || "") !== paSelectedStore.channel) continue;
+        if (String(row[1] || "") !== paSelectedStore.store_name) continue;
         const key = `${row[0]}\u0001${row[1]}`;
         let store = matches.get(key);
         if (!store) {
@@ -1620,7 +1694,7 @@ async function renderProductAnalysis() {
   const mdCodeRaw = $("#paMdCode").value;
   const productRaw = $("#paProduct").value;
   const categoryRaw = $("#paCategory").value;
-  if (!channelRaw || !mdCodeRaw || !productRaw) return alert("請先完成 MD CODE、月份、門市類別與單品查詢條件。");
+  if (!channelRaw || !mdCodeRaw || !productRaw) return alert("區域查詢請完成門市類別、MD 區域、月份與單品查詢條件。");
   const channel = channelRaw === "__ALL__" ? "" : channelRaw;
   const mdCode = mdCodeRaw === "__ALL__" ? "" : mdCodeRaw;
   const product = productRaw === "__ALL__" ? "" : productRaw;
