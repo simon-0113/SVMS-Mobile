@@ -1407,7 +1407,7 @@ function installProductAnalysisModule() {
 
 async function loadProductAnalysisManifest() {
   if (productAnalysisManifest) return productAnalysisManifest;
-  const response = await fetch("data/product_analysis_manifest.json", { cache: "no-store" });
+  const response = await fetch("data/product_analysis_manifest.json?v=20261004-y27", { cache: "no-store" });
   if (!response.ok) throw new Error(`product_analysis_manifest.json HTTP ${response.status}`);
   productAnalysisManifest = await response.json();
   return productAnalysisManifest;
@@ -1419,7 +1419,7 @@ async function loadProductAnalysisMonth(month) {
   const manifest = await loadProductAnalysisManifest();
   const item = (manifest.months || []).find(entry => entry.month === month);
   if (!item) throw new Error(`找不到 ${month} 品項分析資料`);
-  const response = await fetch(`data/${item.file}`, { cache: "no-store" });
+  const response = await fetch(`data/${item.file}?v=20261004-y27`, { cache: "no-store" });
   if (!response.ok) throw new Error(`${item.file} HTTP ${response.status}`);
   const data = await response.json();
   productAnalysisMonthCache.set(month, data);
@@ -1809,8 +1809,8 @@ async function initialize() {
 
   try {
     const [storeResponse, productResponse] = await Promise.all([
-      fetch("data/stores_index.json", { cache: "no-store" }),
-      fetch("data/product_catalog.json", { cache: "no-store" })
+      fetch("data/stores_index.json?v=20261004-y27", { cache: "no-store" }),
+      fetch("data/product_catalog.json?v=20261004-y27", { cache: "no-store" })
     ]);
 
     if (!storeResponse.ok) throw new Error(`stores_index.json HTTP ${storeResponse.status}`);
