@@ -725,10 +725,32 @@ function renderCVSSales(store) {
 
 function renderGT(store) {
   return `<article class="card"><div class="card-head"><h2>GT／${escapeHtml(gtDisplayName(store))}</h2></div>
-    ${renderAuditHighlights(store)}
-    <section class="section"><h3>GT查核資料</h3><div class="info-grid">${info("經銷商", store.distributor)}${info("經銷商業務", store.distributor_salesperson)}${info("經銷客戶編號", store.distributor_customer_id)}${info("地址", store.address, true)}${info("合作等級", store.audit_cooperation)}${info("簽約型態", store.contract_type)}${info("簽約格數", store.contract_slots)}${info("陳列獎金", store.display_bonus)}${info("進貨條數①", store.purchase_quantity_1)}${info("進貨獎金①", store.purchase_bonus_1)}${info("進貨條數②", store.purchase_quantity_2)}${info("進貨獎金②", store.purchase_bonus_2)}<div class="info full"><span class="label">查核陳列</span>${pills(store.audit_display)}</div><div class="info full"><span class="label">查核分布</span>${pills(store.audit_distribution)}</div></div></section>
-    <section class="section"><h3>GT巡店資料</h3><div class="info-grid">${info("最近巡店日期", store.visit_date)}${info("配合度", store.visit_cooperation)}${info("客群", store.visit_customer_group)}${info("銷售", store.visit_sales)}${info("備註", store.visit_note, true)}</div></section>
-    <section class="section"><button class="update-launch" type="button" data-start-update>開始巡店更新</button></section></article>`;
+    <section class="section"><h3>店家資料</h3><div class="info-grid">
+      ${info("店家名稱", store.store_name)}
+      ${info("地址", store.address, true)}
+      ${info("經銷商", store.distributor)}
+      ${info("經銷商業務", store.distributor_salesperson)}
+      ${info("Y27合約負責人", store.y27_owner)}
+    </div></section>
+    <section class="section"><h3>目前合約</h3><div class="info-grid">
+      ${info("簽約型態", store.contract_type)}
+      ${info("簽約格數", store.contract_slots)}
+      ${info("陳列獎金", store.display_bonus)}
+      ${info("進貨條數", store.purchase_quantity_1)}
+      ${info("進貨獎金", store.purchase_bonus_1)}
+      ${info("進貨條數2", store.purchase_quantity_2)}
+      ${info("進貨獎金2", store.purchase_bonus_2)}
+    </div></section>
+    <section class="section"><h3>目前 V / D</h3><div class="compact-info-list">
+      <div class="compact-info-row"><span>實際 V（陳列）</span><strong>${escapeHtml(formatQty(store.actual_v_count))}</strong></div>
+      <div class="compact-info-row"><span>實際 D（分布）</span><strong>${escapeHtml(formatQty(store.actual_d_count))}</strong></div>
+    </div></section>
+    <section class="section highlight-section"><h3>📌 Y27 建議簽約</h3><div class="compact-info-list">
+      <div class="compact-info-row"><span>Y27簽約格數+2</span><strong>${escapeHtml(formatQty(store.suggested_contract_slots))}</strong></div>
+      <div class="compact-info-row"><span>Y27格數費用</span><strong>${escapeHtml(formatQty(store.y27_slot_fee))}</strong></div>
+    </div></section>
+    <section class="section"><button class="update-launch" type="button" data-start-update>開始 Y27 合約更新</button></section>
+  </article>`;
 }
 
 function renderCVS(store) {
@@ -762,7 +784,7 @@ function renderMatches(matches) {
     return;
   }
   if (matches.length === 1) return renderStore(matches[0]);
-  $("#results").innerHTML = `<h2 class="multiple-title">找到 ${matches.length} 個可能店家</h2><div class="match-list">${matches.map((store, index) => `<button class="match-button" data-index="${index}" type="button"><strong>${escapeHtml(store.channel === "GT" ? gtDisplayName(store) : store.store_name)}</strong><span>${escapeHtml(text(store.channel))}｜${escapeHtml(text(store.city))} ${escapeHtml(text(store.district))}</span></button>`).join("")}</div>`;
+  $("#results").innerHTML = `<h2 class="multiple-title">找到 ${matches.length} 個可能店家</h2><div class="match-list">${matches.map((store, index) => `<button class="match-button" data-index="${index}" type="button"><strong>${escapeHtml(store.channel === "GT" ? gtDisplayName(store) : store.store_name)}</strong><span>${escapeHtml(text(store.channel))}｜${escapeHtml(store.channel === "GT" ? [store.y27_sheet, store.distributor, store.distributor_salesperson].filter(Boolean).join("｜") : `${text(store.city, "")} ${text(store.district, "")}`.trim())}</span></button>`).join("")}</div>`;
   $$(".match-button").forEach(button => button.addEventListener("click", () => renderStore(matches[Number(button.dataset.index)])));
 }
 
@@ -883,10 +905,30 @@ function createNewCVSStore(query = "") {
   };
 }
 
+function optionalSaved(saved, key, fallback = "") {
+  return saved[key] !== undefined && saved[key] !== null ? saved[key] : fallback;
+}
+
 function gtForm(store, saved = {}) {
-  return `<div class="form-section"><h3>基本資料</h3><div class="form-grid">${fieldHTML("visit_date", "巡店日期", saved.visit_date || localDateISO(), "date")}${fieldHTML("store_name", "店家名稱", saved.store_name || store.store_name)}${selectHTML("cooperation", "配合度", ["", "高", "中", "低", "待觀察"], saved.cooperation || "")}${selectHTML("line_oa", "LINE OA", [{ value: "", label: "—" }, { value: "true", label: "有" }, { value: "false", label: "無" }], saved.line_oa === true ? "true" : saved.line_oa === false ? "false" : "")}${fieldHTML("customer_group", "客群", saved.customer_group || "")}${fieldHTML("sales", "銷售", saved.sales || "")}</div></div>
-    <div class="form-section"><h3>現場品項狀況</h3>${productStatusTable(saved.product_status || {}, saved.osd_original_type || {}, store)}</div>
-    <div class="form-section"><h3>本次異動</h3><div class="form-grid">${selectHTML("optimization", "本次完成優化", [{ value: "false", label: "否" }, { value: "true", label: "是" }], saved.optimization ? "true" : "false")}${fieldHTML("new_slots", "新增格數", String(saved.new_slots ?? 0), "number")}${selectHTML("monster_box", "怪獸盒", [{ value: "false", label: "無" }, { value: "true", label: "有" }], saved.monster_box ? "true" : "false")}${selectHTML("annual_contract", "年度合約", ["", "續約", "無意願續約", "新增格數簽約", "牌面好無產值", "不建議續約"], saved.annual_contract || "")}${textareaHTML("optimization_content", "優化調整內容", saved.optimization_content || "")}${textareaHTML("note", "備註", saved.note || "")}</div></div>${photoSectionHTML()}`;
+  const yn = [{ value: "", label: "—" }, { value: "Y", label: "Y" }, { value: "N", label: "N" }];
+  const oneZero = [{ value: "", label: "—" }, { value: "1", label: "1" }, { value: "0", label: "0" }];
+  return `<div class="form-section"><h3>基本資料</h3><div class="form-grid">
+      ${fieldHTML("visit_date", "更新日期", saved.visit_date || localDateISO(), "date")}
+      ${fieldHTML("store_name", "店家名稱", saved.store_name || store.store_name)}
+    </div></div>
+    <div class="form-section"><h3>Y27 合約填寫</h3><div class="form-grid">
+      ${selectHTML("y27_line_oa_installed", "是否有安裝 LINE OA", yn, String(optionalSaved(saved, "y27_line_oa_installed", store.y27_line_oa_installed || "")))}
+      ${selectHTML("y27_line_willing", "是否願意用 LINE（1同意／0不同意）", oneZero, String(optionalSaved(saved, "y27_line_willing", store.y27_line_willing ?? "")))}
+      ${selectHTML("y27_signed", "是否簽約", yn, String(optionalSaved(saved, "y27_signed", store.y27_signed || "")))}
+      ${fieldHTML("y27_completed_slots", "完成簽約格數", optionalSaved(saved, "y27_completed_slots", store.y27_completed_slots ?? ""), "number")}
+      ${fieldHTML("y27_contract_amount", "Y27簽約金額", optionalSaved(saved, "y27_contract_amount", store.y27_contract_amount ?? ""), "number")}
+      ${fieldHTML("y27_purchase_qty_1", "Y27合約進貨條數1", optionalSaved(saved, "y27_purchase_qty_1", store.y27_purchase_qty_1 ?? ""), "number")}
+      ${fieldHTML("y27_purchase_bonus_1", "Y27合約進貨獎金1", optionalSaved(saved, "y27_purchase_bonus_1", store.y27_purchase_bonus_1 ?? ""), "number")}
+      ${fieldHTML("y27_purchase_qty_2", "Y27合約進貨條數2", optionalSaved(saved, "y27_purchase_qty_2", store.y27_purchase_qty_2 ?? ""), "number")}
+      ${fieldHTML("y27_purchase_bonus_2", "Y27合約進貨獎金2", optionalSaved(saved, "y27_purchase_bonus_2", store.y27_purchase_bonus_2 ?? ""), "number")}
+      ${selectHTML("y27_short_distribution", "是否分布名世短枝", yn, String(optionalSaved(saved, "y27_short_distribution", store.y27_short_distribution || "")))}
+      ${textareaHTML("note", "備註", optionalSaved(saved, "note", store.y27_note || ""))}
+    </div></div>${photoSectionHTML()}`;
 }
 
 function cvsForm(store, saved = {}) {
@@ -901,7 +943,6 @@ async function openUpdate(store, sessionItem = null) {
   $("#editingSessionId").value = sessionItem?.id || "";
   $("#updateStoreTitle").textContent = store.is_new_cvs ? "新增 CVS 店家｜巡店更新" : `${store.store_name}｜巡店更新`;
   $("#updateFields").innerHTML = channel === "GT" ? gtForm(store, sessionItem?.update || {}) : cvsForm(store, sessionItem?.update || {});
-  if (channel === "GT") bindProductStatusControls();
   showView("updateView", sessionItem ? "修改巡店" : (store.is_new_cvs ? "新增 CVS 店家" : "巡店更新"));
   await preparePhotoDraft(sessionItem);
 }
@@ -910,49 +951,39 @@ function boolOrUndefined(value) {
   return value === "" ? undefined : value === "true";
 }
 
+function numberOrUndefined(id) {
+  const raw = $(id)?.value ?? "";
+  if (String(raw).trim() === "") return undefined;
+  const num = Number(raw);
+  return Number.isFinite(num) ? num : undefined;
+}
+
 function collectGT() {
-  const productStatus = {};
-  const osdOriginalType = {};
-  const missingOsdOrigin = [];
-  $$(".product-row[data-product]").forEach(row => {
-    const checked = row.querySelector('.status-cell input[type="checkbox"]:checked');
-    if (checked) {
-      productStatus[row.dataset.product] = checked.value;
-      if (checked.value === "out_of_stock") {
-        const origin = row.querySelector('.osd-origin input[type="radio"]:checked');
-        if (origin) osdOriginalType[row.dataset.product] = origin.value;
-        else missingOsdOrigin.push(row.dataset.product);
-      }
-    }
-  });
-  if (missingOsdOrigin.length) {
-    alert(`以下缺貨品項尚未指定「原屬陳列／原屬分布」：\n${missingOsdOrigin.join("、")}`);
-    throw new Error("OSD_ORIGINAL_TYPE_REQUIRED");
-  }
-  const display = Object.keys(productStatus).filter(product => productStatus[product] === "display");
-  const distribution = Object.keys(productStatus).filter(product => productStatus[product] === "distribution");
-  const outOfStock = Object.keys(productStatus).filter(product => productStatus[product] === "out_of_stock");
+  const selected = id => {
+    const value = $(id)?.value ?? "";
+    return value === "" ? undefined : value;
+  };
   return {
     visit_date: $("#visit_date").value,
     store_name: $("#store_name").value.trim(),
     distributor: text(currentStore?.distributor, "").trim(),
     distributor_customer_id: text(currentStore?.distributor_customer_id, "").trim(),
+    ktng_customer_id: text(currentStore?.ktng_customer_id, "").trim(),
     gt_store_id: text(currentStore?.gt_store_id, "").trim(),
-    tracking_mode: "full_sync",
-    display,
-    distribution,
-    out_of_stock: outOfStock,
-    osd_original_type: osdOriginalType,
-    product_status: productStatus,
-    cooperation: $("#cooperation").value,
-    line_oa: boolOrUndefined($("#line_oa").value),
-    customer_group: $("#customer_group").value.trim(),
-    sales: $("#sales").value.trim(),
-    optimization_content: $("#optimization_content").value.trim(),
-    optimization: $("#optimization").value === "true",
-    new_slots: Math.max(0, Number.parseInt($("#new_slots").value || "0", 10)),
-    monster_box: $("#monster_box").value === "true",
-    annual_contract: $("#annual_contract").value,
+    y27_store_id: text(currentStore?.y27_store_id, "").trim(),
+    y27_sheet: text(currentStore?.y27_sheet, "").trim(),
+    y27_row: currentStore?.y27_row,
+    tracking_mode: "y27_contract",
+    y27_line_oa_installed: selected("#y27_line_oa_installed"),
+    y27_line_willing: selected("#y27_line_willing"),
+    y27_signed: selected("#y27_signed"),
+    y27_completed_slots: numberOrUndefined("#y27_completed_slots"),
+    y27_contract_amount: numberOrUndefined("#y27_contract_amount"),
+    y27_purchase_qty_1: numberOrUndefined("#y27_purchase_qty_1"),
+    y27_purchase_bonus_1: numberOrUndefined("#y27_purchase_bonus_1"),
+    y27_purchase_qty_2: numberOrUndefined("#y27_purchase_qty_2"),
+    y27_purchase_bonus_2: numberOrUndefined("#y27_purchase_bonus_2"),
+    y27_short_distribution: selected("#y27_short_distribution"),
     note: $("#note").value.trim()
   };
 }
@@ -1838,6 +1869,11 @@ function sameSessionStore(entry, update, channel) {
   const updateName = update.store_name || "";
 
   if (channel === "GT") {
+    const entryY27 = String(entry.update?.y27_store_id || "").trim();
+    const updateY27 = String(update.y27_store_id || "").trim();
+    if (entryY27 || updateY27) {
+      return !!entryY27 && !!updateY27 && entryY27 === updateY27;
+    }
     const entryCustomerId = String(entry.update?.distributor_customer_id || "").trim().toUpperCase();
     const updateCustomerId = String(update.distributor_customer_id || "").trim().toUpperCase();
     const entryDistributor = normalize(entry.update?.distributor || "");
