@@ -731,6 +731,8 @@ function renderGT(store) {
       ${info("經銷商", store.distributor)}
       ${info("經銷商業務", store.distributor_salesperson)}
       ${info("Y27合約負責人", store.y27_owner)}
+      ${info("總銷分級", store.total_sales_grade)}
+      ${info("KT&G分級", store.ktg_grade)}
     </div></section>
     <section class="section"><h3>目前合約</h3><div class="info-grid">
       ${info("簽約型態", store.contract_type)}
@@ -918,7 +920,7 @@ function gtForm(store, saved = {}) {
     </div></div>
     <div class="form-section"><h3>Y27 合約填寫</h3><div class="form-grid">
       ${selectHTML("y27_line_oa_installed", "是否有安裝 LINE OA", yn, String(optionalSaved(saved, "y27_line_oa_installed", store.y27_line_oa_installed || "")))}
-      ${selectHTML("y27_line_willing", "是否願意用 LINE（1同意／0不同意）", oneZero, String(optionalSaved(saved, "y27_line_willing", store.y27_line_willing ?? "")))}
+      ${selectHTML("y27_line_willing", "是否願意用 LINE OA 提供費用（1同意／0不同意）", oneZero, String(optionalSaved(saved, "y27_line_willing", store.y27_line_willing ?? "")))}
       ${selectHTML("y27_signed", "是否簽約", yn, String(optionalSaved(saved, "y27_signed", store.y27_signed || "")))}
       ${fieldHTML("y27_completed_slots", "完成簽約格數", optionalSaved(saved, "y27_completed_slots", store.y27_completed_slots ?? ""), "number")}
       ${fieldHTML("y27_contract_amount", "Y27簽約金額", optionalSaved(saved, "y27_contract_amount", store.y27_contract_amount ?? ""), "number")}
