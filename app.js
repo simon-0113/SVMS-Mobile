@@ -549,6 +549,17 @@ function formatTime(iso) {
   return Number.isNaN(date.getTime()) ? "—" : date.toLocaleTimeString("zh-TW", { hour: "2-digit", minute: "2-digit" });
 }
 
+function formatDateTime(iso) {
+  const date = new Date(iso);
+  if (Number.isNaN(date.getTime())) return "—";
+  const yyyy = date.getFullYear();
+  const mm = String(date.getMonth() + 1).padStart(2, "0");
+  const dd = String(date.getDate()).padStart(2, "0");
+  const hh = String(date.getHours()).padStart(2, "0");
+  const min = String(date.getMinutes()).padStart(2, "0");
+  return `${yyyy}/${mm}/${dd} ${hh}:${min}`;
+}
+
 function normalize(value) {
   let result = text(value, "").normalize("NFKC").toUpperCase().replace(/[\s_\-－—()（）【】[\]．。、,，./／]/g, "");
   [["7-ELEVEN", "711"], ["7ELEVEN", "711"], ["7-11", "711"], ["全家便利商店", "FM"], ["FAMILYMART", "FM"], ["全家", "FM"], ["萊爾富便利商店", "HL"], ["HILIFE", "HL"], ["萊爾富", "HL"], ["OKMART", "OK"], ["OK超商", "OK"]]
@@ -914,10 +925,15 @@ function optionalSaved(saved, key, fallback = "") {
 function gtForm(store, saved = {}) {
   const yn = [{ value: "", label: "—" }, { value: "Y", label: "Y" }, { value: "N", label: "N" }];
   const oneZero = [{ value: "", label: "—" }, { value: "1", label: "1" }, { value: "0", label: "0" }];
-  return `<div class="form-section"><h3>基本資料</h3><div class="form-grid">
-      ${fieldHTML("visit_date", "更新日期", saved.visit_date || localDateISO(), "date")}
-      ${fieldHTML("store_name", "店家名稱", saved.store_name || store.store_name)}
-    </div></div>
+  return `<div class="form-section"><h3>基本資料</h3>
+      <input type="hidden" id="visit_date" value="${escapeHtml(saved.visit_date || localDateISO())}">
+      <input type="hidden" id="store_name" value="${escapeHtml(saved.store_name || store.store_name)}">
+      <div class="info-grid">
+        ${info("店家名稱", saved.store_name || store.store_name)}
+        ${info("總銷分級", store.total_sales_grade)}
+        ${info("KT&G分級", store.ktg_grade)}
+      </div>
+    </div>
     <div class="form-section"><h3>Y27 合約填寫</h3><div class="form-grid">
       ${selectHTML("y27_line_oa_installed", "是否有安裝 LINE OA", yn, String(optionalSaved(saved, "y27_line_oa_installed", store.y27_line_oa_installed || "")))}
       ${selectHTML("y27_line_willing", "是否願意用 LINE OA 提供費用（1同意／0不同意）", oneZero, String(optionalSaved(saved, "y27_line_willing", store.y27_line_willing ?? "")))}
@@ -1231,7 +1247,7 @@ function renderSession() {
   downloadButton.disabled = session.length === 0;
   downloadButton.textContent = "下載更新檔案";
 
-  $("#sessionList").innerHTML = session.map(item => `<article class="session-item"><div><h3>${escapeHtml(item.store_name)}</h3><p>${escapeHtml(item.channel)}｜加入時間 ${escapeHtml(formatTime(item.added_at))}${item.photos?.length ? `｜照片 ${item.photos.length} 張` : ""}</p></div><div class="session-actions"><button type="button" data-edit="${item.id}">修改</button><button type="button" data-delete="${item.id}">刪除</button></div></article>`).join("");
+  $("#sessionList").innerHTML = session.map(item => `<article class="session-item"><div><h3>${escapeHtml(item.store_name)}</h3><p>${escapeHtml(item.channel)}｜加入時間 ${escapeHtml(formatDateTime(item.added_at))}${item.photos?.length ? `｜照片 ${item.photos.length} 張` : ""}</p></div><div class="session-actions"><button type="button" data-edit="${item.id}">修改</button><button type="button" data-delete="${item.id}">刪除</button></div></article>`).join("");
 
   $$('[data-edit]').forEach(button => button.addEventListener("click", () => {
     const item = getSession().find(entry => entry.id === button.dataset.edit);
