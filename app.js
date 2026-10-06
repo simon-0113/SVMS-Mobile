@@ -939,7 +939,7 @@ function gtForm(store, saved = {}) {
         <label for="y27_not_open">店家狀態</label>
         <label style="display:flex;align-items:center;gap:10px;min-height:48px;padding:0 14px;border:1px solid #dfe4ea;border-radius:12px;background:#fff;">
           <input id="y27_not_open" type="checkbox" ${optionalSaved(saved, "y27_not_open", false) ? "checked" : ""} style="width:20px;height:20px;">
-          <span>未開店</span>
+          <span>未營業或店長不再</span>
         </label>
       </div>
       ${selectHTML("y27_line_oa_installed", "是否有安裝 LINE OA", yn, String(optionalSaved(saved, "y27_line_oa_installed", store.y27_line_oa_installed || "")))}
