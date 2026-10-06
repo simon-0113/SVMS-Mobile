@@ -935,6 +935,13 @@ function gtForm(store, saved = {}) {
       </div>
     </div>
     <div class="form-section"><h3>Y27 合約填寫</h3><div class="form-grid">
+      <div class="form-field full">
+        <label for="y27_not_open">店家狀態</label>
+        <label style="display:flex;align-items:center;gap:10px;min-height:48px;padding:0 14px;border:1px solid #dfe4ea;border-radius:12px;background:#fff;">
+          <input id="y27_not_open" type="checkbox" ${optionalSaved(saved, "y27_not_open", false) ? "checked" : ""} style="width:20px;height:20px;">
+          <span>未開店</span>
+        </label>
+      </div>
       ${selectHTML("y27_line_oa_installed", "是否有安裝 LINE OA", yn, String(optionalSaved(saved, "y27_line_oa_installed", store.y27_line_oa_installed || "")))}
       ${selectHTML("y27_line_willing", "是否願意用 LINE OA 提供費用（1同意／0不同意）", oneZero, String(optionalSaved(saved, "y27_line_willing", store.y27_line_willing ?? "")))}
       ${selectHTML("y27_signed", "是否簽約", yn, String(optionalSaved(saved, "y27_signed", store.y27_signed || "")))}
@@ -953,6 +960,81 @@ function cvsForm(store, saved = {}) {
   return `<div class="form-section"><h3>門市資料</h3><div class="form-grid">${fieldHTML("visit_date", "巡店日期", saved.visit_date || localDateISO(), "date")}${fieldHTML("store_name", "門市名稱", saved.store_name || store.store_name)}${selectHTML("store_type", "門市類別", ["", "711", "FM", "HL", "OK"], saved.store_type || store.channel || "")}${selectHTML("cooperation", "配合度", ["", "高", "中", "低", "待觀察"], saved.cooperation || "")}${selectHTML("line_oa", "LINE OA", [{ value: "", label: "—" }, { value: "true", label: "有" }, { value: "false", label: "無" }], saved.line_oa === true ? "true" : saved.line_oa === false ? "false" : "")}${selectHTML("small_rack", "小煙架", [{ value: "", label: "—" }, { value: "true", label: "有" }, { value: "false", label: "無" }], saved.small_rack === true ? "true" : saved.small_rack === false ? "false" : "")}${fieldHTML("customer_group", "客群", saved.customer_group || "")}${textareaHTML("note", "備註", saved.note || "")}</div></div>${photoSectionHTML()}`;
 }
 
+
+const Y27_NOT_OPEN_FIELD_IDS = [
+  "y27_line_oa_installed",
+  "y27_line_willing",
+  "y27_signed",
+  "y27_completed_slots",
+  "y27_contract_amount",
+  "y27_purchase_qty_1",
+  "y27_purchase_bonus_1",
+  "y27_purchase_qty_2",
+  "y27_purchase_bonus_2",
+  "y27_short_distribution"
+];
+
+function applyY27NotOpenState() {
+  const checkbox = $("#y27_not_open");
+  if (!checkbox) return;
+
+  const notOpen = checkbox.checked;
+
+  Y27_NOT_OPEN_FIELD_IDS.forEach(id => {
+    const control = $(`#${id}`);
+    if (!control) return;
+
+    if (notOpen) {
+      if (control.dataset.beforeNotOpen === undefined) {
+        control.dataset.beforeNotOpen = control.value ?? "";
+        control.dataset.beforeNotOpenType = control.type || "";
+      }
+
+      if (control.tagName === "SELECT") {
+        let xOption = Array.from(control.options).find(option => option.value === "X");
+        if (!xOption) {
+          xOption = document.createElement("option");
+          xOption.value = "X";
+          xOption.textContent = "X";
+          xOption.dataset.notOpenOption = "1";
+          control.appendChild(xOption);
+        }
+        control.value = "X";
+      } else {
+        if (control.type === "number") control.type = "text";
+        control.value = "X";
+      }
+      control.disabled = true;
+    } else {
+      control.disabled = false;
+
+      if (control.tagName === "SELECT") {
+        const xOption = Array.from(control.options).find(option => option.dataset.notOpenOption === "1");
+        if (xOption) xOption.remove();
+      } else if (control.dataset.beforeNotOpenType === "number") {
+        control.type = "number";
+      }
+
+      if (control.dataset.beforeNotOpen !== undefined) {
+        control.value = control.dataset.beforeNotOpen;
+        delete control.dataset.beforeNotOpen;
+        delete control.dataset.beforeNotOpenType;
+      }
+    }
+  });
+
+  // 備註永遠保留可填寫。
+  const note = $("#note");
+  if (note) note.disabled = false;
+}
+
+function bindY27NotOpenBehavior() {
+  const checkbox = $("#y27_not_open");
+  if (!checkbox) return;
+  checkbox.addEventListener("change", applyY27NotOpenState);
+  applyY27NotOpenState();
+}
+
 async function openUpdate(store, sessionItem = null) {
   await cleanupUncommittedPhotoDraft();
   currentStore = store;
@@ -961,6 +1043,7 @@ async function openUpdate(store, sessionItem = null) {
   $("#editingSessionId").value = sessionItem?.id || "";
   $("#updateStoreTitle").textContent = store.is_new_cvs ? "新增 CVS 店家｜巡店更新" : `${store.store_name}｜巡店更新`;
   $("#updateFields").innerHTML = channel === "GT" ? gtForm(store, sessionItem?.update || {}) : cvsForm(store, sessionItem?.update || {});
+  if (channel === "GT") bindY27NotOpenBehavior();
   showView("updateView", sessionItem ? "修改巡店" : (store.is_new_cvs ? "新增 CVS 店家" : "巡店更新"));
   await preparePhotoDraft(sessionItem);
 }
@@ -981,6 +1064,7 @@ function collectGT() {
     const value = $(id)?.value ?? "";
     return value === "" ? undefined : value;
   };
+  const notOpen = Boolean($("#y27_not_open")?.checked);
   return {
     visit_date: $("#visit_date").value,
     store_name: $("#store_name").value.trim(),
@@ -992,16 +1076,17 @@ function collectGT() {
     y27_sheet: text(currentStore?.y27_sheet, "").trim(),
     y27_row: currentStore?.y27_row,
     tracking_mode: "y27_contract",
-    y27_line_oa_installed: selected("#y27_line_oa_installed"),
-    y27_line_willing: selected("#y27_line_willing"),
-    y27_signed: selected("#y27_signed"),
-    y27_completed_slots: numberOrUndefined("#y27_completed_slots"),
-    y27_contract_amount: numberOrUndefined("#y27_contract_amount"),
-    y27_purchase_qty_1: numberOrUndefined("#y27_purchase_qty_1"),
-    y27_purchase_bonus_1: numberOrUndefined("#y27_purchase_bonus_1"),
-    y27_purchase_qty_2: numberOrUndefined("#y27_purchase_qty_2"),
-    y27_purchase_bonus_2: numberOrUndefined("#y27_purchase_bonus_2"),
-    y27_short_distribution: selected("#y27_short_distribution"),
+    y27_not_open: notOpen,
+    y27_line_oa_installed: notOpen ? undefined : selected("#y27_line_oa_installed"),
+    y27_line_willing: notOpen ? undefined : selected("#y27_line_willing"),
+    y27_signed: notOpen ? undefined : selected("#y27_signed"),
+    y27_completed_slots: notOpen ? undefined : numberOrUndefined("#y27_completed_slots"),
+    y27_contract_amount: notOpen ? undefined : numberOrUndefined("#y27_contract_amount"),
+    y27_purchase_qty_1: notOpen ? undefined : numberOrUndefined("#y27_purchase_qty_1"),
+    y27_purchase_bonus_1: notOpen ? undefined : numberOrUndefined("#y27_purchase_bonus_1"),
+    y27_purchase_qty_2: notOpen ? undefined : numberOrUndefined("#y27_purchase_qty_2"),
+    y27_purchase_bonus_2: notOpen ? undefined : numberOrUndefined("#y27_purchase_bonus_2"),
+    y27_short_distribution: notOpen ? undefined : selected("#y27_short_distribution"),
     note: $("#note").value.trim()
   };
 }
