@@ -860,6 +860,10 @@ function renderGT(store) {
       <div class="compact-info-row"><span>Y27格數費用</span><strong>${escapeHtml(formatQty(store.y27_slot_fee))}</strong></div>
       <div class="compact-info-row"><span>Y27進貨條數</span><strong>${escapeHtml(formatQty(store.y27_suggest_purchase_qty_1))}</strong></div>
       <div class="compact-info-row"><span>Y27進貨獎金</span><strong>${escapeHtml(formatQty(store.y27_suggest_purchase_bonus_1))}</strong></div>
+      ${meaningful(store.y27_suggest_purchase_qty_2) || meaningful(store.y27_suggest_purchase_bonus_2)
+        ? `<div class="compact-info-row"><span>Y27進貨條數2</span><strong>${escapeHtml(formatQty(store.y27_suggest_purchase_qty_2))}</strong></div>
+           <div class="compact-info-row"><span>Y27進貨獎金2</span><strong>${escapeHtml(formatQty(store.y27_suggest_purchase_bonus_2))}</strong></div>`
+        : ""}
     </div></section>
     <section class="section"><button class="update-launch" type="button" data-start-update>開始 Y27 合約更新</button></section>
   </article>`;
