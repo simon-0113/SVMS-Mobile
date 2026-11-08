@@ -858,6 +858,8 @@ function renderGT(store) {
     <section class="section highlight-section"><h3>📌 Y27 建議簽約</h3><div class="compact-info-list">
       <div class="compact-info-row"><span>Y27簽約格數+2</span><strong>${escapeHtml(formatQty(store.suggested_contract_slots))}</strong></div>
       <div class="compact-info-row"><span>Y27格數費用</span><strong>${escapeHtml(formatQty(store.y27_slot_fee))}</strong></div>
+      <div class="compact-info-row"><span>Y27進貨條數</span><strong>${escapeHtml(formatQty(store.y27_suggest_purchase_qty_1))}</strong></div>
+      <div class="compact-info-row"><span>Y27進貨獎金</span><strong>${escapeHtml(formatQty(store.y27_suggest_purchase_bonus_1))}</strong></div>
     </div></section>
     <section class="section"><button class="update-launch" type="button" data-start-update>開始 Y27 合約更新</button></section>
   </article>`;
