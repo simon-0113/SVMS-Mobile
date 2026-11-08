@@ -9,6 +9,8 @@ const SESSION_BACKUP_KEY = "svms_mobile_today_session_v2_backup";
 const SESSION_DB_NAME = "svms_mobile_session_backup";
 const SESSION_DB_STORE = "session";
 const SESSION_DB_RECORD = "today_session";
+const LAST_UPLOAD_SIGNATURE_KEY = "svms_mobile_last_uploaded_signature_v1";
+const UPLOADED_PHOTO_IDS_KEY = "svms_mobile_uploaded_photo_ids_v1";
 
 const SVMS_USER_NAME_KEY = "svms_mobile_user_name_v1";
 const SVMS_UPLOAD_ENDPOINT = "https://svms-team-upload.t0926400467.workers.dev/";
@@ -20,6 +22,7 @@ const PHOTO_JPEG_QUALITY = 0.76;
 let currentPhotoDraft = [];
 let currentPhotoOriginalIds = new Set();
 let currentPhotoPreviewUrls = [];
+let sessionWriteGeneration = 0;
 
 const $ = selector => document.querySelector(selector);
 const $$ = selector => [...document.querySelectorAll(selector)];
@@ -126,51 +129,68 @@ function revokePhotoPreviewUrls() {
 
 async function getPhotoRecord(id) {
   try {
-    const db = await openSessionDB();
-    if (!db) return null;
-    const record = await new Promise((resolve, reject) => {
-      const tx = db.transaction(PHOTO_DB_STORE, "readonly");
-      const req = tx.objectStore(PHOTO_DB_STORE).get(id);
-      req.onsuccess = () => resolve(req.result || null);
-      req.onerror = () => reject(req.error);
-    });
-    db.close();
-    return record;
+    return await withIndexedDBRetry("IndexedDB photo read", async () => {
+      const db = await openSessionDB();
+      if (!db) return null;
+      try {
+        return await new Promise((resolve, reject) => {
+          const tx = db.transaction(PHOTO_DB_STORE, "readonly");
+          const req = tx.objectStore(PHOTO_DB_STORE).get(id);
+          req.onsuccess = () => resolve(req.result || null);
+          req.onerror = () => reject(req.error || new Error("IndexedDB photo read failed"));
+        });
+      } finally {
+        try { db.close(); } catch {}
+      }
+    }, 1);
   } catch (error) {
-    console.warn("[SVMS] Photo read failed:", error);
+    console.warn("[SVMS] Photo read failed after retry:", error);
     return null;
   }
 }
 
+
 async function putPhotoRecord(record) {
-  const db = await openSessionDB();
-  if (!db) throw new Error("此瀏覽器不支援照片暫存。");
-  await new Promise((resolve, reject) => {
-    const tx = db.transaction(PHOTO_DB_STORE, "readwrite");
-    tx.objectStore(PHOTO_DB_STORE).put(record, record.id);
-    tx.oncomplete = resolve;
-    tx.onerror = () => reject(tx.error);
-    tx.onabort = () => reject(tx.error);
-  });
-  db.close();
+  return withIndexedDBRetry("IndexedDB photo save", async () => {
+    const db = await openSessionDB();
+    if (!db) throw new Error("此瀏覽器不支援照片暫存。");
+    try {
+      await new Promise((resolve, reject) => {
+        const tx = db.transaction(PHOTO_DB_STORE, "readwrite");
+        tx.objectStore(PHOTO_DB_STORE).put(record, record.id);
+        tx.oncomplete = resolve;
+        tx.onerror = () => reject(tx.error || new Error("IndexedDB photo save failed"));
+        tx.onabort = () => reject(tx.error || new Error("IndexedDB photo save aborted"));
+      });
+    } finally {
+      try { db.close(); } catch {}
+    }
+  }, 1);
 }
+
 
 async function deletePhotoRecord(id) {
   try {
-    const db = await openSessionDB();
-    if (!db) return;
-    await new Promise((resolve, reject) => {
-      const tx = db.transaction(PHOTO_DB_STORE, "readwrite");
-      tx.objectStore(PHOTO_DB_STORE).delete(id);
-      tx.oncomplete = resolve;
-      tx.onerror = () => reject(tx.error);
-      tx.onabort = () => reject(tx.error);
-    });
-    db.close();
+    await withIndexedDBRetry("IndexedDB photo delete", async () => {
+      const db = await openSessionDB();
+      if (!db) return;
+      try {
+        await new Promise((resolve, reject) => {
+          const tx = db.transaction(PHOTO_DB_STORE, "readwrite");
+          tx.objectStore(PHOTO_DB_STORE).delete(id);
+          tx.oncomplete = resolve;
+          tx.onerror = () => reject(tx.error || new Error("IndexedDB photo delete failed"));
+          tx.onabort = () => reject(tx.error || new Error("IndexedDB photo delete aborted"));
+        });
+      } finally {
+        try { db.close(); } catch {}
+      }
+    }, 1);
   } catch (error) {
-    console.warn("[SVMS] Photo delete failed:", error);
+    console.warn("[SVMS] Photo delete failed after retry:", error);
   }
 }
+
 
 function imageFromBlob(blob) {
   return new Promise((resolve, reject) => {
@@ -319,7 +339,7 @@ async function addSelectedPhotos(fileList) {
     await renderPhotoDraft();
   } catch (error) {
     console.error("[SVMS] Photo processing failed:", error);
-    alert(`照片處理失敗：${error.message}`);
+    alert(`照片處理失敗：${error.message}\n\n巡店文字與合約資料仍可正常加入今日巡店。\n可重新整理頁面後再嘗試加入照片。`);
   } finally {
     if (button) {
       button.disabled = false;
@@ -394,14 +414,25 @@ function allSessionPhotos(session) {
 
 async function uploadAllSessionPhotos(session, userName, onProgress = null) {
   const entries = allSessionPhotos(session);
+  const alreadyUploaded = getUploadedPhotoIds();
   let done = 0;
+
   for (const entry of entries) {
+    if (alreadyUploaded.has(entry.photo.id)) {
+      done += 1;
+      if (onProgress) onProgress(done, entries.length);
+      continue;
+    }
+
     await uploadVisitPhoto(userName, entry.item, entry.photo);
+    markPhotoUploaded(entry.photo.id);
+    alreadyUploaded.add(entry.photo.id);
     done += 1;
     if (onProgress) onProgress(done, entries.length);
   }
   return entries.length;
 }
+
 
 async function deleteAllSessionPhotoRecords(session) {
   const ids = allSessionPhotos(session).map(entry => entry.photo.id);
@@ -734,6 +765,71 @@ function renderCVSSales(store) {
   return `<section class="section cvs-sales-section"><h3>📊 銷售資料</h3>${recentCards}${trend}${fullHistory}</section>`;
 }
 
+function y27ValuePresent(value) {
+  return value !== undefined && value !== null && String(value).trim() !== "";
+}
+
+function isY27NotOpenStore(store) {
+  if (store?.y27_not_open === true) return true;
+  const keys = [
+    "y27_line_oa_installed",
+    "y27_line_willing",
+    "y27_signed",
+    "y27_completed_slots",
+    "y27_contract_amount",
+    "y27_purchase_qty_1",
+    "y27_purchase_bonus_1",
+    "y27_purchase_qty_2",
+    "y27_purchase_bonus_2",
+    "y27_short_distribution"
+  ];
+  return keys.some(key => String(store?.[key] ?? "").trim().toUpperCase() === "X");
+}
+
+function hasY27LatestContract(store) {
+  if (store?.y27_has_update === true) return true;
+  return [
+    "y27_line_oa_installed",
+    "y27_line_willing",
+    "y27_signed",
+    "y27_completed_slots",
+    "y27_contract_amount",
+    "y27_purchase_qty_1",
+    "y27_purchase_bonus_1",
+    "y27_purchase_qty_2",
+    "y27_purchase_bonus_2",
+    "y27_short_distribution",
+    "y27_note"
+  ].some(key => y27ValuePresent(store?.[key]));
+}
+
+function renderY27LatestContract(store) {
+  if (!hasY27LatestContract(store)) {
+    return `<section class="section"><h3>Y27 最新回填合約</h3>
+      <div class="sales-empty">尚未更新 Y27 簽約合約內容</div>
+    </section>`;
+  }
+
+  const status = isY27NotOpenStore(store)
+    ? info("店家狀態", "未營業或店長不再", true)
+    : "";
+
+  return `<section class="section"><h3>Y27 最新回填合約</h3><div class="info-grid">
+      ${status}
+      ${info("是否有安裝 LINE OA", store.y27_line_oa_installed)}
+      ${info("是否願意用 LINE OA 提供費用", store.y27_line_willing)}
+      ${info("是否簽約", store.y27_signed)}
+      ${info("完成簽約格數", store.y27_completed_slots)}
+      ${info("Y27簽約金額", store.y27_contract_amount)}
+      ${info("Y27合約進貨條數1", store.y27_purchase_qty_1)}
+      ${info("Y27合約進貨獎金1", store.y27_purchase_bonus_1)}
+      ${info("Y27合約進貨條數2", store.y27_purchase_qty_2)}
+      ${info("Y27合約進貨獎金2", store.y27_purchase_bonus_2)}
+      ${info("是否分布名世短枝", store.y27_short_distribution)}
+      ${info("備註", store.y27_note, true)}
+    </div></section>`;
+}
+
 function renderGT(store) {
   return `<article class="card"><div class="card-head"><h2>GT／${escapeHtml(gtDisplayName(store))}</h2></div>
     <section class="section"><h3>店家資料</h3><div class="info-grid">
@@ -745,7 +841,7 @@ function renderGT(store) {
       ${info("總銷分級", store.total_sales_grade)}
       ${info("KT&G分級", store.ktg_grade)}
     </div></section>
-    <section class="section"><h3>目前合約</h3><div class="info-grid">
+    <section class="section"><h3>Y26 合約（目前合約）</h3><div class="info-grid">
       ${info("簽約型態", store.contract_type)}
       ${info("簽約格數", store.contract_slots)}
       ${info("陳列獎金", store.display_bonus)}
@@ -754,6 +850,7 @@ function renderGT(store) {
       ${info("進貨條數2", store.purchase_quantity_2)}
       ${info("進貨獎金2", store.purchase_bonus_2)}
     </div></section>
+    ${renderY27LatestContract(store)}
     <section class="section"><h3>目前 V / D</h3><div class="compact-info-list">
       <div class="compact-info-row"><span>實際 V（陳列）</span><strong>${escapeHtml(formatQty(store.actual_v_count))}</strong></div>
       <div class="compact-info-row"><span>實際 D（分布）</span><strong>${escapeHtml(formatQty(store.actual_d_count))}</strong></div>
@@ -938,7 +1035,7 @@ function gtForm(store, saved = {}) {
       <div class="form-field full">
         <label for="y27_not_open">店家狀態</label>
         <label style="display:flex;align-items:center;gap:10px;min-height:48px;padding:0 14px;border:1px solid #dfe4ea;border-radius:12px;background:#fff;">
-          <input id="y27_not_open" type="checkbox" ${optionalSaved(saved, "y27_not_open", false) ? "checked" : ""} style="width:20px;height:20px;">
+          <input id="y27_not_open" type="checkbox" ${optionalSaved(saved, "y27_not_open", isY27NotOpenStore(store)) ? "checked" : ""} style="width:20px;height:20px;">
           <span>未營業或店長不再</span>
         </label>
       </div>
@@ -1131,6 +1228,24 @@ function getSession() {
   return [];
 }
 
+function waitMs(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function withIndexedDBRetry(label, operation, retries = 1) {
+  let lastError = null;
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    try {
+      return await operation();
+    } catch (error) {
+      lastError = error;
+      console.warn(`[SVMS] ${label} failed (attempt ${attempt + 1}):`, error);
+      if (attempt < retries) await waitMs(120);
+    }
+  }
+  throw lastError || new Error(`${label} failed`);
+}
+
 function openSessionDB() {
   return new Promise((resolve, reject) => {
     if (!("indexedDB" in window)) return resolve(null);
@@ -1148,55 +1263,68 @@ function openSessionDB() {
     };
 
     request.onsuccess = () => resolve(request.result);
-    request.onerror = () => reject(request.error);
+    request.onerror = () => reject(request.error || new Error("IndexedDB open failed"));
+    request.onblocked = () => reject(new Error("IndexedDB database is blocked"));
   });
 }
 
-async function saveSessionToIndexedDB(session) {
+async function saveSessionToIndexedDB(session, generation = sessionWriteGeneration) {
   try {
-    const db = await openSessionDB();
-    if (!db) return;
-
-    await new Promise((resolve, reject) => {
-      const tx = db.transaction(SESSION_DB_STORE, "readwrite");
-      tx.objectStore(SESSION_DB_STORE).put({
-        session,
-        saved_at: new Date().toISOString()
-      }, SESSION_DB_RECORD);
-
-      tx.oncomplete = resolve;
-      tx.onerror = () => reject(tx.error);
-      tx.onabort = () => reject(tx.error);
-    });
-
-    db.close();
+    await withIndexedDBRetry("IndexedDB session backup", async () => {
+      if (generation !== sessionWriteGeneration) return;
+      const db = await openSessionDB();
+      if (!db) return;
+      try {
+        if (generation !== sessionWriteGeneration) return;
+        await new Promise((resolve, reject) => {
+          const tx = db.transaction(SESSION_DB_STORE, "readwrite");
+          tx.objectStore(SESSION_DB_STORE).put({
+            session,
+            saved_at: new Date().toISOString()
+          }, SESSION_DB_RECORD);
+          tx.oncomplete = resolve;
+          tx.onerror = () => reject(tx.error || new Error("IndexedDB session write failed"));
+          tx.onabort = () => reject(tx.error || new Error("IndexedDB session write aborted"));
+        });
+      } finally {
+        try { db.close(); } catch {}
+      }
+    }, 1);
   } catch (error) {
-    console.warn("[SVMS] IndexedDB backup failed:", error);
+    console.warn("[SVMS] IndexedDB backup failed after retry:", error);
   }
 }
 
+
 async function loadSessionFromIndexedDB() {
   try {
-    const db = await openSessionDB();
-    if (!db) return [];
-
-    const record = await new Promise((resolve, reject) => {
-      const tx = db.transaction(SESSION_DB_STORE, "readonly");
-      const req = tx.objectStore(SESSION_DB_STORE).get(SESSION_DB_RECORD);
-      req.onsuccess = () => resolve(req.result);
-      req.onerror = () => reject(req.error);
-    });
-
-    db.close();
-    return Array.isArray(record?.session) ? record.session : [];
+    return await withIndexedDBRetry("IndexedDB session restore", async () => {
+      const db = await openSessionDB();
+      if (!db) return [];
+      try {
+        const record = await new Promise((resolve, reject) => {
+          const tx = db.transaction(SESSION_DB_STORE, "readonly");
+          const req = tx.objectStore(SESSION_DB_STORE).get(SESSION_DB_RECORD);
+          req.onsuccess = () => resolve(req.result);
+          req.onerror = () => reject(req.error || new Error("IndexedDB session read failed"));
+        });
+        return Array.isArray(record?.session) ? record.session : [];
+      } finally {
+        try { db.close(); } catch {}
+      }
+    }, 1);
   } catch (error) {
-    console.warn("[SVMS] IndexedDB restore failed:", error);
+    console.warn("[SVMS] IndexedDB restore failed after retry:", error);
     return [];
   }
 }
 
 
+
 async function clearSessionEverywhere() {
+  // 讓較早啟動但尚未完成的 IndexedDB 背景寫入失效，避免清空後舊 Session 復活。
+  sessionWriteGeneration += 1;
+
   try {
     localStorage.removeItem(SESSION_KEY);
     localStorage.removeItem(SESSION_BACKUP_KEY);
@@ -1205,23 +1333,28 @@ async function clearSessionEverywhere() {
   }
 
   try {
-    const db = await openSessionDB();
-    if (db) {
-      await new Promise((resolve, reject) => {
-        const tx = db.transaction(SESSION_DB_STORE, "readwrite");
-        tx.objectStore(SESSION_DB_STORE).delete(SESSION_DB_RECORD);
-        tx.oncomplete = resolve;
-        tx.onerror = () => reject(tx.error);
-        tx.onabort = () => reject(tx.error);
-      });
-      db.close();
-    }
+    await withIndexedDBRetry("IndexedDB session clear", async () => {
+      const db = await openSessionDB();
+      if (!db) return;
+      try {
+        await new Promise((resolve, reject) => {
+          const tx = db.transaction(SESSION_DB_STORE, "readwrite");
+          tx.objectStore(SESSION_DB_STORE).delete(SESSION_DB_RECORD);
+          tx.oncomplete = resolve;
+          tx.onerror = () => reject(tx.error || new Error("IndexedDB session clear failed"));
+          tx.onabort = () => reject(tx.error || new Error("IndexedDB session clear aborted"));
+        });
+      } finally {
+        try { db.close(); } catch {}
+      }
+    }, 1);
   } catch (error) {
-    console.warn("[SVMS] IndexedDB clear failed:", error);
+    console.warn("[SVMS] IndexedDB clear failed after retry:", error);
   }
 
   updateSessionCounts();
 }
+
 
 function saveSession(session) {
   const normalized = Array.isArray(session) ? session : [];
@@ -1240,14 +1373,16 @@ function saveSession(session) {
     alert("今日巡店資料無法安全儲存，請先不要關閉頁面。");
   }
 
-  void saveSessionToIndexedDB(normalized);
+  const generation = ++sessionWriteGeneration;
+  void saveSessionToIndexedDB(normalized, generation);
   updateSessionCounts();
 }
 
 async function recoverSessionIfNeeded() {
   const existing = getSession();
   if (existing.length) {
-    void saveSessionToIndexedDB(existing);
+    const generation = ++sessionWriteGeneration;
+    void saveSessionToIndexedDB(existing, generation);
     return existing;
   }
 
@@ -1367,6 +1502,43 @@ function renderSession() {
     void deleteAllSessionPhotoRecords([item]);
     renderSession();
   }));
+}
+
+function payloadSignature(payload) {
+  const raw = JSON.stringify(payload);
+  let hash = 2166136261;
+  for (let i = 0; i < raw.length; i++) {
+    hash ^= raw.charCodeAt(i);
+    hash = Math.imul(hash, 16777619);
+  }
+  return `v1_${(hash >>> 0).toString(16)}_${raw.length}`;
+}
+
+function getUploadedPhotoIds() {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(UPLOADED_PHOTO_IDS_KEY) || "[]");
+    return new Set(Array.isArray(parsed) ? parsed : []);
+  } catch {
+    return new Set();
+  }
+}
+
+function saveUploadedPhotoIds(ids) {
+  try {
+    localStorage.setItem(UPLOADED_PHOTO_IDS_KEY, JSON.stringify([...ids].slice(-500)));
+  } catch {}
+}
+
+function markPhotoUploaded(id) {
+  const ids = getUploadedPhotoIds();
+  ids.add(id);
+  saveUploadedPhotoIds(ids);
+}
+
+function forgetSessionUploadedPhotoIds(session) {
+  const ids = getUploadedPhotoIds();
+  for (const entry of allSessionPhotos(session)) ids.delete(entry.photo.id);
+  saveUploadedPhotoIds(ids);
 }
 
 function buildPendingPayload(session) {
@@ -2117,9 +2289,17 @@ $("#completeSessionButton").addEventListener("click", async () => {
     return;
   }
 
+  const pendingPayload = buildPendingPayload(session);
+  const signature = payloadSignature(pendingPayload);
+  const lastUploadedSignature = localStorage.getItem(LAST_UPLOAD_SIGNATURE_KEY) || "";
+  const jsonAlreadyUploaded = signature === lastUploadedSignature;
+
   const totalPhotos = allSessionPhotos(session).length;
   const confirmed = confirm(
-    `確定完成巡店並上傳到 Dropbox？\n\n使用者：${userName}\n巡店：${session.length} 間\n照片：${totalPhotos} 張\n\n巡店資料與照片全部確認上傳成功後，才會清空今日巡店資料。`
+    `確定完成巡店並上傳到 Dropbox？\n\n使用者：${userName}\n巡店：${session.length} 間\n照片：${totalPhotos} 張` +
+    (jsonAlreadyUploaded
+      ? `\n\n此批巡店資料先前已成功上傳，系統會跳過重複 JSON，只補傳尚未完成的照片。`
+      : `\n\n巡店 JSON 成功上傳後會留下完成標記，避免同一批資料重複上傳。`)
   );
   if (!confirmed) return;
 
@@ -2129,34 +2309,38 @@ $("#completeSessionButton").addEventListener("click", async () => {
   button.textContent = "準備上傳...";
 
   try {
-    const photoEntries = allSessionPhotos(session);
+    if (!jsonAlreadyUploaded) {
+      button.textContent = "巡店資料上傳中...";
+      const jsonResult = await uploadTeamPending(pendingPayload);
+      if (!jsonResult) {
+        button.disabled = false;
+        button.textContent = originalText || "完成巡店・上傳到 Dropbox";
+        return;
+      }
+      localStorage.setItem(LAST_UPLOAD_SIGNATURE_KEY, signature);
+    } else {
+      button.textContent = "巡店資料已確認上傳...";
+    }
 
+    const photoEntries = allSessionPhotos(session);
     if (photoEntries.length) {
       await uploadAllSessionPhotos(session, userName, (done, total) => {
         button.textContent = `照片上傳 ${done}/${total}...`;
       });
     }
 
-    button.textContent = "巡店資料上傳中...";
-    const jsonResult = await uploadTeamPending(buildPendingPayload(session));
-
-    if (!jsonResult) {
-      button.disabled = false;
-      button.textContent = originalText || "完成巡店・上傳到 Dropbox";
-      return;
-    }
-
     await deleteAllSessionPhotoRecords(session);
+    forgetSessionUploadedPhotoIds(session);
     await clearSessionEverywhere();
     renderSession();
 
     alert(
-      `Dropbox 上傳成功。\n巡店資料：1 份\n照片：${photoEntries.length} 張\n\n今日巡店資料已清空。`
+      `Dropbox 上傳完成。\n巡店：${session.length} 間\n照片：${photoEntries.length} 張\n\n今日巡店資料已清空。`
     );
   } catch (error) {
     console.error("[SVMS] Combined upload failed:", error);
     alert(
-      `上傳未完成：${error.message}\n\n今日巡店資料與照片仍保留。\n可重新上傳，或使用「下載更新檔案」取得備援 ZIP 交給系統管理者。`
+      `上傳尚未全部完成：${error.message}\n\n若巡店 JSON 已成功，系統已記錄完成標記；再次按上傳時不會重複送出同一批 JSON，只會繼續補傳照片。`
     );
     button.disabled = false;
     button.textContent = originalText || "完成巡店・上傳到 Dropbox";
