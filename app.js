@@ -614,6 +614,40 @@ function scoreStore(query, store) {
   return 0;
 }
 
+function storeCompletenessScore(store) {
+  let score = 0;
+  if (text(store?.y27_store_id, "").trim()) score += 100;
+  if (text(store?.distributor_customer_id, "").trim()) score += 30;
+  if (text(store?.ktng_customer_id, "").trim()) score += 20;
+  if (text(store?.address, "").trim()) score += 10;
+  if (text(store?.distributor, "").trim()) score += 5;
+  return score;
+}
+
+function dedupeExactStoreMatches(stores) {
+  const byKey = new Map();
+
+  for (const store of stores) {
+    const name = normalize(store?.store_name || "");
+    const address = normalize(store?.address || "");
+
+    // 沒地址時不合併，避免把真正不同店家誤判成同一間。
+    if (!name || !address) {
+      byKey.set(`__unique__${byKey.size}`, store);
+      continue;
+    }
+
+    const key = `${name}__${address}`;
+    const existing = byKey.get(key);
+
+    if (!existing || storeCompletenessScore(store) > storeCompletenessScore(existing)) {
+      byKey.set(key, store);
+    }
+  }
+
+  return [...byKey.values()];
+}
+
 function searchStores(query, limit = 15) {
   if (!database || !query.trim()) return [];
   const ranked = database.stores.map(store => ({ store, score: scoreStore(query, store) }))
@@ -621,7 +655,8 @@ function searchStores(query, limit = 15) {
     .sort((a, b) => b.score - a.score || a.store.store_name.localeCompare(b.store.store_name));
   if (!ranked.length) return [];
   const top = ranked[0].score;
-  return (top >= 80 ? ranked.filter(item => item.score === top) : ranked).slice(0, limit).map(item => item.store);
+  const matched = (top >= 80 ? ranked.filter(item => item.score === top) : ranked).map(item => item.store);
+  return dedupeExactStoreMatches(matched).slice(0, limit);
 }
 
 function showView(id, title) {
@@ -900,7 +935,7 @@ function renderMatches(matches) {
     return;
   }
   if (matches.length === 1) return renderStore(matches[0]);
-  $("#results").innerHTML = `<h2 class="multiple-title">找到 ${matches.length} 個可能店家</h2><div class="match-list">${matches.map((store, index) => `<button class="match-button" data-index="${index}" type="button"><strong>${escapeHtml(store.channel === "GT" ? gtDisplayName(store) : store.store_name)}</strong><span>${escapeHtml(text(store.channel))}｜${escapeHtml(store.channel === "GT" ? [store.y27_sheet, store.distributor, store.distributor_salesperson].filter(Boolean).join("｜") : `${text(store.city, "")} ${text(store.district, "")}`.trim())}</span></button>`).join("")}</div>`;
+  $("#results").innerHTML = `<h2 class="multiple-title">找到 ${matches.length} 個可能店家</h2><div class="match-list">${matches.map((store, index) => `<button class="match-button" data-index="${index}" type="button"><strong>${escapeHtml(store.channel === "GT" ? gtDisplayName(store) : store.store_name)}</strong><span>${escapeHtml(store.channel === "GT" ? text(store.address) : `${text(store.channel)}｜${text(store.city)} ${text(store.district)}`)}</span></button>`).join("")}</div>`;
   $$(".match-button").forEach(button => button.addEventListener("click", () => renderStore(matches[Number(button.dataset.index)])));
 }
 
