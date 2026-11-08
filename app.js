@@ -872,7 +872,7 @@ function renderGT(store) {
       ${info("地址", store.address, true)}
       ${info("經銷商", store.distributor)}
       ${info("經銷商業務", store.distributor_salesperson)}
-      ${info("Y27合約負責人", store.y27_owner)}${meaningful(store.y27_note) ? info("Y27備註", store.y27_note, true) : ""}
+      ${info("Y27合約負責人", store.y27_owner)}
       ${info("總銷分級", store.total_sales_grade)}
       ${info("KT&G分級", store.ktg_grade)}
     </div></section>
