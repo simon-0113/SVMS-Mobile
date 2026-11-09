@@ -637,7 +637,11 @@ function dedupeExactStoreMatches(stores) {
       continue;
     }
 
-    const key = `${name}__${address}`;
+    // 不合併不同 Y27 工作表／列號的正式紀錄。
+    const y27Id = text(store?.y27_store_id, "").trim();
+    const distributor = normalize(store?.distributor || "");
+    const customerId = normalize(store?.distributor_customer_id || "");
+    const key = `${name}__${address}__${distributor}__${customerId}__${y27Id || "NO_Y27_ID"}`;
     const existing = byKey.get(key);
 
     if (!existing || storeCompletenessScore(store) > storeCompletenessScore(existing)) {
@@ -720,6 +724,15 @@ function gtDisplayName(store) {
   if (distributor) details.push(distributor);
   if (customerId) details.push(`客編 ${customerId}`);
   return details.length ? `${store.store_name}（${details.join("｜")}）` : store.store_name;
+}
+
+function gtSearchDetails(store) {
+  const sheet = text(store?.y27_sheet, "").trim();
+  const owner = text(store?.y27_owner, "").trim();
+  const parts = [];
+  if (sheet) parts.push(`Y27 ${sheet}`);
+  if (owner) parts.push(`負責人：${owner}`);
+  return parts.join("｜");
 }
 
 function meaningful(value) {
@@ -935,7 +948,7 @@ function renderMatches(matches) {
     return;
   }
   if (matches.length === 1) return renderStore(matches[0]);
-  $("#results").innerHTML = `<h2 class="multiple-title">找到 ${matches.length} 個可能店家</h2><div class="match-list">${matches.map((store, index) => `<button class="match-button" data-index="${index}" type="button"><strong>${escapeHtml(store.channel === "GT" ? gtDisplayName(store) : store.store_name)}</strong><span>${escapeHtml(store.channel === "GT" ? text(store.address) : `${text(store.channel)}｜${text(store.city)} ${text(store.district)}`)}</span></button>`).join("")}</div>`;
+  $("#results").innerHTML = `<h2 class="multiple-title">找到 ${matches.length} 個可能店家</h2><div class="match-list">${matches.map((store, index) => `<button class="match-button" data-index="${index}" type="button"><strong>${escapeHtml(store.channel === "GT" ? gtDisplayName(store) : store.store_name)}</strong><span>${escapeHtml(store.channel === "GT" ? text(store.address) : `${text(store.channel)}｜${text(store.city)} ${text(store.district)}`)}</span>${store.channel === "GT" ? `<span>${escapeHtml(gtSearchDetails(store))}</span>` : ""}</button>`).join("")}</div>`;
   $$(".match-button").forEach(button => button.addEventListener("click", () => renderStore(matches[Number(button.dataset.index)])));
 }
 
@@ -1514,7 +1527,17 @@ function renderSession() {
     const item = getSession().find(entry => entry.id === button.dataset.edit);
     if (!item) return;
 
-    let store = database.stores.find(entry => entry.store_name === item.store_name && (entry.channel === item.original_channel || (item.channel === "CVS" && entry.channel !== "GT")));
+    const sessionY27Id = text(item.update?.y27_store_id, "").trim();
+    let store = sessionY27Id
+      ? database.stores.find(entry => text(entry.y27_store_id, "").trim() === sessionY27Id)
+      : null;
+    if (!store && !sessionY27Id) {
+      store = database.stores.find(entry => entry.store_name === item.store_name && (entry.channel === item.original_channel || (item.channel === "CVS" && entry.channel !== "GT")));
+    }
+    if (!store && sessionY27Id) {
+      alert("原巡店資料對應的 Y27 店家識別碼已不存在於正式索引，為避免更新錯誤工作表，請重新搜尋店家確認。");
+      return;
+    }
 
     if (!store && item.channel === "CVS") {
       store = {
@@ -2162,7 +2185,7 @@ $("#storeQuery").addEventListener("input", event => {
   const matches = query ? searchStores(query, 6) : [];
 
   $("#suggestions").hidden = !matches.length;
-  $("#suggestions").innerHTML = matches.map((store, index) => `<button class="suggestion" data-index="${index}" type="button"><span>${escapeHtml(store.channel === "GT" ? gtDisplayName(store) : store.store_name)}</span><small>${escapeHtml(text(store.channel))}</small></button>`).join("");
+  $("#suggestions").innerHTML = matches.map((store, index) => `<button class="suggestion" data-index="${index}" type="button"><span>${escapeHtml(store.channel === "GT" ? gtDisplayName(store) : store.store_name)}</span><small>${escapeHtml(store.channel === "GT" ? `GT｜${gtSearchDetails(store)}` : text(store.channel))}</small></button>`).join("");
 
   $$(".suggestion").forEach(button => button.addEventListener("click", () => {
     const store = matches[Number(button.dataset.index)];
